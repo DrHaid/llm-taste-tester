@@ -1,0 +1,81 @@
+[gd_scene load_steps=14 format=3 uid="uid://b6mbmer46xsrl"]
+
+[ext_resource type="Script" path="res://mouse_input_handler.gd" id="1_updxt"]
+[ext_resource type="PackedScene" uid="uid://bl2jv1csyq2mg" path="res://pot/pot.tscn" id="2_v28j4"]
+[ext_resource type="PackedScene" uid="uid://7ymrjfugeua5" path="res://models/cutting-board-round.fbx" id="2_vwnog"]
+[ext_resource type="PackedScene" uid="uid://wccktlhu2tgu" path="res://pot/pot_stew_lid.tscn" id="3_lv3e3"]
+[ext_resource type="PackedScene" uid="uid://bik1d3u77xfis" path="res://foods/scenes/onion.tscn" id="5_v57fo"]
+[ext_resource type="PackedScene" uid="uid://d1733yabytvje" path="res://foods/scenes/fish.tscn" id="6_mxl07"]
+[ext_resource type="PackedScene" uid="uid://btsqb12vldi5k" path="res://foods/scenes/sausage.tscn" id="7_hm2ih"]
+[ext_resource type="PackedScene" uid="uid://cj7bov3anpxwv" path="res://foods/scenes/pear.tscn" id="8_o26q1"]
+[ext_resource type="PackedScene" uid="uid://c5ed0b8tok12r" path="res://foods/scenes/tomato.tscn" id="9_28htx"]
+[ext_resource type="PackedScene" uid="uid://cvsm8s2i8tctu" path="res://foods/scenes/lemon.tscn" id="10_40gvt"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rptkr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_66h1g"]
+albedo_color = Color(0.886515, 0.920097, 0.926332, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2jini"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[node name="Main" type="Node3D"]
+
+[node name="FoodDragHandler" type="Node3D" parent="."]
+script = ExtResource("1_updxt")
+
+[node name="PotRimElevation" type="Marker3D" parent="FoodDragHandler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.481107, 0)
+gizmo_extents = 0.3
+
+[node name="DragFoodTarget" type="Marker3D" parent="FoodDragHandler"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.475624, 0.879649, 0, -0.879649, 0.475624, 0, 1.747, 0.461)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.56256, 0.826757, 0, -0.826757, 0.56256, 0, 20.3815, 0)
+
+[node name="Plane" type="Node3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Plane"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+collision_layer = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Plane/StaticBody3D"]
+mesh = SubResource("PlaneMesh_rptkr")
+surface_material_override/0 = SubResource("StandardMaterial3D_66h1g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_2jini")
+
+[node name="CuttingBoard" parent="." instance=ExtResource("2_vwnog")]
+transform = Transform3D(-1.0199, 0, -0.412067, 0, 1.1, 0, 0.412067, 0, -1.0199, 0, -0.00845391, 0)
+
+[node name="Pot" parent="." instance=ExtResource("2_v28j4")]
+transform = Transform3D(0.292372, 0, 0.956305, 0, 1, 0, -0.956305, 0, 0.292372, 0, 0.013616, 0)
+
+[node name="PotLid" parent="." instance=ExtResource("3_lv3e3")]
+transform = Transform3D(0.989016, 0, -0.147809, 0, 1, 0, 0.147809, 0, 0.989016, 0, 0.373616, 0)
+visible = false
+
+[node name="Fish" parent="." instance=ExtResource("6_mxl07")]
+transform = Transform3D(0.115916, 0.493166, -0.862178, -0.973471, 0.22881, 0, 0.197275, 0.839305, 0.506606, -0.43903, 0.5, -0.977138)
+freeze_mode = 1
+
+[node name="Onion" parent="." instance=ExtResource("5_v57fo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.574828, 0.5, -0.931792)
+freeze_mode = 1
+
+[node name="Sausage" parent="." instance=ExtResource("7_hm2ih")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28342, 0.5, -2.3613)
+
+[node name="Pear" parent="." instance=ExtResource("8_o26q1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.252152, 0.5, -1.76665)
+
+[node name="Tomato" parent="." instance=ExtResource("9_28htx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23895, 0.5, -1.95075)
+
+[node name="Lemon" parent="." instance=ExtResource("10_40gvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49365, 0.5, -1.89381)
