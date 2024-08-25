@@ -196,3 +196,4 @@ shape = SubResource("CylinderShape3D_b4xiu")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(100, 0, 0, 0, 0, 100, 0, -100, 0, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_hn3nx")
+disabled = true
