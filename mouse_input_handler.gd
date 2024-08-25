@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 func _start_drag(event: InputEvent) -> void:
 	var result := cast_viewport_ray(event.position)
 	
-	if result and result.collider:
+	if result and result.collider and result.collider.is_in_group(&"Food"):
 		dragged_object = result.collider
 		raw_target_position = dragged_object.global_position
 		drag_food_target.global_position = raw_target_position
