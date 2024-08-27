@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bl2jv1csyq2mg"]
+[gd_scene load_steps=13 format=4 uid="uid://bl2jv1csyq2mg"]
 
 [ext_resource type="Script" path="res://pots_n_pans/pot_controller.gd" id="1_4n4u8"]
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="1_8pljj"]
@@ -93,9 +93,14 @@ data = PackedVector3Array(-0.2659, 0.3608, -0.1932, -0.3287, -0.443, 0, -0.2659,
 height = 0.1
 radius = 0.3
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_j7p2t"]
+height = 0.29
+radius = 0.26
+
 [node name="Pot" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0551811, 0)
 script = ExtResource("1_4n4u8")
+cooking_speed = 0.2
 
 [node name="pot_model" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_jwt8r")
@@ -117,6 +122,7 @@ shape = SubResource("ConcavePolygonShape3D_ko4d2")
 
 [node name="PotColliderNoBottom" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000181116, 0)
+collision_layer = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PotColliderNoBottom"]
 transform = Transform3D(1, 0, 0, 0, 1, 7.54979e-08, 0, -7.54979e-08, 1, 0, 0, 0)
@@ -125,6 +131,8 @@ disabled = true
 
 [node name="PotColliderBottom" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00768876, 0)
+collision_layer = 4
+collision_mask = 0
 freeze = true
 freeze_mode = 1
 
@@ -134,3 +142,10 @@ disabled = true
 
 [node name="PotColliderBottomTarget" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.276453, 0)
+
+[node name="FoodDetector" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.206152, 0)
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FoodDetector"]
+shape = SubResource("CylinderShape3D_j7p2t")

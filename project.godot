@@ -22,7 +22,3 @@ gdscript/warnings/untyped_declaration=1
 [global_group]
 
 Food=""
-
-[layer_names]
-
-3d_physics/layer_2="Layer 2"

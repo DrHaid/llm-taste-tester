@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://b6mbmer46xsrl"]
+[gd_scene load_steps=13 format=3 uid="uid://b6mbmer46xsrl"]
 
 [ext_resource type="Script" path="res://mouse_input_handler.gd" id="1_updxt"]
 [ext_resource type="PackedScene" uid="uid://bl2jv1csyq2mg" path="res://pots_n_pans/pot.tscn" id="2_v28j4"]
-[ext_resource type="PackedScene" uid="uid://wccktlhu2tgu" path="res://pots_n_pans/pot_stew_lid.tscn" id="3_lv3e3"]
 [ext_resource type="PackedScene" uid="uid://bik1d3u77xfis" path="res://foods/scenes/onion.tscn" id="5_v57fo"]
 [ext_resource type="PackedScene" uid="uid://bi77f3n2k5j5i" path="res://foods/scenes/fish.tscn" id="6_mxl07"]
 [ext_resource type="PackedScene" uid="uid://btsqb12vldi5k" path="res://foods/scenes/sausage.tscn" id="7_hm2ih"]
@@ -50,10 +49,6 @@ gizmo_extents = 0.3
 
 [node name="DragFoodTarget" type="Marker3D" parent="FoodDragHandler"]
 
-[node name="PotLid" parent="." instance=ExtResource("3_lv3e3")]
-transform = Transform3D(0.989016, 0, -0.147809, 0, 1, 0, 0.147809, 0, 0.989016, 0, 0.75318, 0)
-visible = false
-
 [node name="Stove" parent="." instance=ExtResource("10_ndaen")]
 unique_name_in_owner = true
 
@@ -61,7 +56,7 @@ unique_name_in_owner = true
 transform = Transform3D(0.694658, 0, -0.71934, 0, 1, 0, 0.71934, 0, 0.694658, 0, 0.169576, 0)
 
 [node name="Fish" parent="." instance=ExtResource("6_mxl07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.967277, 0, -0.945175)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.967277, 0.0161542, -0.945175)
 
 [node name="Lemon" parent="." instance=ExtResource("10_40gvt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294671, 0, -0.982542)
