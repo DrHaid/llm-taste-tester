@@ -54,21 +54,22 @@ unique_name_in_owner = true
 
 [node name="Pot" parent="." instance=ExtResource("2_v28j4")]
 transform = Transform3D(0.694658, 0, -0.71934, 0, 1, 0, 0.71934, 0, 0.694658, 0, 0.169576, 0)
+cooking_speed = 0.3
 
 [node name="Fish" parent="." instance=ExtResource("6_mxl07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.967277, 0.0161542, -0.945175)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.967277, 0.191137, -0.945175)
 
 [node name="Lemon" parent="." instance=ExtResource("10_40gvt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294671, 0, -0.982542)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294671, 0.174983, -0.982542)
 
 [node name="Onion" parent="." instance=ExtResource("5_v57fo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.906412, 0, -1.40426)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.906412, 0.174983, -1.40426)
 
 [node name="Pear" parent="." instance=ExtResource("8_o26q1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.636312, 0, -1.495)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.636312, 0.174983, -1.495)
 
 [node name="Sausage" parent="." instance=ExtResource("7_hm2ih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.516728, 0, -0.945175)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.516728, 0.174983, -0.945175)
 
 [node name="Tomato" parent="." instance=ExtResource("9_28htx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0683234, 0, -1.46831)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0683234, 0.174983, -1.46831)

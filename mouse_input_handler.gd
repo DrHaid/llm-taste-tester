@@ -19,8 +19,6 @@ var dragged_object: Node3D = null
 var mouse_position: Vector2 = Vector2.ZERO
 var raw_target_position: Vector3 = Vector3.ZERO # temporary unsmoothed target position
 
-const RAY_LENGTH: int = 10000
-
 func _ready() -> void:
 	set_process_input(true)
 
@@ -72,7 +70,7 @@ func cast_viewport_ray(pos: Vector2, mask: int = 1) -> Dictionary:
 	var ray_origin := camera.project_ray_origin(pos)
 	var ray_direction := camera.project_ray_normal(pos)
 	
-	var ray_query := PhysicsRayQueryParameters3D.create(ray_origin, ray_origin + ray_direction * RAY_LENGTH, mask)
+	var ray_query := PhysicsRayQueryParameters3D.create(ray_origin, ray_origin + ray_direction * Globals.VIEWPORT_RAY_LENGTH, mask)
 	var space_state := get_world_3d().direct_space_state
 	return space_state.intersect_ray(ray_query)
 

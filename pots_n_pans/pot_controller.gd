@@ -28,8 +28,7 @@ func _process(delta: float) -> void:
 		pot_collider_bottom.global_position = lerp(col_bottom_start, pot_collider_bottom_target.global_position, cooking_progress)
 		stew_model.global_position = lerp(stew_start, stew_target.global_position, cooking_progress)
 		if cooking_progress >= 1:
-			is_cooking = false
-			pot_collider_bottom.get_child(0).disabled = true
+			finish_cooking()
 
 func _set_collider_cooking(cooking: bool) -> void:
 	stew_model.visible = cooking
@@ -42,13 +41,16 @@ func start_cooking() -> void:
 	_set_foods_cooking()
 	_set_collider_cooking(is_cooking)
 
+func finish_cooking() -> void:
+	is_cooking = false
+	pot_collider_bottom.get_child(0).disabled = true
+	stove.turn_dial()
+
 func _set_foods_cooking() -> void:
 	var nodes := food_detector.get_overlapping_bodies()
 	var foods := nodes.filter(func(f: Node3D) -> bool: return f.is_in_group(&"Food"))
 	for food: RigidBody3D in foods:
-		food.can_sleep = false #TODO: necessary for some reason or rigidbody will fall asleep while moving?
-		food.set_collision_mask_value(1, false)
-		food.set_collision_mask_value(3, true)
+		food.set_cooking(true)
 
 func reset() -> void:
 	stew_model.global_position = stew_start

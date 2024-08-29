@@ -9,7 +9,6 @@ signal start_cooking()
 @export var dial_end_rotation: float = -210
 @export var dial_turn_speed: float = 2
 
-const RAY_LENGTH: int = 10000
 
 var dial_turning: bool = false
 var dial_reverse: bool = false
@@ -56,7 +55,7 @@ func cast_viewport_ray(pos: Vector2, mask: int = 1) -> Dictionary:
 	var ray_origin := camera.project_ray_origin(pos)
 	var ray_direction := camera.project_ray_normal(pos)
 	
-	var ray_query := PhysicsRayQueryParameters3D.create(ray_origin, ray_origin + ray_direction * RAY_LENGTH, mask)
+	var ray_query := PhysicsRayQueryParameters3D.create(ray_origin, ray_origin + ray_direction * Globals.VIEWPORT_RAY_LENGTH, mask)
 	var space_state := get_world_3d().direct_space_state
 	return space_state.intersect_ray(ray_query)
 
