@@ -1,6 +1,6 @@
 extends Node3D
 
-signal start_cooking()
+signal dial_set_cooking()
 
 @onready var dial: Node3D = $dial
 
@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 			dial_turning = false
 			dial_reverse = not dial_reverse
 			if dial_reverse:
-				start_cooking.emit()
+				dial_set_cooking.emit()
 
 
 func check_dial_click(event: InputEventMouseButton) -> void:

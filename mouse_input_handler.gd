@@ -19,10 +19,18 @@ var dragged_object: Node3D = null
 var mouse_position: Vector2 = Vector2.ZERO
 var raw_target_position: Vector3 = Vector3.ZERO # temporary unsmoothed target position
 
+var dragging_enabled: bool = true
+
+func set_drag_enabled(enabled: bool) -> void:
+	dragging_enabled = enabled
+
 func _ready() -> void:
 	set_process_input(true)
 
 func _input(event: InputEvent) -> void:
+	if not dragging_enabled:
+		return
+
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:

@@ -1,6 +1,8 @@
 extends Node3D
 
-@onready var stove: Node3D = %Stove
+signal cook_food(foods: Array[FoodItemData])
+signal cooking_finished()
+
 @onready var pot_collider: StaticBody3D = $PotCollider
 @onready var pot_collider_no_bottom: StaticBody3D = $PotColliderNoBottom
 @onready var pot_collider_bottom: RigidBody3D = $PotColliderBottom
@@ -18,7 +20,6 @@ var is_cooking: float = 0
 var cooking_progress: float = 0
 
 func _ready() -> void:
-	stove.connect("start_cooking", _on_stove_start_cooking)
 	col_bottom_start = pot_collider_bottom.global_position
 	stew_start = stew_model.global_position
 
@@ -28,7 +29,7 @@ func _process(delta: float) -> void:
 		pot_collider_bottom.global_position = lerp(col_bottom_start, pot_collider_bottom_target.global_position, cooking_progress)
 		stew_model.global_position = lerp(stew_start, stew_target.global_position, cooking_progress)
 		if cooking_progress >= 1:
-			finish_cooking()
+			_finish_cooking()
 
 func _set_collider_cooking(cooking: bool) -> void:
 	stew_model.visible = cooking
@@ -36,27 +37,28 @@ func _set_collider_cooking(cooking: bool) -> void:
 	pot_collider_no_bottom.get_child(0).disabled = not cooking
 	pot_collider_bottom.get_child(0).disabled = not cooking
 
-func start_cooking() -> void:
+func set_stove_cooking() -> void:
 	is_cooking = true
-	_set_foods_cooking()
+	var foods := _set_foods_cooking()
+	var food_res: Array[FoodItemData]
+	food_res.assign(foods.map(func(f: Node3D) -> FoodItemData: return f.food_resource))
+	cook_food.emit(food_res)
 	_set_collider_cooking(is_cooking)
 
-func finish_cooking() -> void:
+func _finish_cooking() -> void:
 	is_cooking = false
 	pot_collider_bottom.get_child(0).disabled = true
-	stove.turn_dial()
+	cooking_finished.emit()
 
-func _set_foods_cooking() -> void:
+func _set_foods_cooking() -> Array:
 	var nodes := food_detector.get_overlapping_bodies()
 	var foods := nodes.filter(func(f: Node3D) -> bool: return f.is_in_group(&"Food"))
 	for food: RigidBody3D in foods:
 		food.set_cooking(true)
+	return foods
 
 func reset() -> void:
 	stew_model.global_position = stew_start
 	pot_collider_bottom.global_position = col_bottom_start
 	cooking_progress = 0
 	_set_collider_cooking(false)
-
-func _on_stove_start_cooking() -> void:
-	start_cooking()
