@@ -13,5 +13,4 @@ func play_animation() -> void:
 
 func _on_animation_player_animation_finished(_name: String) -> void:
 	spoon_fed.emit()
-	print("jajaja")
 

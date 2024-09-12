@@ -1,5 +1,6 @@
-[gd_scene load_steps=26 format=4 uid="uid://b6mbmer46xsrl"]
+[gd_scene load_steps=27 format=4 uid="uid://b6mbmer46xsrl"]
 
+[ext_resource type="Script" path="res://camera_controller.gd" id="1_m2hkn"]
 [ext_resource type="Script" path="res://mouse_input_handler.gd" id="1_updxt"]
 [ext_resource type="Script" path="res://cooking_controller.gd" id="2_47a2x"]
 [ext_resource type="PackedScene" uid="uid://bl2jv1csyq2mg" path="res://pots_n_pans/pot.tscn" id="2_v28j4"]
@@ -11,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cvsm8s2i8tctu" path="res://foods/scenes/lemon.tscn" id="10_40gvt"]
 [ext_resource type="PackedScene" uid="uid://xl34pi4pvsuj" path="res://pots_n_pans/stove.tscn" id="10_ndaen"]
 [ext_resource type="PackedScene" uid="uid://cf5qjssu2jva2" path="res://pots_n_pans/eating_robot.tscn" id="11_8jsdd"]
-[ext_resource type="Script" path="res://tasting_spoon.gd" id="12_1u6ot"]
+[ext_resource type="Script" path="res://pots_n_pans/tasting_spoon.gd" id="12_1u6ot"]
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="12_7sb86"]
 [ext_resource type="Animation" uid="uid://0jesnft2j3j7" path="res://animations/spoon_feed.res" id="13_qet7m"]
 
@@ -162,8 +163,17 @@ surface_material_override/0 = SubResource("StandardMaterial3D_66h1g")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_2jini")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="CameraRig" type="Node3D" parent="."]
+script = ExtResource("1_m2hkn")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
 transform = Transform3D(1, 0, 0, 0, 0.475624, 0.879649, 0, -0.879649, 0.475624, 0, 1.747, 0.461)
+
+[node name="StartMarker" type="Marker3D" parent="CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 0.475624, 0.879649, 0, -0.879649, 0.475624, 0, 1.747, 0.461)
+
+[node name="EndMarker" type="Marker3D" parent="CameraRig"]
+transform = Transform3D(0.850811, -0.0613072, 0.521883, 0, 0.993171, 0.116671, -0.525472, -0.0992648, 0.845001, -1.286, 0.369, -0.718)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.56256, 0.826757, 0, -0.826757, 0.56256, 0, 20.3815, 0)
@@ -213,7 +223,7 @@ transform = Transform3D(0.466426, 0, 0.291456, 0, 0.55, 0, -0.291456, 0, 0.46642
 
 [node name="TastingSpoon" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-0.402267, 0, -0.915522, 0, 1, 0, 0.915522, 0, -0.402267, 0.672322, 0.0258037, 0.210699)
+transform = Transform3D(-0.402269, 0, -0.915521, 0, 1, 0, 0.915521, 0, -0.402269, 0.672322, 0.0258037, 0.210699)
 script = ExtResource("12_1u6ot")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TastingSpoon"]

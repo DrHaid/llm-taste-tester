@@ -11,6 +11,7 @@ func _ready() -> void:
 	stove.connect("dial_set_cooking", _on_stove_dial_set_cooking)
 	pot.connect("cook_food", _on_pot_cook_food)
 	pot.connect("cooking_finished", _on_pot_cooking_finished)
+	tasting_spoon.connect("spoon_fed", _on_tasting_spoon_spoon_fed)
 
 func _on_stove_dial_set_cooking() -> void:
 	pot.set_stove_cooking()
@@ -22,3 +23,6 @@ func _on_pot_cook_food(foods: Array[FoodItemData]) -> void:
 func _on_pot_cooking_finished() -> void:
 	stove.turn_dial()
 	tasting_spoon.play_animation()
+
+func _on_tasting_spoon_spoon_fed() -> void:
+	get_viewport().get_camera_3d().get_parent().pan_in() #TODO: big bad, dont do
