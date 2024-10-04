@@ -94,27 +94,29 @@ func get_target_elevation(pos: Vector3) -> float:
 func ease_sine(x: float) -> float: 
 	return -(cos(PI * x) - 1) / 2;
 
-func cast_boundary_ray(pos: Vector3, dir: Vector3) -> Dictionary:
+func cast_boundary_ray(pos: Vector3, dest: Vector3) -> Dictionary:
 	const BOUNDARY_MASK = 0b00000000_00000000_00000000_00010000
-	var ray_query := PhysicsRayQueryParameters3D.create(pos, pos + dir * Globals.WORLD_RAY_LENGTH, BOUNDARY_MASK)
+	var ray_query := PhysicsRayQueryParameters3D.create(pos, dest, BOUNDARY_MASK)
 	ray_query.collide_with_areas = true
-	ray_query.hit_from_inside = true
 	var space_state := get_world_3d().direct_space_state
 	return space_state.intersect_ray(ray_query)
 	
-func axis_out_of_bounds(a: Dictionary, b: Dictionary) -> bool:
-		return (not a or not b) and (a or b)
+func check_if_target_in_boundary() -> bool:
+	const BOUNDARY_MASK = 0b00000000_00000000_00000000_00010000
+	var point_query := PhysicsPointQueryParameters3D.new()
+	point_query.position = raw_target_position
+	point_query.collide_with_areas = true
+	point_query.collision_mask = BOUNDARY_MASK
+	var space_state := get_world_3d().direct_space_state
+	return len(space_state.intersect_point(point_query)) > 0
 
 func keep_target_in_boundary() -> void:
-	var up: Dictionary = cast_boundary_ray(raw_target_position, Vector3.FORWARD)
-	var back: Dictionary = cast_boundary_ray(raw_target_position, Vector3.BACK)
-	var single_boundary_hit_z: Dictionary = up if up else back
-	var z: float =  single_boundary_hit_z.position.z if axis_out_of_bounds(up, back) else raw_target_position.z
+	if check_if_target_in_boundary():
+		return
 
-	var right: Dictionary = cast_boundary_ray(raw_target_position, Vector3.RIGHT)
-	var left: Dictionary = cast_boundary_ray(raw_target_position, Vector3.LEFT)
-	var single_boundary_hit_x: Dictionary = right if right else left
-	var x: float =  single_boundary_hit_x.position.x if axis_out_of_bounds(right, left) else raw_target_position.x 
+	var boundary_hit: Dictionary = cast_boundary_ray(raw_target_position, drag_border.global_position)
+	if not boundary_hit:
+		return
 
-	raw_target_position.z = z
-	raw_target_position.x  =x 
+	raw_target_position.z = boundary_hit.position.z
+	raw_target_position.x = boundary_hit.position.x
