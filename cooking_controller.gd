@@ -1,5 +1,6 @@
 extends Node
 
+@onready var camera_rig: Node3D = %CameraRig
 @onready var stove: Node3D = %Stove
 @onready var pot: Node3D = %Pot
 @onready var food_drag_handler: Node3D = %FoodDragHandler
@@ -25,4 +26,4 @@ func _on_pot_cooking_finished() -> void:
 	tasting_spoon.play_animation()
 
 func _on_tasting_spoon_spoon_fed() -> void:
-	get_viewport().get_camera_3d().get_parent().pan_in() #TODO: big bad, dont do
+	camera_rig.pan_in()

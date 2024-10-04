@@ -164,6 +164,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_66h1g")
 shape = SubResource("ConcavePolygonShape3D_2jini")
 
 [node name="CameraRig" type="Node3D" parent="."]
+unique_name_in_owner = true
 script = ExtResource("1_m2hkn")
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig"]
@@ -188,9 +189,50 @@ gizmo_extents = 0.3
 
 [node name="DragFoodTarget" type="Marker3D" parent="FoodDragHandler"]
 
+[node name="Boundary" type="Area3D" parent="FoodDragHandler"]
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="FoodDragHandler/Boundary"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+depth = 3.0
+polygon = PackedVector2Array(-1.9005, -0.509811, -0.878295, -1.14901, -0.669468, -1.67108, 1.60675, -1.73372, 1.92695, -1.48313, 1.90607, 0.68867, 1.62763, 0.946223, -1.58831, 0.890536, -1.95027, 0.709552, -1.90458, -0.500504, -2.67692, -1.44415, -2.75568, 1.64858, 2.63, 1.61447, 2.58823, -2.3254, -2.67992, -2.34786, -2.67253, -1.46608)
+
+[node name="Boundary2" type="Area3D" parent="FoodDragHandler"]
+collision_layer = 16
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="FoodDragHandler/Boundary2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+depth = 3.0
+polygon = PackedVector2Array(-1.89762, -0.481512, -0.896072, -1.17007, -0.692633, -1.6865, 1.63909, -1.73344, 1.91295, -1.48306, 1.90513, 0.645227, 1.64692, 0.958211, -1.56116, 0.911263, -1.92892, 0.660876)
+
 [node name="CookingController" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_47a2x")
+
+[node name="EatingRobot" parent="." instance=ExtResource("11_8jsdd")]
+transform = Transform3D(0.466426, 0, 0.291456, 0, 0.55, 0, -0.291456, 0, 0.466426, -1.618, 0.333, -0.964)
+
+[node name="TastingSpoon" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-0.402269, 0, -0.915521, 0, 1, 0, 0.915521, 0, -0.402269, 0.672322, 0.0258037, 0.210699)
+script = ExtResource("12_1u6ot")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TastingSpoon"]
+libraries = {
+"": SubResource("AnimationLibrary_pwbc5")
+}
+
+[node name="utensil-spoon" type="MeshInstance3D" parent="TastingSpoon"]
+mesh = SubResource("ArrayMesh_g8fj4")
+skeleton = NodePath("")
+
+[node name="utensil-spoon-stew" type="MeshInstance3D" parent="TastingSpoon"]
+transform = Transform3D(1, 0, 0, 0, 1, 7.54979e-08, 0, -7.54979e-08, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("ArrayMesh_muwqa")
+skeleton = NodePath("")
 
 [node name="Stove" parent="." instance=ExtResource("10_ndaen")]
 unique_name_in_owner = true
@@ -217,26 +259,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.516728, 0.174983, -0.945175
 
 [node name="Tomato" parent="." instance=ExtResource("9_28htx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0683234, 0.174983, -1.46831)
-
-[node name="EatingRobot" parent="." instance=ExtResource("11_8jsdd")]
-transform = Transform3D(0.466426, 0, 0.291456, 0, 0.55, 0, -0.291456, 0, 0.466426, -1.618, 0.333, -0.964)
-
-[node name="TastingSpoon" type="Node3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(-0.402269, 0, -0.915521, 0, 1, 0, 0.915521, 0, -0.402269, 0.672322, 0.0258037, 0.210699)
-script = ExtResource("12_1u6ot")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="TastingSpoon"]
-libraries = {
-"": SubResource("AnimationLibrary_pwbc5")
-}
-
-[node name="utensil-spoon" type="MeshInstance3D" parent="TastingSpoon"]
-mesh = SubResource("ArrayMesh_g8fj4")
-skeleton = NodePath("")
-
-[node name="utensil-spoon-stew" type="MeshInstance3D" parent="TastingSpoon"]
-transform = Transform3D(1, 0, 0, 0, 1, 7.54979e-08, 0, -7.54979e-08, 1, 0, 0, 0)
-visible = false
-mesh = SubResource("ArrayMesh_muwqa")
-skeleton = NodePath("")

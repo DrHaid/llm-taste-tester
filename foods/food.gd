@@ -2,7 +2,7 @@ extends RigidBody3D
 
 @export var food_resource: FoodItemData
 
-@onready var food_drag_handler: Node3D = $"../FoodDragHandler"
+@onready var food_drag_handler: Node3D = %FoodDragHandler
 
 var drag_food_target: Marker3D = null
 var is_cooking: bool = false

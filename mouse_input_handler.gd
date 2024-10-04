@@ -5,6 +5,7 @@ signal end_drag(obj: Node3D)
 
 @onready var pot_rim_elevation: Marker3D = $PotRimElevation
 @onready var drag_food_target: Marker3D = $DragFoodTarget
+@onready var drag_border: Area3D = $Boundary2
 
 @export_category("Drag elevation")
 @export var min_food_elevation: float = 0.15
@@ -44,7 +45,8 @@ func _input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if dragged_object:
 		_update_raw_drag_target()
-		_set_smoothed_target_pos(delta)
+		keep_target_in_boundary()
+		_set_final_target_pos(delta)
 
 func _start_drag(event: InputEvent) -> void:
 	var result := cast_viewport_ray(event.position)
@@ -68,7 +70,7 @@ func _update_raw_drag_target() -> void:
 	if result:
 		raw_target_position = result.position
 
-func _set_smoothed_target_pos(delta: float) -> void:
+func _set_final_target_pos(delta: float) -> void:
 	var pos: Vector3 = lerp(drag_food_target.global_position, raw_target_position, delta * drag_value)
 	pos.y = lerp(drag_food_target.global_position.y, get_target_elevation(pos), delta * drag_y_value)
 	drag_food_target.global_position = pos
@@ -91,3 +93,28 @@ func get_target_elevation(pos: Vector3) -> float:
 
 func ease_sine(x: float) -> float: 
 	return -(cos(PI * x) - 1) / 2;
+
+func cast_boundary_ray(pos: Vector3, dir: Vector3) -> Dictionary:
+	const BOUNDARY_MASK = 0b00000000_00000000_00000000_00010000
+	var ray_query := PhysicsRayQueryParameters3D.create(pos, pos + dir * Globals.WORLD_RAY_LENGTH, BOUNDARY_MASK)
+	ray_query.collide_with_areas = true
+	ray_query.hit_from_inside = true
+	var space_state := get_world_3d().direct_space_state
+	return space_state.intersect_ray(ray_query)
+	
+func axis_out_of_bounds(a: Dictionary, b: Dictionary) -> bool:
+		return (not a or not b) and (a or b)
+
+func keep_target_in_boundary() -> void:
+	var up: Dictionary = cast_boundary_ray(raw_target_position, Vector3.FORWARD)
+	var back: Dictionary = cast_boundary_ray(raw_target_position, Vector3.BACK)
+	var single_boundary_hit_z: Dictionary = up if up else back
+	var z: float =  single_boundary_hit_z.position.z if axis_out_of_bounds(up, back) else raw_target_position.z
+
+	var right: Dictionary = cast_boundary_ray(raw_target_position, Vector3.RIGHT)
+	var left: Dictionary = cast_boundary_ray(raw_target_position, Vector3.LEFT)
+	var single_boundary_hit_x: Dictionary = right if right else left
+	var x: float =  single_boundary_hit_x.position.x if axis_out_of_bounds(right, left) else raw_target_position.x 
+
+	raw_target_position.z = z
+	raw_target_position.x  =x 
