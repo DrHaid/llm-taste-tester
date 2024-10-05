@@ -242,6 +242,8 @@ unique_name_in_owner = true
 transform = Transform3D(0.694658, 0, -0.71934, 0, 1, 0, 0.71934, 0, 0.694658, 0, 0.169576, 0)
 cooking_speed = 0.3
 
+[node name="-" type="Node" parent="."]
+
 [node name="Fish" parent="." instance=ExtResource("6_mxl07")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.363, 0.191, -0.945)
 
