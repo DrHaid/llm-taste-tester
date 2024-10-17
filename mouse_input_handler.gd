@@ -5,7 +5,7 @@ signal end_drag(obj: Node3D)
 
 @onready var pot_rim_elevation: Marker3D = $PotRimElevation
 @onready var drag_food_target: Marker3D = $DragFoodTarget
-@onready var drag_border: Area3D = $Boundary2
+@onready var drag_border: Area3D = $Boundary
 
 @export_category("Drag elevation")
 @export var min_food_elevation: float = 0.15
