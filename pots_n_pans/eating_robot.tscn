@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=4 uid="uid://cf5qjssu2jva2"]
+[gd_scene load_steps=16 format=4 uid="uid://cf5qjssu2jva2"]
 
+[ext_resource type="Script" path="res://pots_n_pans/eating_robot.gd" id="1_8qoms"]
 [ext_resource type="Texture2D" uid="uid://dlg8s8ihh6a7u" path="res://models/textures/eating_robot_colormap.png" id="1_oojgv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e2qd8"]
@@ -208,6 +209,25 @@ shadow_mesh = SubResource("ArrayMesh_04kh4")
 
 [node name="EatingRobot" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49784, 0, -0.458968)
+script = ExtResource("1_8qoms")
+debug_text = "Hello World
+1
+2
+Bottom Text"
+print_speed = 10.0
+
+[node name="ScreenText" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0613808, 0.170834, 0.283611)
+pixel_size = 0.001
+double_sided = false
+modulate = Color(1, 1, 0.462745, 1)
+font_size = 51
+outline_size = 0
+horizontal_alignment = 0
+vertical_alignment = 0
+uppercase = true
+autowrap_mode = 3
+width = 700.0
 
 [node name="Machine" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_q0wo3")
