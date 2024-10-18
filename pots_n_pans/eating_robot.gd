@@ -3,6 +3,7 @@ extends Node3D
 @export_multiline var debug_text: String = ""
 @export var print_speed: float = 1
 @export var max_lines: int = 5
+@export var max_chars_per_line: int = 32
 
 @onready var screen_text: Label3D = $ScreenText
 
@@ -51,8 +52,16 @@ func update_screen_text(new_print_load: float) -> void:
 	screen_text.text = text
 
 
+func _add_line_breaks(text: String) -> String:
+	var lines: PackedStringArray = text.split(NEW_LINE)
+	var new_lines: PackedStringArray = []
+	for line in lines:
+		for i in range(0, line.length(), max_chars_per_line):
+			new_lines.append(line.substr(i, max_chars_per_line))
+	return NEW_LINE.join(new_lines)
+
 func print_text(text: String) -> void:
-	text_to_print = text
+	text_to_print = _add_line_breaks(text)
 	print_load = text_to_print.length()
 	line_number = 1
 	print_start_index = 0
