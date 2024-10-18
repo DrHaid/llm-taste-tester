@@ -211,9 +211,13 @@ shadow_mesh = SubResource("ArrayMesh_04kh4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49784, 0, -0.458968)
 script = ExtResource("1_8qoms")
 debug_text = "Hello World
-1
-2
-Bottom Text"
+1st line
+2nd line
+Bottom Text 123 This is long
+Line overflow
+Next line
+Another one
+Last one"
 print_speed = 10.0
 
 [node name="ScreenText" type="Label3D" parent="."]
@@ -226,7 +230,6 @@ outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 0
 uppercase = true
-autowrap_mode = 3
 width = 700.0
 
 [node name="Machine" type="MeshInstance3D" parent="."]
