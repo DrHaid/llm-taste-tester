@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=4 uid="uid://cf5qjssu2jva2"]
+[gd_scene load_steps=19 format=4 uid="uid://cf5qjssu2jva2"]
 
-[ext_resource type="Script" path="res://pots_n_pans/eating_robot.gd" id="1_8qoms"]
+[ext_resource type="Script" path="res://eating_robot/eating_robot.gd" id="1_8qoms"]
 [ext_resource type="Texture2D" uid="uid://dlg8s8ihh6a7u" path="res://models/textures/eating_robot_colormap.png" id="1_oojgv"]
 [ext_resource type="FontFile" uid="uid://uiepc5d87q06" path="res://fonts/chary___.ttf" id="2_bh0u6"]
+[ext_resource type="Script" path="res://eating_robot/screen_text.gd" id="3_uxohj"]
+[ext_resource type="Script" path="res://eating_robot/tasting_screen.gd" id="4_x4d6h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e2qd8"]
 resource_name = "variation-a"
@@ -211,20 +213,6 @@ shadow_mesh = SubResource("ArrayMesh_04kh4")
 [node name="EatingRobot" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49784, 0, -0.458968)
 script = ExtResource("1_8qoms")
-debug_text = "Hello World
-1st line
-2nd line
-Bottom Text 123 This is long, too long and should break
-Line overflow
-Next line
-Another one
-Yet another
-amost done
-aaaand....
-Last one
-jk"
-print_speed = 12.0
-max_lines = 7
 
 [node name="ScreenText" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0613808, 0.170834, 0.283611)
@@ -236,6 +224,33 @@ font_size = 51
 outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 0
+uppercase = true
+width = 700.0
+script = ExtResource("3_uxohj")
+
+[node name="TastingScreen" type="Node3D" parent="."]
+script = ExtResource("4_x4d6h")
+
+[node name="FaceText" type="Label3D" parent="TastingScreen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.263613, 0.0585324, 0.283611)
+pixel_size = 0.001
+double_sided = false
+modulate = Color(1, 1, 0.462745, 1)
+font = ExtResource("2_bh0u6")
+font_size = 51
+outline_size = 0
+uppercase = true
+width = 700.0
+
+[node name="TastingText" type="Label3D" parent="TastingScreen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101967, -0.0469633, 0.283611)
+pixel_size = 0.001
+double_sided = false
+modulate = Color(1, 1, 0.462745, 1)
+font = ExtResource("2_bh0u6")
+font_size = 51
+outline_size = 0
+horizontal_alignment = 0
 uppercase = true
 width = 700.0
 

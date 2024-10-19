@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c5ed0b8tok12r" path="res://foods/scenes/tomato.tscn" id="9_28htx"]
 [ext_resource type="PackedScene" uid="uid://cvsm8s2i8tctu" path="res://foods/scenes/lemon.tscn" id="10_40gvt"]
 [ext_resource type="PackedScene" uid="uid://xl34pi4pvsuj" path="res://pots_n_pans/stove.tscn" id="10_ndaen"]
-[ext_resource type="PackedScene" uid="uid://cf5qjssu2jva2" path="res://pots_n_pans/eating_robot.tscn" id="11_8jsdd"]
+[ext_resource type="PackedScene" uid="uid://cf5qjssu2jva2" path="res://eating_robot/eating_robot.tscn" id="11_8jsdd"]
 [ext_resource type="Script" path="res://pots_n_pans/tasting_spoon.gd" id="12_1u6ot"]
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="12_7sb86"]
 [ext_resource type="Animation" uid="uid://0jesnft2j3j7" path="res://animations/spoon_feed.res" id="13_qet7m"]

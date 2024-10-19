@@ -1,7 +1,7 @@
 extends Node3D
 
 signal cook_food(foods: Array[FoodItemData])
-signal cooking_finished()
+signal cooking_finished(successful: bool)
 
 @onready var pot_collider: StaticBody3D = $PotCollider
 @onready var pot_collider_no_bottom: StaticBody3D = $PotColliderNoBottom
@@ -37,24 +37,29 @@ func _set_collider_cooking(cooking: bool) -> void:
 	pot_collider_no_bottom.get_child(0).disabled = not cooking
 	pot_collider_bottom.get_child(0).disabled = not cooking
 
-func set_stove_cooking() -> void:
+func set_stove_cooking() -> bool:
+	var foods := _get_foods_for_cooking()
+	if not foods:
+		cooking_finished.emit(false)
+		return false
+
 	is_cooking = true
-	var foods := _set_foods_cooking()
+	for food: RigidBody3D in foods:
+		food.set_cooking(true)
 	var food_res: Array[FoodItemData]
 	food_res.assign(foods.map(func(f: Node3D) -> FoodItemData: return f.food_resource))
 	cook_food.emit(food_res)
 	_set_collider_cooking(is_cooking)
+	return true
 
 func _finish_cooking() -> void:
 	is_cooking = false
 	pot_collider_bottom.get_child(0).disabled = true
-	cooking_finished.emit()
+	cooking_finished.emit(true)
 
-func _set_foods_cooking() -> Array:
+func _get_foods_for_cooking() -> Array:
 	var nodes := food_detector.get_overlapping_bodies()
 	var foods := nodes.filter(func(f: Node3D) -> bool: return f.is_in_group(&"Food"))
-	for food: RigidBody3D in foods:
-		food.set_cooking(true)
 	return foods
 
 func reset() -> void:

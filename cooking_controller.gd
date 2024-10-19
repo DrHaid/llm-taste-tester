@@ -15,15 +15,16 @@ func _ready() -> void:
 	tasting_spoon.connect("spoon_fed", _on_tasting_spoon_spoon_fed)
 
 func _on_stove_dial_set_cooking() -> void:
-	pot.set_stove_cooking()
-	food_drag_handler.set_drag_enabled(false)
+	if pot.set_stove_cooking():
+		food_drag_handler.set_drag_enabled(false)
 
 func _on_pot_cook_food(foods: Array[FoodItemData]) -> void:
 	current_foods = foods
 
-func _on_pot_cooking_finished() -> void:
+func _on_pot_cooking_finished(successful: bool) -> void:
 	stove.turn_dial()
-	tasting_spoon.play_animation()
+	if successful:
+		tasting_spoon.play_animation()
 
 func _on_tasting_spoon_spoon_fed() -> void:
 	camera_rig.pan_in()

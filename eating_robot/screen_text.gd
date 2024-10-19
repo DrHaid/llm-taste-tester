@@ -1,11 +1,8 @@
-extends Node3D
+extends Label3D
 
-@export_multiline var debug_text: String = ""
 @export var print_speed: float = 1
 @export var max_lines: int = 5
 @export var max_chars_per_line: int = 32
-
-@onready var screen_text: Label3D = $ScreenText
 
 const NEW_LINE: String = "\n"
 
@@ -14,9 +11,6 @@ var line_number: int = 0
 var print_load: float = 0
 var print_start_index: int = 0
 var is_printing: bool = false
-
-func _ready() -> void:
-	print_text(debug_text)
 
 func _process(delta: float) -> void:
 	if not is_printing:
@@ -32,7 +26,7 @@ func _do_printing(delta: float) -> bool:
 	print_load = next_print_load
 	return print_load > 0
 
-func get_line_start_index(line: int) -> int:
+func _get_line_start_index(line: int) -> int:
 	if line == 1:
 		return 0
 	
@@ -47,21 +41,20 @@ func update_screen_text(new_print_load: float) -> void:
 	if next_char == NEW_LINE:
 		line_number += 1
 		if line_number > max_lines:
-			print_start_index = get_line_start_index(line_number - max_lines + 1)
-	var text: String = text_to_print.substr(print_start_index, number_of_chars_to_print - print_start_index)
-	screen_text.text = text
+			print_start_index = _get_line_start_index(line_number - max_lines + 1)
+	var screen_text: String = text_to_print.substr(print_start_index, number_of_chars_to_print - print_start_index)
+	text = screen_text
 
-
-func _add_line_breaks(text: String) -> String:
-	var lines: PackedStringArray = text.split(NEW_LINE)
+func _add_line_breaks(screen_text: String) -> String:
+	var lines: PackedStringArray = screen_text.split(NEW_LINE)
 	var new_lines: PackedStringArray = []
 	for line in lines:
 		for i in range(0, line.length(), max_chars_per_line):
 			new_lines.append(line.substr(i, max_chars_per_line))
 	return NEW_LINE.join(new_lines)
 
-func print_text(text: String) -> void:
-	text_to_print = _add_line_breaks(text)
+func print_text(screen_text: String) -> void:
+	text_to_print = _add_line_breaks(screen_text)
 	print_load = text_to_print.length()
 	line_number = 1
 	print_start_index = 0
