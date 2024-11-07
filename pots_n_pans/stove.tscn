@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://xl34pi4pvsuj"]
+[gd_scene load_steps=20 format=4 uid="uid://xl34pi4pvsuj"]
 
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="1_gbfh2"]
 [ext_resource type="Script" path="res://pots_n_pans/stove_controller.gd" id="1_sdh5x"]
@@ -157,6 +157,24 @@ radius = 0.01
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hn3nx"]
 points = PackedVector3Array(-0.00357678, -0.00494126, -0.000400269, 0.00357678, -0.00494126, -0.000400269, -0.00357678, -0.00494126, -3.6532e-05, -0.00357678, 0.00357678, -0.000400269, 0.00357678, -0.00494126, -3.6532e-05, 0.00357678, 0.00357678, -0.000400269, -0.00357678, -0.00357717, 0.00103557, -0.00357678, 0.00357678, 0.00103557, 0.00357678, -0.00357717, 0.00103557, 0.00357678, 0.00357678, 0.00103557)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5nqf"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_kppkq"]
+radius = 0.06
+height = 0.12
+radial_segments = 6
+rings = 3
+
+[sub_resource type="Curve" id="Curve_4peba"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.494624, 0.590776), 1.20691, 1.20691, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_la1c7"]
+offsets = PackedFloat32Array(0, 0.302789, 0.549801, 0.804781, 1)
+colors = PackedColorArray(1, 0.133333, 0, 1, 1, 0.783333, 0, 1, 1, 0.666667, 0, 1, 0.68, 0.68, 0.68, 0.792157, 1, 1, 1, 0)
+
 [node name="Stove" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0364477, 0)
 script = ExtResource("1_sdh5x")
@@ -196,3 +214,23 @@ shape = SubResource("CylinderShape3D_b4xiu")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(100, 0, 0, 0, 0, 100, 0, -100, 0, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_hn3nx")
+
+[node name="Flame" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0866443, 0)
+material_override = SubResource("StandardMaterial3D_k5nqf")
+emitting = false
+amount = 64
+mesh = SubResource("SphereMesh_kppkq")
+particle_flag_rotate_y = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+flatness = 1.0
+gravity = Vector3(0, 0.3, 0)
+initial_velocity_min = 0.45
+initial_velocity_max = 0.65
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+tangential_accel_min = -1.0
+tangential_accel_max = 1.0
+scale_amount_curve = SubResource("Curve_4peba")
+color_ramp = SubResource("Gradient_la1c7")

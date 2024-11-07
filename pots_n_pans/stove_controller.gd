@@ -3,6 +3,7 @@ extends Node3D
 signal dial_set_cooking()
 
 @onready var dial: Node3D = $dial
+@onready var flame: CPUParticles3D = $Flame
 
 @export_category("Dial")
 @export var dial_start_rotation: float = 0
@@ -33,6 +34,7 @@ func _process(delta: float) -> void:
 		if _is_dial_turning_done():
 			dial_turning = false
 			dial_reverse = not dial_reverse
+			flame.emitting = dial_reverse
 			if dial_reverse:
 				dial_set_cooking.emit()
 
