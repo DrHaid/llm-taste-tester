@@ -100,7 +100,6 @@ radius = 0.26
 [node name="Pot" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0551811, 0)
 script = ExtResource("1_4n4u8")
-cooking_speed = 0.2
 
 [node name="pot_model" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_jwt8r")

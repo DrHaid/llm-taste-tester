@@ -8,12 +8,9 @@ signal dial_set_cooking()
 @export_category("Dial")
 @export var dial_start_rotation: float = 0
 @export var dial_end_rotation: float = -210
-@export var dial_turn_speed: float = 2
+@export var dial_turn_speed: float = 0.65
 
-
-var dial_turning: bool = false
-var dial_reverse: bool = false
-var dial_turning_progress: float = 0
+var reverse_dial: bool = false
 
 func _ready() -> void:
 	set_process_input(true)
@@ -24,33 +21,24 @@ func _input(event: InputEvent) -> void:
 			if event.pressed:
 				check_dial_click(event)
 
-func _process(delta: float) -> void:
-	if dial_turning:
-		dial_turning_progress += delta * dial_turn_speed * (-1 if dial_reverse else 1)
-		var lerped_progress := ease_in_out_back(dial_turning_progress)
-		var target_rotation := dial.rotation
-		target_rotation.z = lerp(deg_to_rad(dial_start_rotation), deg_to_rad(dial_end_rotation), lerped_progress)
-		dial.rotation = target_rotation
-		if _is_dial_turning_done():
-			dial_turning = false
-			dial_reverse = not dial_reverse
-			flame.emitting = dial_reverse
-			if dial_reverse:
-				dial_set_cooking.emit()
-
-
 func check_dial_click(event: InputEventMouseButton) -> void:
 	var result := cast_viewport_ray(event.position)
 	if result and result.collider:
 		if result.collider.get_parent() == dial:
 			turn_dial()
 
-func _is_dial_turning_done() -> bool:
-	return ((dial_reverse and dial_turning_progress <= 0)
-			or (not dial_reverse and dial_turning_progress >= 1))
+func _on_dial_turn_finished() -> void:
+	reverse_dial = not reverse_dial
+	flame.emitting = reverse_dial
+	if reverse_dial:
+		dial_set_cooking.emit()
 
 func turn_dial() -> void:
-	dial_turning = true
+	var tween := create_tween()
+	var target_rotation := dial.rotation
+	target_rotation.z = deg_to_rad(dial_start_rotation if reverse_dial else dial_end_rotation)
+	tween.tween_property(dial, "rotation", target_rotation, dial_turn_speed).set_trans(Tween.TRANS_SPRING)
+	tween.finished.connect(_on_dial_turn_finished)
 
 func cast_viewport_ray(pos: Vector2, mask: int = 1) -> Dictionary:
 	var camera := get_viewport().get_camera_3d()

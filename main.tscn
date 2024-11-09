@@ -248,7 +248,6 @@ unique_name_in_owner = true
 [node name="Pot" parent="." instance=ExtResource("2_v28j4")]
 unique_name_in_owner = true
 transform = Transform3D(0.694658, 0, -0.71934, 0, 1, 0, 0.71934, 0, 0.694658, 0, 0.169576, 0)
-cooking_speed = 0.3
 
 [node name="-" type="Node" parent="."]
 
