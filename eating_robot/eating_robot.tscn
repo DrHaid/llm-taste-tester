@@ -214,6 +214,8 @@ shadow_mesh = SubResource("ArrayMesh_04kh4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49784, 0, -0.458968)
 script = ExtResource("1_8qoms")
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [node name="ScreenText" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0613808, 0.170834, 0.283611)
 pixel_size = 0.001

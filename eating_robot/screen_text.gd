@@ -1,8 +1,8 @@
 extends Label3D
 
-@export var print_speed: float = 1
+@export var print_speed: float = 16
 @export var max_lines: int = 5
-@export var max_chars_per_line: int = 32
+@export var max_chars_per_line: int = 30
 
 const NEW_LINE: String = "\n"
 
@@ -50,7 +50,7 @@ func _add_line_breaks(screen_text: String) -> String:
 	var new_lines: PackedStringArray = []
 	for line in lines:
 		for i in range(0, line.length(), max_chars_per_line):
-			new_lines.append(line.substr(i, max_chars_per_line))
+			new_lines.append(line.substr(i, max_chars_per_line).strip_edges())
 	return NEW_LINE.join(new_lines)
 
 func print_text(screen_text: String) -> void:

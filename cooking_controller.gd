@@ -5,6 +5,7 @@ extends Node
 @onready var pot: Node3D = %Pot
 @onready var food_drag_handler: Node3D = %FoodDragHandler
 @onready var tasting_spoon: Node3D = %TastingSpoon
+@onready var eating_robot: Node3D = %EatingRobot
 
 var current_foods: Array[FoodItemData] = []
 
@@ -27,4 +28,5 @@ func _on_pot_cooking_finished(successful: bool) -> void:
 		tasting_spoon.play_animation()
 
 func _on_tasting_spoon_spoon_fed() -> void:
+	eating_robot.start_tasting(current_foods)
 	camera_rig.pan_in()

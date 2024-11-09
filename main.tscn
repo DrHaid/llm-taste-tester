@@ -220,6 +220,7 @@ unique_name_in_owner = true
 script = ExtResource("2_47a2x")
 
 [node name="EatingRobot" parent="." instance=ExtResource("11_8jsdd")]
+unique_name_in_owner = true
 transform = Transform3D(0.466426, 0, 0.291456, 0, 0.55, 0, -0.291456, 0, 0.466426, -1.618, 0.333, -0.964)
 
 [node name="TastingSpoon" type="Node3D" parent="."]
