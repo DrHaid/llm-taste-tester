@@ -1,5 +1,7 @@
 extends Node3D
 
+signal pan_complete()
+
 @export var pan_duration: float = 1.5
 
 @onready var camera: Camera3D = $Camera3D
@@ -14,3 +16,7 @@ func pan_in() -> void:
 	position_tween.tween_property(camera, "global_position", end_marker.global_position, pan_duration)
 	var rotation_tween := create_tween()
 	rotation_tween.tween_property(camera, "global_rotation", end_marker.global_rotation, pan_duration)
+	rotation_tween.finished.connect(_on_pan_complete)
+
+func _on_pan_complete() -> void:
+	pan_complete.emit()
