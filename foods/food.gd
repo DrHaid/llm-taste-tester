@@ -34,7 +34,7 @@ func _on_end_drag(dragged_object: Node3D) -> void:
 
 func set_cooking(cooking: bool) -> void:
 	is_cooking = cooking
-	can_sleep = not is_cooking #TODO: necessary for some reason or rigidbody will fall asleep while moving?
+	can_sleep = not is_cooking #HACK: necessary for some reason or rigidbody will fall asleep while moving?
 	set_collision_mask_value(1, not is_cooking)
 	set_collision_mask_value(3, is_cooking)
 

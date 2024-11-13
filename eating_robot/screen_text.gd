@@ -5,6 +5,7 @@ extends Label3D
 @export var max_chars_per_line: int = 30
 
 const NEW_LINE: String = "\n"
+const SPACE: String = " "
 
 var text_to_print: String = ""
 var line_number: int = 0
@@ -49,8 +50,30 @@ func _add_line_breaks(screen_text: String) -> String:
 	var lines: PackedStringArray = screen_text.split(NEW_LINE)
 	var new_lines: PackedStringArray = []
 	for line in lines:
-		for i in range(0, line.length(), max_chars_per_line):
-			new_lines.append(line.substr(i, max_chars_per_line).strip_edges())
+		var i := 0
+
+		var get_line_segment := func(from: int, length: int) -> String:
+			return line.substr(from, length).strip_edges()
+
+		while i < line.length():
+			var next_pos: int = clamp(i + max_chars_per_line, 0, line.length() - 1)
+			if next_pos == line.length() - 1:
+				# last segment of line, just add rest and break
+				new_lines.append(get_line_segment.call(i, next_pos - i))
+				i = next_pos
+				break
+
+			var space_occurance: int = get_line_segment.call(0, next_pos - 1).rfind(SPACE, next_pos)
+			if space_occurance < i:
+				# no space found in current line segment, forcing break with hyphen
+				new_lines.append("{0}-".format(line.substr(i, (next_pos - 1) - i).strip_edges()))
+				i = next_pos - 1 # one less for the "-"
+				continue
+
+			# add line segment until last space before line character limit
+			new_lines.append(get_line_segment.call(i, space_occurance - i))
+			i = space_occurance
+		
 	return NEW_LINE.join(new_lines)
 
 func print_text(screen_text: String) -> void:
