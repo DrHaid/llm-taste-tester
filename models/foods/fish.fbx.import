@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bjih8p1nn5yd3"
-path="res://.godot/imported/tomato.fbx-bf5c1aff5baabfee5cb9331f81675b6f.scn"
+uid="uid://38ov3ex5oieg"
+path="res://.godot/imported/fish.fbx-a2a7d0d9bd576b4877875ad54f76726d.scn"
 
 [deps]
 
-source_file="res://models/tomato.fbx"
-dest_files=["res://.godot/imported/tomato.fbx-bf5c1aff5baabfee5cb9331f81675b6f.scn"]
+source_file="res://models/foods/fish.fbx"
+dest_files=["res://.godot/imported/fish.fbx-a2a7d0d9bd576b4877875ad54f76726d.scn"]
 
 [params]
 

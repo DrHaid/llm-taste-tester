@@ -1,17 +1,22 @@
 extends Label3D
 
-@export var print_speed: float = 16
+@export var print_speed: float = 20
+@export var print_speed_fast: float = 35
 @export var max_lines: int = 5
 @export var max_chars_per_line: int = 30
 
 const NEW_LINE: String = "\n"
 const SPACE: String = " "
 
+var current_print_speed := print_speed
 var text_to_print: String = ""
 var line_number: int = 0
 var print_load: float = 0
 var print_start_index: int = 0
 var is_printing: bool = false
+
+func _ready() -> void:
+	set_process_input(true)
 
 func _process(delta: float) -> void:
 	if not is_printing:
@@ -19,9 +24,14 @@ func _process(delta: float) -> void:
 	
 	if not _do_printing(delta):
 		is_printing = false
-	
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			current_print_speed = print_speed_fast if event.pressed else print_speed
+
 func _do_printing(delta: float) -> bool:
-	var next_print_load: float = print_load - delta * print_speed
+	var next_print_load: float = print_load - delta * current_print_speed
 	if floor(next_print_load) != floor(print_load):
 		update_screen_text(next_print_load)
 	print_load = next_print_load

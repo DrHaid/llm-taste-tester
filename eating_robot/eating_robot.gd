@@ -38,7 +38,6 @@ func request_tasting(food: Array[FoodItemData]) -> void:
     http_request.request_completed.connect(_on_tasting_request_completed)
 
 func _on_tasting_request_completed(_result: int, _response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
-    # response = body.get_string_from_utf8()
     var json: Variant = JSON.parse_string(body.get_string_from_utf8())
     response = json["candidates"][0]["content"]["parts"][0]["text"]
     tasting_screen.set_tasting(false)

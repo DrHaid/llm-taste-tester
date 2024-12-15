@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cll0g02ypgul0"
-path="res://.godot/imported/sausage.fbx-7ace2c99e4488986fcc671d0a9d34377.scn"
+uid="uid://dl6hp08wl4w52"
+path="res://.godot/imported/onion.fbx-6146c4482a9b26860881902f2be16f7e.scn"
 
 [deps]
 
-source_file="res://models/sausage.fbx"
-dest_files=["res://.godot/imported/sausage.fbx-7ace2c99e4488986fcc671d0a9d34377.scn"]
+source_file="res://models/foods/onion.fbx"
+dest_files=["res://.godot/imported/onion.fbx-6146c4482a9b26860881902f2be16f7e.scn"]
 
 [params]
 

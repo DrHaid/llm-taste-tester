@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ct0hkoxjkeksu"
-path="res://.godot/imported/lemon.fbx-087a0e3f8934a41281e4243827fdb195.scn"
+uid="uid://bjih8p1nn5yd3"
+path="res://.godot/imported/tomato.fbx-523ec323ddac11f2cad58908a2744cd6.scn"
 
 [deps]
 
-source_file="res://models/lemon.fbx"
-dest_files=["res://.godot/imported/lemon.fbx-087a0e3f8934a41281e4243827fdb195.scn"]
+source_file="res://models/foods/tomato.fbx"
+dest_files=["res://.godot/imported/tomato.fbx-523ec323ddac11f2cad58908a2744cd6.scn"]
 
 [params]
 
