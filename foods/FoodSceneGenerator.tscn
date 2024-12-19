@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://coyo4dpiotx4c"]
+
+[ext_resource type="Script" path="res://foods/food_scene_generator.gd" id="1_1uriq"]
+[ext_resource type="Script" path="res://foods/food_item_data.gd" id="2_ac8y4"]
+[ext_resource type="Resource" uid="uid://3yvrqdsbxeor" path="res://foods/resources/fish.tres" id="3_l05an"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_63scw"]
+size = Vector3(2, 0.2, 2)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_opqr6"]
+
+[node name="FoodSceneGenerator" type="Node3D"]
+script = ExtResource("1_1uriq")
+foods = Array[ExtResource("2_ac8y4")]([ExtResource("3_l05an")])
+output_path = "res://foods/scenes/generated"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_63scw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_opqr6")

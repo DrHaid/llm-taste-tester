@@ -1,3 +1,4 @@
+class_name  Food
 extends RigidBody3D
 
 @export var food_resource: FoodItemData
