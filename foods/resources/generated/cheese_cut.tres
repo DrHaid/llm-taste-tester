@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="FoodItemData" load_steps=2 format=3 uid="uid://cgr4b0vocg25f"]
+
+[ext_resource type="Script" path="res://foods/food_item_data.gd" id="1_jsu6e"]
+
+[resource]
+script = ExtResource("1_jsu6e")
+name = "Cheese"
+model = "res://models/foods/cheese-cut.fbx"

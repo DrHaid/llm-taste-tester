@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="FoodItemData" load_steps=2 format=3 uid="uid://cfuf7yf6ijy7e"]
+
+[ext_resource type="Script" path="res://foods/food_item_data.gd" id="1_fw4g2"]
+
+[resource]
+script = ExtResource("1_fw4g2")
+name = "Cookie"
+model = "res://models/foods/cookie.fbx"

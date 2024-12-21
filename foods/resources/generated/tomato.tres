@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="FoodItemData" load_steps=2 format=3 uid="uid://dwxnulv7konb4"]
+
+[ext_resource type="Script" path="res://foods/food_item_data.gd" id="1_rthfa"]
+
+[resource]
+script = ExtResource("1_rthfa")
+name = "Tomato"
+model = "res://models/foods/tomato.fbx"

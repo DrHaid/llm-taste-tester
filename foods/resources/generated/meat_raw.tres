@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="FoodItemData" load_steps=2 format=3 uid="uid://b40sx482lji5y"]
+
+[ext_resource type="Script" path="res://foods/food_item_data.gd" id="1_13oem"]
+
+[resource]
+script = ExtResource("1_13oem")
+name = "Meat"
+model = "res://models/foods/meat-raw.fbx"

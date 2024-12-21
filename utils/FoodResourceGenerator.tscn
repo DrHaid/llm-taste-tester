@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4yfib5hvce33"]
+
+[ext_resource type="Script" path="res://utils/food_resource_generator.gd" id="1_hr08j"]
+
+[node name="FoodResourceGenerator" type="Node3D"]
+script = ExtResource("1_hr08j")
+model_path = "res://models/foods"
+resource_path = "res://foods/resources/generated"

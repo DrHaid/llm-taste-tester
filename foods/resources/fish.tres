@@ -5,3 +5,4 @@
 [resource]
 script = ExtResource("1_8jeng")
 name = "Fish"
+model = ""
