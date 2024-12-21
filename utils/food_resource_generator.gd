@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func generate_food_resources() -> void:
 	print("Generating resources for models")
-	for file in get_files(model_path):
+	for file in Utils.get_files_in_dir(model_path):
 		if file.ends_with(".import"):
 			continue
 		
@@ -23,21 +23,3 @@ func generate_food_resources() -> void:
 		
 		var path := "%s/%s.tres" % [resource_path, resource_file_name]
 		ResourceSaver.save(food_resource, path)
-
-
-func get_files(directory: String) -> Array[String]:
-	var files: Array[String] = []
-	var dir := DirAccess.open(directory)
-	if dir:
-		dir.list_dir_begin()
-		var file_name := dir.get_next()
-		while file_name != "":
-			if dir.current_is_dir():
-				continue
-
-			files.append(file_name)			
-			file_name = dir.get_next()
-	else:
-		print("An error occurred when trying to access the directory.")
-	
-	return files

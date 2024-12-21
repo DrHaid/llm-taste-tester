@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://coyo4dpiotx4c"]
+[gd_scene load_steps=4 format=3 uid="uid://coyo4dpiotx4c"]
 
 [ext_resource type="Script" path="res://utils/food_scene_generator.gd" id="1_1uriq"]
-[ext_resource type="Script" path="res://foods/food_item_data.gd" id="2_ac8y4"]
-[ext_resource type="Resource" uid="uid://3yvrqdsbxeor" path="res://foods/resources/fish.tres" id="3_l05an"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_63scw"]
 size = Vector3(2, 0.2, 2)
@@ -11,7 +9,7 @@ size = Vector3(2, 0.2, 2)
 
 [node name="FoodSceneGenerator" type="Node3D"]
 script = ExtResource("1_1uriq")
-foods = Array[ExtResource("2_ac8y4")]([ExtResource("3_l05an")])
+foods_resource_path = "res://foods/resources/generated"
 output_path = "res://foods/scenes/generated"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

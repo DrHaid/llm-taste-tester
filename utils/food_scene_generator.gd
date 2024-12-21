@@ -2,12 +2,14 @@ extends Node3D
 
 ## Utility script for generating foods scenes to be used in-game out of food resources  
 
-@export var foods: Array[FoodItemData] = []
-@export var model_scale: float = 0.6
+@export_dir var foods_resource_path: String = ""
 @export_dir var output_path: String = ""
 
 func _ready() -> void:
-	for food in foods:
+	var resource_files := Utils.get_files_in_dir(foods_resource_path)
+	for file in resource_files:
+		var path := "%s/%s" % [foods_resource_path, file] 
+		var food: FoodItemData = load(path)
 		generate_food(food)
 
 func generate_food(food: FoodItemData) -> void:
@@ -16,23 +18,23 @@ func generate_food(food: FoodItemData) -> void:
 	var food_rigidbody := RigidBody3D.new()
 	food_rigidbody.set_name(food.name)
 	food_rigidbody.set_freeze_mode(RigidBody3D.FREEZE_MODE_KINEMATIC)
-	food_rigidbody.add_to_group(&"Food")
+	food_rigidbody.add_to_group(&"Food", true)
 	food_rigidbody.set_script(Food)
 	food_rigidbody.food_resource = food
 
 	# add model and collision
 	var imported_fbx := load(food.model)
-	var meshes := get_meshes(imported_fbx)
+	var fbx_instance: Node = imported_fbx.instantiate()
+	var meshes := get_and_flatten_meshes(fbx_instance)
 	for mesh in meshes:
 		_reparent(mesh, food_rigidbody)
 		# create static body collision shape
-		mesh.scale = Vector3.ONE * model_scale
 		mesh.create_convex_collision()
 		var static_child := mesh.get_child(0)
 		var collision_shape := static_child.get_child(0)
+		collision_shape.set_name("%s_%s" % [mesh.name, "CollisionShape3D"])
 		# make collision shape child of rigidbody
 		_reparent(collision_shape, food_rigidbody)
-		collision_shape.scale = Vector3.ONE * model_scale
 		# exclude static body from being saved
 		static_child.owner = null
 
@@ -41,14 +43,11 @@ func generate_food(food: FoodItemData) -> void:
 	get_tree().quit()
 
 
-func get_meshes(packed_scene: PackedScene) -> Array[MeshInstance3D]:
-	var main_node: Node = packed_scene.instantiate()
-	var meshes: Array[MeshInstance3D] = []
-	for child in main_node.get_children():
-		if is_instance_of(child, MeshInstance3D):
-			meshes.append(child)
+func get_and_flatten_meshes(parent: Node) -> Array[Node]:
+	var meshes := parent.find_children("*", "MeshInstance3D", true)
+	for mesh in meshes:
+		_reparent(mesh, parent)
 	return meshes
-
 
 func save_node(node: Node3D, scene_name: String) -> void:
 	var scene := PackedScene.new()
@@ -58,6 +57,6 @@ func save_node(node: Node3D, scene_name: String) -> void:
 
 
 func _reparent(child: Node3D, parent: Node3D) -> void:
-		child.owner = null
-		child.reparent(parent)
-		child.owner = parent
+	child.owner = null
+	child.reparent(parent, false)
+	child.owner = parent

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LLM Taste Tester"
-run/main_scene="res://main.tscn"
+run/main_scene="res://utils/FoodSceneGenerator.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Globals="*res://globals.gd"
 ENV="*res://env.gd"
+Utils="*res://utils/utils.gd"
 
 [debug]
 
