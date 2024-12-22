@@ -3,14 +3,13 @@ extends RigidBody3D
 
 @export var food_resource: FoodItemData
 
-@onready var food_drag_handler: Node3D = %FoodDragHandler
-
 var drag_food_target: Marker3D = null
 var is_cooking: bool = false
 
 var original_position: Vector3 = Vector3.ZERO
 
 func _ready() -> void:
+	var food_drag_handler := get_tree().current_scene.get_node("%FoodDragHandler")
 	food_drag_handler.connect("start_drag", _on_start_drag)
 	food_drag_handler.connect("end_drag", _on_end_drag)
 	original_position = global_position

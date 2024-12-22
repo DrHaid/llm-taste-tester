@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b6mbmer46xsrl"]
+[gd_scene load_steps=22 format=3 uid="uid://b6mbmer46xsrl"]
 
 [ext_resource type="Script" path="res://camera_controller.gd" id="1_m2hkn"]
 [ext_resource type="Script" path="res://mouse_input_handler.gd" id="1_updxt"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bik1d3u77xfis" path="res://foods/scenes/onion.tscn" id="5_v57fo"]
 [ext_resource type="PackedScene" uid="uid://bi77f3n2k5j5i" path="res://foods/scenes/fish.tscn" id="6_mxl07"]
 [ext_resource type="PackedScene" uid="uid://btsqb12vldi5k" path="res://foods/scenes/sausage.tscn" id="7_hm2ih"]
+[ext_resource type="Script" path="res://food_spawn.gd" id="8_jq2de"]
 [ext_resource type="PackedScene" uid="uid://cj7bov3anpxwv" path="res://foods/scenes/pear.tscn" id="8_o26q1"]
 [ext_resource type="PackedScene" uid="uid://c5ed0b8tok12r" path="res://foods/scenes/tomato.tscn" id="9_28htx"]
 [ext_resource type="PackedScene" uid="uid://cvsm8s2i8tctu" path="res://foods/scenes/lemon.tscn" id="10_40gvt"]
@@ -111,23 +112,78 @@ transform = Transform3D(0.694658, 0, -0.71934, 0, 1, 0, 0.71934, 0, 0.694658, 0,
 
 [node name="-" type="Node" parent="."]
 
+[node name="FoodSpawn" type="Node3D" parent="."]
+script = ExtResource("8_jq2de")
+foods_path = "res://foods/scenes/generated"
+food_scale = 0.3
+
+[node name="SpawnMarker3D1" type="Marker3D" parent="FoodSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78569, 1, -0.606272)
+gizmo_extents = 0.02
+
+[node name="SpawnMarker3D2" type="Marker3D" parent="FoodSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1199, 1, -0.229209)
+gizmo_extents = 0.02
+
+[node name="SpawnMarker3D3" type="Marker3D" parent="FoodSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18846, 1, 0.194986)
+gizmo_extents = 0.02
+
+[node name="SpawnMarker3D4" type="Marker3D" parent="FoodSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.262944, 1, -0.940487)
+gizmo_extents = 0.02
+
+[node name="SpawnMarker3D5" type="Marker3D" parent="FoodSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.332644, 1, -0.953342)
+gizmo_extents = 0.02
+
+[node name="SpawnMarker3D6" type="Marker3D" parent="FoodSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.996789, 1, -0.696253)
+gizmo_extents = 0.02
+
+[node name="SpawnMarker3D7" type="Marker3D" parent="FoodSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24102, 1, -0.224925)
+gizmo_extents = 0.02
+
+[node name="SpawnMarker3D8" type="Marker3D" parent="FoodSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23674, 1, 0.21641)
+gizmo_extents = 0.02
+
+[node name="SpawnMarker3D9" type="Marker3D" parent="FoodSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03535, 1, -1.27042)
+gizmo_extents = 0.02
+
+[node name="SpawnMarker3D10" type="Marker3D" parent="FoodSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.422625, 1, -1.50608)
+gizmo_extents = 0.02
+
+[node name="SpawnMarker3D11" type="Marker3D" parent="FoodSpawn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.327216, 1, -1.55321)
+gizmo_extents = 0.02
+
 [node name="Fish" parent="." instance=ExtResource("6_mxl07")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.363, 0.191, -0.945)
+visible = false
 
 [node name="Lemon" parent="." instance=ExtResource("10_40gvt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294671, 0.174983, -0.982542)
+visible = false
 
 [node name="Onion" parent="." instance=ExtResource("5_v57fo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.906412, 0.174983, -1.40426)
+visible = false
 
 [node name="Pear" parent="." instance=ExtResource("8_o26q1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.874, 0.175, -0.475)
+visible = false
 
 [node name="Sausage" parent="." instance=ExtResource("7_hm2ih")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.516728, 0.174983, -0.945175)
+visible = false
 
 [node name="Tomato" parent="." instance=ExtResource("9_28htx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0683234, 0.174983, -1.46831)
+visible = false
 
 [node name="FoodKillZone" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.93893, 0)
