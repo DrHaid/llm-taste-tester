@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4]
 
-[ext_resource type="Script" path="res://foods/food.gd" id="1_n64il"]
-[ext_resource type="Resource" path="res://foods/resources/generated/chocolate.tres" id="2_yt5ix"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_nr8qd"]
+[ext_resource type="Script" path="res://foods/food.gd" id="1_53ndv"]
+[ext_resource type="Resource" path="res://foods/resources/generated/chocolate.tres" id="2_sk6jp"]
+[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_yps7o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ekwi"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_nr8qd")
+albedo_texture = ExtResource("3_yps7o")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_251bm"]
@@ -45,17 +45,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_251bm")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vkbcu"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_d38fx"]
 points = PackedVector3Array(-0.146224, 0, -0.073112, -0.146224, 0, 0.073112, -0.146224, 0.016872, -0.073112, 0.146224, 0, -0.073112, -0.146224, 0.016872, 0.073112, 0.146224, 0, 0.073112, -0.128934, 0.033744, -0.0558073, 0.146224, 0.016872, -0.073112, -0.128934, 0.033744, 0.055793, 0.146224, 0.016872, 0.073112, 0.128905, 0.033744, -0.0558073, 0.128905, 0.033744, 0.055793)
 
 [node name="Chocolate" type="RigidBody3D" groups=["Food"]]
 freeze_mode = 1
-script = ExtResource("1_n64il")
-food_resource = ExtResource("2_yt5ix")
+script = ExtResource("1_53ndv")
+food_resource = ExtResource("2_sk6jp")
 
 [node name="chocolate" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_er1q3")
 skeleton = NodePath("")
 
 [node name="chocolate_CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_vkbcu")
+shape = SubResource("ConvexPolygonShape3D_d38fx")

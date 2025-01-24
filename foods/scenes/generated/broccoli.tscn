@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4]
 
-[ext_resource type="Script" path="res://foods/food.gd" id="1_ir8ox"]
-[ext_resource type="Resource" path="res://foods/resources/generated/broccoli.tres" id="2_lou48"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_gnrli"]
+[ext_resource type="Script" path="res://foods/food.gd" id="1_2kjvw"]
+[ext_resource type="Resource" path="res://foods/resources/generated/broccoli.tres" id="2_cj8qm"]
+[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_6tkv5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3pmo"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_gnrli")
+albedo_texture = ExtResource("3_6tkv5")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tb118"]
@@ -45,17 +45,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_tb118")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1ajsq"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2tpd3"]
 points = PackedVector3Array(-0.18759, 0.183056, -0.101948, -0.101948, 0.183056, -0.18759, -0.040691, 0, -0.040691, -0.18759, 0.183056, 0.101911, -0.158173, 0.268372, -0.115352, 0.101911, 0.183056, -0.18759, -0.115352, 0.268372, -0.158173, 0, 0.32042, -0.1563, 0.0406543, 0, -0.040691, -0.040691, 0, 0.0406543, -0.101948, 0.183056, 0.18759, -0.158173, 0.268372, 0.115316, -0.147486, 0.294581, -0.0618077, -0.135367, 0.32042, -0.0781502, -0.0676837, 0.421668, -0.0390751, 0.18759, 0.183056, -0.101948, 0.115316, 0.268372, -0.158173, 0, 0.421668, -0.0781502, 0.0406543, 0, 0.0406543, 0.101911, 0.183056, 0.18759, 0, 0.32042, 0.156264, -0.115352, 0.268372, 0.158137, -0.0676837, 0.421668, 0.0390384, -0.135367, 0.32042, 0.0781135, -0.147486, 0.294581, 0.061771, 0.18759, 0.183056, 0.101911, 0.158137, 0.268372, -0.115352, 0.067647, 0.421668, -0.0390751, 0.115316, 0.268372, 0.158137, 0, 0.421668, 0.0781135, 0.158137, 0.268372, 0.115316, 0.135331, 0.32042, -0.0781502, 0.14745, 0.294581, -0.0618077, 0.067647, 0.421668, 0.0390384, 0.14745, 0.294581, 0.061771, 0.135331, 0.32042, 0.0781135)
 
 [node name="Broccoli" type="RigidBody3D" groups=["Food"]]
 freeze_mode = 1
-script = ExtResource("1_ir8ox")
-food_resource = ExtResource("2_lou48")
+script = ExtResource("1_2kjvw")
+food_resource = ExtResource("2_cj8qm")
 
 [node name="broccoli" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_ijoay")
 skeleton = NodePath("")
 
 [node name="broccoli_CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_1ajsq")
+shape = SubResource("ConvexPolygonShape3D_2tpd3")

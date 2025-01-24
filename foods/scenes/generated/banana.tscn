@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4]
 
-[ext_resource type="Script" path="res://foods/food.gd" id="1_wi7xj"]
-[ext_resource type="Resource" path="res://foods/resources/generated/banana.tres" id="2_pheqx"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_bgtn6"]
+[ext_resource type="Script" path="res://foods/food.gd" id="1_yxcmy"]
+[ext_resource type="Resource" path="res://foods/resources/generated/banana.tres" id="2_e87rm"]
+[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_hlmid"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_or1n6"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_bgtn6")
+albedo_texture = ExtResource("3_hlmid")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ey4m1"]
@@ -45,17 +45,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ey4m1")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ieqti"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1glc6"]
 points = PackedVector3Array(-0.0344135, 0, -0.0272517, 0.0343865, 0, -0.0272517, -0.0302785, 0.0130904, 0.0704721, -0.0688, 0.0595681, -0.0272517, -0.0646785, 0.0681736, -0.130463, -0.0323392, 0.0121704, -0.130463, 0.0323258, 0.0121704, -0.130463, 0.0687865, 0.0595681, -0.0272517, 0.030265, 0.0130904, 0.0704721, -0.0218064, 0.0666404, 0.179664, -0.0605569, 0.0661229, 0.0704721, -0.0238537, 0.16847, -0.314936, -0.0253084, 0.173625, 0.314936, -0.046576, 0.102577, -0.234229, -0.023288, 0.0622513, -0.234229, 0.0232745, 0.0622513, -0.234229, 0.0465626, 0.102577, -0.234229, 0.064665, 0.0681736, -0.130463, 0.0252949, 0.173625, 0.314936, 0.0605435, 0.0661229, 0.0704721, 0.0238402, 0.16847, -0.314936, 0.0217929, 0.0666404, 0.179664, -0.0126609, 0.151469, 0.314936, -0.0435994, 0.104819, 0.179664, -0.0119336, 0.189131, -0.314936, -0.0119336, 0.147809, -0.314936, -0.0126609, 0.195781, 0.314936, 0.0119201, 0.147809, -0.314936, 0.0126475, 0.195781, 0.314936, 0.0126475, 0.151469, 0.314936, 0.0435859, 0.104819, 0.179664, 0.0119201, 0.189131, -0.314936)
 
 [node name="Banana" type="RigidBody3D" groups=["Food"]]
 freeze_mode = 1
-script = ExtResource("1_wi7xj")
-food_resource = ExtResource("2_pheqx")
+script = ExtResource("1_yxcmy")
+food_resource = ExtResource("2_e87rm")
 
 [node name="banana" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_fplyd")
 skeleton = NodePath("")
 
 [node name="banana_CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_ieqti")
+shape = SubResource("ConvexPolygonShape3D_1glc6")

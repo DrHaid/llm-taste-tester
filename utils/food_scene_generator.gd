@@ -30,17 +30,19 @@ func generate_food(food: FoodItemData) -> void:
 		_reparent(mesh, food_rigidbody)
 		# create static body collision shape
 		mesh.create_convex_collision()
+		var local_position: Vector3 = mesh.position
 		var static_child := mesh.get_child(0)
 		var collision_shape := static_child.get_child(0)
 		collision_shape.set_name("%s_%s" % [mesh.name, "CollisionShape3D"])
 		# make collision shape child of rigidbody
 		_reparent(collision_shape, food_rigidbody)
+		collision_shape.set_position(local_position)
 		# exclude static body from being saved
 		static_child.owner = null
 
 	save_node(food_rigidbody, food.name.to_lower().replace(" ", "_"))
 	print("Saved: %s" % food.name)
-	get_tree().quit()
+	# get_tree().quit()
 
 
 func get_and_flatten_meshes(parent: Node) -> Array[Node]:

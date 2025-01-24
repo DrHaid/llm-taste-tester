@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4]
 
-[ext_resource type="Script" path="res://foods/food.gd" id="1_8chsb"]
-[ext_resource type="Resource" path="res://foods/resources/generated/mussel_open.tres" id="2_otkfl"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_kw75j"]
+[ext_resource type="Script" path="res://foods/food.gd" id="1_wha8m"]
+[ext_resource type="Resource" path="res://foods/resources/generated/mussel_open.tres" id="2_mg6wq"]
+[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_747qp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tw6jw"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_kw75j")
+albedo_texture = ExtResource("3_747qp")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_j3ubt"]
@@ -45,13 +45,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_j3ubt")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tk6c2"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fl86u"]
 points = PackedVector3Array(-0.00405468, 0, -0.0637035, -0.0385674, 0, -0.0364063, -0.00405468, 0.0288329, -0.077679, 0.0304581, 0, -0.0364063, -0.0461397, 0.0288329, -0.0443902, -0.0385674, 0, 0.0363911, -0.00968922, 0.0580591, -0.077679, 0.0380304, 0.0288329, -0.0443902, 0.0461388, 0.0288329, 0, 0.0370991, 0, 0, -0.0200741, 0.0830352, -0.0637035, -0.0461397, 0.0288329, 0.044375, -0.0499588, 0.0590643, -0.0364063, -0.00405468, 0, 0.0636883, -0.00405468, 0.0288329, 0.077679, 0.0267519, 0.0872853, -0.0443902, 0.0337692, 0.092912, 0, 0.0267519, 0.0872853, 0.044375, 0.0380304, 0.0288329, 0.044375, 0.0304581, 0, 0.0363911, -0.0200741, 0.0830352, 0.0636883, 0.0155674, 0.111617, 0, 0.00981062, 0.106995, -0.0364063, -0.00968922, 0.0580591, 0.077679, -0.0499588, 0.0590643, 0.0363911, 0.00981062, 0.106995, 0.0363911)
 
 [node name="Mussel" type="RigidBody3D" groups=["Food"]]
 freeze_mode = 1
-script = ExtResource("1_8chsb")
-food_resource = ExtResource("2_otkfl")
+script = ExtResource("1_wha8m")
+food_resource = ExtResource("2_mg6wq")
 
 [node name="mussel-open" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.72, 0, 0, 0, 1, 0, 0, 0)
@@ -59,4 +59,4 @@ mesh = SubResource("ArrayMesh_n4nxq")
 skeleton = NodePath("")
 
 [node name="mussel-open_CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_tk6c2")
+shape = SubResource("ConvexPolygonShape3D_fl86u")

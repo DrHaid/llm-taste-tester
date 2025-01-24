@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4]
 
-[ext_resource type="Script" path="res://foods/food.gd" id="1_47emw"]
-[ext_resource type="Resource" path="res://foods/resources/generated/meat_raw.tres" id="2_4ovxi"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_jx6vd"]
+[ext_resource type="Script" path="res://foods/food.gd" id="1_q3ap5"]
+[ext_resource type="Resource" path="res://foods/resources/generated/meat_raw.tres" id="2_ivty8"]
+[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_2upc5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1fe2"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_jx6vd")
+albedo_texture = ExtResource("3_2upc5")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_y1t4u"]
@@ -45,17 +45,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_y1t4u")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gswbo"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_icocb"]
 points = PackedVector3Array(0.2392, 0.0645, 0.219539, 0.121263, 0.0645, 0.287687, 0.2392, 0, 0.219539, 0.2392, 0.0645, 0.0832985, 0.121263, 0, 0.287687, -0.102949, 0.0645, 0.20619, 0.2392, 0, 0.0832985, 0.153956, 0.0645, -0.1742, -0.102949, 0, 0.20619, -0.239247, 0.0645, 0.0528289, 0.153956, 0, -0.1742, -0.0426692, 0.0645, -0.287687, -0.239247, 0, 0.0528289, -0.239247, 0.0645, -0.1742, -0.0426692, 0, -0.287687, -0.239247, 0, -0.1742)
 
 [node name="Meat" type="RigidBody3D" groups=["Food"]]
 freeze_mode = 1
-script = ExtResource("1_47emw")
-food_resource = ExtResource("2_4ovxi")
+script = ExtResource("1_q3ap5")
+food_resource = ExtResource("2_ivty8")
 
 [node name="meat-raw" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_t03j6")
 skeleton = NodePath("")
 
 [node name="meat-raw_CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_gswbo")
+shape = SubResource("ConvexPolygonShape3D_icocb")

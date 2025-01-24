@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4]
 
-[ext_resource type="Script" path="res://foods/food.gd" id="1_w5tu3"]
-[ext_resource type="Resource" path="res://foods/resources/generated/coconut_half.tres" id="2_ym357"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_ah83g"]
+[ext_resource type="Script" path="res://foods/food.gd" id="1_17utu"]
+[ext_resource type="Resource" path="res://foods/resources/generated/coconut_half.tres" id="2_b8r5l"]
+[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_twoda"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xm2f0"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_ah83g")
+albedo_texture = ExtResource("3_twoda")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_8vxpv"]
@@ -45,17 +45,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8vxpv")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1d6p5"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bytya"]
 points = PackedVector3Array(7.45058e-09, 0.1242, -0.1242, 7.45058e-09, 0.041396, -0.104092, -0.0878251, 0.1242, -0.0878251, 0.0878007, 0.1242, -0.0878251, 7.45058e-09, 0, -0.0624647, -0.04418, 0, -0.04418, -0.0736009, 0.041396, -0.0736009, 0.0735766, 0.041396, -0.0736009, 0.0441557, 0, -0.04418, -0.104092, 0.041396, 0, -0.1242, 0.1242, 0, 0.1242, 0.1242, 0, -0.0624647, 0, 0, 0.104067, 0.041396, 0, 0.0624404, 0, 0, -0.0878251, 0.1242, 0.0878007, -0.04418, 0, 0.0441557, -0.0736009, 0.041396, 0.0735766, 0.0878007, 0.1242, 0.0878007, 0.0735766, 0.041396, 0.0735766, 0.0441557, 0, 0.0441557, 7.45058e-09, 0.1242, 0.1242, 7.45058e-09, 0, 0.0624404, 7.45058e-09, 0.041396, 0.104067)
 
 [node name="Coconut" type="RigidBody3D" groups=["Food"]]
 freeze_mode = 1
-script = ExtResource("1_w5tu3")
-food_resource = ExtResource("2_ym357")
+script = ExtResource("1_17utu")
+food_resource = ExtResource("2_b8r5l")
 
 [node name="coconut-half" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_mt5hq")
 skeleton = NodePath("")
 
 [node name="coconut-half_CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_1d6p5")
+shape = SubResource("ConvexPolygonShape3D_bytya")

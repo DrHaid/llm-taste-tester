@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4]
 
-[ext_resource type="Script" path="res://foods/food.gd" id="1_frdrj"]
-[ext_resource type="Resource" path="res://foods/resources/generated/celery_stick.tres" id="2_qjyuq"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_bwqwp"]
+[ext_resource type="Script" path="res://foods/food.gd" id="1_lcneh"]
+[ext_resource type="Resource" path="res://foods/resources/generated/celery_stick.tres" id="2_b58kg"]
+[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_f5stx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xwawy"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_bwqwp")
+albedo_texture = ExtResource("3_f5stx")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_e4oef"]
@@ -45,17 +45,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_e4oef")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_p014t"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jyqsy"]
 points = PackedVector3Array(0.0148193, 0.54, 0.0441, -0.00450338, 0.54, 0.0361572, 0.0148193, 0, 0.0441, 0.0229803, 0.54, 0.0242257, -0.0180945, 0.54, 0.020306, -0.00450338, 0, 0.0361572, 0.0229803, 0, 0.0242257, 0.0229803, 0.54, -0.0242343, -0.0229803, 0.54, 0, -0.0180945, 0, 0.020306, 0.0229803, 0, -0.0242343, 0.0148193, 0.54, -0.0441, -0.0180945, 0.54, -0.0203147, -0.0229803, 0, 0, 0.0148193, 0, -0.0441, -0.00450338, 0.54, -0.0361658, -0.0180945, 0, -0.0203147, -0.00450338, 0, -0.0361658)
 
 [node name="Celery" type="RigidBody3D" groups=["Food"]]
 freeze_mode = 1
-script = ExtResource("1_frdrj")
-food_resource = ExtResource("2_qjyuq")
+script = ExtResource("1_lcneh")
+food_resource = ExtResource("2_b58kg")
 
 [node name="celery-stick" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_skuny")
 skeleton = NodePath("")
 
 [node name="celery-stick_CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_p014t")
+shape = SubResource("ConvexPolygonShape3D_jyqsy")
