@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4]
 
-[ext_resource type="Script" path="res://foods/food.gd" id="1_jnd2v"]
-[ext_resource type="Resource" path="res://foods/resources/generated/cookie.tres" id="2_nxb80"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_ndd4s"]
+[ext_resource type="Script" path="res://foods/food.gd" id="1_0qn7j"]
+[ext_resource type="Resource" path="res://foods/resources/generated/cookie.tres" id="2_ob7ck"]
+[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_hk7vg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dj0j0"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_ndd4s")
+albedo_texture = ExtResource("3_hk7vg")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_7htgu"]
@@ -45,17 +45,21 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7htgu")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pss64"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bf2cw"]
 points = PackedVector3Array(-0.054936, 0.0199061, -0.0951519, -0.0504189, 0, -0.0873095, -0.109872, 0.0199061, -7.45058e-09, -0.0456007, 0.0398121, -0.0789828, 0.054936, 0.0199061, -0.0951519, -0.100816, 0, -7.45058e-09, 0.0503974, 0, -0.0873095, -0.0912015, 0.0398121, -7.45058e-09, -0.054936, 0.0199061, 0.0951519, -0.0387821, 0.04977, -0.0424533, -0.0169712, 0.04977, -0.0550644, 0.0455792, 0.0398121, -0.0789828, 0.109872, 0.0199061, -7.45058e-09, -0.0504189, 0, 0.0872909, 0.100795, 0, -7.45058e-09, -0.0456007, 0.0398121, 0.0789642, -0.0425249, 0.04977, 0.0367531, 0.054936, 0.0199061, 0.0951519, 0.0651747, 0.04977, 0.00445209, 0.09118, 0.0398121, -7.45058e-09, 0.0503974, 0, 0.0872909, 0.0455792, 0.0398121, 0.0789642, -0.0247147, 0.04977, 0.0545615, 0.047343, 0.04977, 0.0222791)
 
 [node name="Cookie" type="RigidBody3D" groups=["Food"]]
+mass = 0.0208129
+center_of_mass_mode = 1
 freeze_mode = 1
-script = ExtResource("1_jnd2v")
-food_resource = ExtResource("2_nxb80")
+script = ExtResource("1_0qn7j")
+food_resource = ExtResource("2_ob7ck")
 
 [node name="cookie" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.024885, 0)
 mesh = SubResource("ArrayMesh_r0ofy")
 skeleton = NodePath("")
 
 [node name="cookie_CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_pss64")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.024885, 0)
+shape = SubResource("ConvexPolygonShape3D_bf2cw")

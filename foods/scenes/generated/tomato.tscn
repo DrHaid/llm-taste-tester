@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4]
 
-[ext_resource type="Script" path="res://foods/food.gd" id="1_0e12c"]
-[ext_resource type="Resource" path="res://foods/resources/generated/tomato.tres" id="2_p6oc8"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_8ab04"]
+[ext_resource type="Script" path="res://foods/food.gd" id="1_2y4ip"]
+[ext_resource type="Resource" path="res://foods/resources/generated/tomato.tres" id="2_kme0c"]
+[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_c55vv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0udsu"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_8ab04")
+albedo_texture = ExtResource("3_c55vv")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_th8fn"]
@@ -45,17 +45,21 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_th8fn")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_orl0u"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mvd1o"]
 points = PackedVector3Array(0, 0.058289, -0.084846, 0, 0.097167, -0.0711092, 0.0599802, 0.058289, -0.0599968, 0, 0.019425, -0.0711092, -0.0599968, 0.058289, -0.0599968, 0, 0.142664, -0.0435193, 0.0502631, 0.097167, -0.0502797, -0.0502797, 0.097167, -0.0502797, 0.084846, 0.058289, 0, 0.0502631, 0.019425, -0.0502797, 0, 0, -0.0474061, -0.0502797, 0.019425, -0.0502797, -0.0711092, 0.097167, 0, -0.0711092, 0.019425, 0, -0.084846, 0.058289, 0, -0.0435193, 0.142664, 0, 0.0435027, 0.142664, 0, 0.0710926, 0.097167, 0, 0.0502631, 0.097167, 0.0502631, 0.0599802, 0.058289, 0.0599802, 0.0502631, 0.019425, 0.0502631, 0.0710926, 0.019425, 0, 0.0335032, 0, -0.0335198, -0.0335198, 0, -0.0335198, -0.0599968, 0.058289, 0.0599802, -0.0502797, 0.097167, 0.0502631, -0.0474061, 0, 0, -0.0502797, 0.019425, 0.0502631, 0, 0.142664, 0.0435027, 0, 0.097167, 0.0710926, 0, 0.058289, 0.084846, 0.0335032, 0, 0.0335032, 0.0473895, 0, 0, 0, 0.019425, 0.0710926, 0, 0, 0.0473895, -0.0335198, 0, 0.0335032)
 
 [node name="Tomato" type="RigidBody3D" groups=["Food"]]
+mass = 0.0410807
+center_of_mass_mode = 1
 freeze_mode = 1
-script = ExtResource("1_0e12c")
-food_resource = ExtResource("2_p6oc8")
+script = ExtResource("1_2y4ip")
+food_resource = ExtResource("2_kme0c")
 
 [node name="tomato" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0713321, 0)
 mesh = SubResource("ArrayMesh_eos1w")
 skeleton = NodePath("")
 
 [node name="tomato_CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_orl0u")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0713321, 0)
+shape = SubResource("ConvexPolygonShape3D_mvd1o")

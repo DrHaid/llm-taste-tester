@@ -5,6 +5,8 @@ extends Node3D
 @export_dir var foods_resource_path: String = ""
 @export_dir var output_path: String = ""
 
+@export var mass_multiplier: float = 10
+
 func _ready() -> void:
 	var resource_files := Utils.get_files_in_dir(foods_resource_path)
 	for file in resource_files:
@@ -18,6 +20,7 @@ func generate_food(food: FoodItemData) -> void:
 	var food_rigidbody := RigidBody3D.new()
 	food_rigidbody.set_name(food.name)
 	food_rigidbody.set_freeze_mode(RigidBody3D.FREEZE_MODE_KINEMATIC)
+	food_rigidbody.set_center_of_mass_mode(RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM)
 	food_rigidbody.add_to_group(&"Food", true)
 	food_rigidbody.set_script(Food)
 	food_rigidbody.food_resource = food
@@ -39,6 +42,18 @@ func generate_food(food: FoodItemData) -> void:
 		collision_shape.set_position(local_position)
 		# exclude static body from being saved
 		static_child.owner = null
+
+	# determine and set center of mass and mass
+	var food_aabb: AABB = AABB(Vector3.ZERO, Vector3.ZERO)
+	for mesh in meshes:
+		food_aabb = food_aabb.merge(mesh.get_aabb())
+
+	# offset children so the object origin in at center of mass
+	for child in food_rigidbody.get_children():
+		child.set_position(child.position - food_aabb.get_center())
+
+	# set mass according to bourdary
+	food_rigidbody.set_mass(food_aabb.get_volume() * mass_multiplier)
 
 	save_node(food_rigidbody, food.name.to_lower().replace(" ", "_"))
 	print("Saved: %s" % food.name)

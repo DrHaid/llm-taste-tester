@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4]
 
-[ext_resource type="Script" path="res://foods/food.gd" id="1_4ocwr"]
-[ext_resource type="Resource" path="res://foods/resources/generated/paprika.tres" id="2_pnrn5"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_u05rw"]
+[ext_resource type="Script" path="res://foods/food.gd" id="1_mtwb4"]
+[ext_resource type="Resource" path="res://foods/resources/generated/paprika.tres" id="2_qufah"]
+[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_3trlm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jafm2"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_u05rw")
+albedo_texture = ExtResource("3_3trlm")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_wj545"]
@@ -45,17 +45,21 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wj545")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ul1lg"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ifs15"]
 points = PackedVector3Array(-0.0840325, 0.148751, -0.024249, -0.0840325, 0.148751, 0.0242325, -0.00718915, 0.199349, -0.00718915, -0.0466226, 0.161688, -0.0466226, -0.024249, 0.148751, -0.0840325, -0.0836705, 0.107109, -0.0288718, -0.024249, 0.148751, 0.0840325, -0.0466226, 0.161688, 0.0466061, -0.00718915, 0.199349, 0.0071727, -0.0836705, 0.107109, 0.0288553, 0.0071727, 0.199349, -0.00718915, 0.0242325, 0.148751, -0.0840325, -0.0288718, 0.107109, -0.0836705, -0.0708057, 0.0451345, -0.0288718, 0.0242325, 0.148751, 0.0840325, -0.0288718, 0.107109, 0.0836541, 0.0071727, 0.199349, 0.0071727, -0.0708057, 0.0451345, 0.0288553, 0.0466061, 0.161688, -0.0466226, 0.0840325, 0.148751, -0.024249, 0.0288553, 0.107109, -0.0836705, -0.0288718, 0.0451345, -0.0708057, -0.0531372, 0, -0.024249, 0.0840325, 0.148751, 0.0242325, 0.0466061, 0.161688, 0.0466061, 0.0288553, 0.107109, 0.0836541, -0.0288718, 0.0451345, 0.0707893, -0.0531372, 0, 0.0242325, 0.0836541, 0.107109, -0.0288718, 0.0288553, 0.0451345, -0.0708057, -0.024249, 0, -0.0531372, 0.0836541, 0.107109, 0.0288553, 0.0288553, 0.0451345, 0.0707893, -0.024249, 0, 0.0531208, 0.0707893, 0.0451345, -0.0288718, 0.0242325, 0, -0.0531372, 0.0707893, 0.0451345, 0.0288553, 0.0242325, 0, 0.0531208, 0.0531208, 0, -0.024249, 0.0531208, 0, 0.0242325)
 
 [node name="Paprika" type="RigidBody3D" groups=["Food"]]
+mass = 0.0563078
+center_of_mass_mode = 1
 freeze_mode = 1
-script = ExtResource("1_4ocwr")
-food_resource = ExtResource("2_pnrn5")
+script = ExtResource("1_mtwb4")
+food_resource = ExtResource("2_qufah")
 
 [node name="paprika" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0996745, 0)
 mesh = SubResource("ArrayMesh_tmklc")
 skeleton = NodePath("")
 
 [node name="paprika_CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_ul1lg")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0996745, 0)
+shape = SubResource("ConvexPolygonShape3D_ifs15")
