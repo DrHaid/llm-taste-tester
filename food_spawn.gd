@@ -2,7 +2,7 @@ extends Node3D
 
 @export_dir var foods_path: String = ""
 @export var spawn_radius: float = 0.2
-@export var food_scale: float = 0.6
+@export var food_scale: float = 0.4
 
 func _ready() -> void:
 	var food_scenes := Utils.get_files_in_dir(foods_path)
@@ -16,4 +16,4 @@ func _ready() -> void:
 		instance.transform.origin = spawn_position
 		instance.scale = Vector3.ONE * food_scale
 
-		get_tree().get_root().add_child.call_deferred(instance)
+		get_tree().current_scene.add_child.call_deferred(instance)
