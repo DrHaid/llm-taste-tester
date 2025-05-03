@@ -35,6 +35,13 @@ func _sign_request(method: String, originalURL: String, body: String, timestamp:
 
 	return signature
 
+func _get_url_path(url: String) -> String:
+	var url_path := "/"
+	var path_start := url.find("/api/")
+	if path_start != -1:
+		url_path = url.substr(path_start)
+	return url_path
+
 func request_tasting(food: Array[FoodItemData]) -> void:
 	var timestamp := str(Time.get_unix_time_from_system() as int)
 	var body: Dictionary = {
@@ -45,15 +52,16 @@ func request_tasting(food: Array[FoodItemData]) -> void:
 		}]
 	}
 	var body_json := JSON.stringify(body)
-	var url := ENV.get_var("API_URL")
+	var full_url := ENV.get_var("API_URL")
+	var url_path := _get_url_path(full_url)
 	
-	var sig := _sign_request("POST", url, body_json, timestamp)
+	var sig := _sign_request("POST", url_path, body_json, timestamp)
 	var headers := [
 		"Content-Type: application/json",
 		"x-timestamp: " + timestamp,
 		"x-signature: " + sig
 		]
-	http_request.request(url, headers, HTTPClient.METHOD_POST, body_json)
+	http_request.request(full_url, headers, HTTPClient.METHOD_POST, body_json)
 	http_request.request_completed.connect(_on_tasting_request_completed)
 
 func _on_tasting_request_completed(_result: int, _response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
@@ -62,7 +70,7 @@ func _on_tasting_request_completed(_result: int, _response_code: int, _headers: 
 		tasting_screen.set_tasting(false)
 		screen_text.print_text("Oopsies... Error :(")
 
-	var response_body: Dictionary = json["response"]["body"] 
+	var response_body: Variant = json["response"]["body"]
 	var llm_response: String = response_body["candidates"][0]["content"]["parts"][0]["text"]
 	tasting_screen.set_tasting(false)
 	screen_text.print_text(llm_response)
