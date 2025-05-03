@@ -10,7 +10,6 @@ func _ready() -> void:
 	var val2 := _value1("what".repeat(current_time.get("weekday")))
 	var col := img.get_pixel(val1 % img.get_width(), val2 % img.get_height())
 	cached_value = col.to_html().sha256_text()
-	print(cached_value)
 
 func _value1(start: String) -> int:
 	var v := start.sha256_text().erase(9, 34)
