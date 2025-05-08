@@ -21,6 +21,9 @@ jobs:
       run: echo "version=$(grep "config/features" "./project.godot" | sed -E 's/.*PackedStringArray\("([^"]+)".*/\1/')" >> $GITHUB_OUTPUT
 
   call-deploy:
+    permissions:
+      contents: write
+
     needs: read-version
     uses: ./.github/workflows/deploy-godot.yml
     with:
