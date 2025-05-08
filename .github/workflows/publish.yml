@@ -1,0 +1,27 @@
+name: "Publish Godot to GitHub Pages"
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - main
+
+jobs:
+  read-version:
+    runs-on: ubuntu-latest
+    outputs:
+      godot_version: ${{ steps.get-version.outputs.version }}
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Read Godot version from file
+      id: get-version
+      run: echo "version=$(grep "config/features" "./project.godot" | sed -E 's/.*PackedStringArray\("([^"]+)".*/\1/')" >> $GITHUB_OUTPUT
+
+  call-deploy:
+    needs: read-version
+    uses: ./.github/workflows/deploy-godot.yml
+    with:
+      godot_version: ${{ needs.read-version.outputs.godot_version }}
