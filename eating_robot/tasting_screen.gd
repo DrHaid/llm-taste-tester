@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var face_frames: PackedStringArray = ["<(°-°)>", "<(°~°)>", "<(°O°)>"] 
+@export var face_frames: PackedStringArray = ["<(^-^)>", "<(^~^)>", "<(^O^)>"] 
 @export var tasting_frames: PackedStringArray = ["tasting food", "tasting food.", "tasting food..", "tasting food..."] 
 @export var text_speed: float = 5
 
