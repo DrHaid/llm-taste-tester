@@ -1,4 +1,4 @@
 # llm-taste-tester
-Feed AI home-cooked meals  
+Cook some stew, then feed it to the AI...
 
-Doesn't really do anything yet...
+## 🍲 https://drhaid.github.io/llm-taste-tester/
