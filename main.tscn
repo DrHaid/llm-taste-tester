@@ -1,17 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://b6mbmer46xsrl"]
+[gd_scene load_steps=16 format=3 uid="uid://b6mbmer46xsrl"]
 
 [ext_resource type="Script" path="res://camera_controller.gd" id="1_m2hkn"]
 [ext_resource type="Script" path="res://mouse_input_handler.gd" id="1_updxt"]
 [ext_resource type="Script" path="res://cooking_controller.gd" id="2_47a2x"]
 [ext_resource type="PackedScene" uid="uid://bl2jv1csyq2mg" path="res://pots_n_pans/pot.tscn" id="2_v28j4"]
 [ext_resource type="PackedScene" uid="uid://datqj8xbewutu" path="res://pots_n_pans/tasting_spoon.tscn" id="5_hrrd4"]
-[ext_resource type="PackedScene" uid="uid://bik1d3u77xfis" path="res://foods/scenes/onion.tscn" id="5_v57fo"]
-[ext_resource type="PackedScene" uid="uid://bi77f3n2k5j5i" path="res://foods/scenes/fish.tscn" id="6_mxl07"]
-[ext_resource type="PackedScene" uid="uid://btsqb12vldi5k" path="res://foods/scenes/sausage.tscn" id="7_hm2ih"]
 [ext_resource type="Script" path="res://food_spawn.gd" id="8_jq2de"]
-[ext_resource type="PackedScene" uid="uid://cj7bov3anpxwv" path="res://foods/scenes/pear.tscn" id="8_o26q1"]
-[ext_resource type="PackedScene" uid="uid://c5ed0b8tok12r" path="res://foods/scenes/tomato.tscn" id="9_28htx"]
-[ext_resource type="PackedScene" uid="uid://cvsm8s2i8tctu" path="res://foods/scenes/lemon.tscn" id="10_40gvt"]
 [ext_resource type="PackedScene" uid="uid://xl34pi4pvsuj" path="res://pots_n_pans/stove.tscn" id="10_ndaen"]
 [ext_resource type="PackedScene" uid="uid://cf5qjssu2jva2" path="res://eating_robot/eating_robot.tscn" id="11_8jsdd"]
 [ext_resource type="Script" path="res://pots_n_pans/food_kill_zone.gd" id="16_hwmsb"]
@@ -30,6 +24,7 @@ ambient_light_color = Color(0.154876, 0.154876, 0.154876, 1)
 albedo_color = Color(0.964813, 0.937469, 1, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_71prs"]
+height = 2.6201
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dxv86"]
 size = Vector3(49.879, 1, 45.8506)
@@ -159,30 +154,6 @@ gizmo_extents = 0.02
 [node name="SpawnMarker3D11" type="Marker3D" parent="FoodSpawn"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.327216, 1, -1.55321)
 gizmo_extents = 0.02
-
-[node name="Fish" parent="." instance=ExtResource("6_mxl07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.363, 0.191, -0.945)
-visible = false
-
-[node name="Lemon" parent="." instance=ExtResource("10_40gvt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.294671, 0.174983, -0.982542)
-visible = false
-
-[node name="Onion" parent="." instance=ExtResource("5_v57fo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.906412, 0.174983, -1.40426)
-visible = false
-
-[node name="Pear" parent="." instance=ExtResource("8_o26q1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.874, 0.175, -0.475)
-visible = false
-
-[node name="Sausage" parent="." instance=ExtResource("7_hm2ih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.516728, 0.174983, -0.945175)
-visible = false
-
-[node name="Tomato" parent="." instance=ExtResource("9_28htx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0683234, 0.174983, -1.46831)
-visible = false
 
 [node name="FoodKillZone" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.93893, 0)
