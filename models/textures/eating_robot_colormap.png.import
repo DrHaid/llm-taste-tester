@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlg8s8ihh6a7u"
-path.bptc="res://.godot/imported/eating_robot_colormap.png-c95c48f1c17520855b27cd66ee656f04.bptc.ctex"
+path="res://.godot/imported/eating_robot_colormap.png-c95c48f1c17520855b27cd66ee656f04.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "3cde2059ac34930ea3b24e96363ac88f"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://models/textures/eating_robot_colormap.png"
-dest_files=["res://.godot/imported/eating_robot_colormap.png-c95c48f1c17520855b27cd66ee656f04.bptc.ctex"]
+dest_files=["res://.godot/imported/eating_robot_colormap.png-c95c48f1c17520855b27cd66ee656f04.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
