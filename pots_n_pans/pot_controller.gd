@@ -3,35 +3,24 @@ extends Node3D
 signal cook_food(foods: Array[FoodItemData])
 signal cooking_finished(successful: bool)
 
-@onready var pot_collider: StaticBody3D = $PotCollider
-@onready var pot_collider_no_bottom: StaticBody3D = $PotColliderNoBottom
-@onready var pot_collider_bottom: RigidBody3D = $PotColliderBottom
-@onready var pot_collider_bottom_target: Marker3D = $PotColliderBottomTarget
 @onready var stew_model: Node3D = $StewModel
-@onready var stew_target: Marker3D = $StewTarget
+@onready var stew_full_target: Marker3D = $StewFullTarget
 @onready var food_detector: Area3D = $FoodDetector
 
 @export var cooking_speed: float = 2
 
-var col_bottom_start: Vector3 = Vector3.ZERO
 var stew_start: Vector3 = Vector3.ZERO
 
 func _ready() -> void:
-	col_bottom_start = pot_collider_bottom.global_position
 	stew_start = stew_model.global_position
 
-func _set_collider_cooking(cooking: bool) -> void:
-	stew_model.visible = cooking
-	pot_collider.get_child(0).disabled = cooking
-	pot_collider_no_bottom.get_child(0).disabled = not cooking
-	pot_collider_bottom.get_child(0).disabled = not cooking
-
-func raise_stew_level() -> void:
+func raise_stew_level(food_count: int) -> void:
+	var level: float = clamp(food_count, 1, 5) / 5
+	var stew_rising_dir := (stew_full_target.global_position - stew_start).normalized()
+	var stew_target_pos := stew_start + (stew_rising_dir * level)
 	var stew_tween := create_tween()
-	stew_tween.tween_property(stew_model, "global_position", stew_target.global_position, cooking_speed)
+	stew_tween.tween_property(stew_model, "global_position", stew_target_pos, cooking_speed)
 	stew_tween.finished.connect(_finish_cooking)
-	var pot_bottom_tween := create_tween()
-	pot_bottom_tween.tween_property(pot_collider_bottom, "global_position", pot_collider_bottom_target.global_position, cooking_speed)
 
 func set_stove_cooking() -> bool:
 	var foods := _get_foods_for_cooking()
@@ -40,17 +29,16 @@ func set_stove_cooking() -> bool:
 		return false
 
 	for food: RigidBody3D in foods:
-		food.set_cooking(true)
+		food.set_cooking(true, cooking_speed)
 	var food_res: Array[FoodItemData]
 	food_res.assign(foods.map(func(f: Node3D) -> FoodItemData: return f.food_resource))
 	cook_food.emit(food_res)
 	
-	_set_collider_cooking(true)
-	raise_stew_level()
+	stew_model.visible = true
+	raise_stew_level(foods.size())
 	return true
 
 func _finish_cooking() -> void:
-	pot_collider_bottom.get_child(0).disabled = true
 	cooking_finished.emit(true)
 
 func _get_foods_for_cooking() -> Array:
@@ -60,5 +48,4 @@ func _get_foods_for_cooking() -> Array:
 
 func reset() -> void:
 	stew_model.global_position = stew_start
-	pot_collider_bottom.global_position = col_bottom_start
-	_set_collider_cooking(false)
+	stew_model.visible = false
