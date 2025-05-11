@@ -15,8 +15,8 @@ func _ready() -> void:
 	stew_start = stew_model.global_position
 
 func raise_stew_level(food_count: int) -> void:
-	var level: float = clamp(food_count, 1, 5) / 5
-	var stew_rising_dir := (stew_full_target.global_position - stew_start).normalized()
+	var level: float = clamp(food_count, 2.0, 5.0) / 5.0
+	var stew_rising_dir := stew_full_target.global_position - stew_start
 	var stew_target_pos := stew_start + (stew_rising_dir * level)
 	var stew_tween := create_tween()
 	stew_tween.tween_property(stew_model, "global_position", stew_target_pos, cooking_speed)

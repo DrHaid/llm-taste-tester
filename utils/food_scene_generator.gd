@@ -28,25 +28,24 @@ func generate_food(food: FoodItemData) -> void:
 	# add model and collision
 	var imported_fbx := load(food.model)
 	var fbx_instance: Node = imported_fbx.instantiate()
-	var meshes := get_and_flatten_meshes(fbx_instance)
-	for mesh in meshes:
-		_reparent(mesh, food_rigidbody)
-		# create static body collision shape
-		mesh.create_convex_collision()
-		var local_position: Vector3 = mesh.position
-		var static_child := mesh.get_child(0)
-		var collision_shape := static_child.get_child(0)
-		collision_shape.set_name("%s_%s" % [mesh.name, "CollisionShape3D"])
-		# make collision shape child of rigidbody
-		_reparent(collision_shape, food_rigidbody)
-		collision_shape.set_position(local_position)
-		# exclude static body from being saved
-		static_child.owner = null
+	var mesh := get_main_mesh(fbx_instance)
+
+	_reparent(mesh, food_rigidbody)
+	# create static body collision shape
+	mesh.create_convex_collision()
+	var local_position: Vector3 = mesh.position
+	var static_child := mesh.get_child(0)
+	var collision_shape := static_child.get_child(0)
+	collision_shape.set_name("%s_%s" % [mesh.name, "CollisionShape3D"])
+	# make collision shape child of rigidbody
+	_reparent(collision_shape, food_rigidbody)
+	collision_shape.set_position(local_position)
+	# exclude static body from being saved
+	static_child.owner = null
 
 	# determine and set center of mass and mass
 	var food_aabb: AABB = AABB(Vector3.ZERO, Vector3.ZERO)
-	for mesh in meshes:
-		food_aabb = food_aabb.merge(mesh.get_aabb())
+	food_aabb = food_aabb.merge(mesh.get_aabb())
 
 	# offset children so the object origin in at center of mass
 	for child in food_rigidbody.get_children():
@@ -60,11 +59,14 @@ func generate_food(food: FoodItemData) -> void:
 	# get_tree().quit()
 
 
-func get_and_flatten_meshes(parent: Node) -> Array[Node]:
+func get_main_mesh(parent: Node) -> Node:
 	var meshes := parent.find_children("*", "MeshInstance3D", true)
-	for mesh in meshes:
-		_reparent(mesh, parent)
-	return meshes
+	if meshes.size() > 1:
+		printerr("'%s'FBX has more than one object, this is not supported".format(parent.name))
+	
+	var mesh := meshes[0]
+	_reparent(mesh, parent)
+	return mesh
 
 func save_node(node: Node3D, scene_name: String) -> void:
 	var scene := PackedScene.new()

@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4]
 
-[ext_resource type="Script" path="res://foods/food.gd" id="1_0lyw8"]
-[ext_resource type="Resource" path="res://foods/resources/generated/celery_stick.tres" id="2_6ktjb"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_k7bp3"]
+[ext_resource type="Script" path="res://foods/food.gd" id="1_sa2dt"]
+[ext_resource type="Resource" path="res://foods/resources/generated/celery_stick.tres" id="2_wnmw7"]
+[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_ik4mh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xwawy"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_k7bp3")
+albedo_texture = ExtResource("3_ik4mh")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_e4oef"]
@@ -45,15 +45,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_e4oef")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_27gpo"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jbg0g"]
 points = PackedVector3Array(0.0148193, 0.54, 0.0441, -0.00450338, 0.54, 0.0361572, 0.0148193, 0, 0.0441, 0.0229803, 0.54, 0.0242257, -0.0180945, 0.54, 0.020306, -0.00450338, 0, 0.0361572, 0.0229803, 0, 0.0242257, 0.0229803, 0.54, -0.0242343, -0.0229803, 0.54, 0, -0.0180945, 0, 0.020306, 0.0229803, 0, -0.0242343, 0.0148193, 0.54, -0.0441, -0.0180945, 0.54, -0.0203147, -0.0229803, 0, 0, 0.0148193, 0, -0.0441, -0.00450338, 0.54, -0.0361658, -0.0180945, 0, -0.0203147, -0.00450338, 0, -0.0361658)
 
 [node name="Celery" type="RigidBody3D" groups=["Food"]]
 mass = 0.0218901
 center_of_mass_mode = 1
 freeze_mode = 1
-script = ExtResource("1_0lyw8")
-food_resource = ExtResource("2_6ktjb")
+script = ExtResource("1_sa2dt")
+food_resource = ExtResource("2_wnmw7")
 
 [node name="celery-stick" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27, 0)
@@ -62,4 +62,4 @@ skeleton = NodePath("")
 
 [node name="celery-stick_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27, 0)
-shape = SubResource("ConvexPolygonShape3D_27gpo")
+shape = SubResource("ConvexPolygonShape3D_jbg0g")
