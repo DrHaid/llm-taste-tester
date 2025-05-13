@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4]
 
-[ext_resource type="Script" path="res://foods/food.gd" id="1_65srk"]
-[ext_resource type="Resource" path="res://foods/resources/generated/beet.tres" id="2_xrc64"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_2j3lr"]
+[ext_resource type="Script" path="res://foods/food.gd" id="1_4beq7"]
+[ext_resource type="Resource" path="res://foods/resources/generated/beet.tres" id="2_1igxc"]
+[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_ndqrj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4tb6"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_2j3lr")
+albedo_texture = ExtResource("3_ndqrj")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_omo4k"]
@@ -45,15 +45,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_omo4k")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xq8mu"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2guuf"]
 points = PackedVector3Array(-0.0489911, 0.185321, -0.00971574, -0.0489911, 0.185321, 0.00970615, -0.0368009, 0.265345, -0.00971574, -0.00971574, 0.202229, -0.0489911, -0.0420855, 0.0619727, -0.0243037, -0.00971574, 0.202229, 0.0489911, -0.0368009, 0.265345, 0.00970615, -0.0420855, 0.0619727, 0.0242941, 0.0367913, 0.265345, -0.00971574, -0.00971574, 0.240956, -0.0368009, 0.00970615, 0.202229, -0.0489911, 0, 0.0619727, -0.0485979, -0.0341346, 0.0393758, -0.0197096, 0.00970615, 0.202229, 0.0489911, -0.00971574, 0.240956, 0.0367913, 0, 0.0619727, 0.0485883, 0.0367913, 0.265345, 0.00970615, -0.0341346, 0.0393758, 0.0197, 0.00970615, 0.240956, -0.0368009, 0.0489911, 0.185321, -0.00971574, 0.042076, 0.0619727, -0.0243037, 0.034125, 0.0393758, -0.0197096, 0, 0.0393758, -0.0394096, 0, 0, -0.0121327, -0.0105022, 0, -0.00607114, 0.0489911, 0.185321, 0.00970615, 0.00970615, 0.240956, 0.0367913, 0.042076, 0.0619727, 0.0242941, 0, 0.0393758, 0.0394, 0.034125, 0.0393758, 0.0197, -0.0105022, 0, 0.00606155, 0, 0, 0.0121231, 0.0104926, 0, -0.00607114, 0.0104926, 0, 0.00606155)
 
 [node name="Beet" type="RigidBody3D" groups=["Food"]]
 mass = 0.0254745
 center_of_mass_mode = 1
+can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_65srk")
-food_resource = ExtResource("2_xrc64")
+script = ExtResource("1_4beq7")
+food_resource = ExtResource("2_1igxc")
 
 [node name="beet" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.132673, 0)
@@ -62,4 +63,4 @@ skeleton = NodePath("")
 
 [node name="beet_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.132673, 0)
-shape = SubResource("ConvexPolygonShape3D_xq8mu")
+shape = SubResource("ConvexPolygonShape3D_2guuf")

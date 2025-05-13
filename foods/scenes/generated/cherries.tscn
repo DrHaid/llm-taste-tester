@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4]
 
-[ext_resource type="Script" path="res://foods/food.gd" id="1_aci47"]
-[ext_resource type="Resource" path="res://foods/resources/generated/cherries.tres" id="2_c8s3a"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_1dwog"]
+[ext_resource type="Script" path="res://foods/food.gd" id="1_6jbcu"]
+[ext_resource type="Resource" path="res://foods/resources/generated/cherries.tres" id="2_7woqv"]
+[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_lwwf0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4bry"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_1dwog")
+albedo_texture = ExtResource("3_lwwf0")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ox8lx"]
@@ -45,15 +45,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ox8lx")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ktc0j"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_t25el"]
 points = PackedVector3Array(-0.022, 0.0302283, 0.0809524, -0.044, 0.0302283, 0.0428376, -0.0286069, 0, 0.0428376, -0.0143078, 0, 0.0676082, 0.0142991, 0, 0.0676082, 0.022, 0.0302283, 0.0809365, 0.0142991, 0.0604734, 0.0676082, -0.0143078, 0.0604734, 0.0676082, -0.00458261, 0.170709, 0.0113948, -0.0252044, 0.166064, -0.0149448, -0.044, 0.0302283, -0.0383367, -0.0356445, 0.154868, -0.0343429, -0.0286069, 0, -0.0383367, 0.0285983, 0, 0.0428376, 0.044, 0.0302283, 0.0428376, 0.0251958, 0.166064, -0.0149448, 0.004574, 0.170709, 0.0113948, -0.00458261, 0.170709, -0.0069098, -0.022, 0.0302283, -0.0764515, 0.0356359, 0.154868, -0.0343429, 0, 0.108899, -0.0809524, -0.0143078, 0, -0.0631073, 0.0285983, 0, -0.0383367, 0.044, 0.0302283, -0.0383367, 0.004574, 0.170709, -0.0069098, 0.022, 0.0302283, -0.0764515, 0.0142991, 0, -0.0631073)
 
 [node name="Cherries" type="RigidBody3D" groups=["Food"]]
 mass = 0.024322
 center_of_mass_mode = 1
+can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_aci47")
-food_resource = ExtResource("2_c8s3a")
+script = ExtResource("1_6jbcu")
+food_resource = ExtResource("2_7woqv")
 
 [node name="cherries" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0853545, 0)
@@ -62,4 +63,4 @@ skeleton = NodePath("")
 
 [node name="cherries_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0853545, 0)
-shape = SubResource("ConvexPolygonShape3D_ktc0j")
+shape = SubResource("ConvexPolygonShape3D_t25el")

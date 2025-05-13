@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4]
 
-[ext_resource type="Script" path="res://foods/food.gd" id="1_8sg5a"]
-[ext_resource type="Resource" path="res://foods/resources/generated/radish.tres" id="2_nric4"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_mnoll"]
+[ext_resource type="Script" path="res://foods/food.gd" id="1_vwge0"]
+[ext_resource type="Resource" path="res://foods/resources/generated/radish.tres" id="2_s4ro7"]
+[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_thhri"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lggg1"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_mnoll")
+albedo_texture = ExtResource("3_thhri")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_7p6o0"]
@@ -45,15 +45,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7p6o0")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0numd"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_igify"]
 points = PackedVector3Array(-0.171571, 0.372939, -0.0110843, -0.171571, 0.372939, 0.0110507, -0.120651, 0.447685, -0.0110843, -0.0110843, 0.517128, -0.120651, -0.0110843, 0.372939, -0.171571, -0.0115545, 0, -0.00668414, -0.0110843, 0.372939, 0.171537, -0.0110843, 0.517128, 0.120617, -0.120651, 0.447685, 0.0110507, -0.0115545, 0, 0.00665057, 0.120617, 0.576304, -0.0110843, 0.0110507, 0.517128, -0.120651, 0.0110507, 0.372939, -0.171571, -3.35872e-05, 0, -0.0133347, 0.0110507, 0.372939, 0.171537, -3.35872e-05, 0, 0.0133011, 0.0110507, 0.517128, 0.120617, 0.120617, 0.576304, 0.0110507, 0.171537, 0.372939, -0.0110843, 0.0115209, 0, -0.00668414, 0.171537, 0.372939, 0.0110507, 0.0115209, 0, 0.00665057)
 
 [node name="Radish" type="RigidBody3D" groups=["Food"]]
 mass = 0.678577
 center_of_mass_mode = 1
+can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_8sg5a")
-food_resource = ExtResource("2_nric4")
+script = ExtResource("1_vwge0")
+food_resource = ExtResource("2_s4ro7")
 
 [node name="radish" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.288152, 0)
@@ -62,4 +63,4 @@ skeleton = NodePath("")
 
 [node name="radish_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.288152, 0)
-shape = SubResource("ConvexPolygonShape3D_0numd")
+shape = SubResource("ConvexPolygonShape3D_igify")

@@ -23,6 +23,7 @@ func generate_food(food: FoodItemData) -> void:
 	food_rigidbody.set_center_of_mass_mode(RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM)
 	food_rigidbody.add_to_group(&"Food", true)
 	food_rigidbody.set_script(Food)
+	food_rigidbody.can_sleep = false
 	food_rigidbody.food_resource = food
 
 	# add model and collision
