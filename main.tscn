@@ -1,9 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6mbmer46xsrl"]
+[gd_scene load_steps=20 format=3 uid="uid://b6mbmer46xsrl"]
 
+[ext_resource type="Script" path="res://ui/ui.gd" id="1_34ysx"]
 [ext_resource type="Script" path="res://camera_controller.gd" id="1_m2hkn"]
+[ext_resource type="StyleBox" uid="uid://cf5fvya78qog8" path="res://ui/ui_elment_background.tres" id="1_pk2e0"]
 [ext_resource type="Script" path="res://mouse_input_handler.gd" id="1_updxt"]
+[ext_resource type="Texture2D" uid="uid://dqj5fa7kanbyc" path="res://ui/mouse_left.svg" id="2_6g2b4"]
 [ext_resource type="Script" path="res://cooking_controller.gd" id="2_47a2x"]
 [ext_resource type="PackedScene" uid="uid://bl2jv1csyq2mg" path="res://pots_n_pans/pot.tscn" id="2_v28j4"]
+[ext_resource type="Texture2D" uid="uid://cm2lx652xxsua" path="res://ui/mouse_scroll.svg" id="3_eu2w8"]
 [ext_resource type="PackedScene" uid="uid://datqj8xbewutu" path="res://pots_n_pans/tasting_spoon.tscn" id="5_hrrd4"]
 [ext_resource type="Script" path="res://food_spawn.gd" id="8_jq2de"]
 [ext_resource type="PackedScene" uid="uid://xl34pi4pvsuj" path="res://pots_n_pans/stove.tscn" id="10_ndaen"]
@@ -30,6 +34,81 @@ height = 2.6201
 size = Vector3(49.879, 1, 45.8506)
 
 [node name="Main" type="Node3D"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_34ysx")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="FoodLabel" type="Label" parent="UI/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("1_pk2e0")
+text = "Food"
+
+[node name="HelpTextContainer" type="PanelContainer" parent="UI/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_styles/panel = ExtResource("1_pk2e0")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/HelpTextContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/HelpTextContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="HBoxContainerSpeed" type="HBoxContainer" parent="UI/MarginContainer/HelpTextContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MouseLeft" type="TextureRect" parent="UI/MarginContainer/HelpTextContainer/MarginContainer/VBoxContainer/HBoxContainerSpeed"]
+layout_mode = 2
+texture = ExtResource("2_6g2b4")
+
+[node name="SpeedUpHint" type="Label" parent="UI/MarginContainer/HelpTextContainer/MarginContainer/VBoxContainer/HBoxContainerSpeed"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Speed up"
+
+[node name="HBoxContainerScroll" type="HBoxContainer" parent="UI/MarginContainer/HelpTextContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MouseWheel" type="TextureRect" parent="UI/MarginContainer/HelpTextContainer/MarginContainer/VBoxContainer/HBoxContainerScroll"]
+layout_mode = 2
+texture = ExtResource("3_eu2w8")
+
+[node name="ScrollHint" type="Label" parent="UI/MarginContainer/HelpTextContainer/MarginContainer/VBoxContainer/HBoxContainerScroll"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Scroll text"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_d8w4m")

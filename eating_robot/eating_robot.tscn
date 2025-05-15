@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://cf5qjssu2jva2"]
+[gd_scene load_steps=20 format=4 uid="uid://cf5qjssu2jva2"]
 
 [ext_resource type="Script" path="res://eating_robot/eating_robot.gd" id="1_8qoms"]
 [ext_resource type="Texture2D" uid="uid://dlg8s8ihh6a7u" path="res://models/textures/eating_robot_colormap.png" id="1_oojgv"]
@@ -210,6 +210,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_04kh4")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_hdsdt"]
+size = Vector3(1.63208, 1.18921, 0.921021)
+
 [node name="EatingRobot" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49784, 0, -0.458968)
 script = ExtResource("1_8qoms")
@@ -284,3 +287,9 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 0.718668, -0.695354, 0, 0.695354, 0.718668, 0.416189, 0.433003, 0.14934)
 mesh = SubResource("ArrayMesh_r5dlp")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.282349, -0.0111084, -0.109802)
+shape = SubResource("BoxShape3D_hdsdt")
