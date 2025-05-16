@@ -1,7 +1,7 @@
 extends Label3D
 
 @export var print_speed: float = 20
-@export var print_speed_fast: float = 35
+@export var print_speed_fast: float = 40
 @export var max_lines: int = 5
 @export var max_chars_per_line: int = 30
 
@@ -27,12 +27,12 @@ func _process(delta: float) -> void:
 		is_printing = false
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.is_pressed():
+	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			current_print_speed = print_speed_fast if event.pressed else print_speed
 		
 		# Handle mouse wheel scrolling when printing is finished
-		elif not is_printing and total_lines > max_lines:
+		elif not is_printing and total_lines > max_lines and event.is_pressed():
 			if event.button_index == MOUSE_BUTTON_WHEEL_UP and print_start_index > 0:
 				# Scroll up
 				var prev_line := _get_previous_line() + 1
