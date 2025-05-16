@@ -1,5 +1,6 @@
 extends Node
 
+@onready var ui: Control = %UI
 @onready var camera_rig: Node3D = %CameraRig
 @onready var stove: Node3D = %Stove
 @onready var pot: Node3D = %Pot
@@ -38,3 +39,4 @@ func _on_tasting_spoon_spoon_fed() -> void:
 
 func _on_camera_rig_pan_complete() -> void:
 	eating_robot.start_tasting(current_foods)
+	ui.show_help(true)

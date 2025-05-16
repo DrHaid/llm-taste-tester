@@ -1,10 +1,11 @@
 extends Control
 
-@onready var help_text_container: PanelContainer = %HelpTextContainer
-@onready var food_label: Label = %FoodLabel
+@onready var help_text_container: PanelContainer = $MarginContainer/HelpTextContainer
+@onready var food_label: Label = $MarginContainer/FoodLabel
 
 func _ready() -> void:
-	pass # Replace with function body.
+	var mouse_input_handler := %FoodDragHandler
+	mouse_input_handler.connect("food_hover", update_food_label)
 
 func show_help(show_container: bool) -> void:
 	help_text_container.visible = show_container

@@ -36,6 +36,7 @@ size = Vector3(49.879, 1, 45.8506)
 [node name="Main" type="Node3D"]
 
 [node name="UI" type="Control" parent="."]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -59,7 +60,7 @@ theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
 [node name="FoodLabel" type="Label" parent="UI/MarginContainer"]
-unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -68,7 +69,7 @@ theme_override_styles/normal = ExtResource("1_pk2e0")
 text = "Food"
 
 [node name="HelpTextContainer" type="PanelContainer" parent="UI/MarginContainer"]
-unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
