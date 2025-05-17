@@ -2,7 +2,7 @@ extends Label3D
 
 @export var print_speed: float = 20
 @export var print_speed_fast: float = 40
-@export var max_lines: int = 5
+@export var max_lines: int = 9
 @export var max_chars_per_line: int = 30
 
 const NEW_LINE: String = "\n"
