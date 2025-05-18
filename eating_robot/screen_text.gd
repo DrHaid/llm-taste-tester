@@ -78,6 +78,8 @@ func _get_next_line() -> int:
 
 func update_text_scroll_position() -> void:
 	var screen_text: String = text_to_print.substr(print_start_index)
+	var lines := screen_text.split(NEW_LINE).slice(0, max_lines)
+	screen_text = NEW_LINE.join(lines)
 	text = screen_text
 
 func update_screen_text(new_print_load: float) -> void:
