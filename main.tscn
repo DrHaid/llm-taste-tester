@@ -142,7 +142,7 @@ transform = Transform3D(1, 0, 0, 0, 0.475624, 0.879649, 0, -0.879649, 0.475624, 
 transform = Transform3D(1, 0, 0, 0, 0.475624, 0.879649, 0, -0.879649, 0.475624, 0, 1.747, 0.461)
 
 [node name="EndMarker" type="Marker3D" parent="CameraRig"]
-transform = Transform3D(0.850811, -0.0613072, 0.521883, 0, 0.993171, 0.116671, -0.525472, -0.0992648, 0.845001, -1.286, 0.369, -0.718)
+transform = Transform3D(0.712026, -0.0245048, 0.701725, 0, 0.999391, 0.0348995, -0.702153, -0.0248494, 0.711592, -1.057, 0.446, -0.528)
 
 [node name="FoodDragHandler" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -192,15 +192,15 @@ foods_path = "res://foods/scenes/generated"
 food_scale = 0.3
 
 [node name="SpawnMarker3D1" type="Marker3D" parent="FoodSpawn"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78569, 1, -0.606272)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.753071, 1, -0.461815)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D2" type="Marker3D" parent="FoodSpawn"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1199, 1, -0.229209)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10592, 1, -0.000873566)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D3" type="Marker3D" parent="FoodSpawn"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18846, 1, 0.194986)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63079, 1, -1.00261)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D4" type="Marker3D" parent="FoodSpawn"]
@@ -212,11 +212,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.332644, 1, -0.953342)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D6" type="Marker3D" parent="FoodSpawn"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.996789, 1, -0.696253)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.968829, 1, -0.822071)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D7" type="Marker3D" parent="FoodSpawn"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24102, 1, -0.224925)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33422, 1, -0.313463)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D8" type="Marker3D" parent="FoodSpawn"]
@@ -224,7 +224,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23674, 1, 0.21641)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D9" type="Marker3D" parent="FoodSpawn"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03535, 1, -1.27042)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17515, 1, -1.48944)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D10" type="Marker3D" parent="FoodSpawn"]
