@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b6mbmer46xsrl"]
+[gd_scene load_steps=21 format=3 uid="uid://b6mbmer46xsrl"]
 
 [ext_resource type="Script" path="res://ui/ui.gd" id="1_34ysx"]
 [ext_resource type="Script" path="res://camera_controller.gd" id="1_m2hkn"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bl2jv1csyq2mg" path="res://pots_n_pans/pot.tscn" id="2_v28j4"]
 [ext_resource type="Texture2D" uid="uid://cm2lx652xxsua" path="res://ui/mouse_scroll.svg" id="3_eu2w8"]
 [ext_resource type="PackedScene" uid="uid://datqj8xbewutu" path="res://pots_n_pans/tasting_spoon.tscn" id="5_hrrd4"]
+[ext_resource type="Texture2D" uid="uid://bo2524kt3kx7k" path="res://ui/rotate_ccw.svg" id="5_vi6iu"]
 [ext_resource type="Script" path="res://food_spawn.gd" id="8_jq2de"]
 [ext_resource type="PackedScene" uid="uid://xl34pi4pvsuj" path="res://pots_n_pans/stove.tscn" id="10_ndaen"]
 [ext_resource type="PackedScene" uid="uid://cf5qjssu2jva2" path="res://eating_robot/eating_robot.tscn" id="11_8jsdd"]
@@ -110,6 +111,16 @@ texture = ExtResource("3_eu2w8")
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "Scroll text"
+
+[node name="ResetButton" type="TextureButton" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_bottom = 64.0
+grow_horizontal = 0
+texture_normal = ExtResource("5_vi6iu")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_d8w4m")
