@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b6mbmer46xsrl"]
+[gd_scene load_steps=22 format=3 uid="uid://b6mbmer46xsrl"]
 
 [ext_resource type="Script" path="res://ui/ui.gd" id="1_34ysx"]
 [ext_resource type="Script" path="res://camera_controller.gd" id="1_m2hkn"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cm2lx652xxsua" path="res://ui/mouse_scroll.svg" id="3_eu2w8"]
 [ext_resource type="PackedScene" uid="uid://datqj8xbewutu" path="res://pots_n_pans/tasting_spoon.tscn" id="5_hrrd4"]
 [ext_resource type="Texture2D" uid="uid://bo2524kt3kx7k" path="res://ui/rotate_ccw.svg" id="5_vi6iu"]
+[ext_resource type="Script" path="res://pots_n_pans/view_collision_boundary.gd" id="6_xnjwu"]
 [ext_resource type="Script" path="res://food_spawn.gd" id="8_jq2de"]
 [ext_resource type="PackedScene" uid="uid://xl34pi4pvsuj" path="res://pots_n_pans/stove.tscn" id="10_ndaen"]
 [ext_resource type="PackedScene" uid="uid://cf5qjssu2jva2" path="res://eating_robot/eating_robot.tscn" id="11_8jsdd"]
@@ -128,6 +129,11 @@ camera_attributes = SubResource("CameraAttributesPractical_ubpce")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 0.56256, 0.826757, 0, -0.826757, 0.56256, 0, 20.3815, 0)
+
+[node name="ViewCollisionBoundary" type="Node3D" parent="."]
+script = ExtResource("6_xnjwu")
+floor_intersection_height = null
+boundary_height = null
 
 [node name="TableTop" type="Node3D" parent="."]
 transform = Transform3D(-8.22859, 0, 0, 0, 0.0537974, 0, 0, 0, -8.22859, 0, -0.0737869, -0.985973)
