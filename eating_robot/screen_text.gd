@@ -1,9 +1,10 @@
 extends Label3D
+class_name ScreenText
 
 @export var print_speed: float = 20
 @export var print_speed_fast: float = 40
-@export var max_lines: int = 9
-@export var max_chars_per_line: int = 30
+@export var max_lines: int = 11
+@export var max_chars_per_line: int = 22
 
 const NEW_LINE: String = "\n"
 const SPACE: String = " "

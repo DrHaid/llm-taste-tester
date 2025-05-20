@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var http_request: HTTPRequest = $HTTPRequest
 @onready var screen_text: Label3D = $ScreenText
-@onready var tasting_screen: Node3D = $TastingScreen
+@onready var emoting_face: EmotingFace = $EmotingFace
 
 var llm_requester: LLMRequester
 
@@ -11,7 +11,7 @@ func _ready() -> void:
 	llm_requester.connect("request_completed", _on_llm_request_completed)
 
 func start_tasting(food: Array[FoodItemData]) -> void:
-	tasting_screen.set_tasting(true)
+	emoting_face.set_face(Face.MOOD.CHEWING)
 	llm_requester.request_tasting(food)
 
 func _get_url_path(url: String) -> String:
@@ -23,8 +23,9 @@ func _get_url_path(url: String) -> String:
 
 func _on_llm_request_completed(response: String) -> void:
 	if not response:
-		tasting_screen.set_tasting(false)
+		emoting_face.set_face(Face.MOOD.NONE)
 		screen_text.print_text("Oopsies... Error :(")
+		return
 
-	tasting_screen.set_tasting(false)
+	emoting_face.set_face(Face.MOOD.NONE)
 	screen_text.print_text(response)
