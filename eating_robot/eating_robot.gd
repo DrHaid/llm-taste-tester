@@ -11,7 +11,7 @@ func _ready() -> void:
 	llm_requester.connect("request_completed", _on_llm_request_completed)
 
 func start_tasting(food: Array[FoodItemData]) -> void:
-	emoting_face.set_face(Face.MOOD.CHEWING)
+	emoting_face.set_face(Face.MOOD.CHEWING, true)
 	llm_requester.request_tasting(food)
 
 func _get_url_path(url: String) -> String:
@@ -23,9 +23,9 @@ func _get_url_path(url: String) -> String:
 
 func _on_llm_request_completed(response: String) -> void:
 	if not response:
-		emoting_face.set_face(Face.MOOD.NONE)
+		emoting_face.set_face(Face.MOOD.NONE, true)
 		screen_text.print_text("Oopsies... Error :(")
 		return
 
-	emoting_face.set_face(Face.MOOD.NONE)
+	emoting_face.set_face(Face.MOOD.NONE, true)
 	screen_text.print_text(response)

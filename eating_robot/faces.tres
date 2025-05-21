@@ -14,26 +14,26 @@ max_time = 0.0
 [sub_resource type="Resource" id="Resource_5jcce"]
 script = ExtResource("1_aw0vq")
 mood = 1
-eyes = 1
-mouth = 0
-min_time = 5.0
-max_time = 10.0
+eyes = 0
+mouth = 1
+min_time = 2.0
+max_time = 6.0
 
 [sub_resource type="Resource" id="Resource_f4bm3"]
 script = ExtResource("1_aw0vq")
 mood = 2
 eyes = 0
 mouth = 0
-min_time = 5.0
-max_time = 10.0
+min_time = 2.0
+max_time = 6.0
 
 [sub_resource type="Resource" id="Resource_idruh"]
 script = ExtResource("1_aw0vq")
 mood = 3
 eyes = 1
 mouth = 1
-min_time = 5.0
-max_time = 10.0
+min_time = 2.0
+max_time = 6.0
 
 [sub_resource type="Resource" id="Resource_hx3xe"]
 script = ExtResource("1_aw0vq")
