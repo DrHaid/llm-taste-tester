@@ -1,5 +1,6 @@
 extends Node
 
+@onready var ui: Control = %UI
 @onready var camera_rig: Node3D = %CameraRig
 @onready var stove: Node3D = %Stove
 @onready var pot: Node3D = %Pot
@@ -10,16 +11,11 @@ extends Node
 var current_foods: Array[FoodItemData] = []
 
 func _ready() -> void:
-	set_process_input(true)
 	stove.connect("dial_set_cooking", _on_stove_dial_set_cooking)
 	pot.connect("cook_food", _on_pot_cook_food)
 	pot.connect("cooking_finished", _on_pot_cooking_finished)
 	tasting_spoon.connect("spoon_fed", _on_tasting_spoon_spoon_fed)
 	camera_rig.connect("pan_complete", _on_camera_rig_pan_complete)
-
-func _input(_event: InputEvent) -> void:
-	if Input.is_key_pressed(KEY_ESCAPE):
-		get_tree().reload_current_scene()
 
 func _on_stove_dial_set_cooking() -> void:
 	if pot.set_stove_cooking():
@@ -38,3 +34,4 @@ func _on_tasting_spoon_spoon_fed() -> void:
 
 func _on_camera_rig_pan_complete() -> void:
 	eating_robot.start_tasting(current_foods)
+	ui.show_help(true)

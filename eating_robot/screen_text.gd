@@ -1,9 +1,10 @@
 extends Label3D
+class_name ScreenText
 
 @export var print_speed: float = 20
-@export var print_speed_fast: float = 35
-@export var max_lines: int = 5
-@export var max_chars_per_line: int = 30
+@export var print_speed_fast: float = 40
+@export var max_lines: int = 11
+@export var max_chars_per_line: int = 22
 
 const NEW_LINE: String = "\n"
 const SPACE: String = " "
@@ -14,6 +15,7 @@ var line_number: int = 0
 var print_load: float = 0
 var print_start_index: int = 0
 var is_printing: bool = false
+var total_lines: int = 0
 
 func _ready() -> void:
 	set_process_input(true)
@@ -29,6 +31,23 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			current_print_speed = print_speed_fast if event.pressed else print_speed
+		
+		# Handle mouse wheel scrolling when printing is finished
+		elif not is_printing and total_lines > max_lines and event.is_pressed():
+			if event.button_index == MOUSE_BUTTON_WHEEL_UP and print_start_index > 0:
+				# Scroll up
+				var prev_line := _get_previous_line() + 1
+				if prev_line >= 0:
+					print_start_index = prev_line
+					line_number -= 1
+					update_text_scroll_position()
+			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+				# Scroll down
+				var next_line := _get_next_line()
+				if next_line < text_to_print.length() and line_number < total_lines:
+					print_start_index = next_line
+					line_number += 1
+					update_text_scroll_position()
 
 func _do_printing(delta: float) -> bool:
 	var next_print_load: float = print_load - delta * current_print_speed
@@ -46,11 +65,30 @@ func _get_line_start_index(line: int) -> int:
 		i = text_to_print.find(NEW_LINE, i + 1)
 	return i + 1
 
+func _get_previous_line() -> int:
+	if print_start_index == 0:
+		return -1
+	
+	return text_to_print.rfind(NEW_LINE, print_start_index - 2)
+
+func _get_next_line() -> int:
+	var next_line_index := text_to_print.find(NEW_LINE, print_start_index)
+	if next_line_index == -1:
+		return -1
+	return next_line_index + 1
+
+func update_text_scroll_position() -> void:
+	var screen_text: String = text_to_print.substr(print_start_index)
+	var lines := screen_text.split(NEW_LINE).slice(0, max_lines)
+	screen_text = NEW_LINE.join(lines)
+	text = screen_text
+
 func update_screen_text(new_print_load: float) -> void:
 	var number_of_chars_to_print: = int(text_to_print.length() - new_print_load)
 	var next_char: String = text_to_print[number_of_chars_to_print - 1]
 	if next_char == NEW_LINE:
 		line_number += 1
+		total_lines = line_number
 		if line_number > max_lines:
 			print_start_index = _get_line_start_index(line_number - max_lines + 1)
 	var screen_text: String = text_to_print.substr(print_start_index, number_of_chars_to_print - print_start_index)
@@ -90,5 +128,6 @@ func print_text(screen_text: String) -> void:
 	text_to_print = _add_line_breaks(screen_text)
 	print_load = text_to_print.length()
 	line_number = 1
+	total_lines = 1
 	print_start_index = 0
 	is_printing = true

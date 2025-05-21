@@ -2,29 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlg8s8ihh6a7u"
-path="res://.godot/imported/eating_robot_colormap.png-c95c48f1c17520855b27cd66ee656f04.ctex"
+uid="uid://cm2lx652xxsua"
+path="res://.godot/imported/mouse_scroll.svg-58a053b335c44e8d81087929c6124776.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "3cde2059ac34930ea3b24e96363ac88f"
 }
 
 [deps]
 
-source_file="res://models/textures/eating_robot_colormap.png"
-dest_files=["res://.godot/imported/eating_robot_colormap.png-c95c48f1c17520855b27cd66ee656f04.ctex"]
+source_file="res://ui/mouse_scroll.svg"
+dest_files=["res://.godot/imported/mouse_scroll.svg-58a053b335c44e8d81087929c6124776.ctex"]
 
 [params]
 
 compress/mode=0
-compress/high_quality=true
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -34,4 +31,7 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

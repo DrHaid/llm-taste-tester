@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bhh222e6hur0g"
+uid="uid://bg0xhhekjnctk"
 path="res://.godot/imported/eating_robot.glb-94c2841ea42ee65c51afec2003d36b56.scn"
 
 [deps]
@@ -33,4 +33,4 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
 gltf/naming_version=1
-gltf/embedded_image_handling=1
+gltf/embedded_image_handling=3

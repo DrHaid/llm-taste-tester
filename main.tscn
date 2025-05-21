@@ -1,10 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6mbmer46xsrl"]
+[gd_scene load_steps=22 format=3 uid="uid://b6mbmer46xsrl"]
 
+[ext_resource type="Script" path="res://ui/ui.gd" id="1_34ysx"]
 [ext_resource type="Script" path="res://camera_controller.gd" id="1_m2hkn"]
+[ext_resource type="StyleBox" uid="uid://cf5fvya78qog8" path="res://ui/ui_elment_background.tres" id="1_pk2e0"]
 [ext_resource type="Script" path="res://mouse_input_handler.gd" id="1_updxt"]
+[ext_resource type="Texture2D" uid="uid://dqj5fa7kanbyc" path="res://ui/mouse_left.svg" id="2_6g2b4"]
 [ext_resource type="Script" path="res://cooking_controller.gd" id="2_47a2x"]
 [ext_resource type="PackedScene" uid="uid://bl2jv1csyq2mg" path="res://pots_n_pans/pot.tscn" id="2_v28j4"]
+[ext_resource type="Texture2D" uid="uid://cm2lx652xxsua" path="res://ui/mouse_scroll.svg" id="3_eu2w8"]
 [ext_resource type="PackedScene" uid="uid://datqj8xbewutu" path="res://pots_n_pans/tasting_spoon.tscn" id="5_hrrd4"]
+[ext_resource type="Texture2D" uid="uid://bo2524kt3kx7k" path="res://ui/rotate_ccw.svg" id="5_vi6iu"]
+[ext_resource type="Script" path="res://pots_n_pans/view_collision_boundary.gd" id="6_xnjwu"]
 [ext_resource type="Script" path="res://food_spawn.gd" id="8_jq2de"]
 [ext_resource type="PackedScene" uid="uid://xl34pi4pvsuj" path="res://pots_n_pans/stove.tscn" id="10_ndaen"]
 [ext_resource type="PackedScene" uid="uid://cf5qjssu2jva2" path="res://eating_robot/eating_robot.tscn" id="11_8jsdd"]
@@ -31,12 +37,103 @@ size = Vector3(49.879, 1, 45.8506)
 
 [node name="Main" type="Node3D"]
 
+[node name="UI" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_34ysx")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="FoodLabel" type="Label" parent="UI/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("1_pk2e0")
+text = "Food"
+
+[node name="HelpTextContainer" type="PanelContainer" parent="UI/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_styles/panel = ExtResource("1_pk2e0")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/HelpTextContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/HelpTextContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="HBoxContainerSpeed" type="HBoxContainer" parent="UI/MarginContainer/HelpTextContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MouseLeft" type="TextureRect" parent="UI/MarginContainer/HelpTextContainer/MarginContainer/VBoxContainer/HBoxContainerSpeed"]
+layout_mode = 2
+texture = ExtResource("2_6g2b4")
+
+[node name="SpeedUpHint" type="Label" parent="UI/MarginContainer/HelpTextContainer/MarginContainer/VBoxContainer/HBoxContainerSpeed"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Speed up"
+
+[node name="HBoxContainerScroll" type="HBoxContainer" parent="UI/MarginContainer/HelpTextContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MouseWheel" type="TextureRect" parent="UI/MarginContainer/HelpTextContainer/MarginContainer/VBoxContainer/HBoxContainerScroll"]
+layout_mode = 2
+texture = ExtResource("3_eu2w8")
+
+[node name="ScrollHint" type="Label" parent="UI/MarginContainer/HelpTextContainer/MarginContainer/VBoxContainer/HBoxContainerScroll"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Scroll text"
+
+[node name="ResetButton" type="TextureButton" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_bottom = 64.0
+grow_horizontal = 0
+texture_normal = ExtResource("5_vi6iu")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_d8w4m")
 camera_attributes = SubResource("CameraAttributesPractical_ubpce")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 0.56256, 0.826757, 0, -0.826757, 0.56256, 0, 20.3815, 0)
+
+[node name="ViewCollisionBoundary" type="Node3D" parent="."]
+script = ExtResource("6_xnjwu")
+floor_intersection_height = null
+boundary_height = null
 
 [node name="TableTop" type="Node3D" parent="."]
 transform = Transform3D(-8.22859, 0, 0, 0, 0.0537974, 0, 0, 0, -8.22859, 0, -0.0737869, -0.985973)
@@ -62,7 +159,7 @@ transform = Transform3D(1, 0, 0, 0, 0.475624, 0.879649, 0, -0.879649, 0.475624, 
 transform = Transform3D(1, 0, 0, 0, 0.475624, 0.879649, 0, -0.879649, 0.475624, 0, 1.747, 0.461)
 
 [node name="EndMarker" type="Marker3D" parent="CameraRig"]
-transform = Transform3D(0.850811, -0.0613072, 0.521883, 0, 0.993171, 0.116671, -0.525472, -0.0992648, 0.845001, -1.286, 0.369, -0.718)
+transform = Transform3D(0.712026, -0.0245048, 0.701725, 0, 0.999391, 0.0348995, -0.702153, -0.0248494, 0.711592, -1.057, 0.446, -0.528)
 
 [node name="FoodDragHandler" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -83,7 +180,7 @@ monitorable = false
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="FoodDragHandler/Boundary"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 depth = 3.0
-polygon = PackedVector2Array(-2.03352, -0.426582, -0.932139, -1.12141, -0.93953, -2.42237, -0.762126, -2.61456, 3.42164, -2.65152, 3.59166, -2.45933, 1.72892, 0.571314, 1.59586, 0.696975, -1.43478, 0.682191, -1.61219, 0.563922)
+polygon = PackedVector2Array(-1.76292, -0.189293, -0.950156, -1.00205, -0.93953, -2.42237, -0.762126, -2.61456, 3.42164, -2.65152, 3.59166, -2.45933, 1.72892, 0.571314, 1.59586, 0.696975, -1.43478, 0.682191, -1.61219, 0.563922)
 
 [node name="CookingController" type="Node" parent="."]
 unique_name_in_owner = true
@@ -91,7 +188,7 @@ script = ExtResource("2_47a2x")
 
 [node name="EatingRobot" parent="." instance=ExtResource("11_8jsdd")]
 unique_name_in_owner = true
-transform = Transform3D(0.466426, 0, 0.291456, 0, 0.55, 0, -0.291456, 0, 0.466426, -1.618, 0.333, -0.964)
+transform = Transform3D(0.213725, 0, 0.210527, 0, 0.3, 0, -0.210527, 0, 0.213725, -1.51593, 0.314378, -0.974156)
 
 [node name="TastingSpoon" parent="." instance=ExtResource("5_hrrd4")]
 unique_name_in_owner = true
@@ -112,15 +209,15 @@ foods_path = "res://foods/scenes/generated"
 food_scale = 0.3
 
 [node name="SpawnMarker3D1" type="Marker3D" parent="FoodSpawn"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78569, 1, -0.606272)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.753071, 1, -0.461815)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D2" type="Marker3D" parent="FoodSpawn"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1199, 1, -0.229209)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10592, 1, -0.000873566)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D3" type="Marker3D" parent="FoodSpawn"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18846, 1, 0.194986)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63079, 1, -1.00261)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D4" type="Marker3D" parent="FoodSpawn"]
@@ -132,11 +229,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.332644, 1, -0.953342)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D6" type="Marker3D" parent="FoodSpawn"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.996789, 1, -0.696253)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.968829, 1, -0.822071)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D7" type="Marker3D" parent="FoodSpawn"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24102, 1, -0.224925)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33422, 1, -0.313463)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D8" type="Marker3D" parent="FoodSpawn"]
@@ -144,7 +241,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23674, 1, 0.21641)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D9" type="Marker3D" parent="FoodSpawn"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03535, 1, -1.27042)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17515, 1, -1.48944)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D10" type="Marker3D" parent="FoodSpawn"]

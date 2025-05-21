@@ -2,6 +2,7 @@ extends Node3D
 
 signal start_drag(obj: Node3D, target: Marker3D)
 signal end_drag(obj: Node3D)
+signal food_hover(name: String)
 
 @onready var pot_rim_elevation: Marker3D = $PotRimElevation
 @onready var drag_food_target: Marker3D = $DragFoodTarget
@@ -42,17 +43,27 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouse_position = event.position
 
+		if not dragged_object:
+			var hovered_food := get_food_at_mouse_pos(mouse_position)
+			var hovered_food_name := String(hovered_food.name) if hovered_food else ""
+			food_hover.emit(hovered_food_name)
+
 func _process(delta: float) -> void:
 	if dragged_object:
 		_update_raw_drag_target()
 		keep_target_in_boundary()
 		_set_final_target_pos(delta)
 
-func _start_drag(event: InputEvent) -> void:
-	var result := cast_viewport_ray(event.position)
-	
+func get_food_at_mouse_pos(pos: Vector2) -> Node:
+	var result := cast_viewport_ray(pos)
 	if result and result.collider and result.collider.is_in_group(&"Food"):
-		dragged_object = result.collider
+		return result.collider
+	return null
+
+func _start_drag(event: InputEvent) -> void:
+	var food := get_food_at_mouse_pos(event.position)
+	if food:
+		dragged_object = food
 		raw_target_position = dragged_object.global_position
 		drag_food_target.global_position = raw_target_position
 		start_drag.emit(dragged_object, drag_food_target)
