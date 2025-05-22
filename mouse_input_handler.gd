@@ -1,4 +1,5 @@
 extends Node3D
+class_name MouseInputHandler
 
 signal start_drag(obj: Node3D, target: Marker3D)
 signal end_drag(obj: Node3D)

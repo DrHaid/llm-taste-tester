@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_1go1m")
-name = "Pepper"
+name = "Chili"
 model = "res://models/foods/pepper.fbx"

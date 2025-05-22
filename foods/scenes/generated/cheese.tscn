@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4]
 
-[ext_resource type="Script" path="res://foods/food.gd" id="1_8fojx"]
-[ext_resource type="Resource" path="res://foods/resources/generated/cheese_cut.tres" id="2_t61de"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_x10xf"]
+[ext_resource type="Script" path="res://foods/food.gd" id="1_bvbdo"]
+[ext_resource type="Resource" path="res://foods/resources/generated/cheese_cut.tres" id="2_ua6wc"]
+[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_o24dy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bexes"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_x10xf")
+albedo_texture = ExtResource("3_o24dy")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_4nn02"]
@@ -45,7 +45,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4nn02")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ec4lv"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tmcw0"]
 points = PackedVector3Array(-0.192, 0, -0.132, -0.192, 0, 0.132, -0.192, 0.02048, -0.132, 0.192, 0, -0.132, -0.192, 0.02048, 0.132, 0.192, 0, 0.132, 0.192, 0.02048, -0.132, 0.192, 0.02048, 0.132)
 
 [node name="Cheese" type="RigidBody3D" groups=["Food"]]
@@ -53,8 +53,8 @@ mass = 0.0207618
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_8fojx")
-food_resource = ExtResource("2_t61de")
+script = ExtResource("1_bvbdo")
+food_resource = ExtResource("2_ua6wc")
 
 [node name="cheese-cut" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01024, 0)
@@ -63,4 +63,4 @@ skeleton = NodePath("")
 
 [node name="cheese-cut_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01024, 0)
-shape = SubResource("ConvexPolygonShape3D_ec4lv")
+shape = SubResource("ConvexPolygonShape3D_tmcw0")

@@ -104,23 +104,25 @@ func _add_line_breaks(screen_text: String) -> String:
 			return line.substr(from, length).strip_edges()
 
 		while i < line.length():
-			var next_pos: int = clamp(i + max_chars_per_line, 0, line.length() - 1)
-			if next_pos == line.length() - 1:
+			var next_pos: int = clamp(i + max_chars_per_line, 0, line.length())
+			if next_pos >= line.length():
 				# last segment of line, just add rest and break
-				new_lines.append(get_line_segment.call(i, next_pos - i))
-				i = next_pos
+				new_lines.append(get_line_segment.call(i, line.length() - i))
 				break
 
-			var space_occurance: int = get_line_segment.call(0, next_pos - 1).rfind(SPACE, next_pos)
-			if space_occurance < i:
+			# find the last space in the current segment
+			var segment := line.substr(i, next_pos - i)
+			var space_occurance := segment.rfind(SPACE)
+			
+			if space_occurance == -1:
 				# no space found in current line segment, forcing break with hyphen
-				new_lines.append("{0}-".format(line.substr(i, (next_pos - 1) - i).strip_edges()))
-				i = next_pos - 1 # one less for the "-"
+				new_lines.append("{0}-".format(line.substr(i, max_chars_per_line - 1).strip_edges()))
+				i += max_chars_per_line - 1
 				continue
 
 			# add line segment until last space before line character limit
-			new_lines.append(get_line_segment.call(i, space_occurance - i))
-			i = space_occurance
+			new_lines.append(get_line_segment.call(i, space_occurance))
+			i += space_occurance + 1  # +1 to skip the space
 		
 	return NEW_LINE.join(new_lines)
 
