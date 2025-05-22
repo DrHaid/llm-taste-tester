@@ -646,8 +646,19 @@ uppercase = true
 width = 700.0
 script = ExtResource("3_uxohj")
 
-[node name="EmotingFace" type="Label3D" parent="."]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.0100445, 0.581281, 0.977039)
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0320514, 0.105438, -0.00410435)
+shape = SubResource("BoxShape3D_hdsdt")
+
+[node name="body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.226041, 0)
+mesh = SubResource("ArrayMesh_cfifq")
+skeleton = NodePath("")
+
+[node name="EmotingFace" type="Label3D" parent="body"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.0100445, 0.35524, 0.977039)
 pixel_size = 0.001
 double_sided = false
 modulate = Color(0.470436, 0.835355, 0.537362, 1)
@@ -660,17 +671,6 @@ outline_size = 0
 uppercase = true
 width = 700.0
 script = ExtResource("5_vtst3")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0320514, 0.105438, -0.00410435)
-shape = SubResource("BoxShape3D_hdsdt")
-
-[node name="body" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.226041, 0)
-mesh = SubResource("ArrayMesh_cfifq")
-skeleton = NodePath("")
 
 [node name="arm_base" type="MeshInstance3D" parent="body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10815, 0.141117, 0)
