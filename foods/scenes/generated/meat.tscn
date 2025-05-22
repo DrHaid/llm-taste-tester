@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4]
 
-[ext_resource type="Script" path="res://foods/food.gd" id="1_6xeoy"]
-[ext_resource type="Resource" path="res://foods/resources/generated/meat_raw.tres" id="2_4x0i8"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_8n60j"]
+[ext_resource type="Script" path="res://foods/food.gd" id="1_p7ra0"]
+[ext_resource type="Resource" path="res://foods/resources/generated/meat_raw.tres" id="2_eiq2c"]
+[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_aik6h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1fe2"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_8n60j")
+albedo_texture = ExtResource("3_aik6h")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_y1t4u"]
@@ -45,7 +45,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_y1t4u")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gvplw"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vrnyn"]
 points = PackedVector3Array(0.2392, 0.0645, 0.219539, 0.121263, 0.0645, 0.287687, 0.2392, 0, 0.219539, 0.2392, 0.0645, 0.0832985, 0.121263, 0, 0.287687, -0.102949, 0.0645, 0.20619, 0.2392, 0, 0.0832985, 0.153956, 0.0645, -0.1742, -0.102949, 0, 0.20619, -0.239247, 0.0645, 0.0528289, 0.153956, 0, -0.1742, -0.0426692, 0.0645, -0.287687, -0.239247, 0, 0.0528289, -0.239247, 0.0645, -0.1742, -0.0426692, 0, -0.287687, -0.239247, 0, -0.1742)
 
 [node name="Meat" type="RigidBody3D" groups=["Food"]]
@@ -53,8 +53,8 @@ mass = 0.177577
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_6xeoy")
-food_resource = ExtResource("2_4x0i8")
+script = ExtResource("1_p7ra0")
+food_resource = ExtResource("2_eiq2c")
 
 [node name="meat-raw" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03225, 0)
@@ -63,4 +63,4 @@ skeleton = NodePath("")
 
 [node name="meat-raw_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03225, 0)
-shape = SubResource("ConvexPolygonShape3D_gvplw")
+shape = SubResource("ConvexPolygonShape3D_vrnyn")

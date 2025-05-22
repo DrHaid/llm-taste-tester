@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4]
 
-[ext_resource type="Script" path="res://foods/food.gd" id="1_c1y8t"]
-[ext_resource type="Resource" path="res://foods/resources/generated/strawberry.tres" id="2_es0uk"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_pek15"]
+[ext_resource type="Script" path="res://foods/food.gd" id="1_21pt6"]
+[ext_resource type="Resource" path="res://foods/resources/generated/strawberry.tres" id="2_ypdod"]
+[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_r45db"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xnoi5"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_pek15")
+albedo_texture = ExtResource("3_r45db")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_yt6me"]
@@ -45,7 +45,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_yt6me")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tup4o"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nxctm"]
 points = PackedVector3Array(-0.05984, 0.0899845, -0.0247888, -0.0247888, 0.0899845, -0.05984, -0.0200091, 0.00999432, -0.00829419, -0.05984, 0.0899845, 0.0247771, -0.0586919, 0.140152, 0, -0.0386711, 0.164986, -0.0200443, 0.0247771, 0.0899845, -0.05984, -0.00829419, 0.00999432, -0.0200091, -0.0200443, 0.164986, -0.0386711, 0, 0.140152, -0.0586919, -0.00987571, 0, -0.00408852, -0.0200091, 0.00999432, 0.00828248, -0.0247888, 0.0899845, 0.05984, -0.0386711, 0.164986, 0.0200326, -0.00686496, 0.182, -0.00686496, 0.05984, 0.0899845, -0.0247888, 0.00828248, 0.00999432, -0.0200091, 0.0200326, 0.164986, -0.0386711, -0.00408852, 0, -0.00987571, -0.00987571, 0, 0.00407681, -0.00829419, 0.00999432, 0.0199974, 0.0247771, 0.0899845, 0.05984, 0, 0.140152, 0.0586802, -0.0200443, 0.164986, 0.0386594, -0.00686496, 0.182, 0.00685325, 0.00685325, 0.182, -0.00686496, 0.05984, 0.0899845, 0.0247771, 0.0199974, 0.00999432, -0.00829419, 0.0386594, 0.164986, -0.0200443, 0.0586802, 0.140152, 0, 0.00407681, 0, -0.00987571, -0.00408852, 0, 0.009864, 0.00828248, 0.00999432, 0.0199974, 0.0200326, 0.164986, 0.0386594, 0.00685325, 0.182, 0.00685325, 0.0199974, 0.00999432, 0.00828248, 0.0386594, 0.164986, 0.0200326, 0.009864, 0, -0.00408852, 0.00407681, 0, 0.009864, 0.009864, 0, 0.00407681)
 
 [node name="Strawberry" type="RigidBody3D" groups=["Food"]]
@@ -53,8 +53,8 @@ mass = 0.0260684
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_c1y8t")
-food_resource = ExtResource("2_es0uk")
+script = ExtResource("1_21pt6")
+food_resource = ExtResource("2_ypdod")
 
 [node name="strawberry" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.091, 0)
@@ -63,4 +63,4 @@ skeleton = NodePath("")
 
 [node name="strawberry_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.091, 0)
-shape = SubResource("ConvexPolygonShape3D_tup4o")
+shape = SubResource("ConvexPolygonShape3D_nxctm")

@@ -8,7 +8,7 @@ const COOKING_PROMPT_TEMPLATE: String = """
 In a pot the following ingredients have been cooked into a stew:
 {foods}
 Pretend like you just ate that meal. Rate the meal and how much you like/dislike it.
-Comment on different attributes of the meal but talk natually, not as a list.
+Comment on different attributes of the meal but talk naturally, not as a list.
 And be brief.
 """
 

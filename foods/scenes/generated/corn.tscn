@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4]
 
-[ext_resource type="Script" path="res://foods/food.gd" id="1_t8ewl"]
-[ext_resource type="Resource" path="res://foods/resources/generated/corn.tres" id="2_kamxl"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_fafjg"]
+[ext_resource type="Script" path="res://foods/food.gd" id="1_rxt03"]
+[ext_resource type="Resource" path="res://foods/resources/generated/corn.tres" id="2_nyygv"]
+[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_w82r7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ieqi1"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_fafjg")
+albedo_texture = ExtResource("3_w82r7")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_canh7"]
@@ -45,7 +45,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_canh7")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qwycg"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uwx60"]
 points = PackedVector3Array(0.0255665, 0.316198, 0.0147547, 0.0255665, 0.316198, -0.014809, -2.68221e-07, 0.316198, 0.0295365, 0.0825121, 0.237303, 0.120784, 0.165092, 0.179115, 0.0110519, -2.68221e-07, 0.316198, -0.0295614, 0.165092, 0.179115, -0.0110768, 0.0963201, 0.212697, -0.14473, 0.0633286, 0.237303, 0.131834, -0.0256006, 0.316198, 0.0147547, -0.0706195, 0.166704, 0.144441, -2.68221e-07, 0, 0.0356197, 0.0308411, 0, 0.017811, 0.0771367, 0.212697, -0.15578, -0.0633627, 0.237303, -0.131859, -0.0825462, 0.237303, -0.120809, -0.0256006, 0.316198, -0.014809, 0.0308411, 0, -0.0178359, -2.68221e-07, 0, -0.0356446, -0.178127, 0.203567, 0.0110519, -0.089803, 0.166704, 0.133362, -0.0308752, 0, 0.017811, -0.178127, 0.203567, -0.0110768, -0.0308752, 0, -0.0178359)
 
 [node name="Corn" type="RigidBody3D" groups=["Food"]]
@@ -53,8 +53,8 @@ mass = 0.325816
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_t8ewl")
-food_resource = ExtResource("2_kamxl")
+script = ExtResource("1_rxt03")
+food_resource = ExtResource("2_nyygv")
 
 [node name="corn" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00651793, -0.158099, 0.0056695)
@@ -63,4 +63,4 @@ skeleton = NodePath("")
 
 [node name="corn_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00651793, -0.158099, 0.0056695)
-shape = SubResource("ConvexPolygonShape3D_qwycg")
+shape = SubResource("ConvexPolygonShape3D_uwx60")
