@@ -1,4 +1,5 @@
 extends Node3D
+class_name EatingRobot
 
 @onready var http_request: HTTPRequest = $HTTPRequest
 @onready var screen_text: Label3D = $ScreenText

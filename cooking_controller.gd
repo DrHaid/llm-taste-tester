@@ -6,7 +6,7 @@ extends Node
 @onready var pot: Node3D = %Pot
 @onready var food_drag_handler: Node3D = %FoodDragHandler
 @onready var tasting_spoon: Node3D = %TastingSpoon
-@onready var eating_robot: Node3D = %EatingRobot
+@onready var eating_robot: EatingRobot = %EatingRobot
 
 var current_foods: Array[FoodItemData] = []
 
@@ -23,6 +23,7 @@ func _on_stove_dial_set_cooking() -> void:
 
 func _on_pot_cook_food(foods: Array[FoodItemData]) -> void:
 	current_foods = foods
+	eating_robot.emoting_face.set_face(Face.MOOD.SURPRISED, true)
 
 func _on_pot_cooking_finished(successful: bool) -> void:
 	stove.turn_dial()
@@ -31,6 +32,7 @@ func _on_pot_cooking_finished(successful: bool) -> void:
 
 func _on_tasting_spoon_spoon_fed() -> void:
 	camera_rig.pan_in()
+	eating_robot.emoting_face.set_face(Face.MOOD.CHEWING, true)
 
 func _on_camera_rig_pan_complete() -> void:
 	eating_robot.start_tasting(current_foods)
