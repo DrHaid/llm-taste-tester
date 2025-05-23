@@ -1,13 +1,13 @@
-[gd_scene load_steps=8 format=4]
+[gd_scene load_steps=9 format=4 uid="uid://dyrberow1mlse"]
 
 [ext_resource type="Script" path="res://foods/food.gd" id="1_2a1wv"]
-[ext_resource type="Resource" path="res://foods/resources/generated/shaker_salt.tres" id="2_hrtuv"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_8lawy"]
+[ext_resource type="Resource" uid="uid://djgnxe57e8fiq" path="res://foods/resources/generated/shaker_salt.tres" id="2_hrtuv"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_8lawy"]
+[ext_resource type="PackedScene" uid="uid://chentir1xrlvg" path="res://foods/spice_particles.tscn" id="3_dj6cj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vwnq7"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("3_8lawy")
 emission_enabled = true
 
@@ -55,6 +55,10 @@ can_sleep = false
 freeze_mode = 1
 script = ExtResource("1_2a1wv")
 food_resource = ExtResource("2_hrtuv")
+container_rotation = null
+
+[node name="SpiceParticles" parent="." instance=ExtResource("3_dj6cj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.101462, 0)
 
 [node name="shaker-pepper" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.098, 0)

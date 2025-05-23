@@ -8,6 +8,8 @@ class_name EatingRobot
 
 @onready var robot_body: Node3D = $body
 
+@export var turning_speed: float = 0.01
+
 var llm_requester: LLMRequester
 
 var start_orientation: Vector3
@@ -15,7 +17,7 @@ var previous_angle: float
 var current_food: Node3D
 
 func _ready() -> void:
-	start_orientation = global_transform.basis.z
+	start_orientation = global_basis.z
 	llm_requester = LLMRequester.new(http_request)
 	llm_requester.connect("request_completed", _on_llm_request_completed)
 	mouse_input_handler.connect("start_drag", on_food_picked_up)
@@ -29,7 +31,7 @@ func _process(_delta: float) -> void:
 	target_orientation.y = 0
 	var angle := start_orientation.signed_angle_to(target_orientation, Vector3.UP)
 	var rot := robot_body.rotation
-	rot.y = lerp_angle(previous_angle, angle, 0.02)
+	rot.y = lerp_angle(previous_angle, angle, turning_speed)
 	previous_angle = rot.y
 	robot_body.rotation = rot
 

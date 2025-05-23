@@ -4,5 +4,8 @@
 
 [resource]
 script = ExtResource("1_4a55c")
-name = "Pepper"
+name = "Pepper Shaker"
 model = "res://models/foods/shaker-pepper.fbx"
+container = true
+spice = "Pepper"
+spice_color = Color(0.323125, 0.199408, 0.0463654, 1)

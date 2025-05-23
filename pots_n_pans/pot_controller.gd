@@ -55,6 +55,7 @@ func _finish_cooking() -> void:
 
 func _get_foods_for_cooking() -> Array:
 	var nodes := food_detector.get_overlapping_bodies()
+	print(nodes)
 	var foods := nodes.filter(func(f: Node3D) -> bool: return f.is_in_group(&"Food"))
 	return foods
 

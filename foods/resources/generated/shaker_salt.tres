@@ -4,5 +4,8 @@
 
 [resource]
 script = ExtResource("1_gqxkt")
-name = "Salt"
+name = "Salt Shaker"
 model = "res://models/foods/shaker-salt.fbx"
+container = true
+spice = "Salt"
+spice_color = Color(1, 1, 1, 1)

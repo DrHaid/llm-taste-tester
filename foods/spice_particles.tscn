@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://chentir1xrlvg"]
+
+[ext_resource type="Script" path="res://foods/spice_particles.gd" id="1_yiqaj"]
+
+[node name="SpiceParticles" type="Marker3D"]
+gizmo_extents = 0.1
+script = ExtResource("1_yiqaj")
