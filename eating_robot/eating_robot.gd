@@ -41,9 +41,9 @@ func on_food_picked_up(food: Node3D, _marker: Marker3D) -> void:
 func on_food_released(_food: Node3D) -> void:
 	current_food = null
 
-func start_tasting(food: Array[FoodItemData]) -> void:
+func start_tasting(foods: Array[FoodItemData], spices: Array[String]) -> void:
 	emoting_face.set_face(Face.MOOD.CHEWING, true)
-	llm_requester.request_tasting(food)
+	llm_requester.request_tasting(foods, spices)
 
 func _get_url_path(url: String) -> String:
 	var url_path := "/"

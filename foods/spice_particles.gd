@@ -2,13 +2,13 @@ extends Marker3D
 class_name SpiceParticles
 
 @export var speed: float = 0.2
+@export var material: StandardMaterial3D
 @onready var particle: Resource = load("res://foods/spice.tscn") 
 
-var spice: String
-var spice_color: Color
+var spice_name: String
 var spawn_timer: Timer = Timer.new()
 
-var particles: Array = []
+var particles: Array[Spice] = []
 
 func pour(pouring: bool) -> void:
 	spawn_timer.paused = not pouring
@@ -22,17 +22,22 @@ func _ready() -> void:
 
 func _on_spawn_timout() -> void:
 	if particles.size() > 15:
-		var old: Node3D = particles.pop_at(0)
+		var old: Spice = particles.pop_at(0)
 		old.queue_free()
 
-	var spice_particle: RigidBody3D = particle.instantiate()
+	var spice_particle: Spice = particle.instantiate()
 	get_tree().current_scene.add_child(spice_particle)
-	spice_particle.global_position = global_position
-	spice_particle.set_meta(&"spice", spice)
-	var mesh := spice_particle.get_child(0) as MeshInstance3D
-	mesh.get_surface_override_material(0).albedo_color = spice_color
+	spice_particle.init_particle(spice_name, global_position, material)
+	spice_particle.connect("delete_particle", on_spice_particle_delete)
 	particles.append(spice_particle)
 
+func on_spice_particle_delete(spice: Spice) -> void:
+	# remove spice from particles
+	var index := particles.find(spice)
+	if index >= 0:
+		particles.remove_at(index)
+
 func init_spice(food_resource: FoodItemData) -> void:
-	spice = food_resource.spice
-	spice_color = food_resource.spice_color
+	spice_name = food_resource.spice
+	material = StandardMaterial3D.new()
+	material.albedo_color = food_resource.spice_color

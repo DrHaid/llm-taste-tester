@@ -12,6 +12,8 @@ var original_position: Vector3 = Vector3.ZERO
 var spice_particles: SpiceParticles
 
 func _ready() -> void:
+	assert(is_in_group(&"Food"), "Food item not in 'Food' group")
+
 	var food_drag_handler := get_tree().current_scene.get_node("%FoodDragHandler")
 	food_drag_handler.connect("start_drag", _on_start_drag)
 	food_drag_handler.connect("end_drag", _on_end_drag)

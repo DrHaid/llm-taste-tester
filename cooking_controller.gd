@@ -9,6 +9,7 @@ extends Node
 @onready var eating_robot: EatingRobot = %EatingRobot
 
 var current_foods: Array[FoodItemData] = []
+var current_spices: Array[String] = []
 
 func _ready() -> void:
 	stove.connect("dial_set_cooking", _on_stove_dial_set_cooking)
@@ -21,8 +22,9 @@ func _on_stove_dial_set_cooking() -> void:
 	if pot.set_stove_cooking():
 		food_drag_handler.set_drag_enabled(false)
 
-func _on_pot_cook_food(foods: Array[FoodItemData]) -> void:
+func _on_pot_cook_food(foods: Array[FoodItemData], spices: Array[String]) -> void:
 	current_foods = foods
+	current_spices = spices
 	eating_robot.emoting_face.set_face(Face.MOOD.SURPRISED, true)
 
 func _on_pot_cooking_finished(successful: bool) -> void:
@@ -35,5 +37,5 @@ func _on_tasting_spoon_spoon_fed() -> void:
 	eating_robot.emoting_face.set_face(Face.MOOD.CHEWING, true)
 
 func _on_camera_rig_pan_complete() -> void:
-	eating_robot.start_tasting(current_foods)
+	eating_robot.start_tasting(current_foods, current_spices)
 	ui.show_help(true)

@@ -15,9 +15,9 @@ And be brief.
 func _init(http_request: HTTPRequest) -> void:
 	_http_request = http_request
 
-func build_prompt(foods: Array[FoodItemData]) -> String:
+func build_prompt(foods: Array[FoodItemData], _spices: Array[String]) -> String:
 	var food_names := foods.map(func(f: FoodItemData) -> String: return f.name)
-	var foods_string := ", ".join(food_names) 
+	var foods_string := ", ".join(food_names)
 	return COOKING_PROMPT_TEMPLATE.format({"foods": foods_string})
 
 func _get_url_path(url: String) -> String:
@@ -41,12 +41,12 @@ func _sign_request(method: String, originalURL: String, body: String, timestamp:
 
 	return signature
 
-func request_tasting(food: Array[FoodItemData]) -> void:
+func request_tasting(foods: Array[FoodItemData], spices: Array[String]) -> void:
 	var timestamp := str(Time.get_unix_time_from_system() as int)
 	var body: Dictionary = {
 		"contents": [{
 			"parts":[{
-				"text": build_prompt(food)
+				"text": build_prompt(foods, spices)
 			}]
 		}]
 	}
