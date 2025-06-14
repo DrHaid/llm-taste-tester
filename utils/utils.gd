@@ -16,3 +16,11 @@ func get_files_in_dir(directory: String) -> Array[String]:
 		print("An error occurred when trying to access the directory.")
 	
 	return files
+
+
+func distinct_entries(array: Array) -> Array:
+	var unique: Array = []
+	for item: Variant in array:
+		if not unique.has(item):
+			unique.append(item)
+	return unique

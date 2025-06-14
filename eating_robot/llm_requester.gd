@@ -6,19 +6,49 @@ var _http_request: HTTPRequest
 
 const COOKING_PROMPT_TEMPLATE: String = """
 In a pot the following ingredients have been cooked into a stew:
-{foods}
+{ingredients}
 Pretend like you just ate that meal. Rate the meal and how much you like/dislike it.
 Comment on different attributes of the meal but talk naturally, not as a list.
 And be brief.
 """
 
+const SPICE_THRESHOLDS = {
+	3: "a little",
+	6: "some",
+	9: "a good amount of",
+	12: "a lot of",
+	15: "heaps of"
+}
+
+const SPICE_TEMPLATE = "{amount} {spice}"
+
 func _init(http_request: HTTPRequest) -> void:
 	_http_request = http_request
 
-func build_prompt(foods: Array[FoodItemData], _spices: Array[String]) -> String:
+func get_spice_components(spices: Array[String]) -> Array[String]:
+	if spices.size() <= 0:
+		return []
+
+	var spice_text: Array[String] = []
+	var distinct_spices: Array[String]
+	distinct_spices.assign(Utils.distinct_entries(spices))
+	for spice: String in distinct_spices:
+		var amount := spices.count(spice)
+		var amount_in_text: String
+		for threshold: int in SPICE_THRESHOLDS:
+			amount_in_text = SPICE_THRESHOLDS[threshold]
+			if amount < threshold:
+				break
+		spice_text.append(SPICE_TEMPLATE.format({"amount": amount_in_text, "spice": spice}))
+
+	return spice_text
+
+func build_prompt(foods: Array[FoodItemData], spices: Array[String]) -> String:
 	var food_names := foods.map(func(f: FoodItemData) -> String: return f.name)
-	var foods_string := ", ".join(food_names)
-	return COOKING_PROMPT_TEMPLATE.format({"foods": foods_string})
+	var spice_amounts := get_spice_components(spices)
+	var ingredients := food_names + spice_amounts
+	var ingredients_string := ", ".join(ingredients)
+	return COOKING_PROMPT_TEMPLATE.format({"ingredients": ingredients_string})
 
 func _get_url_path(url: String) -> String:
 	var url_path := "/"

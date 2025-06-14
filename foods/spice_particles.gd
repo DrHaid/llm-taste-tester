@@ -5,6 +5,8 @@ class_name SpiceParticles
 @export var material: StandardMaterial3D
 @onready var particle: Resource = load("res://foods/spice.tscn") 
 
+const MAX_PARTICLES = 15 
+
 var spice_name: String
 var spawn_timer: Timer = Timer.new()
 
@@ -21,7 +23,7 @@ func _ready() -> void:
 	spawn_timer.paused = true
 
 func _on_spawn_timout() -> void:
-	if particles.size() > 15:
+	if particles.size() > MAX_PARTICLES:
 		var old: Spice = particles.pop_at(0)
 		old.queue_free()
 

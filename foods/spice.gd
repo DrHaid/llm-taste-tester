@@ -28,6 +28,5 @@ func set_cooking() -> void:
 	timer.paused = false
 
 func on_delete_timeout() -> void:
-	print("timeout")
 	delete_particle.emit(self)
 	queue_free.call_deferred()
