@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FoodItemData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="FoodItemData" load_steps=2 format=3 uid="uid://ct5es7xhdmjuy"]
 
 [ext_resource type="Script" path="res://foods/food_item_data.gd" id="1_ra8gn"]
 
@@ -6,3 +6,6 @@
 script = ExtResource("1_ra8gn")
 name = "Honey"
 model = "res://models/foods/honey.fbx"
+container = false
+spice = ""
+spice_color = Color(0, 0, 0, 1)

@@ -1,13 +1,12 @@
-[gd_scene load_steps=8 format=4]
+[gd_scene load_steps=8 format=4 uid="uid://dqr73264c33e4"]
 
 [ext_resource type="Script" path="res://foods/food.gd" id="1_b4bo6"]
-[ext_resource type="Resource" path="res://foods/resources/generated/paprika.tres" id="2_e88sx"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_5y2sb"]
+[ext_resource type="Resource" uid="uid://dmq8y4625voyj" path="res://foods/resources/generated/paprika.tres" id="2_e88sx"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_5y2sb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jafm2"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("3_5y2sb")
 emission_enabled = true
 

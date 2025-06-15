@@ -1,13 +1,12 @@
-[gd_scene load_steps=8 format=4]
+[gd_scene load_steps=8 format=4 uid="uid://be7q1hy5ma7y4"]
 
 [ext_resource type="Script" path="res://foods/food.gd" id="1_p7ra0"]
-[ext_resource type="Resource" path="res://foods/resources/generated/meat_raw.tres" id="2_eiq2c"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_aik6h"]
+[ext_resource type="Resource" uid="uid://b40sx482lji5y" path="res://foods/resources/generated/meat_raw.tres" id="2_eiq2c"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_aik6h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1fe2"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("3_aik6h")
 emission_enabled = true
 
@@ -57,10 +56,10 @@ script = ExtResource("1_p7ra0")
 food_resource = ExtResource("2_eiq2c")
 
 [node name="meat-raw" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03225, 0)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.03225, 0)
 mesh = SubResource("ArrayMesh_t03j6")
 skeleton = NodePath("")
 
 [node name="meat-raw_CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03225, 0)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.03225, 0)
 shape = SubResource("ConvexPolygonShape3D_vrnyn")
