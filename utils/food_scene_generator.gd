@@ -1,3 +1,4 @@
+@tool
 extends Node3D
 
 ## Utility script for generating foods scenes to be used in-game out of food resources  
@@ -7,7 +8,11 @@ extends Node3D
 
 @export var mass_multiplier: float = 10
 
-func _ready() -> void:
+@export var generate: bool:
+	set(_v):
+		generate_foods()
+
+func generate_foods() -> void:
 	var resource_files := Utils.get_files_in_dir(foods_resource_path)
 	for file in resource_files:
 		var path := "%s/%s" % [foods_resource_path, file] 
