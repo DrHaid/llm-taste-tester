@@ -1,6 +1,7 @@
-extends Node
+extends RefCounted
+class_name Utils
 
-func get_files_in_dir(directory: String) -> Array[String]:
+static func get_files_in_dir(directory: String) -> Array[String]:
 	var files: Array[String] = []
 	var dir := DirAccess.open(directory)
 	if dir:
@@ -18,7 +19,7 @@ func get_files_in_dir(directory: String) -> Array[String]:
 	return files
 
 
-func distinct_entries(array: Array) -> Array:
+static func distinct_entries(array: Array) -> Array:
 	var unique: Array = []
 	for item: Variant in array:
 		if not unique.has(item):

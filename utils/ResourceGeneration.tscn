@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://vs5hpu0rv37a"]
+
+[ext_resource type="Script" path="res://utils/food_resource_generator.gd" id="1_3oo7q"]
+[ext_resource type="Script" path="res://utils/food_scene_generator.gd" id="2_bxksv"]
+
+[node name="ResourceGeneration" type="Node3D"]
+
+[node name="FoodResources" type="Node3D" parent="."]
+script = ExtResource("1_3oo7q")
+model_path = "res://models/foods"
+resource_path = "res://foods/resources/generated"
+
+[node name="FoodScenes" type="Node3D" parent="."]
+script = ExtResource("2_bxksv")
+foods_resource_path = "res://foods/resources/generated"
+output_path = "res://foods/scenes/generated"
