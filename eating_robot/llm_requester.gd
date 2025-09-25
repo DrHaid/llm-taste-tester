@@ -7,9 +7,9 @@ var _http_request: HTTPRequest
 const COOKING_PROMPT_TEMPLATE: String = """
 In a pot the following ingredients have been cooked into a stew:
 {ingredients}
-Pretend like you just ate that meal. Rate the meal and how much you like/dislike it.
+Pretend like you just ate that meal. In two sentences: Rate the meal and how much you like/dislike it.
 Comment on different attributes of the meal but talk naturally, not as a list.
-And be brief.
+Finally rate the meal out of 10.
 """
 
 const SPICE_THRESHOLDS = {
