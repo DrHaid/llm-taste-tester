@@ -1,5 +1,6 @@
-extends Node
+extends RefCounted
+class_name Globals
 
-var Y_LEVEL_KILLZONE: float = -50
-var VIEWPORT_RAY_LENGTH: float = 1000
-var WORLD_RAY_LENGTH: float = 1000
+const Y_LEVEL_KILLZONE: float = -50
+const VIEWPORT_RAY_LENGTH: float = 1000
+const WORLD_RAY_LENGTH: float = 1000
