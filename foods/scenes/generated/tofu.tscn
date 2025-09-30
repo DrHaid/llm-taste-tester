@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=4 uid="uid://bmmrw38fujfs6"]
+
+[ext_resource type="Script" path="res://foods/food.gd" id="1_x1jmn"]
+[ext_resource type="Resource" uid="uid://ccaamip3cswtf" path="res://foods/resources/generated/tofu.tres" id="2_wmm1e"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_em2ys"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bsj40"]
+resource_name = "colormap.001"
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 1)
+albedo_texture = ExtResource("3_em2ys")
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_eiudn"]
+_surfaces = [{
+"aabb": AABB(-0.111213, -0.0386958, -0.0750291, 0.222425, 0.0773916, 0.150058),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAAAAMAAwAFAAQABgAEAAUABQAHAAYAAQAGAAcABwACAAEABwAFAAMAAwACAAcAAQAAAAQABAAGAAEA"),
+"name": "colormap.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("fcPjvYB/Hj3XqJm9fcPjvYB/Hj3XqJk9fcPjvYB/Hr3XqJk9fcPjvYB/Hr3XqJm9fcPjPYB/Hj3XqJm9fcPjPYB/Hr3XqJm9fcPjPYB/Hj3XqJk9fcPjPYB/Hr3XqJk9")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0vkwe"]
+resource_name = "Cube"
+_surfaces = [{
+"aabb": AABB(-0.111213, -0.0386958, -0.0750291, 0.222425, 0.0773916, 0.150058),
+"attribute_data": PackedByteArray("OOhxP8XbQD846HE/w9tAPzjocT9sK1k/OOhxP2wrWT+CjH4/xdtAPzjocT/F20A/OOhxP2wrWT+CjH4/bCtZP4KMfj/D20A/gox+P8XbQD+CjH4/bCtZP4KMfj9sK1k/OOhxP8PbQD+CjH4/w9tAP4KMfj9sK1k/OOhxP2wrWT+CjH4/bCtZP4KMfj9sK1k/OOhxP2wrWT846HE/bCtZPzjocT/D20A/OOhxP8XbQD+CjH4/xdtAP4KMfj/D20A/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
+"material": SubResource("StandardMaterial3D_bsj40"),
+"name": "colormap.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("fcPjvYB/Hj3XqJm9fcPjvYB/Hj3XqJk9fcPjvYB/Hr3XqJk9fcPjvYB/Hr3XqJm9fcPjPYB/Hj3XqJm9fcPjvYB/Hj3XqJm9fcPjvYB/Hr3XqJm9fcPjPYB/Hr3XqJm9fcPjPYB/Hj3XqJk9fcPjPYB/Hj3XqJm9fcPjPYB/Hr3XqJm9fcPjPYB/Hr3XqJk9fcPjvYB/Hj3XqJk9fcPjPYB/Hj3XqJk9fcPjPYB/Hr3XqJk9fcPjvYB/Hr3XqJk9fcPjPYB/Hr3XqJk9fcPjPYB/Hr3XqJm9fcPjvYB/Hr3XqJm9fcPjvYB/Hr3XqJk9fcPjvYB/Hj3XqJk9fcPjvYB/Hj3XqJm9fcPjPYB/Hj3XqJm9fcPjPYB/Hj3XqJk9AAD/f////78AAP9/////vwAA/3////+/AAD/f////7//////////P/////////8//////////z//////////P////3////+/////f////7////9/////v////3////+//3//f////7//f/9/////v/9//3////+//3//f////7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9///////8//3///////z//f///////P/9///////8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_eiudn")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5g700"]
+points = PackedVector3Array(-0.111213, -0.0386958, -0.0750291, -0.111213, 0.0386958, -0.0750291, 0.111213, -0.0386958, -0.0750291, -0.111213, -0.0386958, 0.0750291, -0.111213, 0.0386958, 0.0750291, 0.111213, 0.0386958, -0.0750291, 0.111213, -0.0386958, 0.0750291, 0.111213, 0.0386958, 0.0750291)
+
+[node name="Tofu" type="RigidBody3D" groups=["Food"]]
+mass = 0.0258308
+center_of_mass_mode = 1
+can_sleep = false
+freeze_mode = 1
+script = ExtResource("1_x1jmn")
+food_resource = ExtResource("2_wmm1e")
+
+[node name="tofu" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_0vkwe")
+skeleton = NodePath("")
+
+[node name="tofu_CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_5g700")
