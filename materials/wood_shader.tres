@@ -1,0 +1,101 @@
+[gd_resource type="VisualShader" load_steps=9 format=3 uid="uid://so08h4uocsi5"]
+
+[ext_resource type="Texture2D" uid="uid://cnsirkblf4clt" path="res://materials/wood_noise_texture_2d.tres" id="1_1y758"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_vc23q"]
+texture = ExtResource("1_1y758")
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_vr2cj"]
+default_input_values = [1, Vector2(0.445, 1.2), 2, Vector2(0, 0)]
+function = 1
+
+[sub_resource type="VisualShaderNodeRemap" id="VisualShaderNodeRemap_xhkft"]
+default_input_values = [1, 0.0, 2, 1.0, 3, 0.0, 4, 0.67]
+
+[sub_resource type="VisualShaderNodeStep" id="VisualShaderNodeStep_ud0ry"]
+default_input_values = [0, 0.535, 1, 0.0]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_smoai"]
+parameter_name = "wood_color"
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_t4tky"]
+parameter_name = "grain_color"
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_64g5s"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, Vector3(0.5, 0.5, 0.5)]
+op_type = 3
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform vec4 wood_color : source_color;
+uniform vec4 grain_color : source_color;
+uniform sampler2D tex_frg_2;
+
+
+
+void fragment() {
+// ColorParameter:6
+	vec4 n_out6p0 = wood_color;
+
+
+// ColorParameter:7
+	vec4 n_out7p0 = grain_color;
+
+
+// UVFunc:3
+	vec2 n_in3p1 = vec2(0.44500, 1.20000);
+	vec2 n_in3p2 = vec2(0.00000, 0.00000);
+	vec2 n_out3p0 = (UV - n_in3p2) * n_in3p1 + n_in3p2;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out3p0);
+
+
+	float n_out4p0;
+// Remap:4
+	float n_in4p1 = 0.00000;
+	float n_in4p2 = 1.00000;
+	float n_in4p3 = 0.00000;
+	float n_in4p4 = 0.67000;
+	{
+		float __input_range = n_in4p2 - n_in4p1;
+		float __output_range = n_in4p4 - n_in4p3;
+		n_out4p0 = n_in4p3 + __output_range * ((n_out2p0.x - n_in4p1) / __input_range);
+	}
+
+
+// Step:5
+	float n_in5p0 = 0.53500;
+	float n_out5p0 = step(n_in5p0, n_out4p0);
+
+
+// Mix:8
+	vec3 n_out8p0 = mix(vec3(n_out6p0.xyz), vec3(n_out7p0.xyz), vec3(n_out5p0));
+
+
+// Output:0
+	ALBEDO = n_out8p0;
+
+
+}
+"
+graph_offset = Vector2(-784.206, -39.7913)
+nodes/fragment/0/position = Vector2(460, -40)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_vc23q")
+nodes/fragment/2/position = Vector2(-540, 180)
+nodes/fragment/3/node = SubResource("VisualShaderNodeUVFunc_vr2cj")
+nodes/fragment/3/position = Vector2(-800, 180)
+nodes/fragment/4/node = SubResource("VisualShaderNodeRemap_xhkft")
+nodes/fragment/4/position = Vector2(-320, 180)
+nodes/fragment/5/node = SubResource("VisualShaderNodeStep_ud0ry")
+nodes/fragment/5/position = Vector2(-80, 180)
+nodes/fragment/6/node = SubResource("VisualShaderNodeColorParameter_smoai")
+nodes/fragment/6/position = Vector2(-820, -320)
+nodes/fragment/7/node = SubResource("VisualShaderNodeColorParameter_t4tky")
+nodes/fragment/7/position = Vector2(-820, -80)
+nodes/fragment/8/node = SubResource("VisualShaderNodeMix_64g5s")
+nodes/fragment/8/position = Vector2(180, 0)
+nodes/fragment/connections = PackedInt32Array(3, 0, 2, 0, 2, 0, 4, 0, 4, 0, 5, 1, 6, 0, 8, 0, 7, 0, 8, 1, 5, 0, 8, 2, 8, 0, 0, 0)

@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://75220ls0p58n"]
+
+[ext_resource type="Shader" uid="uid://w6baib53w1le" path="res://materials/backwall_shader.res" id="1_u1f0a"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_u1f0a")
+shader_parameter/tile_color = Color(1, 0.671941, 0.650823, 1)
+shader_parameter/joint_color = Color(0.9983, 0.994886, 0.992999, 1)
