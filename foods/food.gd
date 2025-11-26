@@ -3,6 +3,8 @@ extends RigidBody3D
 
 @export var food_resource: FoodItemData
 @export var container_rotation: Vector3 = Vector3(-2, -1, -2)
+@export var drag_speed: float = 20
+@export var rotation_speed: float = 20
 
 var drag_food_target: Marker3D = null
 var is_cooking: bool = false
@@ -23,7 +25,9 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if drag_food_target:
-		global_position = drag_food_target.global_position
+		var direction := drag_food_target.global_position - global_position
+		linear_velocity = direction * drag_speed
+
 		if food_resource.container:
 			_point_up_toward(Vector3.ZERO)
 
@@ -34,14 +38,16 @@ func _process(_delta: float) -> void:
 func _on_start_drag(dragged_object: Node3D, drag_target: Marker3D) -> void:
 	if dragged_object == self:
 		drag_food_target = drag_target
-		freeze = true
+		linear_damp = 10
+		angular_damp = 10
 		if food_resource.container:
 			spice_particles.pour(true)
 
 func _on_end_drag(dragged_object: Node3D) -> void:
 	if dragged_object == self:
 		drag_food_target = null
-		freeze = false
+		linear_damp = 0
+		angular_damp = 0
 		if food_resource.container:
 			spice_particles.pour(false)
 
@@ -56,15 +62,10 @@ func reset_food() -> void:
 	linear_velocity = Vector3.ZERO
 
 func _point_up_toward(target_position: Vector3) -> void:
-	var to_target := (target_position - global_transform.origin).normalized()
-	var up: = to_target
-	var arbitrary_forward := Vector3.FORWARD
-	if abs(up.dot(arbitrary_forward)) > 0.99:
-		arbitrary_forward = Vector3.RIGHT
-	var right := up.cross(arbitrary_forward).normalized()
-	var forward := right.cross(up).normalized()
-	var new_basis := Basis(right, up, forward)
-	global_transform.basis = new_basis
+	var current_up := global_transform.basis.y
+	var target_up := (target_position - global_position).normalized()
+	var rotation_axis := current_up.cross(target_up)
+	angular_velocity = rotation_axis * rotation_speed
 
 func init_particles() -> void:
 	spice_particles = $SpiceParticles

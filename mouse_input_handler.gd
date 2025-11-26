@@ -13,14 +13,9 @@ signal food_hover(name: String)
 @export var min_food_elevation: float = 0.15
 @export var max_elevation_falloff: float = 1
 
-@export_category("Drag stats")
-@export var drag_sensitivity: float = 0.007
-@export var drag_value: float = 10
-@export var drag_y_value: float = 20
-
 var dragged_object: Node3D = null
 var mouse_position: Vector2 = Vector2.ZERO
-var raw_target_position: Vector3 = Vector3.ZERO # temporary unsmoothed target position
+var raw_target_position: Vector3 = Vector3.ZERO # temporary target position
 
 var dragging_enabled: bool = true
 
@@ -82,9 +77,9 @@ func _update_raw_drag_target() -> void:
 	if result:
 		raw_target_position = result.position
 
-func _set_final_target_pos(delta: float) -> void:
-	var pos: Vector3 = lerp(drag_food_target.global_position, raw_target_position, delta * drag_value)
-	pos.y = lerp(drag_food_target.global_position.y, get_target_elevation(pos), delta * drag_y_value)
+func _set_final_target_pos(_delta: float) -> void:
+	var pos: Vector3 = raw_target_position
+	pos.y = get_target_elevation(pos)
 	drag_food_target.global_position = pos
 
 func cast_viewport_ray(pos: Vector2, mask: int = 1) -> Dictionary:
