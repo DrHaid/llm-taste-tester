@@ -74,11 +74,7 @@ func _sign_request(method: String, originalURL: String, body: String, timestamp:
 func request_tasting(foods: Array[FoodItemData], spices: Array[String]) -> void:
 	var timestamp := str(Time.get_unix_time_from_system() as int)
 	var body: Dictionary = {
-		"contents": [{
-			"parts":[{
-				"text": build_prompt(foods, spices)
-			}]
-		}]
+		"prompt": build_prompt(foods, spices)
 	}
 	var body_json := JSON.stringify(body)
 	var full_url := ENV.get_var("API_URL")
@@ -99,5 +95,4 @@ func _on_tasting_request_completed(_result: int, _response_code: int, _headers: 
 		request_completed.emit(null)
 
 	var response_body: Variant = json["response"]["body"]
-	var llm_response: String = response_body["candidates"][0]["content"]["parts"][0]["text"]
-	request_completed.emit(llm_response)
+	request_completed.emit(response_body)
