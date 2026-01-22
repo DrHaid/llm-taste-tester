@@ -93,6 +93,7 @@ func _on_tasting_request_completed(_result: int, _response_code: int, _headers: 
 	var json: Variant = JSON.parse_string(body.get_string_from_utf8())
 	if json.get("status") != "success":
 		request_completed.emit(null)
+		return
 
 	var response_body: Variant = json["response"]["body"]
 	request_completed.emit(response_body)
