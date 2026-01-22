@@ -14,6 +14,7 @@ signal food_hover(name: String)
 @export_category("Drag elevation")
 @export var min_food_elevation: float = 0.15
 @export var max_elevation_falloff: float = 1
+@export var food_elevation_curve: Curve
 
 var dragged_object: Node3D = null
 var mouse_position: Vector2 = Vector2.ZERO
@@ -78,7 +79,7 @@ func _end_drag() -> void:
 
 func _update_raw_drag_target() -> void:
 	# only raycast on layer 2 (surface plane)
-	var result := cast_viewport_ray(mouse_position, Globals.SURFACE_MASK)
+	var result := cast_viewport_ray(mouse_position, Globals.SURFACE_LAYER_MASK)
 	if result:
 		raw_target_position = result.position
 
@@ -102,11 +103,8 @@ func get_target_elevation(pos: Vector3) -> float:
 	var center_at_collision := elevation_shape_cast.global_position + elevation_shape_cast.target_position * fraction
 	return center_at_collision.y
 
-func ease_sine(x: float) -> float: 
-	return -(cos(PI * x) - 1) / 2;
-
 func cast_boundary_ray(pos: Vector3, dest: Vector3) -> Dictionary:
-	var ray_query := PhysicsRayQueryParameters3D.create(pos, dest, Globals.BOUNDARY_MASK)
+	var ray_query := PhysicsRayQueryParameters3D.create(pos, dest, Globals.FOOD_DRAG_BOUNDARY_LAYER_MASK)
 	ray_query.collide_with_areas = true
 	var space_state := get_world_3d().direct_space_state
 	return space_state.intersect_ray(ray_query)
@@ -115,7 +113,7 @@ func check_if_target_in_boundary() -> bool:
 	var point_query := PhysicsPointQueryParameters3D.new()
 	point_query.position = raw_target_position
 	point_query.collide_with_areas = true
-	point_query.collision_mask = Globals.BOUNDARY_MASK
+	point_query.collision_mask = Globals.FOOD_DRAG_BOUNDARY_LAYER_MASK
 	var space_state := get_world_3d().direct_space_state
 	return len(space_state.intersect_point(point_query)) > 0
 
