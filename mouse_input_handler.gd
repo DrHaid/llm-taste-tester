@@ -14,6 +14,7 @@ signal food_hover(name: String)
 @export_category("Drag elevation")
 @export var min_food_elevation: float = 0.15
 @export var max_elevation_falloff: float = 1
+@export var food_elevation_curve: Curve
 
 var dragged_object: Node3D = null
 var mouse_position: Vector2 = Vector2.ZERO

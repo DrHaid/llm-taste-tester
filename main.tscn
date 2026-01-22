@@ -166,6 +166,7 @@ transform = Transform3D(0.712026, -0.0245048, 0.701725, 0, 0.999391, 0.0348995, 
 [node name="FoodDragHandler" type="Node3D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_updxt")
+food_elevation_curve = SubResource("Curve_x42ar")
 
 [node name="PotRimElevation" type="Marker3D" parent="FoodDragHandler"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.649624, 0)
