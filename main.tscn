@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b6mbmer46xsrl"]
+[gd_scene load_steps=23 format=3 uid="uid://b6mbmer46xsrl"]
 
 [ext_resource type="Script" path="res://ui/ui.gd" id="1_34ysx"]
 [ext_resource type="Script" path="res://camera_controller.gd" id="1_m2hkn"]
@@ -34,6 +34,9 @@ height = 2.6201
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dxv86"]
 size = Vector3(49.879, 1, 45.8506)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ox7ci"]
+radius = 0.25
 
 [node name="Main" type="Node3D"]
 
@@ -131,9 +134,8 @@ camera_attributes = SubResource("CameraAttributesPractical_ubpce")
 transform = Transform3D(1, 0, 0, 0, 0.56256, 0.826757, 0, -0.826757, 0.56256, 0, 20.3815, 0)
 
 [node name="ViewCollisionBoundary" type="Node3D" parent="."]
+unique_name_in_owner = true
 script = ExtResource("6_xnjwu")
-floor_intersection_height = null
-boundary_height = null
 
 [node name="TableTop" type="Node3D" parent="."]
 transform = Transform3D(-8.22859, 0, 0, 0, 0.0537974, 0, 0, 0, -8.22859, 0, -0.0737869, -0.985973)
@@ -258,3 +260,9 @@ script = ExtResource("16_hwmsb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FoodKillZone"]
 shape = SubResource("BoxShape3D_dxv86")
+
+[node name="ElevationShapeCast3D" type="ShapeCast3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("SphereShape3D_ox7ci")
+target_position = Vector3(0, -3, 0)

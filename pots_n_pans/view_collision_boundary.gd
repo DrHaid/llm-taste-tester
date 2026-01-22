@@ -3,6 +3,7 @@ extends Node3D
 @export var floor_intersection_height: float = 0.05
 @export var boundary_height: float = 3
 
+signal collider_ready(collision_object: CollisionObject3D)
 
 func _ready() -> void:
 	init_collider()
@@ -26,6 +27,10 @@ func init_collider() -> void:
 	collision_polygon.rotation.x = PI / 2
 	collision_polygon.depth = -boundary_height # negative because rotating by 90° technically puts it upside down
 	collision_polygon.polygon = get_build_collision_polygon(world_view_corners)
+	call_deferred("signal_collider_ready", static_body)
+
+func signal_collider_ready(col: CollisionObject3D) -> void:
+	collider_ready.emit(col)
 
 func get_polygon_center(positions: Array) -> Vector2:
 	return positions.reduce(
