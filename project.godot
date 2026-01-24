@@ -33,6 +33,12 @@ export/convert_text_resources_to_binary=false
 Food=""
 Spice=""
 
+[layer_names]
+
+3d_physics/layer_2="SurfacePlane"
+3d_physics/layer_3="PotBottom"
+3d_physics/layer_5="FoodDragBoundary"
+
 [physics]
 
 common/physics_ticks_per_second=120

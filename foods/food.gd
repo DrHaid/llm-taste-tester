@@ -53,8 +53,8 @@ func _on_end_drag(dragged_object: Node3D) -> void:
 
 func set_cooking(cooking: bool) -> void:
 	is_cooking = cooking
-	set_collision_mask_value(1, not is_cooking)
-	set_collision_mask_value(3, is_cooking)
+	set_collision_mask_value(1, not is_cooking)	# turn off main collision
+	set_collision_mask_value(3, is_cooking)	# turn on pot (bottom) collision
 
 func reset_food() -> void:
 	set_cooking(false)
