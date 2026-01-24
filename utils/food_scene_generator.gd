@@ -17,6 +17,10 @@ func generate_foods() -> void:
 	for file in resource_files:
 		var path := "%s/%s" % [foods_resource_path, file] 
 		var food: FoodItemData = load(path)
+
+		if food.container:
+			continue
+
 		generate_food(food)
 
 func generate_food(food: FoodItemData) -> void:
@@ -30,6 +34,7 @@ func generate_food(food: FoodItemData) -> void:
 	food_rigidbody.set_script(Food)
 	food_rigidbody.can_sleep = false
 	food_rigidbody.food_resource = food
+	food_rigidbody.set_collision_layer_value(4, true)	# enable ElevationCast layer
 
 	# add model and collision
 	var imported_fbx := load(food.model)

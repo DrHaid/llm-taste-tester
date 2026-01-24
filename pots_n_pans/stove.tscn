@@ -210,6 +210,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 shape = SubResource("CylinderShape3D_b4xiu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(100, 0, 0, 0, 0, 100, 0, -100, 0, 0, 0, 0)

@@ -1,17 +1,17 @@
-[gd_scene load_steps=8 format=4]
+[gd_scene load_steps=8 format=4 uid="uid://cphoxdp8jsgh0"]
 
-[ext_resource type="Script" path="res://foods/food.gd" id="1_33ggm"]
-[ext_resource type="Resource" path="res://foods/resources/generated/celery_stick.tres" id="2_bl3tx"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_3cwn7"]
+[ext_resource type="Script" path="res://foods/food.gd" id="1_sdlq4"]
+[ext_resource type="Resource" uid="uid://cowi1t5jpc5cb" path="res://foods/resources/generated/celery_stick.tres" id="2_0vpsq"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_28e6q"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xwawy"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_okhtl"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_3cwn7")
+albedo_texture = ExtResource("3_28e6q")
 emission_enabled = true
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_e4oef"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_emok7"]
 _surfaces = [{
 "aabb": AABB(-0.0229803, 0, -0.0441, 0.0459606, 0.54, 0.0882),
 "format": 34359742465,
@@ -26,7 +26,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_skuny"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_wjc4a"]
 resource_name = "Scene"
 _surfaces = [{
 "aabb": AABB(-0.0229803, 0, -0.0441, 0.0459606, 0.54, 0.0882),
@@ -35,7 +35,7 @@ _surfaces = [{
 "index_count": 156,
 "index_data": PackedByteArray("AAABAAIAAQAAAAMABAAFAAYABQAEAAcACAAJAAoACQAIAAsADAANAA4ADQAMAA8AEAARABIAEQAQAAIAEwAUABUAFAATAAoAFgAXABgAFwAWABkAGQAaABcAGgAZABsAHAAdAB4AHQAcAB8AHwAcACAAHwAgACEAIQAiAB8AIwAiACEAHwAiACQAJQAiACMAJAAiACYAJAAmACcAJQAoACIAKAAlACkAKgArACwAKwAqAC0ALgAvADAALwAuADEAMgAzADQAMwAyADUANQAyADYANQA2ADcANwA4ADUAOQA4ADcANQA4ADoAOwA4ADkAOgA4ADwAOgA8AD0AOwA+ADgAPgA7AD8AQABBAEIAQQBAAEMARABCAEUAQgBEAEAARgBHAEgARwBGAEkASgBLAEwASwBKAE0A"),
 "lods": [0.0123365, PackedByteArray("AAAXABkAFwAAAAMAFAAZABcAGQAUABUABAAFAAYABQAEAAcADAANAA4ADQAMAA8AIQAdAB4AHQAhAB8AIQAiAB8AIQAoACIAKAAhACkAKgArACwAKwAqAC0ALQAqAEgASABGAC0ASgBGAEgARgBKAE0ANwAzADQAMwA3ADUANwA4ADUANwA+ADgAPgA3AD8A")],
-"material": SubResource("StandardMaterial3D_xwawy"),
+"material": SubResource("StandardMaterial3D_okhtl"),
 "name": "colormap",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -43,24 +43,25 @@ _surfaces = [{
 "vertex_data": PackedByteArray("L0G8PAAAAACxhMY8llIKPHA9Cj9PmZU8llIKPAAAAABPmZU8L0G8PHA9Cj+xhMY8L0G8PAAAAACxhMY8Us5yPHA9Cj80ojQ9L0G8PHA9Cj+xhMY8Us5yPAAAAAA0ojQ9llIKPAAAAABPmZW88+/OOnA9Cj/v/ye8llIKPHA9Cj9PmZW88+/OOgAAAADv/ye8Us5yPAAAAAA0ojS9L0G8PHA9Cj+xhMa8Us5yPHA9Cj80ojS9L0G8PAAAAACxhMa88+/OOgAAAADv/yc8llIKPHA9Cj9PmZU88+/OOnA9Cj/v/yc8llIKPAAAAABPmZW8L0G8PHA9Cj+xhMa8L0G8PAAAAACxhMa88+/OOgAAAADv/ye8uCFpunA9Cj+pE1Cm8+/OOnA9Cj/v/ye8uCFpugAAAACpE1Cm8+/OOnA9Cj/v/yc88+/OOgAAAADv/yc8llIKPAAAAABPmZU8Us5yPAAAAAA0ojQ9L0G8PAAAAACxhMY8GXWTuwAAAADSIBQ98+/OOgAAAADv/yc8uCFpugAAAACpE1CmGXWTuwAAAADSIBS98+/OOgAAAADv/ye82jaUvAAAAAAiWaY8llIKPAAAAABPmZW82jaUvAAAAAAiWaa8L0G8vAAAAACpE1CmUs5yPAAAAAA0ojS9L0G8PAAAAACxhMa8GXWTuwAAAADSIBQ9Us5yPHA9Cj80ojQ9Us5yPAAAAAA0ojQ9GXWTu3A9Cj/SIBQ92jaUvHA9Cj8iWaY8GXWTuwAAAADSIBQ92jaUvAAAAAAiWaY8GXWTu3A9Cj/SIBQ9llIKPHA9Cj9PmZW8Us5yPHA9Cj80ojS9L0G8PHA9Cj+xhMa8GXWTu3A9Cj/SIBS98+/OOnA9Cj/v/ye8uCFpunA9Cj+pE1CmGXWTu3A9Cj/SIBQ98+/OOnA9Cj/v/yc82jaUvHA9Cj8iWaa8llIKPHA9Cj9PmZU82jaUvHA9Cj8iWaY8L0G8vHA9Cj+pE1CmUs5yPHA9Cj80ojQ9L0G8PHA9Cj+xhMY8L0G8vHA9Cj+pE1Cm2jaUvAAAAAAiWaY8L0G8vAAAAACpE1Cm2jaUvHA9Cj8iWaY82jaUvHA9Cj8iWaa82jaUvAAAAAAiWaa8GXWTu3A9Cj/SIBS92jaUvAAAAAAiWaa8GXWTuwAAAADSIBS92jaUvHA9Cj8iWaa8Us5yPAAAAAA0ojS9GXWTu3A9Cj/SIBS9GXWTuwAAAADSIBS9Us5yPHA9Cj80ojS9//+62gAAodL//0nKAADZ2v//ScoAANna//+62gAAodK62v9///9c7bra/3///1ztutr/f///XO262v9///9c7bS1/3///9natdT/f///Wuq0tf9////Z2rXU/3///1rq//9EpQAAXO3//0SlAABc7f//RKUAAFzt//9EpQAAXO3//0mrAABa6v//ScoAANna//9JqwAAWuq0tf9////Z2kSl/3///6HSRKX/f///odK11P9///9a6v///3//////tdT/f///Wur///9/////////SasAAFrq//9JqwAAWur/fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9/AAD///+/Skr/f0nK/7+6Wv9/utr/v7pa/3+62v+/Skr/f0nK/79JK/9/Sav/v0pK/39Jyv+/SSv/f0mr/79KSv9/Scr/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/78AAP9//3//v0kr/39Jq/+/AAD/f/9//79JK/9/Sav/vwAASau1VP+/AABJq7VU/78AAEnKtTX/vwAASau1VP+/AABJyrU1/78AAEmrtVT/vwAAutpEJf+/AABJyrU1/78AAEnKtTX/vwAAutpEJf+/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_e4oef")
+shadow_mesh = SubResource("ArrayMesh_emok7")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ctt33"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7g02g"]
 points = PackedVector3Array(0.0148193, 0.54, 0.0441, -0.00450338, 0.54, 0.0361572, 0.0148193, 0, 0.0441, 0.0229803, 0.54, 0.0242257, -0.0180945, 0.54, 0.020306, -0.00450338, 0, 0.0361572, 0.0229803, 0, 0.0242257, 0.0229803, 0.54, -0.0242343, -0.0229803, 0.54, 0, -0.0180945, 0, 0.020306, 0.0229803, 0, -0.0242343, 0.0148193, 0.54, -0.0441, -0.0180945, 0.54, -0.0203147, -0.0229803, 0, 0, 0.0148193, 0, -0.0441, -0.00450338, 0.54, -0.0361658, -0.0180945, 0, -0.0203147, -0.00450338, 0, -0.0361658)
 
 [node name="Celery" type="RigidBody3D" groups=["Food"]]
+collision_layer = 9
 mass = 0.0218901
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_33ggm")
-food_resource = ExtResource("2_bl3tx")
+script = ExtResource("1_sdlq4")
+food_resource = ExtResource("2_0vpsq")
 
 [node name="celery-stick" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27, 0)
-mesh = SubResource("ArrayMesh_skuny")
+mesh = SubResource("ArrayMesh_wjc4a")
 skeleton = NodePath("")
 
 [node name="celery-stick_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27, 0)
-shape = SubResource("ConvexPolygonShape3D_ctt33")
+shape = SubResource("ConvexPolygonShape3D_7g02g")

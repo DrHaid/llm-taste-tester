@@ -1,17 +1,17 @@
-[gd_scene load_steps=8 format=4]
+[gd_scene load_steps=8 format=4 uid="uid://u8gbv6815vcu"]
 
-[ext_resource type="Script" path="res://foods/food.gd" id="1_p3vu1"]
-[ext_resource type="Resource" path="res://foods/resources/generated/cherries.tres" id="2_3xy0a"]
-[ext_resource type="Texture2D" path="res://models/textures/colormap.png" id="3_m57xa"]
+[ext_resource type="Script" path="res://foods/food.gd" id="1_0rtef"]
+[ext_resource type="Resource" uid="uid://dkuxja4wyklnm" path="res://foods/resources/generated/cherries.tres" id="2_uhoh0"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_tc2eq"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4bry"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3gih"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_m57xa")
+albedo_texture = ExtResource("3_tc2eq")
 emission_enabled = true
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ox8lx"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ri1nw"]
 _surfaces = [{
 "aabb": AABB(-0.044, 0, -0.0809524, 0.088, 0.170709, 0.161905),
 "format": 34359742465,
@@ -26,7 +26,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_uvc25"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_s5g1i"]
 resource_name = "Scene"
 _surfaces = [{
 "aabb": AABB(-0.044, 0, -0.0809524, 0.088, 0.170709, 0.161905),
@@ -35,7 +35,7 @@ _surfaces = [{
 "index_count": 402,
 "index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcAGAAZABoAGwAcAB0AHgAfACAAIQAiACMAJAAlACYAJQAkACcAKAApACoAKQAoACsALAAtAC4ALQAsAC8AMAAxADIAMQAwADMANAAwADUAMAA0ADYANwAqADgAKgA3ADkAOgAuADsALgA6ADwAJAA9AD4APQAkAD8AKgBAADgAQAAqAEEAKQBCACoAQgApAEMARABFAD4ARQBEAEYARwBIAEkASABHAEoASwBMAE0ATABLAE4ATwAwAFAAMABPADMAUQBSADUAUgBRAFMAVABVAFYAVQBUAFcAVwBUAFgAVwBYAFkAWgBbAFwAWwBaAF0AXgApAF8AKQBeACcAYAAkAGEAJABgACcAYgBjAGQAYgBlAGMAYgBmAGUAYgBnAGYAaABjAGUAZwBiAGkAaQBoAGcAaABqAGMAaQBqAGgAagBpAGsAbAAuAEsALgBsAG0AMABuADUAbgAwAG8AcABLAE0ASwBwAHEAcgBzAHQAcgB1AHMAcgB2AHUAcgB3AHYAeABzAHUAdwByAHkAeQB4AHcAeAB6AHMAeQB6AHgAegB5AHsAfAAkAD4AJAB8AH0ALgB+AEsAfgAuAH8AgACBAIIAgQCAADgAgwCEAIUAhACDAIYAhgCDAIcAhgCHAIgAiQCKAIsAigCJAIwAjQCOAI8AjgCNAJAAjgCQAJEAjQCSAJAAkQCQAJMAlACSAI0AlACVAJIAlQCUAJYAkQCTAJcAlwCTAJgAlwCYAJkAmgCbAJwAmwCaAJ0AngCfAKAAnwCeAKEAnwChAKIAowCkAKUApACjAKYApwCoAKkAqACnAKoAqwCsAK0ArgCsAKsArgCvAKwArwCuALAAsACxAK8AsACyALEAsACzALIAtACzALAAtAC1ALMAtgC1ALQAtQC2ALcAnQC4AJsAuACdALkAugCpALsAqQC6AKcAvAClAL0ApQC8AKMAvgCLAL8AiwC+AIkAwADBAMIAwQDAAMMAxADFAMYAxQDEAMcAxQDHAMgA"),
 "lods": [0.0446487, PackedByteArray("AAABABMADgABAAAADgAAABMAAwAXAAUAEAADAAUAygDLAMkAaABnAGUAZwBmAGUAeAB3AHUAdwB2AHUAiQCKAIsAigCJAIwAiwC+AIkAvgCLAL8AjQCOAI8AjgCNAJAAjgCQAJEAjQCSAJAAkQCQAJMAlACSAI0AlACVAJIAlQCUAJYAkQCTAJcAlwCTAJgAlwCYAJkAmgCbAJwAmwCaAJ0AnQC4AJsAuQDBALgAwQC5AMMAzQDMALkAngCfAKAAnwCeAKEAnwChAKIAowCkAKUApACjAKYApQC8AKMAvAClAL0ApwCoAKkAqQC6AKcAugCpALsAqACnAKoAqgDFAKgAxQCqAMcAxQDHAMgAqwCsAK0ArgCsAKsArgCvAKwArwCuALAAsACxAK8AsACyALEAsACzALIAtACzALAAtAC1ALMAtgC1ALQAtQC2ALcA")],
-"material": SubResource("StandardMaterial3D_b4bry"),
+"material": SubResource("StandardMaterial3D_m3gih"),
 "name": "colormap",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -43,24 +43,25 @@ _surfaces = [{
 "vertex_data": PackedByteArray("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fRh0YVNgrUjtA31eUTdT4Ps89cFVuv//AECUztmu///pQj7Mq5+tSPs8CT7/f9ku6ULAM/9/VToAQGoxAAD/f/9//795ZwBDxbEnyvJGDTl8m/G0JVH/fyXR/78MuQ054+lA8tmu/3///2zX////f/////+FmABDrevimCVR/38l0f+/hZj+vD/o2qvZrv9///9s13ln/ry119/LAAD/f/9//795ZwBDxbEnyvJGDTl8m/G0JVH/fyXR/7/+PHjnOU4nygAAJdHZLv+/8kbxxoJk8bQAw4YYURQc5///JdEAAGzXDLkNORsWvo15ZwBDtdcftIWYAEM/6CTUJVH/fyXR/7/+PIYYOU7WtQAAJdHZLv+/8kYNOYJkDMsAw3jnURTimAy58cYbFkDyDLnxxuPpvo2FmP68resc5///JdEAAGzX/jx450koH7QAw3jnvxck1ADDhhi/F9qrAAAl0dku/7/+PIYYSSjfy///JdEAAGzX////f/////8Aw3jnURTimP//JdEAAGzXDLnxxhsWQPJ5Z/68xbHWtfJG8cZ8mwzL//8l0QAAbNf+PHjnSSgftADDeOe/FyTUAMOGGLXX38uFmABDP+gk1Ay5DTnxxoXceWcAQ7XXH7T+PIYYP+jaq/JGDTnxxnijJVH/fyXR/7+FmP68P+jaq9mu/3///2zXeWf+vLXX38t5ZwBDtdcftIWYAEM/6CTUeWf+vMWx1rXyRvHGfJsMy/48eOdJKB+0eWf+vL8X2qvyRvHGDTl4o/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+/AMN4578XJNSFmP68SSjfywy58cYNOYXcDLkNOePpQPKFmABDrevimP48hhg5Tta18kYNOYJkDMsAw4YYURQc5wy5DTkbFr6N/jx450koH7R5Z/68vxfaq/JG8cYNOXij/3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/78Aw3jnvxck1IWY/rxJKN/LDLnxxg05hdz+PHjnOU4nyvJG8caCZPG0DLnxxuPpvo2FmP68resc5wDDhhi/F9qrAAAl0dku/7/+PIYYSSjfywDDhhi119/LhZgAQz/oJNQMuQ058caF3HlnAEO11x+0/jyGGD/o2qvyRg058cZ4o1jeAAAAAP+/F9UAAAAA/79Y3gAAAAD/vxfVAAAAAP+/////f/////////9//////////3//////////f/////////9//////////3//////////f/////////9//////////3//////////f/////////9//////////3//////////f///////fzqX////v/9/pqH///+//386l////7//f6ah////v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f1he////v/9/F1X///+//39YXv///7//fxdV////v1je//8AAP+/F9X//wAA/79Y3v//AAD/vxfV//8AAP+/AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//7//f+eq////v/9/56r///+/xOj//wAA/7/E6P//AAD/v/9/xGj///+//3/EaP///7/E6AAAAAD/v8ToAAAAAP+//3//f////7//f/9/////v/9//3////+//3//f////7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+/GDra+G4KcUvaNqvvNTdxQb7H3/vjAmQk/3/eW////7//f4Zb////vw==")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_ox8lx")
+shadow_mesh = SubResource("ArrayMesh_ri1nw")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qwxs6"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_61yh5"]
 points = PackedVector3Array(-0.022, 0.0302283, 0.0809524, -0.044, 0.0302283, 0.0428376, -0.0286069, 0, 0.0428376, -0.0143078, 0, 0.0676082, 0.0142991, 0, 0.0676082, 0.022, 0.0302283, 0.0809365, 0.0142991, 0.0604734, 0.0676082, -0.0143078, 0.0604734, 0.0676082, -0.00458261, 0.170709, 0.0113948, -0.0252044, 0.166064, -0.0149448, -0.044, 0.0302283, -0.0383367, -0.0356445, 0.154868, -0.0343429, -0.0286069, 0, -0.0383367, 0.0285983, 0, 0.0428376, 0.044, 0.0302283, 0.0428376, 0.0251958, 0.166064, -0.0149448, 0.004574, 0.170709, 0.0113948, -0.00458261, 0.170709, -0.0069098, -0.022, 0.0302283, -0.0764515, 0.0356359, 0.154868, -0.0343429, 0, 0.108899, -0.0809524, -0.0143078, 0, -0.0631073, 0.0285983, 0, -0.0383367, 0.044, 0.0302283, -0.0383367, 0.004574, 0.170709, -0.0069098, 0.022, 0.0302283, -0.0764515, 0.0142991, 0, -0.0631073)
 
 [node name="Cherries" type="RigidBody3D" groups=["Food"]]
+collision_layer = 9
 mass = 0.024322
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_p3vu1")
-food_resource = ExtResource("2_3xy0a")
+script = ExtResource("1_0rtef")
+food_resource = ExtResource("2_uhoh0")
 
 [node name="cherries" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0853545, 0)
-mesh = SubResource("ArrayMesh_uvc25")
+mesh = SubResource("ArrayMesh_s5g1i")
 skeleton = NodePath("")
 
 [node name="cherries_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0853545, 0)
-shape = SubResource("ConvexPolygonShape3D_qwxs6")
+shape = SubResource("ConvexPolygonShape3D_61yh5")

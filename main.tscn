@@ -32,10 +32,6 @@ albedo_color = Color(0.964813, 0.937469, 1, 1)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_71prs"]
 height = 2.6201
 
-[sub_resource type="Curve" id="Curve_x42ar"]
-_data = [Vector2(0, 0), 0.990498, 0.0173652, 0, 0, Vector2(0.498328, 0.211281), 0.975932, 0.975932, 0, 0, Vector2(0.938127, 1), -0.0202594, 0.0, 0, 0]
-point_count = 3
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_dxv86"]
 size = Vector3(49.879, 1, 45.8506)
 
@@ -145,7 +141,7 @@ script = ExtResource("6_xnjwu")
 transform = Transform3D(-8.22859, 0, 0, 0, 0.0537974, 0, 0, 0, -8.22859, 0, -0.0737869, -0.985973)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="TableTop"]
-collision_layer = 3
+collision_layer = 11
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="TableTop/StaticBody3D"]
 mesh = SubResource("CylinderMesh_qr1lg")
@@ -170,7 +166,6 @@ transform = Transform3D(0.712026, -0.0245048, 0.701725, 0, 0.999391, 0.0348995, 
 [node name="FoodDragHandler" type="Node3D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_updxt")
-food_elevation_curve = SubResource("Curve_x42ar")
 
 [node name="PotRimElevation" type="Marker3D" parent="FoodDragHandler"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.649624, 0)
@@ -271,3 +266,4 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 shape = SubResource("SphereShape3D_ox7ci")
 target_position = Vector3(0, -3, 0)
+collision_mask = 8

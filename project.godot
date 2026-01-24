@@ -37,6 +37,7 @@ Spice=""
 
 3d_physics/layer_2="SurfacePlane"
 3d_physics/layer_3="PotBottom"
+3d_physics/layer_4="ElevationCast"
 3d_physics/layer_5="FoodDragBoundary"
 
 [physics]
