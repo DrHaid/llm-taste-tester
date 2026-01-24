@@ -45,7 +45,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jr4bb")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rfbxp"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8loq5"]
 points = PackedVector3Array(3.72529e-09, 0.106193, 0.0670109, 3.72529e-09, 0.1652, 0.0334989, -0.0580445, 0.106193, 0.0334989, 3.72529e-09, 0.0353977, 0.0670109, 0.0580445, 0.106193, 0.0334989, 0.0290109, 0.1652, 0.0167429, -0.0290222, 0.1652, 0.0167429, -0.0580445, 0.106193, -0.0335251, -0.0580445, 0.0353977, 0.0334989, 0.0580445, 0.0353977, 0.0334989, 3.72529e-09, 0, 0.0471976, 0.0580445, 0.106193, -0.0335251, 0.0290109, 0.1652, -0.0167691, -0.0290222, 0.1652, -0.0167691, 3.72529e-09, 0.1652, -0.0335251, 3.72529e-09, 0.106193, -0.067024, -0.0580445, 0.0353977, -0.0335251, -0.0408857, 0, 0.0235922, 0.0408743, 0, 0.0235922, 0.0580445, 0.0353977, -0.0335251, 3.72529e-09, 0.0353977, -0.067024, 3.72529e-09, 0, -0.0472107, -0.0408857, 0, -0.0236054, 0.0408743, 0, -0.0236054)
 
 [node name="Egg" type="RigidBody3D" groups=["Food"]]
@@ -64,4 +64,4 @@ skeleton = NodePath("")
 
 [node name="egg_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0826, 0)
-shape = SubResource("ConvexPolygonShape3D_rfbxp")
+shape = SubResource("ConvexPolygonShape3D_8loq5")

@@ -45,12 +45,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nhss2")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tfecc"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3d5bf"]
 points = PackedVector3Array(-0.0344135, 0, -0.0272517, 0.0343865, 0, -0.0272517, -0.0302785, 0.0130904, 0.0704721, -0.0688, 0.0595681, -0.0272517, -0.0646785, 0.0681736, -0.130463, -0.0323392, 0.0121704, -0.130463, 0.0323258, 0.0121704, -0.130463, 0.0687865, 0.0595681, -0.0272517, 0.030265, 0.0130904, 0.0704721, -0.0218064, 0.0666404, 0.179664, -0.0605569, 0.0661229, 0.0704721, -0.0238537, 0.16847, -0.314936, -0.0253084, 0.173625, 0.314936, -0.046576, 0.102577, -0.234229, -0.023288, 0.0622513, -0.234229, 0.0232745, 0.0622513, -0.234229, 0.0465626, 0.102577, -0.234229, 0.064665, 0.0681736, -0.130463, 0.0252949, 0.173625, 0.314936, 0.0605435, 0.0661229, 0.0704721, 0.0238402, 0.16847, -0.314936, 0.0217929, 0.0666404, 0.179664, -0.0126609, 0.151469, 0.314936, -0.0435994, 0.104819, 0.179664, -0.0119336, 0.189131, -0.314936, -0.0119336, 0.147809, -0.314936, -0.0126609, 0.195781, 0.314936, 0.0119201, 0.147809, -0.314936, 0.0126475, 0.195781, 0.314936, 0.0126475, 0.151469, 0.314936, 0.0435859, 0.104819, 0.179664, 0.0119201, 0.189131, -0.314936)
 
 [node name="Banana" type="RigidBody3D" groups=["Food"]]
 collision_layer = 9
-mass = 0.169701
+mass = 0.123712
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
@@ -58,10 +58,10 @@ script = ExtResource("1_4acgo")
 food_resource = ExtResource("2_uf5b4")
 
 [node name="banana" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0979002, 0)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.0881102, 0)
 mesh = SubResource("ArrayMesh_a6ma4")
 skeleton = NodePath("")
 
 [node name="banana_CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0979002, 0)
-shape = SubResource("ConvexPolygonShape3D_tfecc")
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.0881102, 0)
+shape = SubResource("ConvexPolygonShape3D_3d5bf")

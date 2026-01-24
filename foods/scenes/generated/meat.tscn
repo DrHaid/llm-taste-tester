@@ -45,12 +45,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_a6kgy")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jvlg8"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3pi1t"]
 points = PackedVector3Array(0.2392, 0.0645, 0.219539, 0.121263, 0.0645, 0.287687, 0.2392, 0, 0.219539, 0.2392, 0.0645, 0.0832985, 0.121263, 0, 0.287687, -0.102949, 0.0645, 0.20619, 0.2392, 0, 0.0832985, 0.153956, 0.0645, -0.1742, -0.102949, 0, 0.20619, -0.239247, 0.0645, 0.0528289, 0.153956, 0, -0.1742, -0.0426692, 0.0645, -0.287687, -0.239247, 0, 0.0528289, -0.239247, 0.0645, -0.1742, -0.0426692, 0, -0.287687, -0.239247, 0, -0.1742)
 
 [node name="Meat" type="RigidBody3D" groups=["Food"]]
 collision_layer = 9
-mass = 0.177577
+mass = 0.0609088
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
@@ -58,10 +58,10 @@ script = ExtResource("1_h8abv")
 food_resource = ExtResource("2_aqdp1")
 
 [node name="meat-raw" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03225, 0)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.022575, 0)
 mesh = SubResource("ArrayMesh_1yohe")
 skeleton = NodePath("")
 
 [node name="meat-raw_CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03225, 0)
-shape = SubResource("ConvexPolygonShape3D_jvlg8")
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.022575, 0)
+shape = SubResource("ConvexPolygonShape3D_3pi1t")

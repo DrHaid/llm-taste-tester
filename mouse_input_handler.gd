@@ -8,7 +8,7 @@ signal food_hover(name: String)
 @onready var pot_rim_elevation: Marker3D = $PotRimElevation
 @onready var drag_food_target: Marker3D = $DragFoodTarget
 @onready var drag_border: Area3D = $Boundary
-@onready var elevation_shape_cast: ShapeCast3D = %ElevationShapeCast3D
+@onready var elevation_shape_cast: ShapeCast3D = $ElevationShapeCast3D
 @onready var view_collision_boundary: Node3D = %ViewCollisionBoundary
 
 @export_category("Drag elevation")

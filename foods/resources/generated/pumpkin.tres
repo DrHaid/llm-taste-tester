@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FoodItemData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="FoodItemData" load_steps=2 format=3 uid="uid://dqfde2p0eqx28"]
 
 [ext_resource type="Script" path="res://foods/food_item_data.gd" id="1_healc"]
 
@@ -6,3 +6,7 @@
 script = ExtResource("1_healc")
 name = "Pumpkin"
 model = "res://models/foods/pumpkin.fbx"
+size = 0.9
+container = false
+spice = ""
+spice_color = Color(0, 0, 0, 1)

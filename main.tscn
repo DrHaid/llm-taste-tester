@@ -32,11 +32,11 @@ albedo_color = Color(0.964813, 0.937469, 1, 1)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_71prs"]
 height = 2.6201
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dxv86"]
-size = Vector3(49.879, 1, 45.8506)
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_ox7ci"]
 radius = 0.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dxv86"]
+size = Vector3(49.879, 1, 45.8506)
 
 [node name="Main" type="Node3D"]
 
@@ -184,6 +184,12 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 depth = 3.0
 polygon = PackedVector2Array(-1.76292, -0.189293, -0.950156, -1.00205, -0.93953, -2.42237, -0.762126, -2.61456, 3.42164, -2.65152, 3.59166, -2.45933, 1.72892, 0.571314, 1.59586, 0.696975, -1.43478, 0.682191, -1.61219, 0.563922)
 
+[node name="ElevationShapeCast3D" type="ShapeCast3D" parent="FoodDragHandler"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("SphereShape3D_ox7ci")
+target_position = Vector3(0, -3, 0)
+collision_mask = 8
+
 [node name="CookingController" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_47a2x")
@@ -260,10 +266,3 @@ script = ExtResource("16_hwmsb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FoodKillZone"]
 shape = SubResource("BoxShape3D_dxv86")
-
-[node name="ElevationShapeCast3D" type="ShapeCast3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-shape = SubResource("SphereShape3D_ox7ci")
-target_position = Vector3(0, -3, 0)
-collision_mask = 8

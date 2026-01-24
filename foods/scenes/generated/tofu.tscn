@@ -43,7 +43,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_60ves")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ql8xj"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jh2vu"]
 points = PackedVector3Array(-0.111213, -0.0386958, -0.0750291, -0.111213, 0.0386958, -0.0750291, 0.111213, -0.0386958, -0.0750291, -0.111213, -0.0386958, 0.0750291, -0.111213, 0.0386958, 0.0750291, 0.111213, 0.0386958, -0.0750291, 0.111213, -0.0386958, 0.0750291, 0.111213, 0.0386958, 0.0750291)
 
 [node name="Tofu" type="RigidBody3D" groups=["Food"]]
@@ -60,4 +60,4 @@ mesh = SubResource("ArrayMesh_sblqd")
 skeleton = NodePath("")
 
 [node name="tofu_CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_ql8xj")
+shape = SubResource("ConvexPolygonShape3D_jh2vu")

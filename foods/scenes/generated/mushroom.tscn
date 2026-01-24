@@ -45,7 +45,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_g5e40")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1nq32"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1ab1p"]
 points = PackedVector3Array(3.72529e-09, 0, -0.0237538, 0.0205591, 0, -0.0118839, -0.0205714, 0, -0.0118839, 3.72529e-09, 0.0696, -0.0638091, 0.0552481, 0.0696, -0.0319116, 0.0205591, 0, 0.0118698, -0.0552603, 0.0696, -0.0319116, -0.0205714, 0, 0.0118698, 3.72529e-09, 0.0985954, -0.072094, 0.0624352, 0.0985954, -0.036047, 0.0552481, 0.0696, 0.0318975, 3.72529e-09, 0, 0.0237396, -0.0624352, 0.0985954, -0.036047, -0.0552603, 0.0696, 0.0318975, 3.72529e-09, 0.0696, 0.063795, 3.72529e-09, 0.1392, -0.036047, 0.0312054, 0.1392, -0.0180235, 0.0624352, 0.0985954, 0.036047, -0.0312176, 0.1392, -0.0180235, -0.0624352, 0.0985954, 0.036047, 3.72529e-09, 0.0985954, 0.072094, 0.0312054, 0.1392, 0.0180235, 3.72529e-09, 0.1392, 0.036047, -0.0312176, 0.1392, 0.0180235)
 
 [node name="Mushroom" type="RigidBody3D" groups=["Food"]]
@@ -64,4 +64,4 @@ skeleton = NodePath("")
 
 [node name="mushroom_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0696, 0)
-shape = SubResource("ConvexPolygonShape3D_1nq32")
+shape = SubResource("ConvexPolygonShape3D_1ab1p")

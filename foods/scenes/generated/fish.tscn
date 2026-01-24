@@ -45,12 +45,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xm05e")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kl43j"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c50da"]
 points = PackedVector3Array(0, 0, -0.310391, -0.00793961, 0.0337781, -0.310391, 0.00792025, 0.0337781, -0.310391, 0.0910731, 0.000630778, -0.130525, 0.0989159, 0.000126156, 0.12378, -0.0989159, 0.000126156, 0.12378, -0.0910925, 0.000630778, -0.130525, -0.00793961, 0.196897, -0.310391, 0.00792025, 0.196897, -0.310391, -1.93641e-05, 0.32217, -0.063804, 0.0489157, 0.190558, 0.0148269, 0.0691714, 0.115338, 0.0148269, 0, 0.230675, -0.310391, 0.0691714, 0.115338, 0.128033, 0.0532535, 0.115338, 0.237047, 0.0131681, 0.0950582, 0.310331, 0, 0.0866373, 0.310331, 0, 0.0378151, 0.237047, -0.0131875, 0.0950582, 0.310331, -0.0532728, 0.115338, 0.237047, -0.0691908, 0.115338, 0.128033, -0.0691908, 0.115338, 0.0148269, -0.0489351, 0.190558, 0.0148269, -0.0489351, 0.190558, 0.128033, -0.0376841, 0.170152, 0.237047, 0, 0.19286, 0.237047, 0.0376647, 0.170152, 0.237047, 0.0489157, 0.190558, 0.128033, 0.0131681, 0.135617, 0.310331, -0.0131875, 0.135617, 0.310331, 0, 0.144007, 0.310331)
 
 [node name="Fish" type="RigidBody3D" groups=["Food"]]
 collision_layer = 9
-mass = 0.395697
+mass = 0.202597
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
@@ -58,10 +58,10 @@ script = ExtResource("1_hheoe")
 food_resource = ExtResource("2_2y2x1")
 
 [node name="fish" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.161101, 0)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.12888, 0)
 mesh = SubResource("ArrayMesh_5frug")
 skeleton = NodePath("")
 
 [node name="fish_CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.161101, 0)
-shape = SubResource("ConvexPolygonShape3D_kl43j")
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.12888, 0)
+shape = SubResource("ConvexPolygonShape3D_c50da")

@@ -45,7 +45,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ri1nw")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_61yh5"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f20v6"]
 points = PackedVector3Array(-0.022, 0.0302283, 0.0809524, -0.044, 0.0302283, 0.0428376, -0.0286069, 0, 0.0428376, -0.0143078, 0, 0.0676082, 0.0142991, 0, 0.0676082, 0.022, 0.0302283, 0.0809365, 0.0142991, 0.0604734, 0.0676082, -0.0143078, 0.0604734, 0.0676082, -0.00458261, 0.170709, 0.0113948, -0.0252044, 0.166064, -0.0149448, -0.044, 0.0302283, -0.0383367, -0.0356445, 0.154868, -0.0343429, -0.0286069, 0, -0.0383367, 0.0285983, 0, 0.0428376, 0.044, 0.0302283, 0.0428376, 0.0251958, 0.166064, -0.0149448, 0.004574, 0.170709, 0.0113948, -0.00458261, 0.170709, -0.0069098, -0.022, 0.0302283, -0.0764515, 0.0356359, 0.154868, -0.0343429, 0, 0.108899, -0.0809524, -0.0143078, 0, -0.0631073, 0.0285983, 0, -0.0383367, 0.044, 0.0302283, -0.0383367, 0.004574, 0.170709, -0.0069098, 0.022, 0.0302283, -0.0764515, 0.0142991, 0, -0.0631073)
 
 [node name="Cherries" type="RigidBody3D" groups=["Food"]]
@@ -64,4 +64,4 @@ skeleton = NodePath("")
 
 [node name="cherries_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0853545, 0)
-shape = SubResource("ConvexPolygonShape3D_61yh5")
+shape = SubResource("ConvexPolygonShape3D_f20v6")

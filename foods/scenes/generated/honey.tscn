@@ -45,12 +45,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_sdbn1")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_g8n2t"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fyquh"]
 points = PackedVector3Array(-1.49012e-08, 0.150771, -0.16302, -1.49012e-08, 0.202986, -0.155616, 0.11001, 0.202986, -0.110042, 0.115244, 0.150771, -0.115276, 0.104776, 0.0463695, -0.104808, -1.49012e-08, 0.0463695, -0.148212, -0.104808, 0.0463695, -0.104808, -0.115276, 0.150771, -0.115276, -0.110042, 0.202986, -0.110042, -1.49012e-08, 0.316018, -0.123286, 0.123254, 0.316018, -1.49012e-08, 0.155584, 0.202986, -1.49012e-08, 0.16302, 0.150771, -1.49012e-08, 0.087127, 0.316018, -0.0871589, 0.0919142, 0, -0.0919461, 0.14818, 0.0463695, -1.49012e-08, -1.49012e-08, 0, -0.13002, -0.0919461, 0, -0.0919461, -0.148212, 0.0463695, -1.49012e-08, -0.16302, 0.150771, -1.49012e-08, -0.0871589, 0.316018, -0.0871589, -0.155616, 0.202986, -1.49012e-08, -0.123286, 0.316018, -1.49012e-08, 0.087127, 0.316018, 0.087127, 0.11001, 0.202986, 0.11001, 0.115244, 0.150771, 0.115244, 0.104776, 0.0463695, 0.104776, 0.129988, 0, -1.49012e-08, 0.0919142, 0, 0.0919142, -0.13002, 0, -1.49012e-08, -0.0919461, 0, 0.0919142, -0.104808, 0.0463695, 0.104776, -0.115276, 0.150771, 0.115244, -0.110042, 0.202986, 0.11001, -0.0871589, 0.316018, 0.087127, -1.49012e-08, 0.316018, 0.123254, -1.49012e-08, 0.202986, 0.155584, -1.49012e-08, 0.150771, 0.16302, -1.49012e-08, 0.0463695, 0.14818, -1.49012e-08, 0, 0.129988)
 
 [node name="Honey" type="RigidBody3D" groups=["Food"]]
 collision_layer = 9
-mass = 0.335934
+mass = 0.115225
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
@@ -58,10 +58,10 @@ script = ExtResource("1_leku2")
 food_resource = ExtResource("2_541km")
 
 [node name="honey" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.158009, 0)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.110606, 0)
 mesh = SubResource("ArrayMesh_kw4mo")
 skeleton = NodePath("")
 
 [node name="honey_CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.158009, 0)
-shape = SubResource("ConvexPolygonShape3D_g8n2t")
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.110606, 0)
+shape = SubResource("ConvexPolygonShape3D_fyquh")

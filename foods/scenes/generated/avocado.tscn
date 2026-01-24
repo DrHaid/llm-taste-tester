@@ -45,7 +45,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8ssgo")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_41aws"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fjt7m"]
 points = PackedVector3Array(-9.11206e-06, 0.116117, 0.0867173, 0.0285378, 0.0986266, 0.0164675, -9.11206e-06, 0.21374, 0.0433586, -0.0750993, 0.116117, 0.0433586, -9.11206e-06, 0.0457984, 0.0867173, 0.0285378, 0.0986266, -0.0164844, 0.0285378, 0.0719091, 0.0164675, -9.11206e-06, 0.21374, -0.0433586, -0.0375542, 0.21374, 0.0216793, -0.0750993, 0.116117, -0.0433586, -0.0750993, 0.0457984, 0.0433586, -9.11206e-06, 0, 0.0610654, -9.11206e-06, 0.116117, -0.0867173, 0.0285378, 0.0719091, -0.0164844, -0.0375542, 0.21374, -0.0216793, -0.0750993, 0.0457984, -0.0433586, -0.0528928, 0, 0.0305242, -9.11206e-06, 0, -0.0610824, -9.11206e-06, 0.0457984, -0.0867173, -0.0528928, 0, -0.0305412)
 
 [node name="Avocado" type="RigidBody3D" groups=["Food"]]
@@ -64,4 +64,4 @@ skeleton = NodePath("")
 
 [node name="advocado-half_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0232808, -0.10687, 0)
-shape = SubResource("ConvexPolygonShape3D_41aws")
+shape = SubResource("ConvexPolygonShape3D_fjt7m")

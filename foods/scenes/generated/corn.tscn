@@ -45,7 +45,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_x6ir0")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ojk2x"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5qfiu"]
 points = PackedVector3Array(0.0255665, 0.316198, 0.0147547, 0.0255665, 0.316198, -0.014809, -2.68221e-07, 0.316198, 0.0295365, 0.0825121, 0.237303, 0.120784, 0.165092, 0.179115, 0.0110519, -2.68221e-07, 0.316198, -0.0295614, 0.165092, 0.179115, -0.0110768, 0.0963201, 0.212697, -0.14473, 0.0633286, 0.237303, 0.131834, -0.0256006, 0.316198, 0.0147547, -0.0706195, 0.166704, 0.144441, -2.68221e-07, 0, 0.0356197, 0.0308411, 0, 0.017811, 0.0771367, 0.212697, -0.15578, -0.0633627, 0.237303, -0.131859, -0.0825462, 0.237303, -0.120809, -0.0256006, 0.316198, -0.014809, 0.0308411, 0, -0.0178359, -2.68221e-07, 0, -0.0356446, -0.178127, 0.203567, 0.0110519, -0.089803, 0.166704, 0.133362, -0.0308752, 0, 0.017811, -0.178127, 0.203567, -0.0110768, -0.0308752, 0, -0.0178359)
 
 [node name="Corn" type="RigidBody3D" groups=["Food"]]
@@ -64,4 +64,4 @@ skeleton = NodePath("")
 
 [node name="corn_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00651793, -0.158099, 0.0056695)
-shape = SubResource("ConvexPolygonShape3D_ojk2x")
+shape = SubResource("ConvexPolygonShape3D_5qfiu")

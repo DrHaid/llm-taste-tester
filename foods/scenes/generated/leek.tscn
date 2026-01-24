@@ -45,12 +45,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_abwtu")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0cfct"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wc111"]
 points = PackedVector3Array(-0.13647, 0.710146, -0.0110876, -0.13647, 0.710146, 0.0110608, -0.0870706, 0.84743, -0.0110876, -0.0110876, 0.710146, -0.13647, -0.0423731, 0.0327657, -0.0230835, -0.0110876, 0.762488, 0.13647, -0.0870706, 0.84743, 0.0110608, -0.0423731, 0.0327657, 0.0230568, -0.0230835, 0.0327657, 0.0423464, 0.0870439, 0.84743, -0.0110876, -0.0110876, 0.800397, -0.0870706, 0.0110608, 0.710146, -0.13647, -0.0230835, 0.0327657, -0.0423731, -0.0339038, 0, -0.0184881, 0.0110608, 0.762488, 0.13647, 0.0870439, 0.84743, 0.0110608, -0.0339038, 0, 0.0184614, -0.0184881, 0, 0.0338771, 0.0230568, 0.0327657, 0.0423464, 0.13647, 0.710146, -0.0110876, 0.0110608, 0.800397, -0.0870706, 0.0230568, 0.0327657, -0.0423731, -0.0184881, 0, -0.0339038, 0.13647, 0.710146, 0.0110608, 0.0184614, 0, 0.0338771, 0.0423464, 0.0327657, 0.0230568, 0.0423464, 0.0327657, -0.0230835, 0.0184614, 0, -0.0339038, 0.0338771, 0, 0.0184614, 0.0338771, 0, -0.0184881)
 
 [node name="Leek" type="RigidBody3D" groups=["Food"]]
 collision_layer = 9
-mass = 0.631306
+mass = 0.387701
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
@@ -58,10 +58,10 @@ script = ExtResource("1_tnakg")
 food_resource = ExtResource("2_g3ub4")
 
 [node name="leek" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.423715, 0)
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0, -0.360158, 0)
 mesh = SubResource("ArrayMesh_kygix")
 skeleton = NodePath("")
 
 [node name="leek_CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.423715, 0)
-shape = SubResource("ConvexPolygonShape3D_0cfct")
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0, -0.360158, 0)
+shape = SubResource("ConvexPolygonShape3D_wc111")

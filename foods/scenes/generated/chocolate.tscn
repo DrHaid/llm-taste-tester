@@ -45,7 +45,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_chxab")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mrtwa"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_coaf0"]
 points = PackedVector3Array(-0.146224, 0, -0.073112, -0.146224, 0, 0.073112, -0.146224, 0.016872, -0.073112, 0.146224, 0, -0.073112, -0.146224, 0.016872, 0.073112, 0.146224, 0, 0.073112, -0.128934, 0.033744, -0.0558073, 0.146224, 0.016872, -0.073112, -0.128934, 0.033744, 0.055793, 0.146224, 0.016872, 0.073112, 0.128905, 0.033744, -0.0558073, 0.128905, 0.033744, 0.055793)
 
 [node name="Chocolate" type="RigidBody3D" groups=["Food"]]
@@ -64,4 +64,4 @@ skeleton = NodePath("")
 
 [node name="chocolate_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.016872, 0)
-shape = SubResource("ConvexPolygonShape3D_mrtwa")
+shape = SubResource("ConvexPolygonShape3D_coaf0")

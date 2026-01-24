@@ -6,3 +6,7 @@
 script = ExtResource("1_hgwkx")
 name = "Broccoli"
 model = "res://models/foods/broccoli.fbx"
+size = 0.8
+container = false
+spice = ""
+spice_color = Color(0, 0, 0, 1)

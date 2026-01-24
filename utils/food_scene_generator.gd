@@ -54,23 +54,28 @@ func generate_food(food: FoodItemData) -> void:
 	# exclude static body from being saved
 	static_child.owner = null
 
+	# scale
+	mesh.scale = food.size * Vector3.ONE
+	collision_shape.scale = food.size * Vector3.ONE
+
 	# determine and set center of mass and mass
-	var food_aabb: AABB = AABB(Vector3.ZERO, Vector3.ZERO)
-	food_aabb = food_aabb.merge(mesh.get_aabb())
+	var mesh_aabb: AABB = mesh.get_aabb()
+	var scaled_aabb := AABB(mesh_aabb.position * food.size, mesh_aabb.size * food.size)
+	var center_offset := scaled_aabb.get_center()
 
-	# offset children so the object origin in at center of mass
+	# offset children so the object origin is at center of mass
 	for child in food_rigidbody.get_children():
-		child.set_position(child.position - food_aabb.get_center())
+		child.position = child.position - center_offset
 
-	# set mass according to bourdary
-	food_rigidbody.set_mass(food_aabb.get_volume() * mass_multiplier)
+	# set mass according to volume
+	food_rigidbody.set_mass(scaled_aabb.get_volume() * mass_multiplier)
 
 	save_node(food_rigidbody, food.name.to_lower().replace(" ", "_"))
 	print("Saved: %s" % food.name)
 	# get_tree().quit()
 
 
-func get_main_mesh(parent: Node) -> Node:
+func get_main_mesh(parent: Node) -> Node3D:
 	var meshes := parent.find_children("*", "MeshInstance3D", true)
 	if meshes.size() > 1:
 		printerr("'%s'FBX has more than one object, this is not supported".format(parent.name))

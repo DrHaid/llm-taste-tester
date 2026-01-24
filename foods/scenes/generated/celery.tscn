@@ -45,7 +45,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_emok7")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7g02g"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wttmp"]
 points = PackedVector3Array(0.0148193, 0.54, 0.0441, -0.00450338, 0.54, 0.0361572, 0.0148193, 0, 0.0441, 0.0229803, 0.54, 0.0242257, -0.0180945, 0.54, 0.020306, -0.00450338, 0, 0.0361572, 0.0229803, 0, 0.0242257, 0.0229803, 0.54, -0.0242343, -0.0229803, 0.54, 0, -0.0180945, 0, 0.020306, 0.0229803, 0, -0.0242343, 0.0148193, 0.54, -0.0441, -0.0180945, 0.54, -0.0203147, -0.0229803, 0, 0, 0.0148193, 0, -0.0441, -0.00450338, 0.54, -0.0361658, -0.0180945, 0, -0.0203147, -0.00450338, 0, -0.0361658)
 
 [node name="Celery" type="RigidBody3D" groups=["Food"]]
@@ -64,4 +64,4 @@ skeleton = NodePath("")
 
 [node name="celery-stick_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27, 0)
-shape = SubResource("ConvexPolygonShape3D_7g02g")
+shape = SubResource("ConvexPolygonShape3D_wttmp")

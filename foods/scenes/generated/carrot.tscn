@@ -45,12 +45,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_41pl8")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_k2c0m"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2u5d0"]
 points = PackedVector3Array(-0.171571, 0.512968, -0.0110843, -0.171571, 0.512968, 0.0110507, -0.120651, 0.587711, -0.0110843, -0.0110843, 0.657126, -0.120651, -0.0110843, 0.512968, -0.171571, -0.0259976, 0.019983, -0.0150141, -0.0110843, 0.512968, 0.171537, -0.0110843, 0.657126, 0.120617, -0.120651, 0.587711, 0.0110507, -0.0259976, 0.019983, 0.0149806, 0.120617, 0.716304, -0.0110843, 0.0110507, 0.657126, -0.120651, 0.0110507, 0.512968, -0.171571, -3.35872e-05, 0.019983, -0.0300283, -3.35872e-05, 0, -0.0204219, -0.0176676, 0, -0.0102109, 0.0110507, 0.512968, 0.171537, -3.35872e-05, 0.019983, 0.0299947, 0.0110507, 0.657126, 0.120617, 0.120617, 0.716304, 0.0110507, -0.0176676, 0, 0.0101774, -3.35872e-05, 0, 0.0203883, 0.171537, 0.512968, -0.0110843, 0.0259641, 0.019983, -0.0150141, 0.0176341, 0, -0.0102109, 0.171537, 0.512968, 0.0110507, 0.0259641, 0.019983, 0.0149806, 0.0176341, 0, 0.0101774)
 
 [node name="Carrot" type="RigidBody3D" groups=["Food"]]
 collision_layer = 9
-mass = 0.843422
+mass = 0.289294
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
@@ -58,10 +58,10 @@ script = ExtResource("1_iomqx")
 food_resource = ExtResource("2_8bdce")
 
 [node name="carrot" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.358152, 0)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.250706, 0)
 mesh = SubResource("ArrayMesh_2g1jy")
 skeleton = NodePath("")
 
 [node name="carrot_CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.358152, 0)
-shape = SubResource("ConvexPolygonShape3D_k2c0m")
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.250706, 0)
+shape = SubResource("ConvexPolygonShape3D_2u5d0")
