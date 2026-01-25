@@ -12,6 +12,7 @@ signal cooking_finished(successful: bool)
 @onready var food_detector: Area3D = $FoodDetector
 
 @export var cooking_speed: float = 2
+@export var food_stew_level_threshold: int = 4
 
 var col_bottom_start: Vector3 = Vector3.ZERO
 var stew_start: Vector3 = Vector3.ZERO
@@ -26,9 +27,10 @@ func _set_collider_cooking(cooking: bool) -> void:
 	pot_collider_no_bottom.get_child(0).disabled = not cooking
 	pot_collider_bottom.get_child(0).disabled = not cooking
 
-func raise_stew_level() -> void:
+func raise_stew_level(height: float = 1) -> void:
+	var stew_target_pos := stew_start + (stew_target.global_position - stew_start) * height
 	var stew_tween := create_tween()
-	stew_tween.tween_property(stew_model, "global_position", stew_target.global_position, cooking_speed)
+	stew_tween.tween_property(stew_model, "global_position", stew_target_pos, cooking_speed)
 	stew_tween.finished.connect(_finish_cooking)
 	var pot_bottom_tween := create_tween()
 	pot_bottom_tween.tween_property(pot_collider_bottom, "global_position", pot_collider_bottom_target.global_position, cooking_speed)
@@ -53,7 +55,9 @@ func set_stove_cooking() -> bool:
 
 	cook_food.emit(food_res, spice_names)
 	_set_collider_cooking(true)
-	raise_stew_level()
+
+	var stew_level := clampf(float(foods.size()) / float(food_stew_level_threshold), 0, 1)
+	raise_stew_level(stew_level)
 	return true
 
 func _finish_cooking() -> void:
