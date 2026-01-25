@@ -17,7 +17,7 @@ const MOUTH: Dictionary = {
 	MOUTH_MOOD.SMILE: ")",
 	MOUTH_MOOD.SURPRISED: "0",
 	MOUTH_MOOD.TONGUE: "P",
-	MOUTH_MOOD.CHEWING: "TI0"
+	MOUTH_MOOD.CHEWING: "TIo"
 }
 
 @export var mood: MOOD
