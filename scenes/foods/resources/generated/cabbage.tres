@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="FoodItemData" load_steps=2 format=3 uid="uid://brrpjwdx766lg"]
+
+[ext_resource type="Script" path="res://scenes/foods/food_item_data.gd" id="1_8gawh"]
+
+[resource]
+script = ExtResource("1_8gawh")
+name = "Cabbage"
+model = "res://models/foods/cabbage.fbx"

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="FoodItemData" load_steps=2 format=3 uid="uid://crs557b1wuph6"]
+
+[ext_resource type="Script" path="res://scenes/foods/food_item_data.gd" id="1_3depm"]
+
+[resource]
+script = ExtResource("1_3depm")
+name = "Eggplant"
+model = "res://models/foods/eggplant.fbx"

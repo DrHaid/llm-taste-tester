@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="FoodItemData" load_steps=2 format=3 uid="uid://cowi1t5jpc5cb"]
-
-[ext_resource type="Script" path="res://foods/food_item_data.gd" id="1_xq3bh"]
-
-[resource]
-script = ExtResource("1_xq3bh")
-name = "Celery"
-model = "res://models/foods/celery-stick.fbx"

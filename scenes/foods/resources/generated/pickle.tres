@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FoodItemData" load_steps=2 format=3 uid="uid://dxdn11jtgokkn"]
+
+[ext_resource type="Script" path="res://scenes/foods/food_item_data.gd" id="1_ekyjy"]
+
+[resource]
+script = ExtResource("1_ekyjy")
+name = "Pickle"
+model = "res://models/foods/pickle.fbx"
+container = false
+spice = ""
+spice_color = Color(0, 0, 0, 1)

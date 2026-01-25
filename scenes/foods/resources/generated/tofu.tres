@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FoodItemData" load_steps=2 format=3 uid="uid://ccaamip3cswtf"]
+
+[ext_resource type="Script" path="res://scenes/foods/food_item_data.gd" id="1_7d3ao"]
+
+[resource]
+script = ExtResource("1_7d3ao")
+name = "Tofu"
+model = "res://models/foods/tofu.fbx"
+container = false
+spice = ""
+spice_color = Color(0, 0, 0, 1)

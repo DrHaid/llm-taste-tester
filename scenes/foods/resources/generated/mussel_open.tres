@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="FoodItemData" load_steps=2 format=3 uid="uid://btxy42wniq4br"]
+
+[ext_resource type="Script" path="res://scenes/foods/food_item_data.gd" id="1_oolgt"]
+
+[resource]
+script = ExtResource("1_oolgt")
+name = "Mussel"
+model = "res://models/foods/mussel-open.fbx"
