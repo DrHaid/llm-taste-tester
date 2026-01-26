@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4 uid="uid://h4g20vu71mg6"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_tnakg"]
-[ext_resource type="Resource" uid="uid://duqihaakqax1f" path="res://scenes/foods/resources/generated/leek.tres" id="2_g3ub4"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_sy3jp"]
+[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_5psmy"]
+[ext_resource type="Resource" uid="uid://duqihaakqax1f" path="res://scenes/foods/resources/generated/leek.tres" id="2_ikmy1"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_k73lw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60gex"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_sy3jp")
+albedo_texture = ExtResource("3_k73lw")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_abwtu"]
@@ -45,7 +45,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_abwtu")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wc111"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vjate"]
 points = PackedVector3Array(-0.13647, 0.710146, -0.0110876, -0.13647, 0.710146, 0.0110608, -0.0870706, 0.84743, -0.0110876, -0.0110876, 0.710146, -0.13647, -0.0423731, 0.0327657, -0.0230835, -0.0110876, 0.762488, 0.13647, -0.0870706, 0.84743, 0.0110608, -0.0423731, 0.0327657, 0.0230568, -0.0230835, 0.0327657, 0.0423464, 0.0870439, 0.84743, -0.0110876, -0.0110876, 0.800397, -0.0870706, 0.0110608, 0.710146, -0.13647, -0.0230835, 0.0327657, -0.0423731, -0.0339038, 0, -0.0184881, 0.0110608, 0.762488, 0.13647, 0.0870439, 0.84743, 0.0110608, -0.0339038, 0, 0.0184614, -0.0184881, 0, 0.0338771, 0.0230568, 0.0327657, 0.0423464, 0.13647, 0.710146, -0.0110876, 0.0110608, 0.800397, -0.0870706, 0.0230568, 0.0327657, -0.0423731, -0.0184881, 0, -0.0339038, 0.13647, 0.710146, 0.0110608, 0.0184614, 0, 0.0338771, 0.0423464, 0.0327657, 0.0230568, 0.0423464, 0.0327657, -0.0230835, 0.0184614, 0, -0.0339038, 0.0338771, 0, 0.0184614, 0.0338771, 0, -0.0184881)
 
 [node name="Leek" type="RigidBody3D" groups=["Food"]]
@@ -54,8 +54,8 @@ mass = 0.387701
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_tnakg")
-food_resource = ExtResource("2_g3ub4")
+script = ExtResource("1_5psmy")
+food_resource = ExtResource("2_ikmy1")
 
 [node name="leek" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0, -0.360158, 0)
@@ -64,4 +64,4 @@ skeleton = NodePath("")
 
 [node name="leek_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0, -0.360158, 0)
-shape = SubResource("ConvexPolygonShape3D_wc111")
+shape = SubResource("ConvexPolygonShape3D_vjate")

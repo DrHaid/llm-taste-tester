@@ -6,3 +6,7 @@
 script = ExtResource("1_8gawh")
 name = "Cabbage"
 model = "res://models/foods/cabbage.fbx"
+size = 0.9
+container = false
+spice = ""
+spice_color = Color(0, 0, 0, 1)

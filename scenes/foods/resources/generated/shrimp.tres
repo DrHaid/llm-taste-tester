@@ -6,6 +6,7 @@
 script = ExtResource("1_oi1cs")
 name = "Shrimp"
 model = "res://models/foods/shrimp.fbx"
+size = 0.9
 container = false
 spice = ""
 spice_color = Color(0, 0, 0, 1)

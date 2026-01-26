@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4 uid="uid://271dw4jfhlgy"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_3yiql"]
-[ext_resource type="Resource" uid="uid://ouasluwsqcb7" path="res://scenes/foods/resources/generated/mushroom.tres" id="2_5utye"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_snfao"]
+[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_b6wmd"]
+[ext_resource type="Resource" uid="uid://ouasluwsqcb7" path="res://scenes/foods/resources/generated/mushroom.tres" id="2_ini36"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_5cvfb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfrer"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_snfao")
+albedo_texture = ExtResource("3_5cvfb")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_g5e40"]
@@ -45,7 +45,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_g5e40")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1ab1p"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_flds7"]
 points = PackedVector3Array(3.72529e-09, 0, -0.0237538, 0.0205591, 0, -0.0118839, -0.0205714, 0, -0.0118839, 3.72529e-09, 0.0696, -0.0638091, 0.0552481, 0.0696, -0.0319116, 0.0205591, 0, 0.0118698, -0.0552603, 0.0696, -0.0319116, -0.0205714, 0, 0.0118698, 3.72529e-09, 0.0985954, -0.072094, 0.0624352, 0.0985954, -0.036047, 0.0552481, 0.0696, 0.0318975, 3.72529e-09, 0, 0.0237396, -0.0624352, 0.0985954, -0.036047, -0.0552603, 0.0696, 0.0318975, 3.72529e-09, 0.0696, 0.063795, 3.72529e-09, 0.1392, -0.036047, 0.0312054, 0.1392, -0.0180235, 0.0624352, 0.0985954, 0.036047, -0.0312176, 0.1392, -0.0180235, -0.0624352, 0.0985954, 0.036047, 3.72529e-09, 0.0985954, 0.072094, 0.0312054, 0.1392, 0.0180235, 3.72529e-09, 0.1392, 0.036047, -0.0312176, 0.1392, 0.0180235)
 
 [node name="Mushroom" type="RigidBody3D" groups=["Food"]]
@@ -54,8 +54,8 @@ mass = 0.0250627
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_3yiql")
-food_resource = ExtResource("2_5utye")
+script = ExtResource("1_b6wmd")
+food_resource = ExtResource("2_ini36")
 
 [node name="mushroom" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0696, 0)
@@ -64,4 +64,4 @@ skeleton = NodePath("")
 
 [node name="mushroom_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0696, 0)
-shape = SubResource("ConvexPolygonShape3D_1ab1p")
+shape = SubResource("ConvexPolygonShape3D_flds7")

@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4 uid="uid://cnkfa16eu3bmx"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_q3wvn"]
-[ext_resource type="Resource" uid="uid://brrpjwdx766lg" path="res://scenes/foods/resources/generated/cabbage.tres" id="2_c5o2m"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_8ld5g"]
+[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_upy0l"]
+[ext_resource type="Resource" uid="uid://brrpjwdx766lg" path="res://scenes/foods/resources/generated/cabbage.tres" id="2_upapi"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_ugxi5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sw0xw"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_8ld5g")
+albedo_texture = ExtResource("3_ugxi5")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_73r45"]
@@ -45,23 +45,23 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_73r45")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ss1p7"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ug1yf"]
 points = PackedVector3Array(0.189725, 0.116265, 0.0749861, 0.0779254, 0, 0.0449996, 0.189725, 0.116265, -0.0750256, 0.175537, 0.181107, 0.0449996, 0.159788, 0.126736, 0.126781, 0.0298999, 0.126736, 0.201807, 0, 0, 0.0899992, 0.0779254, 0, -0.0450391, 0.175537, 0.181107, -0.0450391, 0.159788, 0.103477, -0.126821, 0.126731, 0.161188, -0.129547, 0.117668, 0.264966, 0.0788974, 0.126731, 0.197415, 0.129507, 0.117928, 0.281996, 0, 0.0488055, 0.197415, 0.174507, 0.0094714, 0.264966, 0.14136, -0.029937, 0.0964961, 0.201807, -0.0779626, 0, 0.0449996, 0, 0, -0.0900387, 0.12714, 0.243091, -0.0624621, 0.0298999, 0.103477, -0.201807, 0.0488055, 0.161188, -0.174546, -0.00950854, 0.260121, -0.141399, 0.0589455, 0.307391, 0.102128, -0.0589826, 0.301735, -0.102168, -0.126768, 0.150326, 0.129507, -0.0488427, 0.150326, 0.174507, -0.117965, 0.281996, 0, -0.127177, 0.243091, 0.0624226, -0.159825, 0.0964961, 0.126781, -0.189725, 0.116265, 0.0749861, -0.0779626, 0, -0.0450391, -0.029937, 0.124419, -0.201807, -0.0488427, 0.193775, -0.174546, -0.126768, 0.193775, -0.129547, -0.117705, 0.260121, -0.0789369, -0.175574, 0.181107, -0.0450391, -0.175574, 0.181107, 0.0449996, -0.189725, 0.116265, -0.0750256, -0.159825, 0.124419, -0.126821)
 
 [node name="Cabbage" type="RigidBody3D" groups=["Food"]]
 collision_layer = 9
-mass = 0.470774
+mass = 0.343194
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_q3wvn")
-food_resource = ExtResource("2_c5o2m")
+script = ExtResource("1_upy0l")
+food_resource = ExtResource("2_upapi")
 
 [node name="cabbage" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.153696, 0)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.138326, 0)
 mesh = SubResource("ArrayMesh_j0gx3")
 skeleton = NodePath("")
 
 [node name="cabbage_CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.153696, 0)
-shape = SubResource("ConvexPolygonShape3D_ss1p7")
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.138326, 0)
+shape = SubResource("ConvexPolygonShape3D_ug1yf")

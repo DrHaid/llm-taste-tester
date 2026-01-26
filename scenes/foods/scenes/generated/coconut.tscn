@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4 uid="uid://c2bxwgvrwh6og"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_kua23"]
-[ext_resource type="Resource" uid="uid://ca3a4kw0oaha1" path="res://scenes/foods/resources/generated/coconut_half.tres" id="2_88c83"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_svb13"]
+[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_q3ay5"]
+[ext_resource type="Resource" uid="uid://ca3a4kw0oaha1" path="res://scenes/foods/resources/generated/coconut_half.tres" id="2_fqf7k"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_vu5g4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf405"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_svb13")
+albedo_texture = ExtResource("3_vu5g4")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_u723x"]
@@ -45,7 +45,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_u723x")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_44th2"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mks1w"]
 points = PackedVector3Array(7.45058e-09, 0.1242, -0.1242, 7.45058e-09, 0.041396, -0.104092, -0.0878251, 0.1242, -0.0878251, 0.0878007, 0.1242, -0.0878251, 7.45058e-09, 0, -0.0624647, -0.04418, 0, -0.04418, -0.0736009, 0.041396, -0.0736009, 0.0735766, 0.041396, -0.0736009, 0.0441557, 0, -0.04418, -0.104092, 0.041396, 0, -0.1242, 0.1242, 0, 0.1242, 0.1242, 0, -0.0624647, 0, 0, 0.104067, 0.041396, 0, 0.0624404, 0, 0, -0.0878251, 0.1242, 0.0878007, -0.04418, 0, 0.0441557, -0.0736009, 0.041396, 0.0735766, 0.0878007, 0.1242, 0.0878007, 0.0735766, 0.041396, 0.0735766, 0.0441557, 0, 0.0441557, 7.45058e-09, 0.1242, 0.1242, 7.45058e-09, 0, 0.0624404, 7.45058e-09, 0.041396, 0.104067)
 
 [node name="Coconut" type="RigidBody3D" groups=["Food"]]
@@ -54,8 +54,8 @@ mass = 0.0766346
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_kua23")
-food_resource = ExtResource("2_88c83")
+script = ExtResource("1_q3ay5")
+food_resource = ExtResource("2_fqf7k")
 
 [node name="coconut-half" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0621, 0)
@@ -64,4 +64,4 @@ skeleton = NodePath("")
 
 [node name="coconut-half_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0621, 0)
-shape = SubResource("ConvexPolygonShape3D_44th2")
+shape = SubResource("ConvexPolygonShape3D_mks1w")

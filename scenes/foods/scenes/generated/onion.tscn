@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4 uid="uid://dsw1rlmm2hlx8"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_5g3rc"]
-[ext_resource type="Resource" uid="uid://dcq1nsiqdrkhg" path="res://scenes/foods/resources/generated/onion.tres" id="2_qemog"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_b31nx"]
+[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_k22sc"]
+[ext_resource type="Resource" uid="uid://dcq1nsiqdrkhg" path="res://scenes/foods/resources/generated/onion.tres" id="2_f11p8"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_2delo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5viv"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_b31nx")
+albedo_texture = ExtResource("3_2delo")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xvucu"]
@@ -45,23 +45,23 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xvucu")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2fsme"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_brbll"]
 points = PackedVector3Array(7.45058e-09, 0.0899814, 0.123, -0.106521, 0.0899814, 0.0615, -0.0866058, 0.0299775, 0.0499898, 7.45058e-09, 0.0299775, 0.0999796, 0.106521, 0.0899814, 0.0615, 7.45058e-09, 0.149985, 0.0999796, -0.0866058, 0.149985, 0.0499898, -0.106521, 0.0899814, -0.0615, -0.0866058, 0.0299775, -0.0500139, -0.0329281, 0, 0.018999, 7.45058e-09, 0, 0.037998, 0.0865849, 0.0299775, 0.0499898, 0.106521, 0.0899814, -0.0615, 0.0865849, 0.149985, 0.0499898, 7.45058e-09, 0.25, 0.0157001, -0.0136175, 0.25, 0.00785003, -0.0866058, 0.149985, -0.0500139, 7.45058e-09, 0.0899814, -0.123, 7.45058e-09, 0.0299775, -0.100004, -0.0329281, 0, -0.0190231, 0.0329073, 0, 0.018999, 0.0865849, 0.0299775, -0.0500139, 0.0865849, 0.149985, -0.0500139, 0.0135967, 0.25, 0.00785003, -0.0136175, 0.25, -0.00787412, 7.45058e-09, 0.149985, -0.100004, 7.45058e-09, 0, -0.0380221, 0.0329073, 0, -0.0190231, 0.0135967, 0.25, -0.00787412, 7.45058e-09, 0.25, -0.0157242)
 
 [node name="Onion" type="RigidBody3D" groups=["Food"]]
 collision_layer = 9
-mass = 0.131021
+mass = 0.0955143
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_5g3rc")
-food_resource = ExtResource("2_qemog")
+script = ExtResource("1_k22sc")
+food_resource = ExtResource("2_f11p8")
 
 [node name="onion" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.1125, 0)
 mesh = SubResource("ArrayMesh_igl7f")
 skeleton = NodePath("")
 
 [node name="onion_CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0)
-shape = SubResource("ConvexPolygonShape3D_2fsme")
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.1125, 0)
+shape = SubResource("ConvexPolygonShape3D_brbll")

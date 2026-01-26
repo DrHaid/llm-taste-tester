@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4 uid="uid://c00htwp35c77v"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_27xwn"]
-[ext_resource type="Resource" uid="uid://ctvkt5m522eis" path="res://scenes/foods/resources/generated/carton.tres" id="2_tqmwc"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_orntu"]
+[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_qq7q6"]
+[ext_resource type="Resource" uid="uid://ctvkt5m522eis" path="res://scenes/foods/resources/generated/carton.tres" id="2_e4eky"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_grgcl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hcl17"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_orntu")
+albedo_texture = ExtResource("3_grgcl")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_vabwh"]
@@ -45,7 +45,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vabwh")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_m46p3"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qxgus"]
 points = PackedVector3Array(-0.115, 0, -0.115, 0.115, 0, -0.115, -0.115, 0, 0.115, -0.115, 0.419961, -0.115, 0.115, 0, 0.115, 0.115, 0.419961, -0.115, -0.115, 0.419961, 0.115, 0, 0.590546, -0.0947377, 0, 0.570256, -0.115, 0.115, 0.419961, 0.115, 0.0874432, 0.511468, -0.0405022, 0.110677, 0.485224, -0.0202623, 0, 0.570256, 0.115, 0, 0.590546, 0.0947152, 0.0642091, 0.537769, -0.0202623, 0.110677, 0.485224, 0.0202398, 0.0874432, 0.511468, 0.0404796, 0.0642091, 0.537769, 0.0202398)
 
 [node name="Milk" type="RigidBody3D" groups=["Food"]]
@@ -54,8 +54,8 @@ mass = 0.159948
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_27xwn")
-food_resource = ExtResource("2_tqmwc")
+script = ExtResource("1_qq7q6")
+food_resource = ExtResource("2_e4eky")
 
 [node name="carton" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.236218, 0)
@@ -64,4 +64,4 @@ skeleton = NodePath("")
 
 [node name="carton_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.236218, 0)
-shape = SubResource("ConvexPolygonShape3D_m46p3")
+shape = SubResource("ConvexPolygonShape3D_qxgus")

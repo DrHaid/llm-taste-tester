@@ -12,5 +12,5 @@ resource_path = "res://foods/resources/generated"
 
 [node name="FoodScenes" type="Node3D" parent="."]
 script = ExtResource("2_bxksv")
-foods_resource_path = "res://foods/resources/generated"
-output_path = "res://foods/scenes/generated"
+foods_resource_path = "res://scenes/foods/resources/generated"
+output_path = "res://scenes/foods/scenes/generated"

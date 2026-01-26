@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4 uid="uid://c5r5oe381cobo"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_yrtgu"]
-[ext_resource type="Resource" uid="uid://yn2hd0f1v44k" path="res://scenes/foods/resources/generated/bacon_raw.tres" id="2_sujg6"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_vmoso"]
+[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_s7n70"]
+[ext_resource type="Resource" uid="uid://yn2hd0f1v44k" path="res://scenes/foods/resources/generated/bacon_raw.tres" id="2_l54i2"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_ebu6j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ql8y6"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_vmoso")
+albedo_texture = ExtResource("3_ebu6j")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_74qll"]
@@ -45,7 +45,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_74qll")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_stl6o"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mivur"]
 points = PackedVector3Array(0.065, 0.0252486, 0.239385, 0.0438635, 0.03, 0.26, 0.065, 0, 0.13, 0.065, 0.03, 0, -0.0438763, 0.03, 0.26, -0.065, 0, 0.13, 0.065, 0, -0.13, 0.065, 0.0252486, -0.239436, 0.0438635, 0.03, -0.26, -0.065, 0.0252486, 0.239385, -0.065, 0.03, 0, -0.065, 0, -0.13, -0.065, 0.0252486, -0.239436, -0.0438763, 0.03, -0.26)
 
 [node name="Bacon" type="RigidBody3D" groups=["Food"]]
@@ -54,8 +54,8 @@ mass = 0.02028
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_yrtgu")
-food_resource = ExtResource("2_sujg6")
+script = ExtResource("1_s7n70")
+food_resource = ExtResource("2_l54i2")
 
 [node name="bacon-raw" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.015, 0)
@@ -64,4 +64,4 @@ skeleton = NodePath("")
 
 [node name="bacon-raw_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.015, 0)
-shape = SubResource("ConvexPolygonShape3D_stl6o")
+shape = SubResource("ConvexPolygonShape3D_mivur")

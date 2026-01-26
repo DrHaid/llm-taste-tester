@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4 uid="uid://bi2aamvn5wnxr"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_dvgvh"]
-[ext_resource type="Resource" uid="uid://6d62jbbvqd1r" path="res://scenes/foods/resources/generated/grapes.tres" id="2_o1ym1"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_h0hcs"]
+[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_vghcr"]
+[ext_resource type="Resource" uid="uid://6d62jbbvqd1r" path="res://scenes/foods/resources/generated/grapes.tres" id="2_ucp6q"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_nmxmp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vymcj"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_h0hcs")
+albedo_texture = ExtResource("3_nmxmp")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pjiq4"]
@@ -45,7 +45,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_pjiq4")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2orwu"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jyljy"]
 points = PackedVector3Array(-0.139497, 0.392212, 0, -2.72989e-05, 0.40636, 0.114792, -0.00770129, 0.422039, -0.0454263, -0.00554384, 0.422618, -0.0556327, -2.72989e-05, 0.40636, -0.114815, -0.0888107, 0.194803, -0.0848036, -0.117841, 0.194803, -0.0345193, -0.117841, 0.194803, 0.034496, -0.0888107, 0.194803, 0.0847802, 0.13947, 0.392212, 0, 0.00767399, 0.422039, -0.0454263, -0.0290301, 0.194803, 0.1193, 0.0290028, 0.194803, 0.1193, 0.0887834, 0.194803, 0.0847802, 0.00551654, 0.422618, -0.0556327, 0.0887834, 0.194803, -0.0848036, 0.0290028, 0.194803, -0.1193, -0.0290301, 0.194803, -0.1193, -0.0246059, 0.127249, -0.101106, -0.0752652, 0.127249, -0.0718647, -0.0998711, 0.127249, -0.0292644, -0.0998711, 0.127249, 0.029241, -0.0752652, 0.127249, 0.0718413, 0.117813, 0.194803, -0.0345193, 0.117813, 0.194803, 0.034496, -0.0246059, 0.127249, 0.101082, 0.0245786, 0.127249, 0.101082, 0.0752379, 0.127249, 0.0718413, 0.0998438, 0.127249, 0.029241, 0.0998438, 0.127249, -0.0292644, 0.0752379, 0.127249, -0.0718647, 0.0245786, 0.127249, -0.101106, -0.0200179, 0.0723531, -0.0822111, -0.0612007, 0.0723531, -0.0584353, -0.0811913, 0.0723531, -0.0237992, -0.0811913, 0.0723531, 0.0237758, -0.0612007, 0.0723531, 0.058412, -0.0200179, 0.0723531, 0.0821878, 0.0199906, 0.0723531, 0.0821878, 0.0611734, 0.0723531, 0.058412, 0.081164, 0.0723531, 0.0237758, 0.081164, 0.0723531, -0.0237992, 0.0611734, 0.0723531, -0.0584353, 0.0199906, 0.0723531, -0.0822111, -0.0137367, 0.0448845, -0.0713509, -0.0549195, 0.0448845, -0.047575, -0.0686563, 0.0448845, -0.0237992, -0.0686563, 0.0448845, 0.0237758, -0.0549195, 0.0448845, 0.0475517, -0.0137367, 0.0448845, 0.0713275, 0.0137094, 0.0448845, 0.0713275, 0.0548922, 0.0448845, 0.0475517, 0.068629, 0.0448845, 0.0237758, 0.068629, 0.0448845, -0.0237992, 0.0548922, 0.0448845, -0.047575, 0.0137094, 0.0448845, -0.0713509, -0.0137367, 0, -0.0237992, -0.0274734, 0, 0, -0.0137367, 0, 0.0237758, 0.0137094, 0, 0.0237758, 0.0274461, 0, 0, 0.0137094, 0, -0.0237992)
 
 [node name="Grapes" type="RigidBody3D" groups=["Food"]]
@@ -54,8 +54,8 @@ mass = 0.205088
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_dvgvh")
-food_resource = ExtResource("2_o1ym1")
+script = ExtResource("1_vghcr")
+food_resource = ExtResource("2_ucp6q")
 
 [node name="grapes" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.190178, 0)
@@ -64,4 +64,4 @@ skeleton = NodePath("")
 
 [node name="grapes_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.190178, 0)
-shape = SubResource("ConvexPolygonShape3D_2orwu")
+shape = SubResource("ConvexPolygonShape3D_jyljy")

@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4 uid="uid://bip2baa2tvpb0"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_hda73"]
-[ext_resource type="Resource" uid="uid://b27jf41f3aoty" path="res://scenes/foods/resources/generated/lemon.tres" id="2_phr0u"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_0tds3"]
+[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_cfrno"]
+[ext_resource type="Resource" uid="uid://b27jf41f3aoty" path="res://scenes/foods/resources/generated/lemon.tres" id="2_p02w8"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_vlm0b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_miw7o"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_0tds3")
+albedo_texture = ExtResource("3_vlm0b")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0in1n"]
@@ -45,7 +45,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0in1n")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ikuon"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_102s3"]
 points = PackedVector3Array(0, 0.112, 0.1, -0.0866025, 0.112, 0.05, 0, 0.0719843, 0.0879992, 0.0866025, 0.112, 0.05, 0, 0.151994, 0.0879992, -0.0762265, 0.151994, 0.0439898, -0.0866025, 0.112, -0.05, -0.0762265, 0.0719843, 0.0439898, 0, 0.0399937, 0.0695967, 0.0762095, 0.0719843, 0.0439898, 0.0762095, 0.151994, 0.0439898, 0.0866025, 0.112, -0.05, 0, 0.183984, 0.0695967, -0.0762265, 0.151994, -0.0440094, -0.0602895, 0.183984, 0.0347886, 0, 0.112, -0.1, -0.0762265, 0.0719843, -0.0440094, -0.0602895, 0.0399937, 0.0347886, -0.0183276, 0, 0.0105717, 0, 0, 0.0211433, 0.0183106, 0, 0.0105717, 0.0602725, 0.0399937, 0.0347886, 0.0762095, 0.0719843, -0.0440094, 0.0762095, 0.151994, -0.0440094, 0.0602725, 0.183984, 0.0347886, 0, 0.0719843, -0.0880188, 0, 0.151994, -0.0880188, 0.0183106, 0.224, 0.0105717, 0, 0.224, 0.0211433, -0.0183276, 0.224, 0.0105717, -0.0602895, 0.183984, -0.0348081, -0.0602895, 0.0399937, -0.0348081, -0.0183276, 0, -0.0105912, 0.0183106, 0, -0.0105912, 0.0602725, 0.0399937, -0.0348081, 0, 0.0399937, -0.0696163, 0, 0.183984, -0.0696163, 0.0602725, 0.183984, -0.0348081, 0.0183106, 0.224, -0.0105912, -0.0183276, 0.224, -0.0105912, 0, 0, -0.0211629, 0, 0.224, -0.0211629)
 
 [node name="Lemon" type="RigidBody3D" groups=["Food"]]
@@ -54,8 +54,8 @@ mass = 0.0775959
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_hda73")
-food_resource = ExtResource("2_phr0u")
+script = ExtResource("1_cfrno")
+food_resource = ExtResource("2_p02w8")
 
 [node name="lemon" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.112, 0)
@@ -64,4 +64,4 @@ skeleton = NodePath("")
 
 [node name="lemon_CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.112, 0)
-shape = SubResource("ConvexPolygonShape3D_ikuon")
+shape = SubResource("ConvexPolygonShape3D_102s3")

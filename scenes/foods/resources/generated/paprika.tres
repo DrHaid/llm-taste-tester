@@ -6,6 +6,7 @@
 script = ExtResource("1_d1e71")
 name = "Paprika"
 model = "res://models/foods/paprika.fbx"
+size = 1.1
 container = false
 spice = ""
 spice_color = Color(0, 0, 0, 1)

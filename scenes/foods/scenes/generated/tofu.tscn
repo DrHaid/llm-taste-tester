@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=4 uid="uid://bmmrw38fujfs6"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_k6opp"]
-[ext_resource type="Resource" uid="uid://ccaamip3cswtf" path="res://scenes/foods/resources/generated/tofu.tres" id="2_4m4pq"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_o6xdv"]
+[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_sp1gx"]
+[ext_resource type="Resource" uid="uid://ccaamip3cswtf" path="res://scenes/foods/resources/generated/tofu.tres" id="2_4x4ps"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_hra7o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ho5n4"]
 resource_name = "colormap.001"
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 1, 1)
-albedo_texture = ExtResource("3_o6xdv")
+albedo_texture = ExtResource("3_hra7o")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_60ves"]
@@ -43,7 +43,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_60ves")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jh2vu"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_balcu"]
 points = PackedVector3Array(-0.111213, -0.0386958, -0.0750291, -0.111213, 0.0386958, -0.0750291, 0.111213, -0.0386958, -0.0750291, -0.111213, -0.0386958, 0.0750291, -0.111213, 0.0386958, 0.0750291, 0.111213, 0.0386958, -0.0750291, 0.111213, -0.0386958, 0.0750291, 0.111213, 0.0386958, 0.0750291)
 
 [node name="Tofu" type="RigidBody3D" groups=["Food"]]
@@ -52,12 +52,12 @@ mass = 0.0258308
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_k6opp")
-food_resource = ExtResource("2_4m4pq")
+script = ExtResource("1_sp1gx")
+food_resource = ExtResource("2_4x4ps")
 
 [node name="tofu" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_sblqd")
 skeleton = NodePath("")
 
 [node name="tofu_CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_jh2vu")
+shape = SubResource("ConvexPolygonShape3D_balcu")
