@@ -1,13 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://cnmmny43x40de"]
+[gd_scene format=4 uid="uid://cnmmny43x40de"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_r30vr"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_r30vr"]
 [ext_resource type="Resource" uid="uid://ct5es7xhdmjuy" path="res://scenes/foods/resources/generated/honey.tres" id="2_rg8ky"]
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_gvpgt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5t70q"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("3_gvpgt")
 emission_enabled = true
 
@@ -48,7 +47,7 @@ shadow_mesh = SubResource("ArrayMesh_sdbn1")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wi7f8"]
 points = PackedVector3Array(-1.49012e-08, 0.150771, -0.16302, -1.49012e-08, 0.202986, -0.155616, 0.11001, 0.202986, -0.110042, 0.115244, 0.150771, -0.115276, 0.104776, 0.0463695, -0.104808, -1.49012e-08, 0.0463695, -0.148212, -0.104808, 0.0463695, -0.104808, -0.115276, 0.150771, -0.115276, -0.110042, 0.202986, -0.110042, -1.49012e-08, 0.316018, -0.123286, 0.123254, 0.316018, -1.49012e-08, 0.155584, 0.202986, -1.49012e-08, 0.16302, 0.150771, -1.49012e-08, 0.087127, 0.316018, -0.0871589, 0.0919142, 0, -0.0919461, 0.14818, 0.0463695, -1.49012e-08, -1.49012e-08, 0, -0.13002, -0.0919461, 0, -0.0919461, -0.148212, 0.0463695, -1.49012e-08, -0.16302, 0.150771, -1.49012e-08, -0.0871589, 0.316018, -0.0871589, -0.155616, 0.202986, -1.49012e-08, -0.123286, 0.316018, -1.49012e-08, 0.087127, 0.316018, 0.087127, 0.11001, 0.202986, 0.11001, 0.115244, 0.150771, 0.115244, 0.104776, 0.0463695, 0.104776, 0.129988, 0, -1.49012e-08, 0.0919142, 0, 0.0919142, -0.13002, 0, -1.49012e-08, -0.0919461, 0, 0.0919142, -0.104808, 0.0463695, 0.104776, -0.115276, 0.150771, 0.115244, -0.110042, 0.202986, 0.11001, -0.0871589, 0.316018, 0.087127, -1.49012e-08, 0.316018, 0.123254, -1.49012e-08, 0.202986, 0.155584, -1.49012e-08, 0.150771, 0.16302, -1.49012e-08, 0.0463695, 0.14818, -1.49012e-08, 0, 0.129988)
 
-[node name="Honey" type="RigidBody3D" groups=["Food"]]
+[node name="Honey" type="RigidBody3D" unique_id=1788681428 groups=["Food"]]
 collision_layer = 9
 mass = 0.115225
 center_of_mass_mode = 1
@@ -57,11 +56,10 @@ freeze_mode = 1
 script = ExtResource("1_r30vr")
 food_resource = ExtResource("2_rg8ky")
 
-[node name="honey" type="MeshInstance3D" parent="."]
+[node name="honey" type="MeshInstance3D" parent="." unique_id=1103073919]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.110606, 0)
 mesh = SubResource("ArrayMesh_kw4mo")
-skeleton = NodePath("")
 
-[node name="honey_CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="honey_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=648011010]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.110606, 0)
 shape = SubResource("ConvexPolygonShape3D_wi7f8")

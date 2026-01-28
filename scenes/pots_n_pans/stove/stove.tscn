@@ -1,7 +1,7 @@
-[gd_scene load_steps=20 format=4 uid="uid://xl34pi4pvsuj"]
+[gd_scene format=4 uid="uid://xl34pi4pvsuj"]
 
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="1_gbfh2"]
-[ext_resource type="Script" path="res://scenes/pots_n_pans/stove/stove_controller.gd" id="1_sdh5x"]
+[ext_resource type="Script" uid="uid://2w8ew7m2tvx2" path="res://scenes/pots_n_pans/stove/stove_controller.gd" id="1_sdh5x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htnba"]
 resource_name = "colormap"
@@ -175,48 +175,43 @@ point_count = 3
 offsets = PackedFloat32Array(0, 0.302789, 0.549801, 0.804781, 1)
 colors = PackedColorArray(1, 0.133333, 0, 1, 1, 0.783333, 0, 1, 1, 0.666667, 0, 1, 0.68, 0.68, 0.68, 0.792157, 1, 1, 1, 0)
 
-[node name="Stove" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0364477, 0)
+[node name="Stove" type="Node3D" unique_id=323444266]
 script = ExtResource("1_sdh5x")
 
-[node name="stove" type="MeshInstance3D" parent="."]
+[node name="stove" type="MeshInstance3D" parent="." unique_id=1902965775]
 transform = Transform3D(100, 0, 0, 0, 0, 100, 0, -100, 0, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ouvt5")
-skeleton = NodePath("")
 
-[node name="dark_bit" type="MeshInstance3D" parent="."]
+[node name="dark_bit" type="MeshInstance3D" parent="." unique_id=186504350]
 transform = Transform3D(100, 0, 0, 0, 0, 100, 0, -100, 0, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3n5fk")
-skeleton = NodePath("")
 
-[node name="frame" type="MeshInstance3D" parent="."]
+[node name="frame" type="MeshInstance3D" parent="." unique_id=1689339155]
 transform = Transform3D(100, 0, 0, 0, 0, 100, 0, -100, 0, 0, 0, 0)
 mesh = SubResource("ArrayMesh_8rxfy")
-skeleton = NodePath("")
 
-[node name="dial" type="MeshInstance3D" parent="."]
+[node name="dial" type="MeshInstance3D" parent="." unique_id=2023119193]
 transform = Transform3D(6.7, 0, 0, 0, 4.10648, 5.29404, 0, -5.29404, 4.10648, 0.149711, 0.0391903, 0.420605)
 mesh = SubResource("ArrayMesh_e7syj")
-skeleton = NodePath("")
 
-[node name="red_spot" type="MeshInstance3D" parent="dial"]
+[node name="red_spot" type="MeshInstance3D" parent="dial" unique_id=814888405]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7465e-26, 0.00467936, 0.00490082)
 mesh = SubResource("PrismMesh_4ljgl")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="dial"]
+[node name="StaticBody3D" type="StaticBody3D" parent="dial" unique_id=165283870]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="dial/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="dial/StaticBody3D" unique_id=1496276509]
 shape = SubResource("CylinderShape3D_b4xiu")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1809297201]
 collision_layer = 9
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1098178134]
 transform = Transform3D(100, 0, 0, 0, 0, 100, 0, -100, 0, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_hn3nx")
 
-[node name="Flame" type="CPUParticles3D" parent="."]
+[node name="Flame" type="CPUParticles3D" parent="." unique_id=644844501]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0866443, 0)
 material_override = SubResource("StandardMaterial3D_k5nqf")
 emitting = false

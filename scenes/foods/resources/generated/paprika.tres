@@ -1,12 +1,9 @@
-[gd_resource type="Resource" script_class="FoodItemData" load_steps=2 format=3 uid="uid://dmq8y4625voyj"]
+[gd_resource type="Resource" script_class="FoodItemData" format=3 uid="uid://dmq8y4625voyj"]
 
-[ext_resource type="Script" path="res://scenes/foods/food_item_data.gd" id="1_d1e71"]
+[ext_resource type="Script" uid="uid://cptyb2arexrqf" path="res://scenes/foods/food_item_data.gd" id="1_d1e71"]
 
 [resource]
 script = ExtResource("1_d1e71")
 name = "Paprika"
 model = "res://models/foods/paprika.fbx"
 size = 1.1
-container = false
-spice = ""
-spice_color = Color(0, 0, 0, 1)

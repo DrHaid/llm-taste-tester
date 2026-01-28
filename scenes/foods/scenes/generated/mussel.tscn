@@ -1,13 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://xtabyujvlkvw"]
+[gd_scene format=4 uid="uid://xtabyujvlkvw"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_2wjpw"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_2wjpw"]
 [ext_resource type="Resource" uid="uid://btxy42wniq4br" path="res://scenes/foods/resources/generated/mussel_open.tres" id="2_f0ylp"]
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_fb820"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qbird"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("3_fb820")
 emission_enabled = true
 
@@ -48,7 +47,7 @@ shadow_mesh = SubResource("ArrayMesh_swi0j")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_frjcn"]
 points = PackedVector3Array(-0.00405468, 0, -0.0637035, -0.0385674, 0, -0.0364063, -0.00405468, 0.0288329, -0.077679, 0.0304581, 0, -0.0364063, -0.0461397, 0.0288329, -0.0443902, -0.0385674, 0, 0.0363911, -0.00968922, 0.0580591, -0.077679, 0.0380304, 0.0288329, -0.0443902, 0.0461388, 0.0288329, 0, 0.0370991, 0, 0, -0.0200741, 0.0830352, -0.0637035, -0.0461397, 0.0288329, 0.044375, -0.0499588, 0.0590643, -0.0364063, -0.00405468, 0, 0.0636883, -0.00405468, 0.0288329, 0.077679, 0.0267519, 0.0872853, -0.0443902, 0.0337692, 0.092912, 0, 0.0267519, 0.0872853, 0.044375, 0.0380304, 0.0288329, 0.044375, 0.0304581, 0, 0.0363911, -0.0200741, 0.0830352, 0.0636883, 0.0155674, 0.111617, 0, 0.00981062, 0.106995, -0.0364063, -0.00968922, 0.0580591, 0.077679, -0.0499588, 0.0590643, 0.0363911, 0.00981062, 0.106995, 0.0363911)
 
-[node name="Mussel" type="RigidBody3D" groups=["Food"]]
+[node name="Mussel" type="RigidBody3D" unique_id=1259483193 groups=["Food"]]
 collision_layer = 9
 mass = 0.0166639
 center_of_mass_mode = 1
@@ -57,11 +56,10 @@ freeze_mode = 1
 script = ExtResource("1_2wjpw")
 food_resource = ExtResource("2_f0ylp")
 
-[node name="mussel-open" type="MeshInstance3D" parent="."]
+[node name="mussel-open" type="MeshInstance3D" parent="." unique_id=440572166]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00190998, -0.0558084, 0)
 mesh = SubResource("ArrayMesh_ocxi8")
-skeleton = NodePath("")
 
-[node name="mussel-open_CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="mussel-open_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1258811175]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00190998, -0.0558084, 0)
 shape = SubResource("ConvexPolygonShape3D_frjcn")

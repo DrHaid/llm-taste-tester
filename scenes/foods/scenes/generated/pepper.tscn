@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=4 uid="uid://cfst6qga5lwd6"]
+[gd_scene format=4 uid="uid://cfst6qga5lwd6"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_kvtqb"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_kvtqb"]
 [ext_resource type="Resource" uid="uid://bwbowngfx0tdb" path="res://scenes/foods/resources/generated/shaker_pepper.tres" id="2_kfnau"]
 [ext_resource type="PackedScene" uid="uid://chentir1xrlvg" path="res://scenes/foods/spice_particles.tscn" id="3_35ix0"]
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_cfpxt"]
@@ -48,7 +48,7 @@ shadow_mesh = SubResource("ArrayMesh_ijm5k")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mllh5"]
 points = PackedVector3Array(-0.04746, 0.020989, -0.0335881, -0.04746, 0.020989, 0.0335788, -0.04746, 0.132995, -0.0335881, -0.0335881, 0.020989, -0.04746, -0.042006, 0, -0.0297229, -0.042006, 0, 0.0297136, -0.0335881, 0.020989, 0.04746, -0.04746, 0.132995, 0.0335788, -0.042006, 0.153984, -0.0297229, -0.0335881, 0.132995, -0.04746, 0.0335788, 0.020989, -0.04746, -0.0297229, 0, -0.042006, -0.0297229, 0, 0.0419967, 0.0335788, 0.020989, 0.04746, -0.0335881, 0.132995, 0.04746, -0.042006, 0.153984, 0.0297136, -0.0253746, 0.196, -0.0253746, -0.0297229, 0.153984, -0.042006, 0.0335788, 0.132995, -0.04746, 0.04746, 0.020989, -0.0335881, 0.0297136, 0, -0.042006, 0.0297136, 0, 0.0419967, 0.04746, 0.020989, 0.0335788, 0.0335788, 0.132995, 0.04746, -0.0297229, 0.153984, 0.0419967, -0.0253746, 0.196, 0.0253653, 0.0253653, 0.196, -0.0253746, 0.0297136, 0.153984, -0.042006, 0.04746, 0.132995, -0.0335881, 0.0419967, 0, -0.0297229, 0.0419967, 0, 0.0297136, 0.04746, 0.132995, 0.0335788, 0.0297136, 0.153984, 0.0419967, 0.0253653, 0.196, 0.0253653, 0.0419967, 0.153984, -0.0297229, 0.0419967, 0.153984, 0.0297136)
 
-[node name="Pepper" type="RigidBody3D" groups=["Food"]]
+[node name="Pepper" type="RigidBody3D" unique_id=1477624860 groups=["Food"]]
 mass = 0.0176592
 center_of_mass_mode = 1
 can_sleep = false
@@ -57,14 +57,13 @@ script = ExtResource("1_kvtqb")
 food_resource = ExtResource("2_kfnau")
 container_rotation = null
 
-[node name="SpiceParticles" parent="." instance=ExtResource("3_35ix0")]
+[node name="SpiceParticles" parent="." unique_id=2000997261 instance=ExtResource("3_35ix0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.100211, 0)
 
-[node name="shaker-salt" type="MeshInstance3D" parent="."]
+[node name="shaker-salt" type="MeshInstance3D" parent="." unique_id=1234816985]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.098, 0)
 mesh = SubResource("ArrayMesh_2kjrd")
-skeleton = NodePath("")
 
-[node name="shaker-salt_CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="shaker-salt_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1015451566]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.098, 0)
 shape = SubResource("ConvexPolygonShape3D_mllh5")

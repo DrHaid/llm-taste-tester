@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba37gn43ahyvp"]
+[gd_scene format=3 uid="uid://ba37gn43ahyvp"]
 
-[ext_resource type="Script" path="res://scenes/foods/spice.gd" id="1_bofhg"]
+[ext_resource type="Script" uid="uid://cmc7hxv0o5tdm" path="res://scenes/foods/spice.gd" id="1_bofhg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1v5i5"]
 
@@ -14,13 +14,13 @@ rings = 3
 [sub_resource type="SphereShape3D" id="SphereShape3D_3dirr"]
 radius = 0.020937
 
-[node name="Spice" type="RigidBody3D" groups=["Spice"]]
+[node name="Spice" type="RigidBody3D" unique_id=664167294 groups=["Spice"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01385, 0)
 mass = 0.001
 script = ExtResource("1_bofhg")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1958432903]
 mesh = SubResource("SphereMesh_4lchk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1283364269]
 shape = SubResource("SphereShape3D_3dirr")

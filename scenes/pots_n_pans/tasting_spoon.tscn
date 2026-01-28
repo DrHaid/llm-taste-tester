@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=4 uid="uid://datqj8xbewutu"]
+[gd_scene format=4 uid="uid://datqj8xbewutu"]
 
-[ext_resource type="Script" path="res://scenes/pots_n_pans/tasting_spoon.gd" id="1_nyrrg"]
+[ext_resource type="Script" uid="uid://cbmnwv2vb1p5n" path="res://scenes/pots_n_pans/tasting_spoon.gd" id="1_nyrrg"]
 [ext_resource type="Animation" uid="uid://0jesnft2j3j7" path="res://animations/spoon_feed.res" id="2_71y44"]
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_a3ew1"]
 
@@ -45,8 +45,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pwbc5"]
 _data = {
-"RESET": SubResource("Animation_pekir"),
-"spoon_feed": ExtResource("2_71y44")
+&"RESET": SubResource("Animation_pekir"),
+&"spoon_feed": ExtResource("2_71y44")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iyppj"]
@@ -127,21 +127,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8drjy")
 
-[node name="TastingSpoon" type="Node3D"]
-transform = Transform3D(-0.402269, 0, -0.915521, 0, 1, 0, 0.915521, 0, -0.402269, 0.672322, 0.0258037, 0.210699)
+[node name="TastingSpoon" type="Node3D" unique_id=391263497]
+transform = Transform3D(-0.40226862, 0, -0.9155212, 0, 1, 0, 0.9155212, 0, -0.40226862, 0.672322, 0.0258037, 0.210699)
 script = ExtResource("1_nyrrg")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_pwbc5")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=563122598]
+libraries/ = SubResource("AnimationLibrary_pwbc5")
 
-[node name="utensil-spoon" type="MeshInstance3D" parent="."]
+[node name="utensil-spoon" type="MeshInstance3D" parent="." unique_id=1195762664]
 mesh = SubResource("ArrayMesh_g8fj4")
-skeleton = NodePath("")
 
-[node name="utensil-spoon-stew" type="MeshInstance3D" parent="."]
+[node name="utensil-spoon-stew" type="MeshInstance3D" parent="." unique_id=1219578390]
 transform = Transform3D(1, 0, 0, 0, 1, 7.54979e-08, 0, -7.54979e-08, 1, 0, 0, 0)
 visible = false
 mesh = SubResource("ArrayMesh_muwqa")
-skeleton = NodePath("")

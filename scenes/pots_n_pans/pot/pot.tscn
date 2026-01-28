@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=4 uid="uid://bl2jv1csyq2mg"]
+[gd_scene format=4 uid="uid://bl2jv1csyq2mg"]
 
-[ext_resource type="Script" path="res://scenes/pots_n_pans/pot/pot_controller.gd" id="1_4n4u8"]
+[ext_resource type="Script" uid="uid://b31avdrtc3j6a" path="res://scenes/pots_n_pans/pot/pot_controller.gd" id="1_4n4u8"]
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="1_8pljj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwvpy"]
@@ -97,55 +97,52 @@ radius = 0.3
 height = 0.29
 radius = 0.26
 
-[node name="Pot" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0551811, 0)
+[node name="Pot" type="Node3D" unique_id=1722070890]
 script = ExtResource("1_4n4u8")
 
-[node name="pot_model" type="MeshInstance3D" parent="."]
+[node name="pot_model" type="MeshInstance3D" parent="." unique_id=1054602689]
 mesh = SubResource("ArrayMesh_jwt8r")
-skeleton = NodePath("")
 
-[node name="StewModel" type="MeshInstance3D" parent="."]
+[node name="StewModel" type="MeshInstance3D" parent="." unique_id=2105767674]
 transform = Transform3D(1, 0, 0, 0, 1, 7.54979e-08, 0, -7.54979e-08, 1, 0, 0.04, 0)
 visible = false
 mesh = SubResource("ArrayMesh_2k48h")
-skeleton = NodePath("")
 
-[node name="StewTarget" type="Marker3D" parent="."]
+[node name="StewTarget" type="Marker3D" parent="." unique_id=318299943]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.189637, 0)
 
-[node name="PotCollider" type="StaticBody3D" parent="."]
+[node name="PotCollider" type="StaticBody3D" parent="." unique_id=1574517680]
 collision_layer = 9
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PotCollider"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PotCollider" unique_id=1612458121]
 shape = SubResource("ConcavePolygonShape3D_ko4d2")
 
-[node name="PotColliderNoBottom" type="StaticBody3D" parent="."]
+[node name="PotColliderNoBottom" type="StaticBody3D" parent="." unique_id=696857701]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000181116, 0)
 collision_layer = 5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PotColliderNoBottom"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PotColliderNoBottom" unique_id=1132940306]
 transform = Transform3D(1, 0, 0, 0, 1, 7.54979e-08, 0, -7.54979e-08, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_2halt")
 disabled = true
 
-[node name="PotColliderBottom" type="RigidBody3D" parent="."]
+[node name="PotColliderBottom" type="RigidBody3D" parent="." unique_id=1112867273]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00768876, 0)
 collision_layer = 4
 collision_mask = 0
 freeze = true
 freeze_mode = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PotColliderBottom"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PotColliderBottom" unique_id=645484662]
 shape = SubResource("CylinderShape3D_afrrb")
 disabled = true
 
-[node name="PotColliderBottomTarget" type="Marker3D" parent="."]
+[node name="PotColliderBottomTarget" type="Marker3D" parent="." unique_id=635386450]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.276453, 0)
 
-[node name="FoodDetector" type="Area3D" parent="."]
+[node name="FoodDetector" type="Area3D" parent="." unique_id=1246879452]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.206152, 0)
 monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FoodDetector"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FoodDetector" unique_id=1222464478]
 shape = SubResource("CylinderShape3D_j7p2t")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://wccktlhu2tgu"]
+[gd_scene format=3 uid="uid://wccktlhu2tgu"]
 
 [ext_resource type="PackedScene" uid="uid://bfasm34kbesxw" path="res://models/utensils/pot-stew-lid.fbx" id="1_sy2do"]
 
@@ -6,7 +6,7 @@
 transparency = 1
 albedo_color = Color(0.94902, 1, 1, 0.317647)
 
-[node name="pot-stew-lid" instance=ExtResource("1_sy2do")]
+[node name="pot-stew-lid" unique_id=645023049 instance=ExtResource("1_sy2do")]
 
-[node name="(_ignore)" parent="pot-stew-lid" index="0"]
+[node name="(_ignore)" parent="pot-stew-lid" parent_id_path=PackedInt32Array(110308833) index="0" unique_id=1597702942]
 surface_material_override/0 = SubResource("StandardMaterial3D_u3jpk")

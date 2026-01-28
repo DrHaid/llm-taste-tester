@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://vs5hpu0rv37a"]
+[gd_scene format=3 uid="uid://vs5hpu0rv37a"]
 
-[ext_resource type="Script" path="res://utils/food_resource_generator.gd" id="1_3oo7q"]
-[ext_resource type="Script" path="res://utils/food_scene_generator.gd" id="2_bxksv"]
+[ext_resource type="Script" uid="uid://gxh3yjgculbg" path="res://utils/food_resource_generator.gd" id="1_3oo7q"]
+[ext_resource type="Script" uid="uid://dkrqoo3x5fr75" path="res://utils/food_scene_generator.gd" id="2_bxksv"]
 
-[node name="ResourceGeneration" type="Node3D"]
+[node name="ResourceGeneration" type="Node3D" unique_id=1874091862]
 
-[node name="FoodResources" type="Node3D" parent="."]
+[node name="FoodResources" type="Node3D" parent="." unique_id=1206774433]
 script = ExtResource("1_3oo7q")
 model_path = "res://models/foods"
 resource_path = "res://foods/resources/generated"
 
-[node name="FoodScenes" type="Node3D" parent="."]
+[node name="FoodScenes" type="Node3D" parent="." unique_id=79361212]
 script = ExtResource("2_bxksv")
 foods_resource_path = "res://scenes/foods/resources/generated"
 output_path = "res://scenes/foods/scenes/generated"

@@ -1,13 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://dgdmooxvbt5l5"]
+[gd_scene format=4 uid="uid://dgdmooxvbt5l5"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_iw75u"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_iw75u"]
 [ext_resource type="Resource" uid="uid://uayvccs5khg7" path="res://scenes/foods/resources/generated/sausage.tres" id="2_5rxng"]
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_luv1a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_71bxu"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("3_luv1a")
 emission_enabled = true
 
@@ -46,7 +45,7 @@ shadow_mesh = SubResource("ArrayMesh_klbtg")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_aswhc"]
 points = PackedVector3Array(-0.116719, 0.0594388, -0.068634, -0.116719, 0.118878, -0.034317, 0.116683, 0.0594388, -0.068634, -0.116719, 0, -0.034317, -0.185328, 0.0594388, -0.0333496, -0.116719, 0.118878, 0.034317, 0.116683, 0.118878, -0.034317, -0.185328, 0.0883087, -0.0166748, 0.116683, 0, -0.034317, 0.185329, 0.0594388, -0.0333496, -0.116719, 0, 0.034317, -0.185328, 0.0305572, -0.0166748, -0.116719, 0.0594388, 0.068634, 0.116683, 0.118878, 0.034317, -0.185328, 0.0883087, 0.0166613, -0.185328, 0.0594388, 0.0333361, 0.185329, 0.0883087, -0.0166748, 0.116683, 0, 0.034317, 0.185329, 0.0305572, -0.0166748, -0.185328, 0.0305572, 0.0166613, 0.116683, 0.0594388, 0.068634, 0.185329, 0.0594388, 0.0333361, 0.185329, 0.0883087, 0.0166613, 0.185329, 0.0305572, 0.0166613)
 
-[node name="Sausage" type="RigidBody3D" groups=["Food"]]
+[node name="Sausage" type="RigidBody3D" unique_id=1398247680 groups=["Food"]]
 collision_layer = 9
 mass = 0.0604841
 center_of_mass_mode = 1
@@ -55,11 +54,10 @@ freeze_mode = 1
 script = ExtResource("1_iw75u")
 food_resource = ExtResource("2_5rxng")
 
-[node name="sausage" type="MeshInstance3D" parent="."]
+[node name="sausage" type="MeshInstance3D" parent="." unique_id=1419324937]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0594388, 0)
 mesh = SubResource("ArrayMesh_nw5f0")
-skeleton = NodePath("")
 
-[node name="sausage_CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="sausage_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1504780244]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0594388, 0)
 shape = SubResource("ConvexPolygonShape3D_aswhc")

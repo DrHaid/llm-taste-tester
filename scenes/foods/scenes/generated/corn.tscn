@@ -1,13 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://dg43bwpfvy5oi"]
+[gd_scene format=4 uid="uid://dg43bwpfvy5oi"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_pul0v"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_pul0v"]
 [ext_resource type="Resource" uid="uid://ct3r62m21ok40" path="res://scenes/foods/resources/generated/corn.tres" id="2_d0p88"]
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_wc72i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6im4"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("3_wc72i")
 emission_enabled = true
 
@@ -48,7 +47,7 @@ shadow_mesh = SubResource("ArrayMesh_x6ir0")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_61q5e"]
 points = PackedVector3Array(0.0255665, 0.316198, 0.0147547, 0.0255665, 0.316198, -0.014809, -2.68221e-07, 0.316198, 0.0295365, 0.0825121, 0.237303, 0.120784, 0.165092, 0.179115, 0.0110519, -2.68221e-07, 0.316198, -0.0295614, 0.165092, 0.179115, -0.0110768, 0.0963201, 0.212697, -0.14473, 0.0633286, 0.237303, 0.131834, -0.0256006, 0.316198, 0.0147547, -0.0706195, 0.166704, 0.144441, -2.68221e-07, 0, 0.0356197, 0.0308411, 0, 0.017811, 0.0771367, 0.212697, -0.15578, -0.0633627, 0.237303, -0.131859, -0.0825462, 0.237303, -0.120809, -0.0256006, 0.316198, -0.014809, 0.0308411, 0, -0.0178359, -2.68221e-07, 0, -0.0356446, -0.178127, 0.203567, 0.0110519, -0.089803, 0.166704, 0.133362, -0.0308752, 0, 0.017811, -0.178127, 0.203567, -0.0110768, -0.0308752, 0, -0.0178359)
 
-[node name="Corn" type="RigidBody3D" groups=["Food"]]
+[node name="Corn" type="RigidBody3D" unique_id=1841383454 groups=["Food"]]
 collision_layer = 9
 mass = 0.325816
 center_of_mass_mode = 1
@@ -57,11 +56,10 @@ freeze_mode = 1
 script = ExtResource("1_pul0v")
 food_resource = ExtResource("2_d0p88")
 
-[node name="corn" type="MeshInstance3D" parent="."]
+[node name="corn" type="MeshInstance3D" parent="." unique_id=802869700]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00651793, -0.158099, 0.0056695)
 mesh = SubResource("ArrayMesh_h0obe")
-skeleton = NodePath("")
 
-[node name="corn_CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="corn_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1931877609]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00651793, -0.158099, 0.0056695)
 shape = SubResource("ConvexPolygonShape3D_61q5e")

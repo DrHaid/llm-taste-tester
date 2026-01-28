@@ -1,12 +1,9 @@
-[gd_resource type="Resource" script_class="FoodItemData" load_steps=2 format=3 uid="uid://b40sx482lji5y"]
+[gd_resource type="Resource" script_class="FoodItemData" format=3 uid="uid://b40sx482lji5y"]
 
-[ext_resource type="Script" path="res://scenes/foods/food_item_data.gd" id="1_13oem"]
+[ext_resource type="Script" uid="uid://cptyb2arexrqf" path="res://scenes/foods/food_item_data.gd" id="1_13oem"]
 
 [resource]
 script = ExtResource("1_13oem")
 name = "Meat"
 model = "res://models/foods/meat-raw.fbx"
 size = 0.7
-container = false
-spice = ""
-spice_color = Color(0, 0, 0, 1)

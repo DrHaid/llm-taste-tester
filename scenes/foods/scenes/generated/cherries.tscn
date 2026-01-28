@@ -1,13 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://u8gbv6815vcu"]
+[gd_scene format=4 uid="uid://u8gbv6815vcu"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_fvxrx"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_fvxrx"]
 [ext_resource type="Resource" uid="uid://dkuxja4wyklnm" path="res://scenes/foods/resources/generated/cherries.tres" id="2_dpfkp"]
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_o1vv3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3gih"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("3_o1vv3")
 emission_enabled = true
 
@@ -48,7 +47,7 @@ shadow_mesh = SubResource("ArrayMesh_ri1nw")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hv37u"]
 points = PackedVector3Array(-0.022, 0.0302283, 0.0809524, -0.044, 0.0302283, 0.0428376, -0.0286069, 0, 0.0428376, -0.0143078, 0, 0.0676082, 0.0142991, 0, 0.0676082, 0.022, 0.0302283, 0.0809365, 0.0142991, 0.0604734, 0.0676082, -0.0143078, 0.0604734, 0.0676082, -0.00458261, 0.170709, 0.0113948, -0.0252044, 0.166064, -0.0149448, -0.044, 0.0302283, -0.0383367, -0.0356445, 0.154868, -0.0343429, -0.0286069, 0, -0.0383367, 0.0285983, 0, 0.0428376, 0.044, 0.0302283, 0.0428376, 0.0251958, 0.166064, -0.0149448, 0.004574, 0.170709, 0.0113948, -0.00458261, 0.170709, -0.0069098, -0.022, 0.0302283, -0.0764515, 0.0356359, 0.154868, -0.0343429, 0, 0.108899, -0.0809524, -0.0143078, 0, -0.0631073, 0.0285983, 0, -0.0383367, 0.044, 0.0302283, -0.0383367, 0.004574, 0.170709, -0.0069098, 0.022, 0.0302283, -0.0764515, 0.0142991, 0, -0.0631073)
 
-[node name="Cherries" type="RigidBody3D" groups=["Food"]]
+[node name="Cherries" type="RigidBody3D" unique_id=530007756 groups=["Food"]]
 collision_layer = 9
 mass = 0.024322
 center_of_mass_mode = 1
@@ -57,11 +56,10 @@ freeze_mode = 1
 script = ExtResource("1_fvxrx")
 food_resource = ExtResource("2_dpfkp")
 
-[node name="cherries" type="MeshInstance3D" parent="."]
+[node name="cherries" type="MeshInstance3D" parent="." unique_id=1772548919]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0853545, 0)
 mesh = SubResource("ArrayMesh_s5g1i")
-skeleton = NodePath("")
 
-[node name="cherries_CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="cherries_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=771564347]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0853545, 0)
 shape = SubResource("ConvexPolygonShape3D_hv37u")

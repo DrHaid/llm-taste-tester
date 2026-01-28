@@ -1,12 +1,9 @@
-[gd_resource type="Resource" script_class="FoodItemData" load_steps=2 format=3 uid="uid://ctvkt5m522eis"]
+[gd_resource type="Resource" script_class="FoodItemData" format=3 uid="uid://ctvkt5m522eis"]
 
-[ext_resource type="Script" path="res://scenes/foods/food_item_data.gd" id="1_gbpmd"]
+[ext_resource type="Script" uid="uid://cptyb2arexrqf" path="res://scenes/foods/food_item_data.gd" id="1_gbpmd"]
 
 [resource]
 script = ExtResource("1_gbpmd")
 name = "Milk"
 model = "res://models/foods/carton.fbx"
 size = 0.8
-container = false
-spice = ""
-spice_color = Color(0, 0, 0, 1)

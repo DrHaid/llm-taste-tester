@@ -1,13 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://b2un258gesisp"]
+[gd_scene format=4 uid="uid://b2un258gesisp"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_j2s8f"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_j2s8f"]
 [ext_resource type="Resource" uid="uid://cgr4b0vocg25f" path="res://scenes/foods/resources/generated/cheese_cut.tres" id="2_88ppt"]
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_24nfr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qblqy"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("3_24nfr")
 emission_enabled = true
 
@@ -48,7 +47,7 @@ shadow_mesh = SubResource("ArrayMesh_82ns2")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_u3fd0"]
 points = PackedVector3Array(-0.192, 0, -0.132, -0.192, 0, 0.132, -0.192, 0.02048, -0.132, 0.192, 0, -0.132, -0.192, 0.02048, 0.132, 0.192, 0, 0.132, 0.192, 0.02048, -0.132, 0.192, 0.02048, 0.132)
 
-[node name="Cheese" type="RigidBody3D" groups=["Food"]]
+[node name="Cheese" type="RigidBody3D" unique_id=2093992922 groups=["Food"]]
 collision_layer = 9
 mass = 0.0207618
 center_of_mass_mode = 1
@@ -57,11 +56,10 @@ freeze_mode = 1
 script = ExtResource("1_j2s8f")
 food_resource = ExtResource("2_88ppt")
 
-[node name="cheese-cut" type="MeshInstance3D" parent="."]
+[node name="cheese-cut" type="MeshInstance3D" parent="." unique_id=1003084571]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01024, 0)
 mesh = SubResource("ArrayMesh_xckym")
-skeleton = NodePath("")
 
-[node name="cheese-cut_CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="cheese-cut_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1364204448]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01024, 0)
 shape = SubResource("ConvexPolygonShape3D_u3fd0")

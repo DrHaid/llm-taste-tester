@@ -1,13 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://biu37decwjr1w"]
+[gd_scene format=4 uid="uid://biu37decwjr1w"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_kif64"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_kif64"]
 [ext_resource type="Resource" uid="uid://dqfde2p0eqx28" path="res://scenes/foods/resources/generated/pumpkin.tres" id="2_dj83k"]
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_f0isr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0m0ak"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("3_f0isr")
 emission_enabled = true
 
@@ -48,7 +47,7 @@ shadow_mesh = SubResource("ArrayMesh_fcopc")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_b1tvo"]
 points = PackedVector3Array(-0.080282, 0.0572857, -0.209439, -0.080282, 0.129532, -0.209439, 0.080241, 0.0572857, -0.209439, -0.0692115, 0, -0.190291, -0.209439, 0.0572857, -0.080282, -0.0692115, 0.18684, -0.190291, 0.080241, 0.129532, -0.209439, -0.209439, 0.129532, -0.080282, 0.0691704, 0, -0.190291, 0.209439, 0.0572857, -0.080282, -0.190291, 0, -0.0692115, -0.209439, 0.0572857, 0.080241, -0.190291, 0.18684, -0.0692115, -0.0128746, 0.229143, -0.0128746, 0.0691704, 0.18684, -0.190291, 0.209439, 0.129532, -0.080282, -0.209439, 0.129532, 0.080241, 0.19025, 0, -0.0692115, 0.209439, 0.0572857, 0.080241, -0.190291, 0, 0.0691704, -0.080282, 0.0572857, 0.209439, -0.190291, 0.18684, 0.0691704, -0.0128746, 0.229143, 0.0128336, 0.0128336, 0.229143, -0.0128746, 0.19025, 0.18684, -0.0692115, 0.209439, 0.129532, 0.080241, -0.080282, 0.129532, 0.209439, 0.19025, 0, 0.0691704, 0.080241, 0.0572857, 0.209439, -0.0692115, 0, 0.19025, -0.0692115, 0.18684, 0.19025, 0.0128336, 0.229143, 0.0128336, 0.19025, 0.18684, 0.0691704, 0.080241, 0.129532, 0.209439, 0.0691704, 0, 0.19025, 0.0691704, 0.18684, 0.19025)
 
-[node name="Pumpkin" type="RigidBody3D" groups=["Food"]]
+[node name="Pumpkin" type="RigidBody3D" unique_id=1104886038 groups=["Food"]]
 collision_layer = 9
 mass = 0.293094
 center_of_mass_mode = 1
@@ -57,11 +56,10 @@ freeze_mode = 1
 script = ExtResource("1_kif64")
 food_resource = ExtResource("2_dj83k")
 
-[node name="pumpkin" type="MeshInstance3D" parent="."]
+[node name="pumpkin" type="MeshInstance3D" parent="." unique_id=1964399096]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.103114, 0)
 mesh = SubResource("ArrayMesh_b0a2y")
-skeleton = NodePath("")
 
-[node name="pumpkin_CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="pumpkin_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1977284686]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.103114, 0)
 shape = SubResource("ConvexPolygonShape3D_b1tvo")

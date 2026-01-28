@@ -1,13 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://b80s8np8esxln"]
+[gd_scene format=4 uid="uid://b80s8np8esxln"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_frl6s"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_frl6s"]
 [ext_resource type="Resource" uid="uid://djcnsfrw0xvqx" path="res://scenes/foods/resources/generated/chocolate.tres" id="2_opoxj"]
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_4otte"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x5saf"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("3_4otte")
 emission_enabled = true
 
@@ -48,7 +47,7 @@ shadow_mesh = SubResource("ArrayMesh_chxab")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xrclr"]
 points = PackedVector3Array(-0.146224, 0, -0.073112, -0.146224, 0, 0.073112, -0.146224, 0.016872, -0.073112, 0.146224, 0, -0.073112, -0.146224, 0.016872, 0.073112, 0.146224, 0, 0.073112, -0.128934, 0.033744, -0.0558073, 0.146224, 0.016872, -0.073112, -0.128934, 0.033744, 0.055793, 0.146224, 0.016872, 0.073112, 0.128905, 0.033744, -0.0558073, 0.128905, 0.033744, 0.055793)
 
-[node name="Chocolate" type="RigidBody3D" groups=["Food"]]
+[node name="Chocolate" type="RigidBody3D" unique_id=401062611 groups=["Food"]]
 collision_layer = 9
 mass = 0.0144299
 center_of_mass_mode = 1
@@ -57,11 +56,10 @@ freeze_mode = 1
 script = ExtResource("1_frl6s")
 food_resource = ExtResource("2_opoxj")
 
-[node name="chocolate" type="MeshInstance3D" parent="."]
+[node name="chocolate" type="MeshInstance3D" parent="." unique_id=731224101]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.016872, 0)
 mesh = SubResource("ArrayMesh_3el7h")
-skeleton = NodePath("")
 
-[node name="chocolate_CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="chocolate_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1303903755]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.016872, 0)
 shape = SubResource("ConvexPolygonShape3D_xrclr")

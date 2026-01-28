@@ -1,13 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://bgka3vu56khp5"]
+[gd_scene format=4 uid="uid://bgka3vu56khp5"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_ow56j"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_ow56j"]
 [ext_resource type="Resource" uid="uid://4cpmk77p2kih" path="res://scenes/foods/resources/generated/fish.tres" id="2_vgm0r"]
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_7bimx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h8kfk"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("3_7bimx")
 emission_enabled = true
 
@@ -48,7 +47,7 @@ shadow_mesh = SubResource("ArrayMesh_xm05e")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7wsmo"]
 points = PackedVector3Array(0, 0, -0.310391, -0.00793961, 0.0337781, -0.310391, 0.00792025, 0.0337781, -0.310391, 0.0910731, 0.000630778, -0.130525, 0.0989159, 0.000126156, 0.12378, -0.0989159, 0.000126156, 0.12378, -0.0910925, 0.000630778, -0.130525, -0.00793961, 0.196897, -0.310391, 0.00792025, 0.196897, -0.310391, -1.93641e-05, 0.32217, -0.063804, 0.0489157, 0.190558, 0.0148269, 0.0691714, 0.115338, 0.0148269, 0, 0.230675, -0.310391, 0.0691714, 0.115338, 0.128033, 0.0532535, 0.115338, 0.237047, 0.0131681, 0.0950582, 0.310331, 0, 0.0866373, 0.310331, 0, 0.0378151, 0.237047, -0.0131875, 0.0950582, 0.310331, -0.0532728, 0.115338, 0.237047, -0.0691908, 0.115338, 0.128033, -0.0691908, 0.115338, 0.0148269, -0.0489351, 0.190558, 0.0148269, -0.0489351, 0.190558, 0.128033, -0.0376841, 0.170152, 0.237047, 0, 0.19286, 0.237047, 0.0376647, 0.170152, 0.237047, 0.0489157, 0.190558, 0.128033, 0.0131681, 0.135617, 0.310331, -0.0131875, 0.135617, 0.310331, 0, 0.144007, 0.310331)
 
-[node name="Fish" type="RigidBody3D" groups=["Food"]]
+[node name="Fish" type="RigidBody3D" unique_id=1649383496 groups=["Food"]]
 collision_layer = 9
 mass = 0.202597
 center_of_mass_mode = 1
@@ -57,11 +56,10 @@ freeze_mode = 1
 script = ExtResource("1_ow56j")
 food_resource = ExtResource("2_vgm0r")
 
-[node name="fish" type="MeshInstance3D" parent="."]
+[node name="fish" type="MeshInstance3D" parent="." unique_id=351973193]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.12888, 0)
 mesh = SubResource("ArrayMesh_5frug")
-skeleton = NodePath("")
 
-[node name="fish_CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="fish_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1329383460]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.12888, 0)
 shape = SubResource("ConvexPolygonShape3D_7wsmo")

@@ -1,12 +1,9 @@
-[gd_resource type="Resource" script_class="FoodItemData" load_steps=2 format=3 uid="uid://dcq1nsiqdrkhg"]
+[gd_resource type="Resource" script_class="FoodItemData" format=3 uid="uid://dcq1nsiqdrkhg"]
 
-[ext_resource type="Script" path="res://scenes/foods/food_item_data.gd" id="1_gt7t0"]
+[ext_resource type="Script" uid="uid://cptyb2arexrqf" path="res://scenes/foods/food_item_data.gd" id="1_gt7t0"]
 
 [resource]
 script = ExtResource("1_gt7t0")
 name = "Onion"
 model = "res://models/foods/onion.fbx"
 size = 0.9
-container = false
-spice = ""
-spice_color = Color(0, 0, 0, 1)

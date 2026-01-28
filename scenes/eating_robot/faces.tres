@@ -1,20 +1,16 @@
-[gd_resource type="Resource" script_class="FaceCollection" load_steps=9 format=3 uid="uid://qfguh0lx8ixy"]
+[gd_resource type="Resource" script_class="FaceCollection" format=3 uid="uid://qfguh0lx8ixy"]
 
-[ext_resource type="Script" path="res://scenes/eating_robot/face.gd" id="1_aw0vq"]
-[ext_resource type="Script" path="res://scenes/eating_robot/face_collection.gd" id="1_bygac"]
+[ext_resource type="Script" uid="uid://c55m21r3xvyu" path="res://scenes/eating_robot/face.gd" id="1_aw0vq"]
+[ext_resource type="Script" uid="uid://byo436sv3tj5k" path="res://scenes/eating_robot/face_collection.gd" id="1_bygac"]
 
 [sub_resource type="Resource" id="Resource_tge0y"]
 script = ExtResource("1_aw0vq")
-mood = 0
 eyes = 2
 mouth = 5
-min_time = 0.0
-max_time = 0.0
 
 [sub_resource type="Resource" id="Resource_5jcce"]
 script = ExtResource("1_aw0vq")
 mood = 1
-eyes = 0
 mouth = 1
 min_time = 2.0
 max_time = 6.0
@@ -22,8 +18,6 @@ max_time = 6.0
 [sub_resource type="Resource" id="Resource_f4bm3"]
 script = ExtResource("1_aw0vq")
 mood = 2
-eyes = 0
-mouth = 0
 min_time = 2.0
 max_time = 6.0
 
@@ -40,16 +34,12 @@ script = ExtResource("1_aw0vq")
 mood = 4
 eyes = 2
 mouth = 4
-min_time = 0.0
-max_time = 0.0
 
 [sub_resource type="Resource" id="Resource_2t7kw"]
 script = ExtResource("1_aw0vq")
 mood = 5
 eyes = 1
 mouth = 2
-min_time = 0.0
-max_time = 0.0
 
 [resource]
 script = ExtResource("1_bygac")

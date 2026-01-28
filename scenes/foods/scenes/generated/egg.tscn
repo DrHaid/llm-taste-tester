@@ -1,13 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://bh01thbu5wb8e"]
+[gd_scene format=4 uid="uid://bh01thbu5wb8e"]
 
-[ext_resource type="Script" path="res://scenes/foods/food.gd" id="1_f8538"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_f8538"]
 [ext_resource type="Resource" uid="uid://bnc602dusilk5" path="res://scenes/foods/resources/generated/egg.tres" id="2_d1xfk"]
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_tn21v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2kv5"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("3_tn21v")
 emission_enabled = true
 
@@ -48,7 +47,7 @@ shadow_mesh = SubResource("ArrayMesh_jr4bb")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c3a16"]
 points = PackedVector3Array(3.72529e-09, 0.106193, 0.0670109, 3.72529e-09, 0.1652, 0.0334989, -0.0580445, 0.106193, 0.0334989, 3.72529e-09, 0.0353977, 0.0670109, 0.0580445, 0.106193, 0.0334989, 0.0290109, 0.1652, 0.0167429, -0.0290222, 0.1652, 0.0167429, -0.0580445, 0.106193, -0.0335251, -0.0580445, 0.0353977, 0.0334989, 0.0580445, 0.0353977, 0.0334989, 3.72529e-09, 0, 0.0471976, 0.0580445, 0.106193, -0.0335251, 0.0290109, 0.1652, -0.0167691, -0.0290222, 0.1652, -0.0167691, 3.72529e-09, 0.1652, -0.0335251, 3.72529e-09, 0.106193, -0.067024, -0.0580445, 0.0353977, -0.0335251, -0.0408857, 0, 0.0235922, 0.0408743, 0, 0.0235922, 0.0580445, 0.0353977, -0.0335251, 3.72529e-09, 0.0353977, -0.067024, 3.72529e-09, 0, -0.0472107, -0.0408857, 0, -0.0236054, 0.0408743, 0, -0.0236054)
 
-[node name="Egg" type="RigidBody3D" groups=["Food"]]
+[node name="Egg" type="RigidBody3D" unique_id=1551012538 groups=["Food"]]
 collision_layer = 9
 mass = 0.0257076
 center_of_mass_mode = 1
@@ -57,11 +56,10 @@ freeze_mode = 1
 script = ExtResource("1_f8538")
 food_resource = ExtResource("2_d1xfk")
 
-[node name="egg" type="MeshInstance3D" parent="."]
+[node name="egg" type="MeshInstance3D" parent="." unique_id=1511199816]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0826, 0)
 mesh = SubResource("ArrayMesh_srr7a")
-skeleton = NodePath("")
 
-[node name="egg_CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="egg_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=277291124]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0826, 0)
 shape = SubResource("ConvexPolygonShape3D_c3a16")

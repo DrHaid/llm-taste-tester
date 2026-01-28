@@ -1,12 +1,9 @@
-[gd_resource type="Resource" script_class="FoodItemData" load_steps=2 format=3 uid="uid://c3ed5jy7xot7x"]
+[gd_resource type="Resource" script_class="FoodItemData" format=3 uid="uid://c3ed5jy7xot7x"]
 
-[ext_resource type="Script" path="res://scenes/foods/food_item_data.gd" id="1_wdupg"]
+[ext_resource type="Script" uid="uid://cptyb2arexrqf" path="res://scenes/foods/food_item_data.gd" id="1_wdupg"]
 
 [resource]
 script = ExtResource("1_wdupg")
 name = "Cauliflower"
 model = "res://models/foods/cauliflower.fbx"
 size = 0.9
-container = false
-spice = ""
-spice_color = Color(0, 0, 0, 1)
