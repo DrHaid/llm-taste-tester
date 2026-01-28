@@ -1,38 +1,38 @@
 [gd_scene format=4 uid="uid://bmmrw38fujfs6"]
 
-[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_sp1gx"]
-[ext_resource type="Resource" uid="uid://ccaamip3cswtf" path="res://scenes/foods/resources/generated/tofu.tres" id="2_4x4ps"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_hra7o"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_8h5tt"]
+[ext_resource type="Resource" uid="uid://ccaamip3cswtf" path="res://scenes/foods/resources/generated/tofu.tres" id="2_84ytq"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_b2ap8"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ho5n4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dyjvd"]
 resource_name = "colormap.001"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_hra7o")
+albedo_texture = ExtResource("3_b2ap8")
 emission_enabled = true
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_60ves"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_nwlyv"]
 _surfaces = [{
-"aabb": AABB(-0.111213, -0.0386958, -0.0750291, 0.222425, 0.0773916, 0.150058),
+"aabb": AABB(-0.11121271, -0.038695812, -0.07502907, 0.22242542, 0.077391624, 0.15005814),
 "format": 34359742465,
 "index_count": 36,
-"index_data": PackedByteArray("AAABAAIAAgADAAAABAAAAAMAAwAFAAQABgAEAAUABQAHAAYAAQAGAAcABwACAAEABwAFAAMAAwACAAcAAQAAAAQABAAGAAEA"),
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAQAAAAQABAAAAAMABQACAAEAAwACAAUABAAGAAEAAQAGAAUAAwAHAAQABgAEAAcABQAHAAMABwAFAAYA"),
 "name": "colormap.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
-"vertex_data": PackedByteArray("fcPjvYB/Hj3XqJm9fcPjvYB/Hj3XqJk9fcPjvYB/Hr3XqJk9fcPjvYB/Hr3XqJm9fcPjPYB/Hj3XqJm9fcPjPYB/Hr3XqJm9fcPjPYB/Hj3XqJk9fcPjPYB/Hr3XqJk9")
+"vertex_data": PackedByteArray("fcPjvYB/Hj3XqJm9fcPjvYB/Hj3XqJk9fcPjvYB/Hr3XqJk9fcPjvYB/Hr3XqJm9fcPjPYB/Hj3XqJm9fcPjPYB/Hr3XqJk9fcPjPYB/Hj3XqJk9fcPjPYB/Hr3XqJm9")
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_sblqd"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_k2ldh"]
 resource_name = "Cube"
 _surfaces = [{
-"aabb": AABB(-0.111213, -0.0386958, -0.0750291, 0.222425, 0.0773916, 0.150058),
+"aabb": AABB(-0.11121271, -0.038695812, -0.07502907, 0.22242542, 0.077391624, 0.15005814),
 "attribute_data": PackedByteArray("OOhxP8XbQD846HE/w9tAPzjocT9sK1k/OOhxP2wrWT+CjH4/xdtAPzjocT/F20A/OOhxP2wrWT+CjH4/bCtZP4KMfj/D20A/gox+P8XbQD+CjH4/bCtZP4KMfj9sK1k/OOhxP8PbQD+CjH4/w9tAP4KMfj9sK1k/OOhxP2wrWT+CjH4/bCtZP4KMfj9sK1k/OOhxP2wrWT846HE/bCtZPzjocT/D20A/OOhxP8XbQD+CjH4/xdtAP4KMfj/D20A/"),
 "format": 34359742487,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
-"material": SubResource("StandardMaterial3D_ho5n4"),
+"material": SubResource("StandardMaterial3D_dyjvd"),
 "name": "colormap.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -40,22 +40,24 @@ _surfaces = [{
 "vertex_data": PackedByteArray("fcPjvYB/Hj3XqJm9fcPjvYB/Hj3XqJk9fcPjvYB/Hr3XqJk9fcPjvYB/Hr3XqJm9fcPjPYB/Hj3XqJm9fcPjvYB/Hj3XqJm9fcPjvYB/Hr3XqJm9fcPjPYB/Hr3XqJm9fcPjPYB/Hj3XqJk9fcPjPYB/Hj3XqJm9fcPjPYB/Hr3XqJm9fcPjPYB/Hr3XqJk9fcPjvYB/Hj3XqJk9fcPjPYB/Hj3XqJk9fcPjPYB/Hr3XqJk9fcPjvYB/Hr3XqJk9fcPjPYB/Hr3XqJk9fcPjPYB/Hr3XqJm9fcPjvYB/Hr3XqJm9fcPjvYB/Hr3XqJk9fcPjvYB/Hj3XqJk9fcPjvYB/Hj3XqJm9fcPjPYB/Hj3XqJm9fcPjPYB/Hj3XqJk9AAD/f////78AAP9/////vwAA/3////+/AAD/f////7//////////P/////////8//////////z//////////P////3////+/////f////7////9/////v////3////+//3//f////7//f/9/////v/9//3////+//3//f////7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9///////8//3///////z//f///////P/9///////8/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_60ves")
+shadow_mesh = SubResource("ArrayMesh_nwlyv")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_balcu"]
-points = PackedVector3Array(-0.111213, -0.0386958, -0.0750291, -0.111213, 0.0386958, -0.0750291, 0.111213, -0.0386958, -0.0750291, -0.111213, -0.0386958, 0.0750291, -0.111213, 0.0386958, 0.0750291, 0.111213, 0.0386958, -0.0750291, 0.111213, -0.0386958, 0.0750291, 0.111213, 0.0386958, 0.0750291)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8h5tt"]
+points = PackedVector3Array(-0.11121271, -0.038695812, -0.07502907, -0.11121271, 0.038695812, -0.07502907, 0.11121271, -0.038695812, -0.07502907, -0.11121271, -0.038695812, 0.07502907, -0.11121271, 0.038695812, 0.07502907, 0.11121271, 0.038695812, -0.07502907, 0.11121271, -0.038695812, 0.07502907, 0.11121271, 0.038695812, 0.07502907)
 
-[node name="Tofu" type="RigidBody3D" unique_id=1115744475 groups=["Food"]]
+[node name="Tofu" type="RigidBody3D" unique_id=1598130773 groups=["Food"]]
 collision_layer = 9
-mass = 0.0258308
+mass = 0.6974317
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_sp1gx")
-food_resource = ExtResource("2_4x4ps")
+script = ExtResource("1_8h5tt")
+food_resource = ExtResource("2_84ytq")
 
-[node name="tofu" type="MeshInstance3D" parent="." unique_id=1270556974]
-mesh = SubResource("ArrayMesh_sblqd")
+[node name="tofu" type="MeshInstance3D" parent="." unique_id=626841909]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+mesh = SubResource("ArrayMesh_k2ldh")
 
-[node name="tofu_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1033037217]
-shape = SubResource("ConvexPolygonShape3D_balcu")
+[node name="tofu_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=428278325]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_8h5tt")

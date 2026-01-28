@@ -7,6 +7,7 @@ extends Node3D
 @export_dir var output_path: String = ""
 
 @export var mass_multiplier: float = 10
+@export var jolt_scale_multiplier: float = 3
 
 @export var generate: bool:
 	set(_v):
@@ -17,10 +18,6 @@ func generate_foods() -> void:
 	for file in resource_files:
 		var path := "%s/%s" % [foods_resource_path, file] 
 		var food: FoodItemData = load(path)
-
-		if food.container:
-			continue
-
 		generate_food(food)
 
 func generate_food(food: FoodItemData) -> void:
@@ -55,12 +52,14 @@ func generate_food(food: FoodItemData) -> void:
 	static_child.owner = null
 
 	# scale
-	mesh.scale = food.size * Vector3.ONE
-	collision_shape.scale = food.size * Vector3.ONE
+	var food_scale := food.size * jolt_scale_multiplier
+	var food_size := food_scale * Vector3.ONE
+	mesh.scale = food_size
+	collision_shape.scale = food_size
 
 	# determine and set center of mass and mass
 	var mesh_aabb: AABB = mesh.get_aabb()
-	var scaled_aabb := AABB(mesh_aabb.position * food.size, mesh_aabb.size * food.size)
+	var scaled_aabb := AABB(mesh_aabb.position * food_scale, mesh_aabb.size * food_scale)
 	var center_offset := scaled_aabb.get_center()
 
 	# offset children so the object origin is at center of mass
