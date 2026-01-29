@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="1_gbfh2"]
 [ext_resource type="Script" uid="uid://2w8ew7m2tvx2" path="res://scenes/pots_n_pans/stove/stove_controller.gd" id="1_sdh5x"]
+[ext_resource type="Material" uid="uid://q1ycc5dxqfw3" path="res://models/materials/colormap.material" id="3_4bvgp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htnba"]
 resource_name = "colormap"
@@ -181,18 +182,22 @@ script = ExtResource("1_sdh5x")
 [node name="stove" type="MeshInstance3D" parent="." unique_id=1902965775]
 transform = Transform3D(100, 0, 0, 0, 0, 100, 0, -100, 0, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ouvt5")
+surface_material_override/0 = ExtResource("3_4bvgp")
 
 [node name="dark_bit" type="MeshInstance3D" parent="." unique_id=186504350]
 transform = Transform3D(100, 0, 0, 0, 0, 100, 0, -100, 0, 0, 0, 0)
 mesh = SubResource("ArrayMesh_3n5fk")
+surface_material_override/0 = ExtResource("3_4bvgp")
 
 [node name="frame" type="MeshInstance3D" parent="." unique_id=1689339155]
 transform = Transform3D(100, 0, 0, 0, 0, 100, 0, -100, 0, 0, 0, 0)
 mesh = SubResource("ArrayMesh_8rxfy")
+surface_material_override/0 = ExtResource("3_4bvgp")
 
 [node name="dial" type="MeshInstance3D" parent="." unique_id=2023119193]
 transform = Transform3D(6.7, 0, 0, 0, 4.10648, 5.29404, 0, -5.29404, 4.10648, 0.149711, 0.0391903, 0.420605)
 mesh = SubResource("ArrayMesh_e7syj")
+surface_material_override/0 = ExtResource("3_4bvgp")
 
 [node name="red_spot" type="MeshInstance3D" parent="dial" unique_id=814888405]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7465e-26, 0.00467936, 0.00490082)

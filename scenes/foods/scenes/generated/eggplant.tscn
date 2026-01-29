@@ -1,13 +1,14 @@
 [gd_scene format=4 uid="uid://b346wbf3eems6"]
 
-[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_al3ne"]
-[ext_resource type="Resource" uid="uid://crs557b1wuph6" path="res://scenes/foods/resources/generated/eggplant.tres" id="2_shy8a"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_qrb1x"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_shy8a"]
+[ext_resource type="Resource" uid="uid://crs557b1wuph6" path="res://scenes/foods/resources/generated/eggplant.tres" id="2_qrb1x"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_oxm0a"]
+[ext_resource type="Material" uid="uid://q1ycc5dxqfw3" path="res://models/materials/colormap.material" id="4_47u37"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f6vo2"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_qrb1x")
+albedo_texture = ExtResource("3_oxm0a")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_uedn4"]
@@ -44,22 +45,23 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_uedn4")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_al3ne"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mt425"]
 points = PackedVector3Array(7.450581e-09, 0.103679374, 0.10775722, -0.060455773, 0.08987661, 0.08686831, 7.450581e-09, 0.056440607, 0.09794577, 0.06043581, 0.08987661, 0.08686831, 0.032674484, 0.34717122, 0.013166346, 7.450581e-09, 0.34487075, 0.026501484, -0.03269445, 0.34717122, 0.013166346, -0.072139494, 0.15309961, 0.059185244, -0.08550088, 0.05659926, 0.036397345, -0.051308516, 0.028200472, 0.05511295, -0.03628944, 0.04819068, 0.08539132, 0.051288553, 0.028200472, 0.05511295, 0.03626948, 0.04819068, 0.08539132, 0.08548092, 0.05659926, 0.036397345, 0.10201789, 0.11339684, -0.0010338947, 0.07211953, 0.15309961, 0.059185244, 0.04619565, 0.35280338, -0.019011013, 0.007849067, 0.4024616, -0.00236319, 0.03810691, 0.32777596, 0.015318535, 0.05258674, 0.31210902, -0.0040089786, 0.053904913, 0.33432037, -0.022239298, -0.007869035, 0.4024616, -0.00236319, -0.046215612, 0.35280338, -0.019011013, -0.053924873, 0.33432037, -0.022239298, -0.05260671, 0.31210902, -0.0040089786, -0.03812688, 0.32777596, 0.015318535, -0.05446412, 0.26951084, 0.021732904, -0.07703268, 0.27887133, -0.03192416, -0.10201787, 0.11339684, -0.0010338947, -0.072139494, 0.07369406, -0.061274126, -0.060455773, 0.02332191, -0.014073633, -0.03628944, 0.008249927, 0.024834596, 0.03626948, 0.008249927, 0.024834596, 0.06043581, 0.02332191, -0.014073633, 0.07211953, 0.07369406, -0.061274126, 0.054444157, 0.28823182, -0.08556011, 0.07701271, 0.27887133, -0.03192416, 0.054444157, 0.26951084, 0.021732904, 0.032674484, 0.35843554, -0.05120947, 0.007849067, 0.40519834, -0.017850518, -0.007869035, 0.40519834, -0.017850518, -0.03269445, 0.35843554, -0.05120947, -0.05446412, 0.28823182, -0.08556011, 7.450581e-09, 0.05723387, -0.086214215, 7.450581e-09, 0.29211882, -0.10777832, 7.450581e-09, 0.00955881, -0.034983642, 7.450581e-09, 0, 0.012301244, 7.450581e-09, 0.34443447, -0.074820265, 7.450581e-09, 0.36073598, -0.06454461)
 
-[node name="Eggplant" type="RigidBody3D" unique_id=438944738 groups=["Food"]]
+[node name="Eggplant" type="RigidBody3D" unique_id=1439896916 groups=["Food"]]
 collision_layer = 9
 mass = 4.8117056
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_al3ne")
-food_resource = ExtResource("2_shy8a")
+script = ExtResource("1_shy8a")
+food_resource = ExtResource("2_qrb1x")
 
 [node name="eggplant" type="MeshInstance3D" parent="." unique_id=1661011255]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.6077975, 0)
 mesh = SubResource("ArrayMesh_0a0bq")
+surface_material_override/0 = ExtResource("4_47u37")
 
-[node name="eggplant_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=390089202]
+[node name="eggplant_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1995413285]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.6077975, 0)
-shape = SubResource("ConvexPolygonShape3D_al3ne")
+shape = SubResource("ConvexPolygonShape3D_mt425")

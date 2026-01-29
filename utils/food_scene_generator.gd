@@ -38,6 +38,9 @@ func generate_food(food: FoodItemData) -> void:
 	var fbx_instance: Node = imported_fbx.instantiate()
 	var mesh := get_main_mesh(fbx_instance)
 
+	# assign material
+	mesh.set_surface_override_material(0, food.material)
+
 	_reparent(mesh, food_rigidbody)
 	# create static body collision shape
 	mesh.create_convex_collision()

@@ -1,13 +1,14 @@
 [gd_scene format=4 uid="uid://cphoxdp8jsgh0"]
 
-[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_yflqa"]
-[ext_resource type="Resource" uid="uid://cowi1t5jpc5cb" path="res://scenes/foods/resources/generated/celery_stick.tres" id="2_vulko"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_q321d"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_vulko"]
+[ext_resource type="Resource" uid="uid://cowi1t5jpc5cb" path="res://scenes/foods/resources/generated/celery_stick.tres" id="2_q321d"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_511as"]
+[ext_resource type="Material" uid="uid://q1ycc5dxqfw3" path="res://models/materials/colormap.material" id="4_kjsdk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwvls"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_q321d")
+albedo_texture = ExtResource("3_511as")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_w1t6p"]
@@ -44,22 +45,23 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_w1t6p")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yflqa"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xgvh1"]
 points = PackedVector3Array(0.014819326, 0.53999996, 0.0441, -0.0045033824, 0.53999996, 0.03615717, 0.014819326, 0, 0.0441, 0.0229803, 0.53999996, 0.024225652, -0.018094514, 0.53999996, 0.020306036, -0.0045033824, 0, 0.03615717, 0.0229803, 0, 0.024225652, 0.0229803, 0.53999996, -0.02423428, -0.0229803, 0.53999996, 0, -0.018094514, 0, 0.020306036, 0.0229803, 0, -0.02423428, 0.014819326, 0.53999996, -0.0441, -0.018094514, 0.53999996, -0.020314664, -0.0229803, 0, 0, 0.014819326, 0, -0.0441, -0.0045033824, 0.53999996, -0.0361658, -0.018094514, 0, -0.020314664, -0.0045033824, 0, -0.0361658)
 
-[node name="Celery" type="RigidBody3D" unique_id=1696301539 groups=["Food"]]
+[node name="Celery" type="RigidBody3D" unique_id=481757733 groups=["Food"]]
 collision_layer = 9
 mass = 0.59103304
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_yflqa")
-food_resource = ExtResource("2_vulko")
+script = ExtResource("1_vulko")
+food_resource = ExtResource("2_q321d")
 
 [node name="celery-stick" type="MeshInstance3D" parent="." unique_id=76740450]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.80999994, 0)
 mesh = SubResource("ArrayMesh_6vucc")
+surface_material_override/0 = ExtResource("4_kjsdk")
 
-[node name="celery-stick_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1064192907]
+[node name="celery-stick_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=419919104]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.80999994, 0)
-shape = SubResource("ConvexPolygonShape3D_yflqa")
+shape = SubResource("ConvexPolygonShape3D_xgvh1")

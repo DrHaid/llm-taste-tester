@@ -1,13 +1,14 @@
 [gd_scene format=4 uid="uid://ctl6su3oofc01"]
 
-[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_3c4kh"]
-[ext_resource type="Resource" uid="uid://2vpla8x3pym7" path="res://scenes/foods/resources/generated/radish.tres" id="2_i8010"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_kdejs"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_i8010"]
+[ext_resource type="Resource" uid="uid://2vpla8x3pym7" path="res://scenes/foods/resources/generated/radish.tres" id="2_kdejs"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_byo75"]
+[ext_resource type="Material" uid="uid://q1ycc5dxqfw3" path="res://models/materials/colormap.material" id="4_0s571"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0bbp"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_kdejs")
+albedo_texture = ExtResource("3_byo75")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_5x4xu"]
@@ -44,22 +45,23 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5x4xu")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3c4kh"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2cexa"]
 points = PackedVector3Array(-0.17157099, 0.3729389, -0.011084259, -0.17157099, 0.3729389, 0.011050686, -0.120650545, 0.44768465, -0.011084259, -0.011084259, 0.51712763, -0.120650545, -0.011084259, 0.3729389, -0.17157099, -0.0115544945, 0, -0.0066841394, -0.011084259, 0.3729389, 0.17153743, -0.011084259, 0.51712763, 0.12061697, -0.120650545, 0.44768465, 0.011050686, -0.0115544945, 0, 0.006650567, 0.12061697, 0.5763037, -0.011084259, 0.011050686, 0.51712763, -0.120650545, 0.011050686, 0.3729389, -0.17157099, -3.3587217e-05, 0, -0.0133346915, 0.011050686, 0.3729389, 0.17153743, -3.3587217e-05, 0, 0.013301134, 0.011050686, 0.51712763, 0.12061697, 0.12061697, 0.5763037, 0.011050686, 0.17153743, 0.3729389, -0.011084259, 0.011520922, 0, -0.0066841394, 0.17153743, 0.3729389, 0.011050686, 0.011520922, 0, 0.006650567)
 
-[node name="Radish" type="RigidBody3D" unique_id=1001843510 groups=["Food"]]
+[node name="Radish" type="RigidBody3D" unique_id=1623922477 groups=["Food"]]
 collision_layer = 9
 mass = 18.321575
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_3c4kh")
-food_resource = ExtResource("2_i8010")
+script = ExtResource("1_i8010")
+food_resource = ExtResource("2_kdejs")
 
 [node name="radish" type="MeshInstance3D" parent="." unique_id=38653787]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.8644556, 0)
 mesh = SubResource("ArrayMesh_h10d6")
+surface_material_override/0 = ExtResource("4_0s571")
 
-[node name="radish_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=20009779]
+[node name="radish_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1411321796]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.8644556, 0)
-shape = SubResource("ConvexPolygonShape3D_3c4kh")
+shape = SubResource("ConvexPolygonShape3D_2cexa")

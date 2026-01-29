@@ -1,13 +1,14 @@
 [gd_scene format=4 uid="uid://c00htwp35c77v"]
 
-[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_ken68"]
-[ext_resource type="Resource" uid="uid://ctvkt5m522eis" path="res://scenes/foods/resources/generated/carton.tres" id="2_40nyp"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_kbpyp"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_40nyp"]
+[ext_resource type="Resource" uid="uid://ctvkt5m522eis" path="res://scenes/foods/resources/generated/carton.tres" id="2_kbpyp"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_tmlpy"]
+[ext_resource type="Material" uid="uid://q1ycc5dxqfw3" path="res://models/materials/colormap.material" id="4_xdble"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5j8e0"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_kbpyp")
+albedo_texture = ExtResource("3_tmlpy")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_lqkhi"]
@@ -44,22 +45,23 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_lqkhi")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ken68"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c3o84"]
 points = PackedVector3Array(-0.115, 0, -0.115, 0.115, 0, -0.115, -0.115, 0, 0.115, -0.115, 0.41996068, -0.115, 0.115, 0, 0.115, 0.115, 0.41996068, -0.115, -0.115, 0.41996068, 0.115, 0, 0.59054625, -0.094737664, 0, 0.57025635, -0.115, 0.115, 0.41996068, 0.115, 0.087443225, 0.51146764, -0.040502153, 0.11067737, 0.48522368, -0.02026233, 0, 0.57025635, 0.115, 0, 0.59054625, 0.094715156, 0.06420908, 0.5377693, -0.02026233, 0.11067737, 0.48522368, 0.020239823, 0.087443225, 0.51146764, 0.040479638, 0.06420908, 0.5377693, 0.020239823)
 
-[node name="Milk" type="RigidBody3D" unique_id=293169304 groups=["Food"]]
+[node name="Milk" type="RigidBody3D" unique_id=934498011 groups=["Food"]]
 collision_layer = 9
 mass = 4.318604
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_ken68")
-food_resource = ExtResource("2_40nyp")
+script = ExtResource("1_40nyp")
+food_resource = ExtResource("2_kbpyp")
 
 [node name="carton" type="MeshInstance3D" parent="." unique_id=164318771]
 transform = Transform3D(2.4, 0, 0, 0, 2.4, 0, 0, 0, 2.4, 0, -0.70865554, 0)
 mesh = SubResource("ArrayMesh_0kptf")
+surface_material_override/0 = ExtResource("4_xdble")
 
-[node name="carton_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1411094598]
+[node name="carton_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1190198557]
 transform = Transform3D(2.4, 0, 0, 0, 2.4, 0, 0, 0, 2.4, 0, -0.70865554, 0)
-shape = SubResource("ConvexPolygonShape3D_ken68")
+shape = SubResource("ConvexPolygonShape3D_c3o84")

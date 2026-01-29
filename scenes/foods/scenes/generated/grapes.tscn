@@ -1,13 +1,14 @@
 [gd_scene format=4 uid="uid://bi2aamvn5wnxr"]
 
-[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_yo1jp"]
-[ext_resource type="Resource" uid="uid://6d62jbbvqd1r" path="res://scenes/foods/resources/generated/grapes.tres" id="2_duks3"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_4e7on"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_duks3"]
+[ext_resource type="Resource" uid="uid://6d62jbbvqd1r" path="res://scenes/foods/resources/generated/grapes.tres" id="2_4e7on"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_v1p5b"]
+[ext_resource type="Material" uid="uid://q1ycc5dxqfw3" path="res://models/materials/colormap.material" id="4_w5fib"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r70u1"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_4e7on")
+albedo_texture = ExtResource("3_v1p5b")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_m17xs"]
@@ -44,22 +45,23 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_m17xs")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yo1jp"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_n3l8d"]
 points = PackedVector3Array(-0.13949728, 0.39221227, 0, -2.7298927e-05, 0.4063602, 0.11479199, -0.0077012926, 0.42203876, -0.045426324, -0.005543843, 0.42261794, -0.05563265, -2.7298927e-05, 0.4063602, -0.11481533, -0.08881072, 0.19480304, -0.084803596, -0.11784079, 0.19480304, -0.034519337, -0.11784079, 0.19480304, 0.03449598, -0.08881072, 0.19480304, 0.084780246, 0.13946998, 0.39221227, 0, 0.0076739937, 0.42203876, -0.045426324, -0.02903007, 0.19480304, 0.119299576, 0.02900277, 0.19480304, 0.119299576, 0.08878341, 0.19480304, 0.084780246, 0.005516544, 0.42261794, -0.05563265, 0.08878341, 0.19480304, -0.084803596, 0.02900277, 0.19480304, -0.119299576, -0.02903007, 0.19480304, -0.119299576, -0.024605915, 0.1272487, -0.10110569, -0.07526517, 0.1272487, -0.07186468, -0.0998711, 0.1272487, -0.02926436, -0.0998711, 0.1272487, 0.02924101, -0.07526517, 0.1272487, 0.07184133, 0.1178135, 0.19480304, -0.034519337, 0.1178135, 0.19480304, 0.03449598, -0.024605915, 0.1272487, 0.10108234, 0.024578616, 0.1272487, 0.10108234, 0.07523787, 0.1272487, 0.07184133, 0.0998438, 0.1272487, 0.02924101, 0.0998438, 0.1272487, -0.02926436, 0.07523787, 0.1272487, -0.07186468, 0.024578616, 0.1272487, -0.10110569, -0.020017907, 0.07235305, -0.08221114, -0.061200745, 0.07235305, -0.058435302, -0.081191346, 0.07235305, -0.023799188, -0.081191346, 0.07235305, 0.023775846, -0.061200745, 0.07235305, 0.058411956, -0.020017907, 0.07235305, 0.08218779, 0.019990608, 0.07235305, 0.08218779, 0.06117344, 0.07235305, 0.058411956, 0.08116405, 0.07235305, 0.023775846, 0.08116405, 0.07235305, -0.023799188, 0.06117344, 0.07235305, -0.058435302, 0.019990608, 0.07235305, -0.08221114, -0.01373671, 0.04488454, -0.07135086, -0.05491954, 0.04488454, -0.047575027, -0.06865626, 0.04488454, -0.023799188, -0.06865626, 0.04488454, 0.023775846, -0.05491954, 0.04488454, 0.047551677, -0.01373671, 0.04488454, 0.07132751, 0.013709411, 0.04488454, 0.07132751, 0.054892242, 0.04488454, 0.047551677, 0.06862895, 0.04488454, 0.023775846, 0.06862895, 0.04488454, -0.023799188, 0.054892242, 0.04488454, -0.047575027, 0.013709411, 0.04488454, -0.07135086, -0.01373671, 0, -0.023799188, -0.02747342, 0, 0, -0.01373671, 0, 0.023775846, 0.013709411, 0, 0.023775846, 0.027446121, 0, 0, 0.013709411, 0, -0.023799188)
 
-[node name="Grapes" type="RigidBody3D" unique_id=865818029 groups=["Food"]]
+[node name="Grapes" type="RigidBody3D" unique_id=1933838960 groups=["Food"]]
 collision_layer = 9
 mass = 5.5373745
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_yo1jp")
-food_resource = ExtResource("2_duks3")
+script = ExtResource("1_duks3")
+food_resource = ExtResource("2_4e7on")
 
 [node name="grapes" type="MeshInstance3D" parent="." unique_id=969826789]
 transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, -0.5705342, 0)
 mesh = SubResource("ArrayMesh_1ni23")
+surface_material_override/0 = ExtResource("4_w5fib")
 
-[node name="grapes_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1660725143]
+[node name="grapes_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1835674501]
 transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, -0.5705342, 0)
-shape = SubResource("ConvexPolygonShape3D_yo1jp")
+shape = SubResource("ConvexPolygonShape3D_n3l8d")

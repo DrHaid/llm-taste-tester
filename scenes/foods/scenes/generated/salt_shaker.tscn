@@ -1,14 +1,15 @@
 [gd_scene format=4 uid="uid://bqdu8vu8pxryn"]
 
-[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_fccyj"]
-[ext_resource type="Resource" uid="uid://djgnxe57e8fiq" path="res://scenes/foods/resources/generated/shaker_salt.tres" id="2_lolux"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_3ycqg"]
-[ext_resource type="PackedScene" uid="uid://chentir1xrlvg" path="res://scenes/foods/spice_particles.tscn" id="3_lolux"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_lolux"]
+[ext_resource type="Resource" uid="uid://djgnxe57e8fiq" path="res://scenes/foods/resources/generated/shaker_salt.tres" id="2_3ycqg"]
+[ext_resource type="PackedScene" uid="uid://chentir1xrlvg" path="res://scenes/foods/spice_particles.tscn" id="3_3ycqg"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_ct716"]
+[ext_resource type="Material" uid="uid://q1ycc5dxqfw3" path="res://models/materials/colormap.material" id="4_roer6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4icm"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_3ycqg")
+albedo_texture = ExtResource("3_ct716")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_2dcpe"]
@@ -45,25 +46,26 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2dcpe")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fccyj"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7o3is"]
 points = PackedVector3Array(-0.04746, 0.020989036, -0.033588078, -0.033588078, 0.020989036, -0.04746, -0.042006005, 0, -0.029722894, -0.04746, 0.020989036, 0.033578787, -0.04746, 0.13299452, -0.033588078, 0.033578787, 0.020989036, -0.04746, -0.029722894, 0, -0.042006005, -0.033588078, 0.13299452, -0.04746, -0.042006005, 0, 0.029713605, -0.033588078, 0.020989036, 0.04746, -0.04746, 0.13299452, 0.033578787, -0.042006005, 0.15398355, -0.029722894, 0.04746, 0.020989036, -0.033588078, 0.029713605, 0, -0.042006005, 0.033578787, 0.13299452, -0.04746, -0.029722894, 0.15398355, -0.042006005, -0.029722894, 0, 0.041996714, 0.033578787, 0.020989036, 0.04746, -0.033588078, 0.13299452, 0.04746, -0.042006005, 0.15398355, 0.029713605, -0.025374562, 0.196, -0.025374562, 0.04746, 0.020989036, 0.033578787, 0.041996714, 0, -0.029722894, 0.04746, 0.13299452, -0.033588078, 0.029713605, 0.15398355, -0.042006005, 0.029713605, 0, 0.041996714, 0.033578787, 0.13299452, 0.04746, -0.029722894, 0.15398355, 0.041996714, -0.025374562, 0.196, 0.025365267, 0.025365267, 0.196, -0.025374562, 0.041996714, 0, 0.029713605, 0.04746, 0.13299452, 0.033578787, 0.041996714, 0.15398355, -0.029722894, 0.029713605, 0.15398355, 0.041996714, 0.025365267, 0.196, 0.025365267, 0.041996714, 0.15398355, 0.029713605)
 
-[node name="Salt Shaker" type="RigidBody3D" unique_id=924237310 groups=["Food"]]
+[node name="Salt Shaker" type="RigidBody3D" unique_id=2008318766 groups=["Food"]]
 collision_layer = 9
 mass = 0.47679895
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_fccyj")
-food_resource = ExtResource("2_lolux")
+script = ExtResource("1_lolux")
+food_resource = ExtResource("2_3ycqg")
 
-[node name="SpiceParticles" parent="." unique_id=121370660 instance=ExtResource("3_lolux")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29916692, 0)
+[node name="SpiceParticles" parent="." unique_id=121370660 instance=ExtResource("3_3ycqg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.30144697, 0)
 
 [node name="shaker-pepper" type="MeshInstance3D" parent="." unique_id=1804211632]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.294, 0)
 mesh = SubResource("ArrayMesh_2a1ju")
+surface_material_override/0 = ExtResource("4_roer6")
 
-[node name="shaker-pepper_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1747942792]
+[node name="shaker-pepper_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=84916573]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.294, 0)
-shape = SubResource("ConvexPolygonShape3D_fccyj")
+shape = SubResource("ConvexPolygonShape3D_7o3is")

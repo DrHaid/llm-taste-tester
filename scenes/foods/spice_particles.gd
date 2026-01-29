@@ -43,3 +43,4 @@ func init_spice(food_resource: FoodItemData) -> void:
 	spice_name = food_resource.spice
 	material = StandardMaterial3D.new()
 	material.albedo_color = food_resource.spice_color
+	material.diffuse_mode = BaseMaterial3D.DIFFUSE_TOON

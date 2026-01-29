@@ -1,13 +1,14 @@
 [gd_scene format=4 uid="uid://l6xiu0ee0b3s"]
 
-[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_sjjt0"]
-[ext_resource type="Resource" uid="uid://dvmc6tp4wwnqp" path="res://scenes/foods/resources/generated/carrot.tres" id="2_a1cqw"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_wa0c3"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_a1cqw"]
+[ext_resource type="Resource" uid="uid://dvmc6tp4wwnqp" path="res://scenes/foods/resources/generated/carrot.tres" id="2_wa0c3"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_rj0q3"]
+[ext_resource type="Material" uid="uid://q1ycc5dxqfw3" path="res://models/materials/colormap.material" id="4_e02fl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mdvvk"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_wa0c3")
+albedo_texture = ExtResource("3_rj0q3")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_j7gk6"]
@@ -44,22 +45,23 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_j7gk6")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sjjt0"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6eycu"]
 points = PackedVector3Array(-0.17157099, 0.5129677, -0.011084259, -0.17157099, 0.5129677, 0.011050686, -0.120650545, 0.5877112, -0.011084259, -0.011084259, 0.65712595, -0.120650545, -0.011084259, 0.5129677, -0.17157099, -0.025997639, 0.019983023, -0.015014127, -0.011084259, 0.5129677, 0.17153743, -0.011084259, 0.65712595, 0.12061697, -0.120650545, 0.5877112, 0.011050686, -0.025997639, 0.019983023, 0.014980555, 0.12061697, 0.71630377, -0.011084259, 0.011050686, 0.65712595, -0.120650545, 0.011050686, 0.5129677, -0.17157099, -3.3587217e-05, 0.019983023, -0.030028269, -3.3587217e-05, 0, -0.020421907, -0.017667636, 0, -0.010210946, 0.011050686, 0.5129677, 0.17153743, -3.3587217e-05, 0.019983023, 0.029994696, 0.011050686, 0.65712595, 0.12061697, 0.12061697, 0.71630377, 0.011050686, -0.017667636, 0, 0.010177374, -3.3587217e-05, 0, 0.020388335, 0.17153743, 0.5129677, -0.011084259, 0.025964066, 0.019983023, -0.015014127, 0.017634064, 0, -0.010210946, 0.17153743, 0.5129677, 0.011050686, 0.025964066, 0.019983023, 0.014980555, 0.017634064, 0, 0.010177374)
 
-[node name="Carrot" type="RigidBody3D" unique_id=1566309342 groups=["Food"]]
+[node name="Carrot" type="RigidBody3D" unique_id=1735824918 groups=["Food"]]
 collision_layer = 9
 mass = 7.8109293
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_sjjt0")
-food_resource = ExtResource("2_a1cqw")
+script = ExtResource("1_a1cqw")
+food_resource = ExtResource("2_wa0c3")
 
 [node name="carrot" type="MeshInstance3D" parent="." unique_id=664431244]
 transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, 0, -0.7521189, 0)
 mesh = SubResource("ArrayMesh_6xqyf")
+surface_material_override/0 = ExtResource("4_e02fl")
 
-[node name="carrot_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2000128870]
+[node name="carrot_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1113214674]
 transform = Transform3D(2.1, 0, 0, 0, 2.1, 0, 0, 0, 2.1, 0, -0.7521189, 0)
-shape = SubResource("ConvexPolygonShape3D_sjjt0")
+shape = SubResource("ConvexPolygonShape3D_6eycu")

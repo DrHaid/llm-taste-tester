@@ -1,13 +1,14 @@
 [gd_scene format=4 uid="uid://bmmrw38fujfs6"]
 
-[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_8h5tt"]
-[ext_resource type="Resource" uid="uid://ccaamip3cswtf" path="res://scenes/foods/resources/generated/tofu.tres" id="2_84ytq"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_b2ap8"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_84ytq"]
+[ext_resource type="Resource" uid="uid://ccaamip3cswtf" path="res://scenes/foods/resources/generated/tofu.tres" id="2_b2ap8"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_6t2mx"]
+[ext_resource type="Material" uid="uid://q1ycc5dxqfw3" path="res://models/materials/colormap.material" id="4_laok4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dyjvd"]
 resource_name = "colormap.001"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_b2ap8")
+albedo_texture = ExtResource("3_6t2mx")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nwlyv"]
@@ -42,22 +43,23 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nwlyv")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8h5tt"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_b2lbj"]
 points = PackedVector3Array(-0.11121271, -0.038695812, -0.07502907, -0.11121271, 0.038695812, -0.07502907, 0.11121271, -0.038695812, -0.07502907, -0.11121271, -0.038695812, 0.07502907, -0.11121271, 0.038695812, 0.07502907, 0.11121271, 0.038695812, -0.07502907, 0.11121271, -0.038695812, 0.07502907, 0.11121271, 0.038695812, 0.07502907)
 
-[node name="Tofu" type="RigidBody3D" unique_id=1598130773 groups=["Food"]]
+[node name="Tofu" type="RigidBody3D" unique_id=681193741 groups=["Food"]]
 collision_layer = 9
 mass = 0.6974317
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_8h5tt")
-food_resource = ExtResource("2_84ytq")
+script = ExtResource("1_84ytq")
+food_resource = ExtResource("2_b2ap8")
 
 [node name="tofu" type="MeshInstance3D" parent="." unique_id=626841909]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 mesh = SubResource("ArrayMesh_k2ldh")
+surface_material_override/0 = ExtResource("4_laok4")
 
-[node name="tofu_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=428278325]
+[node name="tofu_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1270020275]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_8h5tt")
+shape = SubResource("ConvexPolygonShape3D_b2lbj")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b31avdrtc3j6a" path="res://scenes/pots_n_pans/pot/pot_controller.gd" id="1_4n4u8"]
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="1_8pljj"]
+[ext_resource type="Material" uid="uid://q1ycc5dxqfw3" path="res://models/materials/colormap.material" id="3_14dos"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwvpy"]
 resource_name = "colormap"
@@ -102,11 +103,13 @@ script = ExtResource("1_4n4u8")
 
 [node name="pot_model" type="MeshInstance3D" parent="." unique_id=1054602689]
 mesh = SubResource("ArrayMesh_jwt8r")
+surface_material_override/0 = ExtResource("3_14dos")
 
 [node name="StewModel" type="MeshInstance3D" parent="." unique_id=2105767674]
 transform = Transform3D(1, 0, 0, 0, 1, 7.54979e-08, 0, -7.54979e-08, 1, 0, 0.04, 0)
 visible = false
 mesh = SubResource("ArrayMesh_2k48h")
+surface_material_override/0 = ExtResource("3_14dos")
 
 [node name="StewTarget" type="Marker3D" parent="." unique_id=318299943]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.189637, 0)

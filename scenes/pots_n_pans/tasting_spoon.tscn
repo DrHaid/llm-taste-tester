@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cbmnwv2vb1p5n" path="res://scenes/pots_n_pans/tasting_spoon.gd" id="1_nyrrg"]
 [ext_resource type="Animation" uid="uid://0jesnft2j3j7" path="res://animations/spoon_feed.res" id="2_71y44"]
 [ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_a3ew1"]
+[ext_resource type="Material" uid="uid://q1ycc5dxqfw3" path="res://models/materials/colormap.material" id="4_vrqsx"]
 
 [sub_resource type="Animation" id="Animation_pekir"]
 length = 0.001
@@ -136,8 +137,10 @@ libraries/ = SubResource("AnimationLibrary_pwbc5")
 
 [node name="utensil-spoon" type="MeshInstance3D" parent="." unique_id=1195762664]
 mesh = SubResource("ArrayMesh_g8fj4")
+surface_material_override/0 = ExtResource("4_vrqsx")
 
 [node name="utensil-spoon-stew" type="MeshInstance3D" parent="." unique_id=1219578390]
 transform = Transform3D(1, 0, 0, 0, 1, 7.54979e-08, 0, -7.54979e-08, 1, 0, 0, 0)
 visible = false
 mesh = SubResource("ArrayMesh_muwqa")
+surface_material_override/0 = ExtResource("4_vrqsx")

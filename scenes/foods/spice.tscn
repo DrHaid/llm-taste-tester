@@ -15,7 +15,6 @@ rings = 3
 radius = 0.020937
 
 [node name="Spice" type="RigidBody3D" unique_id=664167294 groups=["Spice"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01385, 0)
 mass = 0.001
 script = ExtResource("1_bofhg")
 

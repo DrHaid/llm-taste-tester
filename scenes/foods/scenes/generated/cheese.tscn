@@ -1,13 +1,14 @@
 [gd_scene format=4 uid="uid://b2un258gesisp"]
 
-[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_avh3p"]
-[ext_resource type="Resource" uid="uid://cgr4b0vocg25f" path="res://scenes/foods/resources/generated/cheese_cut.tres" id="2_vlhg6"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_s665m"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_vlhg6"]
+[ext_resource type="Resource" uid="uid://cgr4b0vocg25f" path="res://scenes/foods/resources/generated/cheese_cut.tres" id="2_s665m"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_akgmi"]
+[ext_resource type="Material" uid="uid://q1ycc5dxqfw3" path="res://models/materials/colormap.material" id="4_dvy75"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hv0rj"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_s665m")
+albedo_texture = ExtResource("3_akgmi")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6hg7d"]
@@ -44,22 +45,23 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6hg7d")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_avh3p"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_li0m7"]
 points = PackedVector3Array(-0.192, 0, -0.132, -0.192, 0, 0.132, -0.192, 0.02048, -0.132, 0.19200003, 0, -0.132, -0.192, 0.02048, 0.132, 0.19200003, 0, 0.132, 0.19200003, 0.02048, -0.132, 0.19200003, 0.02048, 0.132)
 
-[node name="Cheese" type="RigidBody3D" unique_id=1860498320 groups=["Food"]]
+[node name="Cheese" type="RigidBody3D" unique_id=999174371 groups=["Food"]]
 collision_layer = 9
 mass = 0.5605687
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_avh3p")
-food_resource = ExtResource("2_vlhg6")
+script = ExtResource("1_vlhg6")
+food_resource = ExtResource("2_s665m")
 
 [node name="cheese-cut" type="MeshInstance3D" parent="." unique_id=2107182848]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.03072, 0)
 mesh = SubResource("ArrayMesh_r1pfi")
+surface_material_override/0 = ExtResource("4_dvy75")
 
-[node name="cheese-cut_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1585555629]
+[node name="cheese-cut_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1625546080]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.03072, 0)
-shape = SubResource("ConvexPolygonShape3D_avh3p")
+shape = SubResource("ConvexPolygonShape3D_li0m7")

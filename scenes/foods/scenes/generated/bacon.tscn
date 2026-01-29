@@ -1,13 +1,14 @@
 [gd_scene format=4 uid="uid://c5r5oe381cobo"]
 
-[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_pom35"]
-[ext_resource type="Resource" uid="uid://yn2hd0f1v44k" path="res://scenes/foods/resources/generated/bacon_raw.tres" id="2_cqikd"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_sng7t"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_cqikd"]
+[ext_resource type="Resource" uid="uid://yn2hd0f1v44k" path="res://scenes/foods/resources/generated/bacon_raw.tres" id="2_sng7t"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_n3wo1"]
+[ext_resource type="Material" uid="uid://q1ycc5dxqfw3" path="res://models/materials/colormap.material" id="4_cb0y3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gvt0s"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_sng7t")
+albedo_texture = ExtResource("3_n3wo1")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_rmqpv"]
@@ -44,22 +45,23 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rmqpv")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pom35"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jg3gy"]
 points = PackedVector3Array(0.065, 0.02524863, 0.23938528, 0.04386355, 0.030000001, 0.26, 0.065, 0, 0.13, 0.065, 0.030000001, 0, -0.043876268, 0.030000001, 0.26, -0.065, 0, 0.13, 0.065, 0, -0.13, 0.065, 0.02524863, -0.23943616, 0.04386355, 0.030000001, -0.26, -0.065, 0.02524863, 0.23938528, -0.065, 0.030000001, 0, -0.065, 0, -0.13, -0.065, 0.02524863, -0.23943616, -0.043876268, 0.030000001, -0.26)
 
-[node name="Bacon" type="RigidBody3D" unique_id=810556592 groups=["Food"]]
+[node name="Bacon" type="RigidBody3D" unique_id=680266918 groups=["Food"]]
 collision_layer = 9
 mass = 0.54756
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_pom35")
-food_resource = ExtResource("2_cqikd")
+script = ExtResource("1_cqikd")
+food_resource = ExtResource("2_sng7t")
 
 [node name="bacon-raw" type="MeshInstance3D" parent="." unique_id=788691319]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.045, 0)
 mesh = SubResource("ArrayMesh_w3bh7")
+surface_material_override/0 = ExtResource("4_cb0y3")
 
-[node name="bacon-raw_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2136114571]
+[node name="bacon-raw_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=582325614]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.045, 0)
-shape = SubResource("ConvexPolygonShape3D_pom35")
+shape = SubResource("ConvexPolygonShape3D_jg3gy")

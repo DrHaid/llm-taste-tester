@@ -20,7 +20,13 @@
 background_mode = 1
 background_color = Color(0.772824, 0.870527, 0.949187, 1)
 ambient_light_source = 2
-ambient_light_color = Color(0.154876, 0.154876, 0.154876, 1)
+ambient_light_color = Color(0.2990358, 0.09577642, 0, 1)
+reflected_light_source = 1
+ssao_enabled = true
+ssao_intensity = 0.7
+adjustment_enabled = true
+adjustment_contrast = 0.9
+adjustment_saturation = 1.1
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ubpce"]
 
@@ -200,7 +206,6 @@ transform = Transform3D(0.213725, 0, 0.210527, 0, 0.3, 0, -0.210527, 0, 0.213725
 
 [node name="TastingSpoon" parent="." unique_id=1608685377 instance=ExtResource("5_hrrd4")]
 unique_name_in_owner = true
-transform = Transform3D(-0.40226862, 0, -0.9155212, 0, 1, 0, 0.9155212, 0, -0.40226862, 0.672322, 0.0258037, 0.210699)
 
 [node name="Stove" parent="." unique_id=478622306 instance=ExtResource("10_ndaen")]
 unique_name_in_owner = true

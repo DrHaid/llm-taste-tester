@@ -1,13 +1,14 @@
 [gd_scene format=4 uid="uid://cmev15wfdyocs"]
 
-[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_0d5tj"]
-[ext_resource type="Resource" uid="uid://locs103wu0n6" path="res://scenes/foods/resources/generated/orange.tres" id="2_ssd43"]
-[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_faeve"]
+[ext_resource type="Script" uid="uid://ci7q56duhad1g" path="res://scenes/foods/food.gd" id="1_ssd43"]
+[ext_resource type="Resource" uid="uid://locs103wu0n6" path="res://scenes/foods/resources/generated/orange.tres" id="2_faeve"]
+[ext_resource type="Texture2D" uid="uid://dthu3msaj5rou" path="res://models/textures/colormap.png" id="3_tssa1"]
+[ext_resource type="Material" uid="uid://q1ycc5dxqfw3" path="res://models/materials/colormap.material" id="4_6idc5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wtfk8"]
 resource_name = "colormap"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("3_faeve")
+albedo_texture = ExtResource("3_tssa1")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_knynq"]
@@ -44,22 +45,23 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_knynq")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0d5tj"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7qmyb"]
 points = PackedVector3Array(0, 0.07109601, -0.084846, 0, 0.11849335, -0.07110918, 0.059980206, 0.07109601, -0.059996817, 0, 0.023698669, -0.07110918, -0.059996817, 0.07109601, -0.059996817, 0, 0.14219202, -0.047406122, 0.050263114, 0.11849335, -0.050279725, -0.050279725, 0.11849335, -0.050279725, 0.084846, 0.07109601, 0, 0.050263114, 0.023698669, -0.050279725, 0, 0, -0.047406122, -0.050279725, 0.023698669, -0.050279725, -0.07110918, 0.11849335, 0, -0.07110918, 0.023698669, 0, -0.084846, 0.07109601, 0, -0.033519816, 0.14219202, -0.033519816, -0.0050993934, 0.1672, -0.0050993934, 0.005082786, 0.1672, -0.0050993934, 0.033503205, 0.14219202, -0.033519816, 0.07109257, 0.11849335, 0, 0.050263114, 0.11849335, 0.050263114, 0.059980206, 0.07109601, 0.059980206, 0.050263114, 0.023698669, 0.050263114, 0.07109257, 0.023698669, 0, 0.033503205, 0, -0.033519816, -0.033519816, 0, -0.033519816, -0.059996817, 0.07109601, 0.059980206, -0.050279725, 0.11849335, 0.050263114, -0.047406122, 0.14219202, 0, -0.047406122, 0, 0, -0.050279725, 0.023698669, 0.050263114, -0.0050993934, 0.1672, 0.005082786, 0.005082786, 0.1672, 0.005082786, 0.047389515, 0.14219202, 0, 0.033503205, 0.14219202, 0.033503205, 0, 0.14219202, 0.047389515, 0, 0.11849335, 0.07109257, 0, 0.07109601, 0.084846, 0.033503205, 0, 0.033503205, 0.047389515, 0, 0, 0, 0.023698669, 0.07109257, 0, 0, 0.047389515, -0.033519816, 0.14219202, 0.033503205, -0.033519816, 0, 0.033503205)
 
-[node name="Orange" type="RigidBody3D" unique_id=553536892 groups=["Food"]]
+[node name="Orange" type="RigidBody3D" unique_id=1337041868 groups=["Food"]]
 collision_layer = 9
 mass = 1.2999384
 center_of_mass_mode = 1
 can_sleep = false
 freeze_mode = 1
-script = ExtResource("1_0d5tj")
-food_resource = ExtResource("2_ssd43")
+script = ExtResource("1_ssd43")
+food_resource = ExtResource("2_faeve")
 
 [node name="orange" type="MeshInstance3D" parent="." unique_id=467879714]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.2508, 0)
 mesh = SubResource("ArrayMesh_2o08v")
+surface_material_override/0 = ExtResource("4_6idc5")
 
-[node name="orange_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=336787480]
+[node name="orange_CollisionShape3D" type="CollisionShape3D" parent="." unique_id=637796002]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.2508, 0)
-shape = SubResource("ConvexPolygonShape3D_0d5tj")
+shape = SubResource("ConvexPolygonShape3D_7qmyb")
