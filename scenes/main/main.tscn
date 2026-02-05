@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b6mbmer46xsrl"]
+[gd_scene format=4 uid="uid://b6mbmer46xsrl"]
 
 [ext_resource type="Script" uid="uid://d6ek54osxg67" path="res://ui/ui.gd" id="1_34ysx"]
 [ext_resource type="Script" uid="uid://d0trjwhh2it35" path="res://scenes/main/camera_controller.gd" id="1_m2hkn"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://xl34pi4pvsuj" path="res://scenes/pots_n_pans/stove/stove.tscn" id="10_ndaen"]
 [ext_resource type="PackedScene" uid="uid://cf5qjssu2jva2" path="res://scenes/eating_robot/eating_robot.tscn" id="11_8jsdd"]
 [ext_resource type="Script" uid="uid://di7k87roi3tda" path="res://scenes/pots_n_pans/food_kill_zone.gd" id="16_hwmsb"]
+[ext_resource type="Shader" uid="uid://bpemefc5ycm4a" path="res://scenes/main/materials/wall_shader.tres" id="16_nvumn"]
+[ext_resource type="Shader" uid="uid://yfljavsf7w01" path="res://scenes/main/materials/wood_shader.tres" id="17_ou6is"]
 
 [sub_resource type="Environment" id="Environment_d8w4m"]
 background_mode = 1
@@ -30,13 +32,64 @@ adjustment_saturation = 1.1
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ubpce"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_qr1lg"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_necax"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_66h1g"]
-albedo_color = Color(0.964813, 0.937469, 1, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pg34l"]
+render_priority = 0
+shader = ExtResource("17_ou6is")
+shader_parameter/wood_color = Color(0.43548256, 0.27809674, 0.20439252, 1)
+shader_parameter/grain_color = Color(0.4924972, 0.31849778, 0.23709118, 1)
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_71prs"]
-height = 2.6201
+[sub_resource type="BoxShape3D" id="BoxShape3D_nvumn"]
+size = Vector3(2, 8.516125, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nvumn"]
+render_priority = 0
+shader = ExtResource("16_nvumn")
+shader_parameter/tile_color = Color(0.9999997, 0.9715794, 0.9609619, 1)
+shader_parameter/joint_color = Color(0.24094036, 0.1765427, 0.16764075, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b87k3"]
+resource_name = "stub"
+cull_mode = 2
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ffvy4"]
+_surfaces = [{
+"aabb": AABB(-3.5117264, -0.07617742, -0.07617748, 7.0234528, 0.14140134, 0.14140141),
+"format": 34896613377,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAQADAAIABAACAAMABAAAAAIAAQAFAAMABQAEAAMAAQAGAAUABQAGAAQAAAAHAAEAAQAIAAYACAABAAcACAAEAAYAAAAIAAcACAAJAAQAAAAEAAkAAAAJAAgA"),
+"name": "stub",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 10,
+"vertex_data": PackedByteArray("AAAAAAAAAAD/////AAAAAAAA//8AAAAAAAD//5KxAAAAAJKx//8AAP////+SsQAA//+Ssf//AAD//wAAAAAAAP//AAD//wAAAAAAAP//AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_j70lr"]
+resource_name = "bevel_Cube_001"
+_surfaces = [{
+"aabb": AABB(-3.5117264, -0.07617742, -0.07617748, 7.0234528, 0.14140134, 0.14140141),
+"attribute_data": PackedByteArray("/1//v/+f/3//n/+//1//f/8f/3//X/8//1//f/8f/z//n4VPZIwAAP+fAABkjP8//1//P2SMAABkjP8//18AAP9f/79kjP///1////+f/7//n2Ts/5//f//fmlP/3/9//5+FT/9f/z//n/9//1//f2SM/z//n4VP"),
+"format": 34896613399,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEQAQABMAEQATABQAFQAWABcAFQAYABYAGQAaABsAGgAZABwAGgAcAB0A"),
+"material": SubResource("StandardMaterial3D_b87k3"),
+"name": "stub",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("AAAAAAAA////////AAD//wAA//8AAP////8AAAAA//8AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////+SsW7+AACSsf//LsYAAP//krH8xf//krH//6T+//8AAP///78AAJKx////v///krH///+/AAAAAP///78AAAAAAABU1QAAkrH//1TVAAAAAP//VNUAAP//AABU1QAA//+SsVTV/////wAA9v8AAP//krH//wAA//8AAP///////5Kx9v///wAA//9U1f////8AACfU//8AAAAAVNX//5Kx//8K1P////+SsVPP/7//v/+//7//v/+//7//vwAA/38AAP9/AAD/fwAA/3+72sYA9uLfHP/i/xyz2qsA/////////////////////1TVVNVU1VTVVNVU1VTVVNVU1VTVCID6v/9//7//f/+/CID6v6oqqiodLPEpqiqqKkAs3ym0MqUm")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ffvy4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4h2d"]
+diffuse_mode = 3
+albedo_color = Color(0.109922744, 0.070832945, 0.051628, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ox7ci"]
 radius = 0.25
@@ -144,17 +197,46 @@ unique_name_in_owner = true
 script = ExtResource("6_xnjwu")
 
 [node name="TableTop" type="Node3D" parent="." unique_id=985079941]
-transform = Transform3D(-8.22859, 0, 0, 0, 0.0537974, 0, 0, 0, -8.22859, 0, -0.0737869, -0.985973)
+transform = Transform3D(5, 0, 0, 0, 0.012, 0, 0, 0, 2.5, 0, -0.039, -0.751)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="TableTop" unique_id=2086497709]
 collision_layer = 11
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TableTop/StaticBody3D" unique_id=2068221340]
-mesh = SubResource("CylinderMesh_qr1lg")
-surface_material_override/0 = SubResource("StandardMaterial3D_66h1g")
+[node name="floor" type="MeshInstance3D" parent="TableTop/StaticBody3D" unique_id=1832037969]
+mesh = SubResource("PlaneMesh_necax")
+surface_material_override/0 = SubResource("ShaderMaterial_pg34l")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="TableTop/StaticBody3D" unique_id=2103584346]
-shape = SubResource("CylinderShape3D_71prs")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TableTop/StaticBody3D" unique_id=873201744]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000002, 0, -4.2575626, 0)
+shape = SubResource("BoxShape3D_nvumn")
+
+[node name="Walls" type="Node3D" parent="." unique_id=692096391]
+
+[node name="LeftWall" type="Node3D" parent="Walls" unique_id=1604819088]
+transform = Transform3D(-7.824338e-08, 0, 1, 0, 1, 0, -1.79, 0, -4.371139e-08, -2.945, 0, -0.047)
+
+[node name="wall" type="MeshInstance3D" parent="Walls/LeftWall" unique_id=105696011]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.755, 0)
+mesh = SubResource("PlaneMesh_necax")
+surface_material_override/0 = SubResource("ShaderMaterial_nvumn")
+
+[node name="bevel" type="MeshInstance3D" parent="Walls/LeftWall" unique_id=147944069]
+transform = Transform3D(0.285, 0, 0, 0, 0.8, -3.0198067e-15, 0, 2.842171e-15, 0.85, 0, -0.04, 0)
+mesh = SubResource("ArrayMesh_j70lr")
+surface_material_override/0 = SubResource("StandardMaterial3D_m4h2d")
+
+[node name="BackWall" type="Node3D" parent="Walls" unique_id=1118091441]
+transform = Transform3D(3.395, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, 0, -1.782)
+
+[node name="wall" type="MeshInstance3D" parent="Walls/BackWall" unique_id=1692489201]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.755, 0)
+mesh = SubResource("PlaneMesh_necax")
+surface_material_override/0 = SubResource("ShaderMaterial_nvumn")
+
+[node name="bevel" type="MeshInstance3D" parent="Walls/BackWall" unique_id=143740758]
+transform = Transform3D(0.285, 0, 0, 0, 0.8, -3.0198067e-15, 0, 2.842171e-15, 0.85, 0, -0.04, 0)
+mesh = SubResource("ArrayMesh_j70lr")
+surface_material_override/0 = SubResource("StandardMaterial3D_m4h2d")
 
 [node name="CameraRig" type="Node3D" parent="." unique_id=159541413]
 unique_name_in_owner = true

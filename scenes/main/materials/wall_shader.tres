@@ -1,0 +1,74 @@
+[gd_resource type="VisualShader" format=3 uid="uid://bpemefc5ycm4a"]
+
+[ext_resource type="Texture2D" uid="uid://dm28qer6odwar" path="res://scenes/main/materials/tile_noise_texture_2d.tres" id="1_o3x2m"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_o3x2m"]
+input_name = "model_matrix"
+
+[sub_resource type="VisualShaderNodeTransformDecompose" id="VisualShaderNodeTransformDecompose_wx2c7"]
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_axxem"]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeVectorLen" id="VisualShaderNodeVectorLen_6wglj"]
+
+[sub_resource type="VisualShaderNodeVectorLen" id="VisualShaderNodeVectorLen_p7jkr"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_4kby8"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_wx2c7"]
+parameter_name = "tile_color"
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_axxem"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, Vector3(0.5, 0.5, 0.5)]
+op_type = 3
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_6wglj"]
+parameter_name = "joint_color"
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_4kby8"]
+default_input_values = [1, Vector2(2.195, 1.095), 2, Vector2(0, 0)]
+function = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_aai71"]
+texture = ExtResource("1_o3x2m")
+
+[sub_resource type="VisualShaderNodeRemap" id="VisualShaderNodeRemap_ye2s3"]
+default_input_values = [1, 0.0, 2, 0.075, 3, 0.0, 4, 1.0, 0, 0.0]
+
+[sub_resource type="VisualShaderNodeStep" id="VisualShaderNodeStep_rt66e"]
+default_input_values = [0, 0.0, 1, 0.665]
+
+[resource]
+modes/diffuse = 3
+preview_params/tile_color = "Color(0.31061712, 0.31061712, 0.3106171, 1)"
+nodes/vertex/0/position = Vector2(420, 140)
+nodes/fragment/0/position = Vector2(1620, 140)
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_wx2c7")
+nodes/fragment/2/position = Vector2(-120, 100)
+nodes/fragment/3/node = SubResource("VisualShaderNodeMix_axxem")
+nodes/fragment/3/position = Vector2(1180, 140)
+nodes/fragment/4/node = SubResource("VisualShaderNodeColorParameter_6wglj")
+nodes/fragment/4/position = Vector2(-120, 320)
+nodes/fragment/6/node = SubResource("VisualShaderNodeUVFunc_4kby8")
+nodes/fragment/6/position = Vector2(220, 540)
+nodes/fragment/7/node = SubResource("VisualShaderNodeTexture_aai71")
+nodes/fragment/7/position = Vector2(480, 540)
+nodes/fragment/8/node = SubResource("VisualShaderNodeRemap_ye2s3")
+nodes/fragment/8/position = Vector2(700, 540)
+nodes/fragment/9/node = SubResource("VisualShaderNodeStep_rt66e")
+nodes/fragment/9/position = Vector2(920, 540)
+nodes/fragment/10/node = SubResource("VisualShaderNodeInput_o3x2m")
+nodes/fragment/10/position = Vector2(-820, 760)
+nodes/fragment/11/node = SubResource("VisualShaderNodeTransformDecompose_wx2c7")
+nodes/fragment/11/position = Vector2(-540, 760)
+nodes/fragment/12/node = SubResource("VisualShaderNodeVectorCompose_axxem")
+nodes/fragment/12/position = Vector2(-60, 740)
+nodes/fragment/13/node = SubResource("VisualShaderNodeVectorLen_6wglj")
+nodes/fragment/13/position = Vector2(-280, 680)
+nodes/fragment/14/node = SubResource("VisualShaderNodeVectorLen_p7jkr")
+nodes/fragment/14/position = Vector2(-280, 820)
+nodes/fragment/15/node = SubResource("VisualShaderNodeInput_4kby8")
+nodes/fragment/15/position = Vector2(-580, 500)
+nodes/fragment/connections = PackedInt32Array(3, 0, 0, 0, 2, 0, 3, 0, 4, 0, 3, 1, 6, 0, 7, 0, 7, 0, 8, 0, 8, 0, 9, 0, 9, 0, 3, 2, 15, 0, 6, 0, 10, 0, 11, 0, 11, 0, 13, 0, 11, 1, 14, 0, 14, 0, 12, 1, 13, 0, 12, 0, 12, 0, 6, 1)

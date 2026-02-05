@@ -1,0 +1,47 @@
+[gd_resource type="VisualShader" format=3 uid="uid://yfljavsf7w01"]
+
+[ext_resource type="Texture2D" uid="uid://cnsirkblf4clt" path="res://scenes/main/materials/wood_noise_texture_2d.tres" id="1_wmrul"]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_6ia52"]
+parameter_name = "wood_color"
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_5b0oh"]
+parameter_name = "grain_color"
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_ed23c"]
+default_input_values = [1, Vector2(0.245, 1.34), 2, Vector2(0.38, -1.21)]
+function = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_mi5gy"]
+texture = ExtResource("1_wmrul")
+
+[sub_resource type="VisualShaderNodeRemap" id="VisualShaderNodeRemap_6mapx"]
+default_input_values = [1, 0.0, 2, 1.0, 3, 0.0, 4, 0.67]
+
+[sub_resource type="VisualShaderNodeStep" id="VisualShaderNodeStep_qg4xs"]
+default_input_values = [0, 0.0, 1, 0.535]
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_blrkd"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, Vector3(0.5, 0.5, 0.5)]
+op_type = 3
+
+[resource]
+modes/diffuse = 3
+preview_params/wood_color = "Color(0.6313726, 0, 0, 1)"
+preview_params/grain_color = "Color(0.7162962, 0.7162962, 0.7162962, 1)"
+nodes/fragment/0/position = Vector2(660, 180)
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_6ia52")
+nodes/fragment/2/position = Vector2(-620, 160)
+nodes/fragment/3/node = SubResource("VisualShaderNodeColorParameter_5b0oh")
+nodes/fragment/3/position = Vector2(-620, 400)
+nodes/fragment/4/node = SubResource("VisualShaderNodeUVFunc_ed23c")
+nodes/fragment/4/position = Vector2(-620, 720)
+nodes/fragment/5/node = SubResource("VisualShaderNodeTexture_mi5gy")
+nodes/fragment/5/position = Vector2(-340, 640)
+nodes/fragment/6/node = SubResource("VisualShaderNodeRemap_6mapx")
+nodes/fragment/6/position = Vector2(-120, 640)
+nodes/fragment/7/node = SubResource("VisualShaderNodeStep_qg4xs")
+nodes/fragment/7/position = Vector2(100, 640)
+nodes/fragment/8/node = SubResource("VisualShaderNodeMix_blrkd")
+nodes/fragment/8/position = Vector2(358.25806, 297.46045)
+nodes/fragment/connections = PackedInt32Array(4, 0, 5, 0, 5, 0, 6, 0, 6, 0, 7, 0, 7, 0, 8, 2, 3, 0, 8, 1, 2, 0, 8, 0, 8, 0, 0, 0)
