@@ -17,6 +17,14 @@ op_type = 0
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_4kby8"]
 input_name = "uv"
 
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_o3x2m"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_wx2c7"]
+parameter_name = "Scale"
+
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_wx2c7"]
 parameter_name = "tile_color"
 
@@ -60,15 +68,19 @@ nodes/fragment/8/position = Vector2(700, 540)
 nodes/fragment/9/node = SubResource("VisualShaderNodeStep_rt66e")
 nodes/fragment/9/position = Vector2(920, 540)
 nodes/fragment/10/node = SubResource("VisualShaderNodeInput_o3x2m")
-nodes/fragment/10/position = Vector2(-820, 760)
+nodes/fragment/10/position = Vector2(-1060, 720)
 nodes/fragment/11/node = SubResource("VisualShaderNodeTransformDecompose_wx2c7")
-nodes/fragment/11/position = Vector2(-540, 760)
+nodes/fragment/11/position = Vector2(-780, 720)
 nodes/fragment/12/node = SubResource("VisualShaderNodeVectorCompose_axxem")
-nodes/fragment/12/position = Vector2(-60, 740)
+nodes/fragment/12/position = Vector2(-300, 700)
 nodes/fragment/13/node = SubResource("VisualShaderNodeVectorLen_6wglj")
-nodes/fragment/13/position = Vector2(-280, 680)
+nodes/fragment/13/position = Vector2(-520, 640)
 nodes/fragment/14/node = SubResource("VisualShaderNodeVectorLen_p7jkr")
-nodes/fragment/14/position = Vector2(-280, 820)
+nodes/fragment/14/position = Vector2(-520, 780)
 nodes/fragment/15/node = SubResource("VisualShaderNodeInput_4kby8")
 nodes/fragment/15/position = Vector2(-580, 500)
-nodes/fragment/connections = PackedInt32Array(3, 0, 0, 0, 2, 0, 3, 0, 4, 0, 3, 1, 6, 0, 7, 0, 7, 0, 8, 0, 8, 0, 9, 0, 9, 0, 3, 2, 15, 0, 6, 0, 10, 0, 11, 0, 11, 0, 13, 0, 11, 1, 14, 0, 14, 0, 12, 1, 13, 0, 12, 0, 12, 0, 6, 1)
+nodes/fragment/16/node = SubResource("VisualShaderNodeVectorOp_o3x2m")
+nodes/fragment/16/position = Vector2(-20, 700)
+nodes/fragment/17/node = SubResource("VisualShaderNodeVec2Parameter_wx2c7")
+nodes/fragment/17/position = Vector2(-1060, 960)
+nodes/fragment/connections = PackedInt32Array(3, 0, 0, 0, 2, 0, 3, 0, 4, 0, 3, 1, 6, 0, 7, 0, 7, 0, 8, 0, 8, 0, 9, 0, 9, 0, 3, 2, 15, 0, 6, 0, 10, 0, 11, 0, 11, 0, 13, 0, 11, 1, 14, 0, 14, 0, 12, 1, 13, 0, 12, 0, 12, 0, 16, 0, 16, 0, 6, 1, 17, 0, 16, 1)

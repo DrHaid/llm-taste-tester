@@ -12,10 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://bo2524kt3kx7k" path="res://ui/rotate_ccw.svg" id="5_vi6iu"]
 [ext_resource type="Script" uid="uid://dm8yyqmshpxdm" path="res://scenes/pots_n_pans/view_collision_boundary.gd" id="6_xnjwu"]
 [ext_resource type="Script" uid="uid://c8pu7rwc28hd0" path="res://scenes/main/food_spawn.gd" id="8_jq2de"]
+[ext_resource type="Material" uid="uid://bp2mad7igbxs4" path="res://scenes/main/materials/wall_material.tres" id="8_nvumn"]
 [ext_resource type="PackedScene" uid="uid://xl34pi4pvsuj" path="res://scenes/pots_n_pans/stove/stove.tscn" id="10_ndaen"]
 [ext_resource type="PackedScene" uid="uid://cf5qjssu2jva2" path="res://scenes/eating_robot/eating_robot.tscn" id="11_8jsdd"]
 [ext_resource type="Script" uid="uid://di7k87roi3tda" path="res://scenes/pots_n_pans/food_kill_zone.gd" id="16_hwmsb"]
-[ext_resource type="Shader" uid="uid://bpemefc5ycm4a" path="res://scenes/main/materials/wall_shader.tres" id="16_nvumn"]
 [ext_resource type="Shader" uid="uid://yfljavsf7w01" path="res://scenes/main/materials/wood_shader.tres" id="17_ou6is"]
 
 [sub_resource type="Environment" id="Environment_d8w4m"]
@@ -43,11 +43,8 @@ shader_parameter/grain_color = Color(0.4924972, 0.31849778, 0.23709118, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_nvumn"]
 size = Vector3(2, 8.516125, 2)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nvumn"]
-render_priority = 0
-shader = ExtResource("16_nvumn")
-shader_parameter/tile_color = Color(0.9999997, 0.9715794, 0.9609619, 1)
-shader_parameter/joint_color = Color(0.24094036, 0.1765427, 0.16764075, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_necax"]
+size = Vector3(2, 0.1489375, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b87k3"]
 resource_name = "stub"
@@ -90,6 +87,9 @@ shadow_mesh = SubResource("ArrayMesh_ffvy4")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m4h2d"]
 diffuse_mode = 3
 albedo_color = Color(0.109922744, 0.070832945, 0.051628, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ou6is"]
+size = Vector3(2, 0.14258984, 2)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ox7ci"]
 radius = 0.25
@@ -213,12 +213,18 @@ shape = SubResource("BoxShape3D_nvumn")
 [node name="Walls" type="Node3D" parent="." unique_id=692096391]
 
 [node name="LeftWall" type="Node3D" parent="Walls" unique_id=1604819088]
-transform = Transform3D(-7.824338e-08, 0, 1, 0, 1, 0, -1.79, 0, -4.371139e-08, -2.945, 0, -0.047)
+transform = Transform3D(-7.824338e-08, 0, 1, 0, 1, 0, -1.79, 0, -4.371139e-08, -2.945, 0, -0.657)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/LeftWall" unique_id=843206915]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/LeftWall/StaticBody3D" unique_id=97878814]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.755, -0.07396865)
+shape = SubResource("BoxShape3D_necax")
 
 [node name="wall" type="MeshInstance3D" parent="Walls/LeftWall" unique_id=105696011]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.755, 0)
 mesh = SubResource("PlaneMesh_necax")
-surface_material_override/0 = SubResource("ShaderMaterial_nvumn")
+surface_material_override/0 = ExtResource("8_nvumn")
 
 [node name="bevel" type="MeshInstance3D" parent="Walls/LeftWall" unique_id=147944069]
 transform = Transform3D(0.285, 0, 0, 0, 0.8, -3.0198067e-15, 0, 2.842171e-15, 0.85, 0, -0.04, 0)
@@ -226,12 +232,18 @@ mesh = SubResource("ArrayMesh_j70lr")
 surface_material_override/0 = SubResource("StandardMaterial3D_m4h2d")
 
 [node name="BackWall" type="Node3D" parent="Walls" unique_id=1118091441]
-transform = Transform3D(3.395, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, 0, -1.782)
+transform = Transform3D(4.01, 0, 0, 0, 1, 0, 0, 0, 1, 0.635, 0, -1.782)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/BackWall" unique_id=464260716]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/BackWall/StaticBody3D" unique_id=432355278]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.755, -0.07079494)
+shape = SubResource("BoxShape3D_ou6is")
 
 [node name="wall" type="MeshInstance3D" parent="Walls/BackWall" unique_id=1692489201]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.755, 0)
 mesh = SubResource("PlaneMesh_necax")
-surface_material_override/0 = SubResource("ShaderMaterial_nvumn")
+surface_material_override/0 = ExtResource("8_nvumn")
 
 [node name="bevel" type="MeshInstance3D" parent="Walls/BackWall" unique_id=143740758]
 transform = Transform3D(0.285, 0, 0, 0, 0.8, -3.0198067e-15, 0, 2.842171e-15, 0.85, 0, -0.04, 0)
@@ -270,7 +282,7 @@ monitorable = false
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="FoodDragHandler/Boundary" unique_id=238411118]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 depth = 3.0
-polygon = PackedVector2Array(-1.76292, -0.189293, -0.950156, -1.00205, -0.93953, -2.42237, -0.762126, -2.61456, 3.42164, -2.65152, 3.59166, -2.45933, 1.72892, 0.571314, 1.59586, 0.696975, -1.43478, 0.682191, -1.61219, 0.563922)
+polygon = PackedVector2Array(-1.76292, -0.189293, -0.950156, -1.00205, -0.9588361, -1.4534688, -0.7952008, -1.6807399, 2.804771, -1.6716487, 2.986588, -1.4898322, 1.72892, 0.571314, 1.59586, 0.696975, -1.43478, 0.682191, -1.61219, 0.563922)
 
 [node name="ElevationShapeCast3D" type="ShapeCast3D" parent="FoodDragHandler" unique_id=1183449862]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
@@ -299,6 +311,7 @@ transform = Transform3D(0.694658, 0, -0.71934, 0, 1, 0, 0.71934, 0, 0.694658, 0,
 [node name="-" type="Node" parent="." unique_id=108465961]
 
 [node name="FoodSpawn" type="Node3D" parent="." unique_id=1956924061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.16293085)
 script = ExtResource("8_jq2de")
 foods_path = "res://scenes/foods/scenes/generated"
 food_scale = 0.3
@@ -312,7 +325,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10592, 1, -0.000873566)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D3" type="Marker3D" parent="FoodSpawn" unique_id=51517439]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63079, 1, -1.00261)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6876991, 1, -1.0957346)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D4" type="Marker3D" parent="FoodSpawn" unique_id=1659872924]
@@ -328,11 +341,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.968829, 1, -0.822071)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D7" type="Marker3D" parent="FoodSpawn" unique_id=308569235]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33422, 1, -0.313463)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4790803, 1, -0.48936486)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D8" type="Marker3D" parent="FoodSpawn" unique_id=933126566]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23674, 1, 0.21641)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2677816, 1, -0.01640135)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D9" type="Marker3D" parent="FoodSpawn" unique_id=98103979]
@@ -344,7 +357,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.422625, 1, -1.50608)
 gizmo_extents = 0.02
 
 [node name="SpawnMarker3D11" type="Marker3D" parent="FoodSpawn" unique_id=999430451]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.327216, 1, -1.55321)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.327216, 1, -1.4756062)
 gizmo_extents = 0.02
 
 [node name="FoodKillZone" type="Area3D" parent="." unique_id=443425492]

@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bp2mad7igbxs4"]
+
+[ext_resource type="Shader" uid="uid://bpemefc5ycm4a" path="res://scenes/main/materials/wall_shader.tres" id="1_el7oy"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_el7oy")
+shader_parameter/tile_color = Color(0.9999997, 0.9715794, 0.9609619, 1)
+shader_parameter/joint_color = Color(0.24094036, 0.1765427, 0.16764075, 1)
+shader_parameter/Scale = Vector2(0.47, 0.87)
