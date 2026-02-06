@@ -5,6 +5,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_el7oy")
-shader_parameter/tile_color = Color(0.9999997, 0.9715794, 0.9609619, 1)
+shader_parameter/tile_tint_color = Color(1, 0.8784825, 0.7854635, 1)
+shader_parameter/tile_color = Color(1, 1, 1, 1)
+shader_parameter/Scale = Vector2(0.245, 0.46)
 shader_parameter/joint_color = Color(0.24094036, 0.1765427, 0.16764075, 1)
-shader_parameter/Scale = Vector2(0.47, 0.87)

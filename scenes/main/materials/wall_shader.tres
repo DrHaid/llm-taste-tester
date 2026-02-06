@@ -1,6 +1,7 @@
 [gd_resource type="VisualShader" format=3 uid="uid://bpemefc5ycm4a"]
 
 [ext_resource type="Texture2D" uid="uid://dm28qer6odwar" path="res://scenes/main/materials/tile_noise_texture_2d.tres" id="1_o3x2m"]
+[ext_resource type="Texture2D" uid="uid://chfmc0efxy672" path="res://scenes/main/materials/tile_value_noise_texture_2d.tres" id="1_wx2c7"]
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_o3x2m"]
 input_name = "model_matrix"
@@ -25,8 +26,18 @@ operator = 2
 [sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_wx2c7"]
 parameter_name = "Scale"
 
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_axxem"]
+texture = ExtResource("1_wx2c7")
+
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_wx2c7"]
 parameter_name = "tile_color"
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_4kby8"]
+parameter_name = "tile_tint_color"
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_aai71"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, Vector3(0.5, 0.5, 0.5)]
+op_type = 3
 
 [sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_axxem"]
 default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, Vector3(0.5, 0.5, 0.5)]
@@ -50,17 +61,16 @@ default_input_values = [0, 0.0, 1, 0.665]
 
 [resource]
 modes/diffuse = 3
-preview_params/tile_color = "Color(0.31061712, 0.31061712, 0.3106171, 1)"
 nodes/vertex/0/position = Vector2(420, 140)
-nodes/fragment/0/position = Vector2(1620, 140)
+nodes/fragment/0/position = Vector2(2100, 140)
 nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_wx2c7")
-nodes/fragment/2/position = Vector2(-120, 100)
+nodes/fragment/2/position = Vector2(-240, -100)
 nodes/fragment/3/node = SubResource("VisualShaderNodeMix_axxem")
-nodes/fragment/3/position = Vector2(1180, 140)
+nodes/fragment/3/position = Vector2(1880, 120)
 nodes/fragment/4/node = SubResource("VisualShaderNodeColorParameter_6wglj")
-nodes/fragment/4/position = Vector2(-120, 320)
+nodes/fragment/4/position = Vector2(1040, 260)
 nodes/fragment/6/node = SubResource("VisualShaderNodeUVFunc_4kby8")
-nodes/fragment/6/position = Vector2(220, 540)
+nodes/fragment/6/position = Vector2(220, 580)
 nodes/fragment/7/node = SubResource("VisualShaderNodeTexture_aai71")
 nodes/fragment/7/position = Vector2(480, 540)
 nodes/fragment/8/node = SubResource("VisualShaderNodeRemap_ye2s3")
@@ -83,4 +93,10 @@ nodes/fragment/16/node = SubResource("VisualShaderNodeVectorOp_o3x2m")
 nodes/fragment/16/position = Vector2(-20, 700)
 nodes/fragment/17/node = SubResource("VisualShaderNodeVec2Parameter_wx2c7")
 nodes/fragment/17/position = Vector2(-1060, 960)
-nodes/fragment/connections = PackedInt32Array(3, 0, 0, 0, 2, 0, 3, 0, 4, 0, 3, 1, 6, 0, 7, 0, 7, 0, 8, 0, 8, 0, 9, 0, 9, 0, 3, 2, 15, 0, 6, 0, 10, 0, 11, 0, 11, 0, 13, 0, 11, 1, 14, 0, 14, 0, 12, 1, 13, 0, 12, 0, 12, 0, 16, 0, 16, 0, 6, 1, 17, 0, 16, 1)
+nodes/fragment/18/node = SubResource("VisualShaderNodeTexture_axxem")
+nodes/fragment/18/position = Vector2(480, 80)
+nodes/fragment/22/node = SubResource("VisualShaderNodeColorParameter_4kby8")
+nodes/fragment/22/position = Vector2(-240, -320)
+nodes/fragment/23/node = SubResource("VisualShaderNodeMix_aai71")
+nodes/fragment/23/position = Vector2(1000, -180)
+nodes/fragment/connections = PackedInt32Array(3, 0, 0, 0, 6, 0, 7, 0, 7, 0, 8, 0, 8, 0, 9, 0, 9, 0, 3, 2, 15, 0, 6, 0, 10, 0, 11, 0, 11, 0, 13, 0, 11, 1, 14, 0, 14, 0, 12, 1, 13, 0, 12, 0, 12, 0, 16, 0, 16, 0, 6, 1, 17, 0, 16, 1, 6, 0, 18, 0, 4, 0, 3, 1, 2, 0, 23, 1, 22, 0, 23, 0, 23, 0, 3, 0, 18, 0, 23, 2)
