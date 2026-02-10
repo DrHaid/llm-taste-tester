@@ -25,7 +25,7 @@ ambient_light_source = 2
 ambient_light_color = Color(0.2990358, 0.09577642, 0, 1)
 reflected_light_source = 1
 ssao_enabled = true
-ssao_intensity = 0.7
+ssao_intensity = 1.5
 adjustment_enabled = true
 adjustment_contrast = 0.9
 adjustment_saturation = 1.1
@@ -197,7 +197,7 @@ unique_name_in_owner = true
 script = ExtResource("6_xnjwu")
 
 [node name="TableTop" type="Node3D" parent="." unique_id=985079941]
-transform = Transform3D(5, 0, 0, 0, 0.012, 0, 0, 0, 2.5, 0, -0.039, -0.751)
+transform = Transform3D(5, 0, 0, 0, 0.012, 0, 0, 0, 2.5, 1.8613656, -0.039, 0.5120818)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="TableTop" unique_id=2086497709]
 collision_layer = 11
