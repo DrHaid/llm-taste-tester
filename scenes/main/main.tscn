@@ -39,6 +39,8 @@ render_priority = 0
 shader = ExtResource("17_ou6is")
 shader_parameter/wood_color = Color(0.43548256, 0.27809674, 0.20439252, 1)
 shader_parameter/grain_color = Color(0.4924972, 0.31849778, 0.23709118, 1)
+shader_parameter/Scale = Vector2(0.07, 96.26)
+shader_parameter/Panning = Vector2(0.205, -3.335)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nvumn"]
 size = Vector3(2, 8.516125, 2)
@@ -197,7 +199,7 @@ unique_name_in_owner = true
 script = ExtResource("6_xnjwu")
 
 [node name="TableTop" type="Node3D" parent="." unique_id=985079941]
-transform = Transform3D(5, 0, 0, 0, 0.012, 0, 0, 0, 2.5, 1.8613656, -0.039, 0.5120818)
+transform = Transform3D(3.88, 0, 0, 0, 0.012, 0, 0, 0, 1.555, 0.8189099, -0.039, -0.36262304)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="TableTop" unique_id=2086497709]
 collision_layer = 11

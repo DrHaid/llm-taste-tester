@@ -4,7 +4,7 @@
 noise_type = 2
 frequency = 0.0191
 fractal_type = 0
-cellular_jitter = 0.045
+cellular_jitter = 0.07
 cellular_return_type = 4
 
 [resource]

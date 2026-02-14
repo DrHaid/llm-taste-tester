@@ -2,6 +2,29 @@
 
 [ext_resource type="Texture2D" uid="uid://cnsirkblf4clt" path="res://scenes/main/materials/wood_noise_texture_2d.tres" id="1_wmrul"]
 
+[sub_resource type="VisualShaderNodeTransformDecompose" id="VisualShaderNodeTransformDecompose_wmrul"]
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_6ia52"]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeVectorLen" id="VisualShaderNodeVectorLen_5b0oh"]
+
+[sub_resource type="VisualShaderNodeVectorLen" id="VisualShaderNodeVectorLen_ed23c"]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_mi5gy"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_6mapx"]
+parameter_name = "Scale"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_qg4xs"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_wmrul"]
+parameter_name = "Panning"
+
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_6ia52"]
 parameter_name = "wood_color"
 
@@ -25,6 +48,9 @@ default_input_values = [0, 0.0, 1, 0.535]
 default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, Vector3(0.5, 0.5, 0.5)]
 op_type = 3
 
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_blrkd"]
+input_name = "model_matrix"
+
 [resource]
 modes/diffuse = 3
 preview_params/wood_color = "Color(0.6313726, 0, 0, 1)"
@@ -44,4 +70,22 @@ nodes/fragment/7/node = SubResource("VisualShaderNodeStep_qg4xs")
 nodes/fragment/7/position = Vector2(100, 640)
 nodes/fragment/8/node = SubResource("VisualShaderNodeMix_blrkd")
 nodes/fragment/8/position = Vector2(358.25806, 297.46045)
-nodes/fragment/connections = PackedInt32Array(4, 0, 5, 0, 5, 0, 6, 0, 6, 0, 7, 0, 7, 0, 8, 2, 3, 0, 8, 1, 2, 0, 8, 0, 8, 0, 0, 0)
+nodes/fragment/9/node = SubResource("VisualShaderNodeInput_blrkd")
+nodes/fragment/9/position = Vector2(-1940, 740)
+nodes/fragment/10/node = SubResource("VisualShaderNodeTransformDecompose_wmrul")
+nodes/fragment/10/position = Vector2(-1660, 740)
+nodes/fragment/11/node = SubResource("VisualShaderNodeVectorCompose_6ia52")
+nodes/fragment/11/position = Vector2(-1180, 720)
+nodes/fragment/12/node = SubResource("VisualShaderNodeVectorLen_5b0oh")
+nodes/fragment/12/position = Vector2(-1400, 660)
+nodes/fragment/13/node = SubResource("VisualShaderNodeVectorLen_ed23c")
+nodes/fragment/13/position = Vector2(-1400, 800)
+nodes/fragment/14/node = SubResource("VisualShaderNodeVectorOp_mi5gy")
+nodes/fragment/14/position = Vector2(-900, 720)
+nodes/fragment/15/node = SubResource("VisualShaderNodeVec2Parameter_6mapx")
+nodes/fragment/15/position = Vector2(-1940, 980)
+nodes/fragment/16/node = SubResource("VisualShaderNodeInput_qg4xs")
+nodes/fragment/16/position = Vector2(-1200, 480)
+nodes/fragment/17/node = SubResource("VisualShaderNodeVec2Parameter_wmrul")
+nodes/fragment/17/position = Vector2(-1940, 1220)
+nodes/fragment/connections = PackedInt32Array(4, 0, 5, 0, 5, 0, 6, 0, 6, 0, 7, 0, 7, 0, 8, 2, 3, 0, 8, 1, 2, 0, 8, 0, 8, 0, 0, 0, 9, 0, 10, 0, 10, 0, 12, 0, 13, 0, 11, 1, 12, 0, 11, 0, 11, 0, 14, 0, 15, 0, 14, 1, 14, 0, 4, 1, 16, 0, 4, 0, 10, 1, 13, 0, 17, 0, 4, 2)
