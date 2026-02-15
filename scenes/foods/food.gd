@@ -70,3 +70,10 @@ func _point_up_toward(target_position: Vector3) -> void:
 func init_particles() -> void:
 	spice_particles = $SpiceParticles
 	spice_particles.init_spice(food_resource)
+
+func put_in_da_pot() -> void:
+	var pot: Node3D = get_tree().current_scene.get_node("%Pot")
+	var position_above_pot := pot.global_position
+	position_above_pot.y = 1
+	global_position = position_above_pot
+	apply_torque_impulse(Vector3(randf(), randf(), randf()) * mass * 0.01)
