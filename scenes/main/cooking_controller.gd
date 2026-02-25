@@ -26,6 +26,7 @@ func _on_pot_cook_food(foods: Array[FoodItemData], spices: Array[String]) -> voi
 	current_foods = foods
 	current_spices = spices
 	eating_robot.emoting_face.set_face(Face.MOOD.SURPRISED, true)
+	ui.show_typing(false)
 
 func _on_pot_cooking_finished(successful: bool) -> void:
 	stove.turn_dial()

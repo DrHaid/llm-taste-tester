@@ -1,13 +1,10 @@
 extends Control
 
-@export var typing_timeout: float = 2
-
 @onready var text_label: RichTextLabel = $TypedText
 
 var cursor_timer: Timer = Timer.new()
 var cursor_text: String = "" 
 
-var typing_timeout_timer: Timer = Timer.new()
 var typing_buffer: String = ""
 var matching_food: Food
 
@@ -19,10 +16,6 @@ func _ready() -> void:
 	add_child(cursor_timer)
 	cursor_timer.start(0.5)
 	cursor_timer.connect("timeout", on_cursor_timer_timeout)
-
-	add_child(typing_timeout_timer)
-	typing_timeout_timer.wait_time = typing_timeout
-	typing_timeout_timer.connect("timeout", on_typing_timer_timeout)
 
 func _input(event: InputEvent) -> void:
 	if event.is_pressed():
@@ -39,8 +32,9 @@ func _input(event: InputEvent) -> void:
 				delete_letter()
 		if Input.is_key_pressed(KEY_TAB):
 			typing_buffer = matching_food.food_resource.name.to_upper()
-		if Input.is_key_pressed(KEY_ENTER) and matching_food:
-			call_deferred("put_matching_food_in_pot", matching_food)
+		if Input.is_key_pressed(KEY_ENTER):
+			if matching_food:
+				call_deferred("put_matching_food_in_pot", matching_food)
 			clear_input()
 
 func _process(_delta: float) -> void:
@@ -48,23 +42,17 @@ func _process(_delta: float) -> void:
 
 func type_letter(letter: String) -> void:
 	typing_buffer += letter
-	typing_timeout_timer.start()
 	if foods_in_scene == []:
 		init_foods()
 	update_search()
 
 func delete_letter() -> void:
 	typing_buffer = typing_buffer.left(-1)
-	typing_timeout_timer.start()
 	update_search()
 
 func clear_input() -> void:
 	typing_buffer = ""
-	typing_timeout_timer.stop()
 	update_search()
-
-func on_typing_timer_timeout() -> void:
-	typing_buffer = ""
 
 func on_cursor_timer_timeout() -> void:
 	cursor_text = "_" if cursor_text == "" else ""

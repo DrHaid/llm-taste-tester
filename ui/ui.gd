@@ -3,6 +3,7 @@ extends Control
 @onready var reset_button: TextureButton = $ResetButton 
 @onready var help_text_container: PanelContainer = $MarginContainer/HelpTextContainer
 @onready var food_label: Label = $MarginContainer/FoodLabel
+@onready var typing: Control = $MarginContainer/Typing
 
 func _ready() -> void:
 	set_process_input(true)
@@ -30,6 +31,9 @@ func reset_scene() -> void:
 
 func show_help(show_container: bool) -> void:
 	help_text_container.visible = show_container
+
+func show_typing(show_container: bool) -> void:
+	typing.visible = show_container
 
 func update_food_label(food: String = "") -> void:
 	if food == "":
