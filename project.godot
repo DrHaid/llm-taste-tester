@@ -48,4 +48,6 @@ Spice=""
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/ssao/quality=1
+environment/ssao/half_size=false
 anti_aliasing/quality/msaa_3d=2
